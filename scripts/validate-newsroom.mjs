@@ -11,6 +11,8 @@ check(release.human_technical_review===false&&release.original_pdfs_verified===f
 check(sha(bytes)===release.articles_sha256,'Article release digest changed');
 check(articles.length===10&&new Set(articles.map(a=>a.forum_id)).size===10,'Edition requires ten distinct cases');
 check(articles.filter(a=>a.category==='low-accepted').length===5,'Edition requires five accepted and five rejected cases');
+check(release.review_audit?.case_count===10&&release.review_audit?.human_technical_review===false,'Missing reviewer-method audit scope');
+check(articles.every(a=>a.audit.reviewed_at===release.review_audit.date),'Audit dates do not match release');
 let noteCount=0;
 for(const a of articles){
  const entry=release.cases.find(e=>e.forum_id===a.forum_id);check(entry,'Missing source manifest');

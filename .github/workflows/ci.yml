@@ -36,3 +36,10 @@ jobs:
         run: |
           pnpm --dir apps/web build
           node scripts/verify-static.mjs
+      - name: Validate and build public commentary
+        run: node scripts/build-newsroom.mjs
+      - name: Verify public commentary navigation and audit panels
+        env:
+          NEWSROOM_PUBLIC: '1'
+          TEST_DIST: '../../dist'
+        run: pnpm --dir apps/web exec playwright test e2e/public-newsroom.spec.ts

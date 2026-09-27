@@ -30,6 +30,7 @@ const highCount=articles.filter(article=>article.category==='high-rejected').len
       </aside>
     </section>
     <section class="issue-ticker" aria-label="本期内容概况"><span class="ticker-title">本期深读</span><span><b>{articles.length}</b> 篇案例</span><span>低分录取 <b>{lowCount}</b></span><span>高分拒稿 <b>{highCount}</b></span><span class="ticker-note">基于公开材料 · 逐篇列出来源</span></section>
+    {publicEdition&&<p class="revision-note"><strong>2026.09.28 复核更新</strong> · 十篇均增加五步核查：争议原句、原文证据、合理解释、技术判定与决定影响。<a href={p('/contribute/#updates')}>查看修订记录 →</a></p>}
     {articles.length>0&&<div class="news-archive-note"><span>材料说明</span><p>本期为 {articles.length} 篇案例专题，非全会议排名。评审取自 2026-05-08 公开存档。ICLR 2026 评分曾回退至 rebuttal 前，应结合作者回复和 AC 意见理解。<a href="https://blog.iclr.cc/2026/03/31/a-retrospective-on-the-iclr-2026-review-process/" target="_blank" rel="noopener noreferrer">阅读会议官方回顾 ↗</a></p></div>}
     {articles.length>1&&<section class="news-collection" id="cases" aria-labelledby="collection-title"><div class="editorial-section-title"><h2 id="collection-title">更多案例<span>THE CASES</span></h2><span>论断、反证与判断边界。</span></div><div class="news-card-grid">{articles.slice(1).map((article,index)=><NewsCard article={article} index={index+2}/>)}</div></section>}
   </> : <section class="news-preparing"><div class="news-kicker"><span>公开评审 · 深度阅读</span></div><h1>分数之外，<br/>重新读懂一场评审。</h1><p>从低分录取与高分拒稿出发，回到论文、评审意见和作者回复。我们关注结论如何形成，也记录证据尚不能回答的问题。</p><div class="preparing-note"><span class="small-caps">IN THE NEWSROOM</span><h2>本期案例正在整理</h2><p>文章完成来源核对与人工复核后，将在这里呈现。当前尚无可公开的案例分析。</p></div></section>}

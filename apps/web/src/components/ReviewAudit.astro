@@ -1,0 +1,15 @@
+---
+import {auditLabels,type NewsArticle} from '../lib/newsroom';
+import {sitePath} from '../lib/basepath';
+interface Props {article:NewsArticle}
+const {article}=Astro.props;
+const audit=article.audit;
+const sources=new Map(article.sources.map(s=>[s.id,s]));
+---
+{audit&&<section class="review-audit" aria-labelledby="audit-title">
+ <div class="audit-heading"><div><span class="small-caps">REVIEW OF THE REVIEW</span><h2 id="audit-title">把争议拆开核查</h2></div><span>复核更新 {audit.reviewed_at.replace(/-/g,'.')}</span></div>
+ <dl>{Object.entries(auditLabels).map(([key,label])=><div class="audit-row"><dt>{label}</dt><dd>{audit[key as keyof typeof auditLabels]}</dd></div>)}</dl>
+ <p class="audit-scope"><strong>本次范围</strong> {audit.scope}</p>
+ <div class="section-sources"><span>核查依据</span>{audit.source_ids.map(id=>{const s=sources.get(id)!;return <a href={s.url} target="_blank" rel="noopener noreferrer">{s.label} ↗</a>;})}</div>
+ <a class="audit-method" href={sitePath('/methodology/',import.meta.env.BASE_URL)}>查看审稿核查方法与 skill 来源 →</a>
+</section>}

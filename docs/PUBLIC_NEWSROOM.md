@@ -8,6 +8,8 @@ The public edition uses `commentary_public`, with explicit `human_reviewed: fals
 
 Every article identifies its strongest finding as a documented error, record conflict, unsupported inference, standard dispute, or not established. A transcription error is distinct from an erroneous experiment; a discrepancy does not prove motive, and a score difference does not prove a wrong decision. Counterevidence and limitations remain attached to each finding.
 
+The 2026-09-28 reviewer-method revision adds a five-part evidence audit to every article and a visible corrections record. The adopted workflows, exact upstream commits, source boundaries and validation contract are recorded in [REVIEWER_METHODS.md](REVIEWER_METHODS.md). Selected public arXiv passages were additionally inspected; they are explicitly versioned and do not establish that the reviewed submission PDF was identical.
+
 ## Build and validate
 
 ```bash

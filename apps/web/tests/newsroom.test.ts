@@ -61,6 +61,7 @@ test('a substantive zero rating is valid and unsupported odd-number ratings are 
 const publicArticle=()=>({...article(),review_state:'commentary_public',
  publication:{basis:'owner_requested_publication',human_reviewed:false,date:'2026-09-28'},
  finding:{level:'record-conflict',target:'ac',summary:'测试中的记录冲突',rationale:'两条记录并不一致。',source_ids:['forum']},
+ audit:{reviewed_at:'2026-09-28',claim:'争议原句',evidence:'可核对记录',alternative:'另一种合理解释',verdict:'局部记录冲突',impact:'不能确定决定影响',scope:'仅测试材料',source_ids:['forum']},
  sections:['facts','reviews','response','decision','analysis','lessons','limits'].map(kind=>({heading:kind,kind,paragraphs:['测试用公开评论'],sources:['forum']}))});
 
 test('public mode loads explicit public commentary without declaring human approval',()=>{
@@ -80,4 +81,13 @@ test('public findings must cite existing sources and retain limits',()=>{
  assert.throws(()=>validateNewsroom([item],'public'),/finding.*source/i);
  item.finding.source_ids=['forum'];item.sections=item.sections.filter(s=>s.kind!=='limits');
  assert.throws(()=>validateNewsroom([item],'public'),/sections/i);
+});
+
+test('public audit refuses missing counterevidence or untraceable citations',()=>{
+ const item=publicArticle();
+ item.audit.alternative=' ';assert.throws(()=>validateNewsroom([item],'public'),/audit alternative/i);
+ item.audit.alternative='另一种合理解释';item.audit.source_ids=['missing'];
+ assert.throws(()=>validateNewsroom([item],'public'),/audit source/i);
+ item.audit.source_ids=['forum'];delete (item as any).audit;
+ assert.throws(()=>validateNewsroom([item],'public'),/audit/i);
 });

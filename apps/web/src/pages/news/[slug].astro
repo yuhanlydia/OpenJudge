@@ -2,6 +2,7 @@
 import Base from '../../layouts/BaseLayout.astro';
 import ScorePlot from '../../components/ScorePlot.astro';
 import FindingBox from '../../components/FindingBox.astro';
+import ReviewAudit from '../../components/ReviewAudit.astro';
 import {loadNewsroom,categoryLabels,sectionLabels,type NewsArticle} from '../../lib/newsroom';
 import {sitePath} from '../../lib/basepath';
 export function getStaticPaths(){return loadNewsroom().map(article=>({params:{slug:article.slug},props:{article}}));}
@@ -30,6 +31,7 @@ const publicCommentary=article.review_state==='commentary_public';
       </aside>
       <div class="article-body">
         <FindingBox article={article}/>
+        <ReviewAudit article={article}/>
         <div class="article-score-intro"><div><span class="small-caps">AT A GLANCE</span><h2>先看评分，再读理由。</h2></div><span class="article-decision">{article.decision}</span></div>
         <ScorePlot article={article}/>
         <p class="score-caption">以上为材料中收录的公开评分，均分按图示有效分数计算后保留两位小数；如有排除项，已在图下注明。分数不能独立还原完整讨论与决定过程。</p>

@@ -10,6 +10,9 @@ test('public edition exposes ten complete attributed articles and working intern
  for(const route of links){
   await page.goto(route);await expect(page.locator('h1')).toBeVisible();
   await expect(page.locator('.finding-box')).toBeVisible();
+  await expect(page.locator('.review-audit')).toBeVisible();
+  expect(await page.locator('.audit-row').count()).toBe(5);
+  await expect(page.locator('.audit-scope')).not.toBeEmpty();
   expect(await page.locator('.article-section').count()).toBe(7);
   await expect(page.locator('.article-sources')).toContainText('来源与核验');
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);

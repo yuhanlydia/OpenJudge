@@ -6,12 +6,15 @@ export interface NewsSection {heading:string;kind:NewsSectionKind;paragraphs:str
 export const findingLabels={'documented-error':'可核对错误','record-conflict':'记录冲突','unsupported-inference':'推断缺口','standard-dispute':'标准争议','not-established':'尚不能定错'} as const;
 export const targetLabels={ac:'AC',reviewer:'审稿人',authors:'作者',process:'评审过程'} as const;
 export interface NewsFinding {level:keyof typeof findingLabels;target:keyof typeof targetLabels;summary:string;rationale:string;source_ids:string[]}
+export const auditLabels={claim:'争议原句',evidence:'原文证据',alternative:'合理解释',verdict:'技术判定',impact:'决定影响'} as const;
+export interface NewsAudit {reviewed_at:string;claim:string;evidence:string;alternative:string;verdict:string;impact:string;scope:string;source_ids:string[]}
 export interface NewsArticle {
   slug:string;forum_id:string;title:string;headline:string;deck:string;topic:string;
   category:'low-accepted'|'high-rejected';decision:string;ratings:number[];mean:number;
   archive_date:string;read_minutes:number;sections:NewsSection[];sources:NewsSource[];
   review_state:'draft_private'|'commentary_public';score_note?:string;finding?:NewsFinding;
   publication?:{basis:'owner_requested_publication';human_reviewed:false;date:string};
+  audit?:NewsAudit;
 }
 export const sectionLabels:Record<NewsSectionKind,string>={facts:'公开事实',reviews:'评审意见',response:'作者主张',decision:'公开决定',analysis:'AI 分析',lessons:'AI 写作建议',limits:'分析限制'};
 export const categoryLabels={'low-accepted':'低分录取','high-rejected':'高分拒稿'} as const;
@@ -61,6 +64,10 @@ export function validateNewsroom(value:unknown,mode:'preview'|'public'='preview'
       requireText(finding.summary,'finding summary');requireText(finding.rationale,'finding rationale');
       if(!Array.isArray(finding.source_ids)||!finding.source_ids.length||finding.source_ids.some((id:string)=>!sourceIds.has(id))) throw new Error('Newsroom finding source must exist');
       if(item.sections.length!==7||new Set(item.sections.map((s:NewsSection)=>s.kind)).size!==7) throw new Error('Newsroom public sections must include all seven evidence and limitation roles');
+      const audit=item.audit;
+      if(!audit||!/^\d{4}-\d{2}-\d{2}$/.test(audit.reviewed_at)) throw new Error('Newsroom public audit and date are required');
+      for(const key of [...Object.keys(auditLabels),'scope']) requireText(audit[key],`audit ${key}`);
+      if(!Array.isArray(audit.source_ids)||!audit.source_ids.length||audit.source_ids.some((id:string)=>!sourceIds.has(id))) throw new Error('Newsroom audit source must exist');
     }
   }
   return value as NewsArticle[];

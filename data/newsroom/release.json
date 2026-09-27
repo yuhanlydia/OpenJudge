@@ -1,10 +1,11 @@
 {
-  "edition": "ICLR2026-critical-commentary-v1",
+  "edition": "ICLR2026-review-audit-v2",
   "publication_date": "2026-09-28",
   "authorization": {
     "basis": "owner_requested_publication",
     "requested_at": "2026-09-28T00:17:06+08:00",
-    "scope": "Public website and sharper evidence-grounded commentary on ten cases"
+    "scope": "Public website and sharper evidence-grounded commentary on ten cases",
+    "revision_requested_at": "2026-09-28T01:18:40+08:00"
   },
   "human_technical_review": false,
   "original_pdfs_verified": false,
@@ -12,7 +13,7 @@
   "archive_date": "2026-05-08",
   "archive_url": "https://github.com/qhjqhj00/iclr-openreview-reviews/releases/tag/v1.0",
   "archive_sha256": "350071daf25ebf1aef854ee1d5dc3a81834e1c468917c82a4f78af5548de34fc",
-  "articles_sha256": "9452606ee07877c80b0a866c68946b54825b8b715d39b81449ceabf562a75632",
+  "articles_sha256": "97a49b8915078c62e09d1e532998f0205bbbaa34d0b36ac43a694cec54cc9ad1",
   "cases": [
     {
       "forum_id": "mnI8CFj2WP",
@@ -76,5 +77,70 @@
       "notes": 15,
       "excluded_rating_note_ids": []
     }
-  ]
+  ],
+  "review_audit": {
+    "date": "2026-09-28",
+    "case_count": 10,
+    "human_technical_review": false,
+    "execution": "AI-assisted scoped evidence reading; upstream external-model pipeline not executed",
+    "methods": [
+      {
+        "repository": "https://github.com/jam-cc/paper-review.skill",
+        "commit": "bb9900ff7a95e6a28092ab0a9e1d81098f41634e",
+        "scope": "Claim-evidence and reference-verification workflow"
+      },
+      {
+        "repository": "https://github.com/zou-group/review_feedback_agent",
+        "commit": "669c00df741b6ba022eeed7f26d014b57c592697",
+        "scope": "Review-specificity, contextual reading and critique checklist"
+      }
+    ],
+    "additional_manuscript_access": [
+      {
+        "forum_id": "mnI8CFj2WP",
+        "urls": [
+          "https://arxiv.org/html/2503.16278v3",
+          "https://arxiv.org/abs/2503.16278"
+        ],
+        "scope": "复核所引归档评议及arXiv v3 D.3、版本时间；未比对原始投稿PDF、运行代码或复现实验。"
+      },
+      {
+        "forum_id": "05hNleYOcG",
+        "urls": [
+          "https://arxiv.org/html/2510.17947v2",
+          "https://arxiv.org/abs/2510.17947"
+        ],
+        "scope": "通读归档摘要和全部16条记录；局部核对2025-10-22 arXiv v2的方法、附录C.2及版本史。未逐页核对送审PDF，未检查代码、实验或图像数值；仅报告高层方法观察。"
+      },
+      {
+        "forum_id": "JMmljf895g",
+        "urls": [
+          "https://arxiv.org/html/2510.20064v1"
+        ],
+        "scope": "所引归档评议与arXiv v1相关段落；没有审完全部证明、比对投稿PDF或复现系统。"
+      },
+      {
+        "forum_id": "z5cPEZ4n6i",
+        "urls": [
+          "https://arxiv.org/html/2510.04573v3",
+          "https://arxiv.org/html/2510.04573v4",
+          "https://arxiv.org/html/2510.04573v6",
+          "https://arxiv.org/abs/2510.04573"
+        ],
+        "scope": "通读归档摘要与全部18条记录；局部核对2025-10-13 v3方法、2025-12-11 v4表4/7/8、2026-04-23 v6表1/7/9及版本史。未读送审PDF、未审代码或复现实验；后续版本不用于追责初评。"
+      },
+      {
+        "forum_id": "GDYaNzxt9T",
+        "urls": [
+          "https://arxiv.org/html/2512.10858v1",
+          "https://arxiv.org/abs/2512.10858"
+        ],
+        "scope": "通读归档摘要与全部15条记录；局部核对2025-12-11 arXiv v1第4.2—4.5节、附录D及版本史。v1晚于答辩；未核验送审PDF、图像外链、代码、日志或复现实验。"
+      }
+    ],
+    "original_submission_version_identity_verified": false,
+    "complete_proofs_verified": false,
+    "code_reviewed": false,
+    "experiments_reproduced": false
+  }
 }

@@ -1,0 +1,13 @@
+---
+import {sitePath} from '../lib/basepath';
+const p=(v:string)=>sitePath(v,import.meta.env.BASE_URL);
+---
+<section class="panel" id="updates"><h2>2026-09-28 · 审稿方法复核版</h2><p>本轮十篇均新增五步核查栏，并逐项重新审视最强的合理解释、证据版本和决定影响。采用的方法与使用范围见<a href={p('/methodology/')}>方法说明</a>。本轮没有改变公开评分、最终决定或原始评议档案。</p>
+<ul>
+ <li><a href={p('/news/unified-cross-scale-3d/')}>Uni-3DAR</a>：新增公开论文D.3和版本日期，强化21.8倍与21%的对照；同时明确错误位于优点栏，不能推断拒稿因果。</li>
+ <li><a href={p('/news/not-a-bandit-full-information/')}>Not-a-Bandit</a>：补充原文的单请求范围及系统可调设置，不再让NormalHedge免调参暗示整套系统没有超参数。</li>
+ <li><a href={p('/news/patch-reasoner/')}>Patch Reasoner</a>：将“完全合成”收窄为对象含混、尚不能定错；保留作者集合公式的直接反例，区分公式与实现。</li>
+ <li><a href={p('/news/recap-flawed-thinking/')}>RECAP</a>：把追评在决定后修改的时间边界放到正文前部，不据归档现状推断AC忽略了当时的最终共识。</li>
+ <li><a href={p('/news/gptq-babai-equivalence/')}>GPTQ/Babai</a>、<a href={p('/news/discrete-flow-error-analysis/')}>Discrete Flow</a>与<a href={p('/news/one-step-density-ratio/')}>OS-DRE</a>：重新区分流程与贡献标准、AC对潜在评分的推测、以及评审内部描述冲突；保留具体技术质疑的依据。</li>
+ <li><a href={p('/news/plague-engineering-contribution/')}>PLAGUE</a>、<a href={p('/news/ladir-latent-reasoning/')}>LaDiR</a>与<a href={p('/news/discrete-diffusion-scaling/')}>Diffusion Scaling</a>：逐项复核指标口径、表格冲突与实验规模要求的适用范围。</li>
+</ul><p>修订的是本站的分析与表述。Skill不构成人工专家认证；全文、代码和实验未完成独立复审。</p></section>
