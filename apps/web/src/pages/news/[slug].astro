@@ -1,0 +1,42 @@
+---
+import Base from '../../layouts/BaseLayout.astro';
+import ScorePlot from '../../components/ScorePlot.astro';
+import {loadNewsroom,categoryLabels,sectionLabels,type NewsArticle} from '../../lib/newsroom';
+import {sitePath} from '../../lib/basepath';
+export function getStaticPaths(){return loadNewsroom().map(article=>({params:{slug:article.slug},props:{article}}));}
+interface Props {article:NewsArticle}
+const {article}=Astro.props;
+const p=(url:string)=>sitePath(url,import.meta.env.BASE_URL);
+const sourceMap=new Map(article.sources.map(source=>[source.id,source]));
+const articles=loadNewsroom();
+const next=articles[(articles.findIndex(item=>item.slug===article.slug)+1)%articles.length];
+const archiveDate=article.archive_date.replace(/-/g,'.');
+---
+<Base title={`${article.headline} · OpenJudge`} description={article.deck} active="overview">
+  <nav class="article-breadcrumb" aria-label="面包屑"><a href={p('/')}>新闻首页</a><span aria-hidden="true">/</span><span>ICLR 2026 深读</span></nav>
+  <article class="news-article">
+    <header class="article-header">
+      <div class="article-labels"><span class:list={['news-category',{'is-rejected':article.category==='high-rejected'}]}>{categoryLabels[article.category]}</span><span>{article.topic}</span><span class="preview-label">编辑预览 · AI 分析待复核</span></div>
+      <h1>{article.headline}</h1>
+      <p class="article-deck">{article.deck}</p>
+      <div class="article-byline"><span>OpenJudge 公开评审观察</span><span>AI 辅助分析 · 尚待人工复核</span><span>{article.read_minutes} 分钟深读</span></div>
+    </header>
+    <div class="article-reading-grid">
+      <aside class="article-rail">
+        <div class="rail-paper"><span class="small-caps">THE PAPER</span><h2 lang="en">{article.title}</h2><dl><div><dt>公开决定</dt><dd>{article.decision}</dd></div><div><dt>材料归档日期</dt><dd>{archiveDate}</dd></div><div><dt>评审评分</dt><dd>{article.ratings.join(' / ')}</dd></div></dl><a class="rail-source" href={`https://openreview.net/forum?id=${encodeURIComponent(article.forum_id)}`} target="_blank" rel="noopener noreferrer">OpenReview 讨论页 ↗</a></div>
+        <nav class="article-toc" aria-label="文章目录"><h2>本文导读</h2><ol>{article.sections.map((section,index)=><li><a href={`#section-${index+1}`}><span>{String(index+1).padStart(2,'0')}</span>{section.heading}</a></li>)}</ol></nav>
+      </aside>
+      <div class="article-body">
+        <div class="article-score-intro"><div><span class="small-caps">AT A GLANCE</span><h2>先看评分，再读理由。</h2></div><span class="article-decision">{article.decision}</span></div>
+        <ScorePlot article={article}/>
+        <p class="score-caption">以上为材料中收录的公开评分，均分按图示有效分数计算后保留两位小数；如有排除项，已在图下注明。分数不能独立还原完整讨论与决定过程。</p>
+        <div class="article-boundary"><strong>阅读边界</strong><p>下文按来源区分公开事实、评审意见和作者主张。标为“AI 分析”或“AI 写作建议”的部分是解释性判断，尚待人工复核。</p></div>
+        {article.sections.map((section,index)=><section class:list={['article-section',`section-${section.kind}`]} id={`section-${index+1}`}><div class="section-category"><span>{String(index+1).padStart(2,'0')}</span><span>{sectionLabels[section.kind]}</span></div><h2>{section.heading}</h2>{section.paragraphs.map(paragraph=><p>{paragraph}</p>)}{section.sources.length>0&&<div class="section-sources"><span>依据</span>{section.sources.map(id=>{const source=sourceMap.get(id)!;return <a href={source.url} target="_blank" rel="noopener noreferrer">{source.label} ↗</a>;})}</div>}</section>)}
+        <section class="article-sources" aria-labelledby="sources-title"><span class="small-caps">SOURCES & NOTES</span><h2 id="sources-title">来源与核验</h2><p>以下链接指向公开材料。本文依据归档时可取得的记录，链接内容可能继续更新；作者回复中的陈述不自动视为已独立验证。</p><ol>{article.sources.map(source=><li><a href={source.url} target="_blank" rel="noopener noreferrer">{source.label} <span aria-hidden="true">↗</span></a><span class="source-domain">{new URL(source.url).hostname}</span></li>)}</ol></section>
+        <div class="article-correction"><strong>发现遗漏或需要纠正？</strong><p>具体的原文、版本和公开链接，有助于把讨论向前推进。</p><a href={p('/contribute/')}>补充证据 / 提交纠错 →</a></div>
+      </div>
+    </div>
+  </article>
+  {next&&next.slug!==article.slug&&<a class="next-article" href={p(`/news/${next.slug}/`)}><span class="small-caps">继续阅读 / NEXT</span><h2>{next.headline}</h2><span class="next-arrow" aria-hidden="true">↗</span></a>}
+  <a class="back-to-news" href={p('/')}>← 返回新闻首页</a>
+</Base>

@@ -13,6 +13,12 @@
 
 查看 `docs/IMPLEMENTATION_STATUS.md`、`docs/API_DISCOVERY.md` 与 `docs/DATA_AUDIT.md`。测试夹具仅用于工程验证，不是 ICLR 论文；它们不会进入交付的静态榜单。
 
+## 新闻专题预览（2026-09-27）
+
+网站新增新闻首页和逐篇深读页面：本期选取 10 个 ICLR 2026 案例，分别呈现研究内容、评审分歧、作者回应、公开决定、AI 分析、写作建议与限制。公开材料来自 2026-05-08 的第三方 OpenReview 公开存档，并非实时抓取或全会议排名。
+
+10 篇完整分析目前在站长持有的私有预览文件中，尚未获得人工编辑批准，因此不进入公共仓库、默认构建或现有发布工作流。页面模板已可用，原有全会议数据门禁保持不变。预览与来源核验说明见 [NEWSROOM_PREVIEW.md](docs/NEWSROOM_PREVIEW.md)。
+
 ## 先看页面
 
 从本仓库获取源码后，先执行下方的安装与 `pnpm --dir apps/web build`。先前交付的 ZIP 已包含 `apps/web/dist/`，可以直接预览：

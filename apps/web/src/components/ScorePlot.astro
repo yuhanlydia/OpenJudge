@@ -1,0 +1,15 @@
+---
+import type {NewsArticle} from '../lib/newsroom';
+interface Props {article:NewsArticle;compact?:boolean}
+const {article,compact=false}=Astro.props;
+const ticks=[0,2,4,6,8,10];
+---
+<figure class:list={['score-plot',{'score-plot-compact':compact}]} data-score-chart>
+  <figcaption><span>公开评分</span><span>{article.ratings.length} 位评审 · 0–10 分量表</span></figcaption>
+  <div class="score-plot-body" aria-hidden="true">
+    <div class="score-axis">{ticks.map(t=><span style={`left:${t/10*100}%`}>{t}</span>)}</div>
+    {article.ratings.map((score,index)=><div class="score-track"><span class="reviewer-label">R{index+1}</span><div class="score-track-line"><span class="score-dot" style={`left:${score/10*100}%`}><span>{score}</span></span></div></div>)}
+  </div>
+  <div class="score-plot-summary"><span>各评审评分 <b>{article.ratings.join(' / ')}</b></span><span>均分 <strong>{article.mean.toFixed(2)}</strong></span></div>
+  {article.score_note&&<p class="score-note">{article.score_note}</p>}
+</figure>

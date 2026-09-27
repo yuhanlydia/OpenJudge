@@ -1,8 +1,33 @@
 ---
 import '../styles/tokens.css';
+import '../styles/editorial.css';
 import {sitePath} from '../lib/basepath';
-const {title='ReviewCase · ICLR 2026',description='浏览 ICLR 2026 公开评分与录用决定，逐条追溯来源、版本与证据。',active=''}=Astro.props;
+const {title='OpenJudge · ICLR 2026 评审观察',description='从公开论文、评审与作者回复出发，读懂 ICLR 2026 的评分与决定。',active=''}=Astro.props;
 const p=(url:string)=>sitePath(url,import.meta.env.BASE_URL);
-const nav=[['overview','概览','/'],['boards','论文榜单','/iclr-2026/low-score-accepted/'],['methodology','方法说明','/methodology/'],['data','数据状态','/data-status/'],['versions','版本记录','/versions/']];
+const nav=[['overview','新闻首页','/'],['boards','论文榜单','/iclr-2026/low-score-accepted/'],['methodology','阅读方法','/methodology/'],['data','数据状态','/data-status/'],['versions','版本记录','/versions/']];
 ---
-<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content={description}/><meta name="color-scheme" content="light"/><title>{title}</title><link rel="icon" type="image/svg+xml" href={p('/favicon.svg')}/></head><body><a class="skip" href="#main">跳转到内容</a><header class="site-header"><div class="container header-inner"><a class="brand" href={p('/')} aria-label="ReviewCase 首页"><span class="brand-mark" aria-hidden="true">[r]</span>ReviewCase <small>RESEARCH OBSERVATORY</small></a><nav class="nav" aria-label="主导航">{nav.map(([id,label,url])=><a href={p(url)} aria-current={active===id?'page':undefined}>{label}</a>)}</nav><span class="header-meta">ICLR / 2026</span></div></header><main id="main"><div class="container"><slot/></div></main><footer class="site-footer"><div class="container footer-inner"><span>ReviewCase · 独立的公开评审资料浏览项目，与 ICLR 无隶属关系。</span><div class="footer-links"><a href={p('/contribute/')}>补充证据 / 纠错</a><a href={p('/methodology/')}>研究与发布原则</a></div></div></footer></body></html>
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content={description}/>
+    <meta name="color-scheme" content="light"/>
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href={p('/favicon.svg')}/>
+  </head>
+  <body>
+    <a class="skip" href="#main">跳转到内容</a>
+    <header class="news-site-header container">
+      <div class="masthead-top"><span>独立观察 · 公开证据</span><span>ICLR 2026 专题档案</span></div>
+      <div class="masthead">
+        <div class="masthead-note"><span class="edition-rule"></span>分数之外<br/>回到论文与评审</div>
+        <a class="news-brand" href={p('/')} aria-label="OpenJudge 首页">OpenJudge<span>公开评审观察</span></a>
+        <div class="masthead-note masthead-note-right">RESEARCH · REVIEWS<br/><span>读论文，也读评审。</span></div>
+      </div>
+      <nav class="news-nav" aria-label="主导航">{nav.map(([id,label,url])=><a href={p(url)} aria-current={active===id?'page':undefined}>{label}</a>)}</nav>
+    </header>
+    <main id="main"><div class="container"><slot/></div></main>
+    <footer class="site-footer"><div class="container footer-inner"><div><a class="footer-brand" href={p('/')}>OpenJudge</a><p>独立的公开评审资料观察项目，与 ICLR 无隶属关系。</p></div><div class="footer-links"><a href={p('/contribute/')}>补充证据 / 纠错</a><a href={p('/methodology/')}>研究与发布原则</a></div></div></footer>
+  </body>
+</html>
