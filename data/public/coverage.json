@@ -1,0 +1,14 @@
+{
+  "block_reason": "OpenReview ChallengeRequiredError HTTP 403; no notes enumerated",
+  "capture_complete": false,
+  "discovered_count": 0,
+  "forum_failure_count": 1,
+  "generated_at": "2026-09-27T07:00:50.837931+00:00",
+  "is_fixture": false,
+  "processed_count": 0,
+  "ranking_scope": "observed_sample",
+  "schema_version": "1.0",
+  "score_schema_verified": false,
+  "snapshot_id": "blocked-2026-09-27",
+  "unprocessed_count": 0
+}

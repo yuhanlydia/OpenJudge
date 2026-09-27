@@ -1,0 +1,6 @@
+---
+import {loadPublicSnapshot,loadPaper} from '../../lib/data';import Paper from '../../components/PaperDetail.astro';
+export function getStaticPaths(){return loadPublicSnapshot().papers.map(p=>({params:{forum_id:p.forum_id},props:{paper:loadPaper(p.forum_id)}}));}
+const {paper}=Astro.props;
+---
+<Paper paper={paper}/>

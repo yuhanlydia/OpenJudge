@@ -1,0 +1,6 @@
+---
+import path from 'node:path';import {releases,releaseRoot,loadPublicSnapshot,loadPaper} from '../../../../lib/data';import Paper from '../../../../components/PaperDetail.astro';
+export function getStaticPaths(){return releases().flatMap((r:any)=>{const dir=path.join(releaseRoot,r.release_id);return loadPublicSnapshot(dir).papers.map(p=>({params:{release_id:r.release_id,forum_id:p.forum_id},props:{paper:loadPaper(p.forum_id,dir),releaseId:r.release_id}}))});}
+const {paper,releaseId}=Astro.props;
+---
+<Paper paper={paper} historical={true} releaseId={releaseId}/>

@@ -1,0 +1,13 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {filterCases, paginate, readFilter} from '../src/lib/filter.ts';
+import {sitePath, safeSource} from '../src/lib/basepath.ts';
+const papers = [{forum_id:'a',title:'语言 Learning',keywords:['graph'],decision:'Accept',score_summary:{mean:'4.25',valid_review_count:3},report_state:'not_generated'},{forum_id:'b',title:'Vision',keywords:[],decision:'Reject',score_summary:{mean:'8',valid_review_count:4},report_state:'approved'}] as any;
+test('keyword search supports CJK and case-insensitive English',()=>{assert.equal(filterCases(papers,{q:'语言'}).length,1);assert.equal(filterCases(papers,{q:'GRAPH'})[0].forum_id,'a');});
+test('numeric ranges exclude missing scores and combine review count',()=>{assert.deepEqual(filterCases([...papers,{title:'Missing',keywords:[],score_summary:{mean:null}}],{minMean:5,minReviews:4}),[papers[1]]);});
+test('report state and empty results',()=>{assert.equal(filterCases(papers,{reportState:'approved'}).length,1);assert.equal(filterCases(papers,{q:'absent'}).length,0);});
+test('pagination clamps out of range and reports empty cleanly',()=>{assert.equal(paginate(papers,999).page,1);assert.deepEqual(paginate([],4).items,[]);});
+test('query parsing rejects NaN, negative and unbounded values',()=>{const f=readFilter(new URLSearchParams('minMean=oops&page=-8&minReviews=-1'));assert.equal(f.minMean,undefined);assert.equal(f.page,1);assert.equal(f.minReviews,3);});
+test('root and GitHub project links stay inside base',()=>{assert.equal(sitePath('/papers/a/','/reviewcase/'),'/reviewcase/papers/a/');assert.equal(sitePath('/papers/a/','/'),'/papers/a/');});
+test('untrusted source protocols and hosts cannot become hyperlinks',()=>{assert.equal(safeSource('javascript:alert(1)'),null);assert.equal(safeSource('https://evil.example/x'),null);assert.equal(safeSource('https://openreview.net/forum?id=abc'),'https://openreview.net/forum?id=abc');});
+test('project home retains slash for static directory navigation',()=>{assert.equal(sitePath('/','/reviewcase/'),'/reviewcase/');});

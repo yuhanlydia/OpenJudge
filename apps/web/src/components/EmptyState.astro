@@ -1,0 +1,5 @@
+---
+import {sitePath} from '../lib/basepath';
+const {title='等待真实数据导入',message='尚未取得可验证的公开评分与决定。完成数据采集和校验后，此处显示真实论文。',link=true}=Astro.props;
+---
+<div class="empty"><div class="empty-symbol" aria-hidden="true">≡</div><h3>{title}</h3><p>{message}</p>{link&&<a href={sitePath('/data-status/',import.meta.env.BASE_URL)}>查看数据覆盖与采集状态</a>}</div>

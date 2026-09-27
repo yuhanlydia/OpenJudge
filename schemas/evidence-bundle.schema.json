@@ -1,0 +1,123 @@
+{
+  "type": "object",
+  "required": [
+    "bundle_id",
+    "forum_id",
+    "bundle_hash",
+    "rubric_version",
+    "versioned_sources",
+    "coverage",
+    "evidence"
+  ],
+  "properties": {
+    "bundle_id": {
+      "type": "string"
+    },
+    "forum_id": {
+      "type": "string"
+    },
+    "bundle_hash": {
+      "type": "string"
+    },
+    "rubric_version": {
+      "type": "string"
+    },
+    "versioned_sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "version_id",
+          "sha256",
+          "version_role",
+          "public_available"
+        ],
+        "properties": {
+          "version_id": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          },
+          "version_role": {
+            "type": "string",
+            "enum": [
+              "original_submission",
+              "revision",
+              "camera_ready",
+              "unknown"
+            ]
+          },
+          "public_available": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "required": [
+        "original_available"
+      ],
+      "properties": {
+        "original_available": {
+          "type": "boolean"
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "evidence_id",
+          "source_type",
+          "note_id",
+          "source_hash",
+          "character_start",
+          "character_end",
+          "quote",
+          "source_text",
+          "source_url"
+        ],
+        "properties": {
+          "evidence_id": {
+            "type": "string"
+          },
+          "source_type": {
+            "type": "string"
+          },
+          "note_id": {
+            "type": "string"
+          },
+          "source_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "character_start": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "character_end": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "quote": {
+            "type": "string"
+          },
+          "source_text": {
+            "type": "string"
+          },
+          "source_url": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "evidence-bundle"
+}

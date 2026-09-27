@@ -1,0 +1,441 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "snapshot_id",
+    "generated_at",
+    "is_fixture",
+    "forum_id",
+    "title",
+    "keywords",
+    "decision",
+    "source_url",
+    "score_summary",
+    "report_state",
+    "issues",
+    "reviews",
+    "discussion",
+    "paper_versions",
+    "coverage"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "snapshot_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "is_fixture": {
+      "type": "boolean"
+    },
+    "forum_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]+$"
+    },
+    "title": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "decision": {
+      "type": "string",
+      "enum": [
+        "Accept",
+        "Reject",
+        "Withdrawn",
+        "Desk Reject",
+        "Unknown",
+        "Conflict"
+      ]
+    },
+    "source_url": {
+      "type": "string",
+      "pattern": "^https://openreview.net/forum\\?id="
+    },
+    "score_summary": {
+      "type": "object",
+      "required": [
+        "scores",
+        "mean",
+        "valid_review_count",
+        "scale_id",
+        "score_stage",
+        "snapshot_id"
+      ],
+      "properties": {
+        "scores": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "mean": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "mean_exact": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "valid_review_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "missing_rating_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "scale_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "score_stage": {
+          "type": "string",
+          "const": "observed_public_snapshot"
+        },
+        "snapshot_id": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "report_state": {
+      "type": "string",
+      "enum": [
+        "not_generated",
+        "draft_private",
+        "schema_validated",
+        "evidence_checked",
+        "approved",
+        "published",
+        "stale"
+      ]
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reviews": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "review_id",
+          "forum_id",
+          "rating_value",
+          "scale_id",
+          "source_hash",
+          "content_fields"
+        ],
+        "properties": {
+          "review_id": {
+            "type": "string"
+          },
+          "forum_id": {
+            "type": "string"
+          },
+          "rating_value": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "scale_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source_hash": {
+            "type": "string"
+          },
+          "content_fields": {
+            "type": "object",
+            "propertyNames": {
+              "enum": [
+                "summary",
+                "strengths",
+                "weaknesses",
+                "questions",
+                "limitations",
+                "rating",
+                "confidence",
+                "comment",
+                "recommendation",
+                "decision"
+              ]
+            },
+            "additionalProperties": {
+              "type": [
+                "string",
+                "number",
+                "boolean"
+              ]
+            }
+          },
+          "public_alias": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "invitation": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "rating_raw": {
+            "type": [
+              "string",
+              "number",
+              "null"
+            ]
+          },
+          "confidence_raw": {
+            "type": [
+              "string",
+              "number",
+              "null"
+            ]
+          },
+          "created_at": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "modified_at": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "revision_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "visibility_checked_at": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "discussion": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "note_id",
+          "replyto",
+          "content_fields",
+          "source_hash"
+        ],
+        "properties": {
+          "note_id": {
+            "type": "string"
+          },
+          "replyto": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "invitation": {
+            "type": "array"
+          },
+          "content_fields": {
+            "type": "object",
+            "propertyNames": {
+              "enum": [
+                "summary",
+                "strengths",
+                "weaknesses",
+                "questions",
+                "limitations",
+                "rating",
+                "confidence",
+                "comment",
+                "recommendation",
+                "decision"
+              ]
+            },
+            "additionalProperties": {
+              "type": [
+                "string",
+                "number",
+                "boolean"
+              ]
+            }
+          },
+          "source_hash": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "paper_versions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "version_id",
+          "sha256",
+          "version_role",
+          "public_available"
+        ],
+        "properties": {
+          "version_id": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          },
+          "version_role": {
+            "type": "string",
+            "enum": [
+              "original_submission",
+              "revision",
+              "camera_ready",
+              "unknown"
+            ]
+          },
+          "public_available": {
+            "type": "boolean"
+          },
+          "note_id": {
+            "type": "string"
+          },
+          "available_at": {
+            "type": [
+              "integer",
+              "string",
+              "null"
+            ]
+          },
+          "source_url": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "coverage": {
+      "type": "object"
+    },
+    "report": {
+      "type": "object"
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "evidence_id",
+          "quote",
+          "source_url",
+          "source_hash"
+        ],
+        "properties": {
+          "evidence_id": {
+            "type": "string"
+          },
+          "quote": {
+            "type": "string"
+          },
+          "source_url": {
+            "type": "string"
+          },
+          "source_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "submission_number": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "abstract": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "conference": {
+      "type": "string"
+    },
+    "track": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "decision_source_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "decision_source_kind": {
+      "type": "string"
+    },
+    "decision_time": {
+      "type": [
+        "integer",
+        "string",
+        "null"
+      ]
+    },
+    "observed_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "license": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "evidence_bundle_id": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "paper-detail"
+}

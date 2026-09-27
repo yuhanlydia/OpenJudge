@@ -1,0 +1,6 @@
+---
+import {sitePath} from '../lib/basepath';
+import {fmt,reportLabel} from '../lib/data';
+const {paper,rank=1,prefix='/papers/'}=Astro.props;
+---
+<article class="case-row"><span class="rank mono">{String(rank).padStart(2,'0')}</span><div><a class="case-title" href={sitePath(prefix+paper.forum_id+'/',import.meta.env.BASE_URL)}>{paper.title}</a><div class="row-meta"><div class="score-strip" aria-label="所有有效评审分数">{paper.score_summary.scores.map((score:any)=><span class="score">{score}</span>)}</div><span class="meta">{paper.score_summary.valid_review_count} 份评审</span><span class="pill">{reportLabel(paper.report_state)}</span></div></div><div class="mean mono">{fmt(paper.score_summary.mean)}<small>均分</small></div></article>

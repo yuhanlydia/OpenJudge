@@ -1,0 +1,151 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "snapshot_id",
+    "generated_at",
+    "is_fixture",
+    "papers"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "snapshot_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "is_fixture": {
+      "type": "boolean"
+    },
+    "papers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "forum_id",
+          "title",
+          "keywords",
+          "decision",
+          "source_url",
+          "score_summary",
+          "report_state",
+          "issues"
+        ],
+        "properties": {
+          "forum_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "title": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "keywords": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "decision": {
+            "type": "string",
+            "enum": [
+              "Accept",
+              "Reject",
+              "Withdrawn",
+              "Desk Reject",
+              "Unknown",
+              "Conflict"
+            ]
+          },
+          "source_url": {
+            "type": "string",
+            "pattern": "^https://openreview.net/forum\\?id="
+          },
+          "score_summary": {
+            "type": "object",
+            "required": [
+              "scores",
+              "mean",
+              "valid_review_count",
+              "scale_id",
+              "score_stage",
+              "snapshot_id"
+            ],
+            "properties": {
+              "scores": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "mean": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "mean_exact": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "valid_review_count": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "missing_rating_count": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "scale_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "score_stage": {
+                "type": "string",
+                "const": "observed_public_snapshot"
+              },
+              "snapshot_id": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          },
+          "report_state": {
+            "type": "string",
+            "enum": [
+              "not_generated",
+              "draft_private",
+              "schema_validated",
+              "evidence_checked",
+              "approved",
+              "published",
+              "stale"
+            ]
+          },
+          "issues": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "public-index"
+}

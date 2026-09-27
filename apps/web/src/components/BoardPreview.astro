@@ -1,0 +1,5 @@
+---
+import CaseRow from './CaseRow.astro';import EmptyState from './EmptyState.astro';import {sitePath} from '../lib/basepath';
+const {title,kind,items,subtitle}=Astro.props;const amber=kind==='high-score-rejected';
+---
+<section class:list={['board',amber&&'amber']}><div class="board-heading"><div><h2>{title}</h2><p>{subtitle}</p></div><span class="sort-indicator" aria-label={amber?'均分从高到低':'均分从低到高'}>{amber?'↓':'↑'}</span></div><div class="column-head"><span>论文 / 原始评审分数</span><span>均分</span></div>{items.length?items.slice(0,5).map((paper:any,i:number)=><CaseRow paper={paper} rank={i+1}/>):<EmptyState/>}<a class="board-footer" href={sitePath('/iclr-2026/'+kind+'/',import.meta.env.BASE_URL)}><span>浏览完整榜单</span><span aria-hidden="true">→</span></a></section>

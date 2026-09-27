@@ -1,0 +1,167 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "report_id",
+    "forum_id",
+    "snapshot_id",
+    "evidence_bundle_hash",
+    "rubric_version",
+    "model_provenance",
+    "generated_at",
+    "claims",
+    "editorial_state"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "report_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "forum_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "snapshot_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_bundle_hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "rubric_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "model_provenance": {
+      "type": "string",
+      "enum": [
+        "api_verified",
+        "user_reported",
+        "unknown"
+      ]
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "claim_id",
+          "claim_status",
+          "supporting_evidence_ids",
+          "counter_evidence_ids"
+        ],
+        "properties": {
+          "claim_id": {
+            "type": "string"
+          },
+          "claim_status": {
+            "type": "string",
+            "enum": [
+              "supported",
+              "contradicted",
+              "mixed",
+              "unverifiable",
+              "not_applicable"
+            ]
+          },
+          "supporting_evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "counter_evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "original_submission_claim": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "editorial_state": {
+      "type": "string",
+      "enum": [
+        "draft_private",
+        "schema_validated",
+        "evidence_checked",
+        "approved",
+        "published",
+        "stale"
+      ]
+    },
+    "approval_record_id": {
+      "type": "string"
+    },
+    "approval_binding": {
+      "type": "object"
+    },
+    "reviewer_of_report": {
+      "type": "string"
+    },
+    "approved_at": {
+      "type": "string"
+    },
+    "model_requested": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "model_reported": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "api_verification_record": {
+      "type": "object"
+    },
+    "prompt_version": {
+      "type": "string"
+    },
+    "writing_diagnosis": {
+      "type": [
+        "object",
+        "string"
+      ]
+    },
+    "decision_explanation": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "limitations": {
+      "type": [
+        "array",
+        "string"
+      ]
+    },
+    "rewrites": {
+      "type": "array"
+    },
+    "fact_ids": {
+      "type": "array"
+    },
+    "reused_from_snapshot": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "analysis-report"
+}

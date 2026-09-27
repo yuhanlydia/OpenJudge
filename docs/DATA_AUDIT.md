@@ -1,0 +1,7 @@
+# Data audit
+
+2026-09-27: venue group read successfully; anonymous notes blocked by `ChallengeRequiredError` HTTP 403. Submission count 0 verified, reviews 0 verified, decisions 0 verified, real cases exported 0. No forum-level cross-check was possible. A public empty snapshot records `capture_complete=false`, `ranking_scope=observed_sample`, and `score_schema_verified=false`. It is not a production release. No ICLR 2026 score or decision is inferred from group metadata alone.
+
+Coverage balance: discovered 0, processed 0, explicitly unprocessed 0. This zero is **not** an asserted conference total. Production validation fails until an actual complete capture and verified score schema are supplied. The static site may display the blocked/empty state, but no ranked cases.
+
+Implementation review (2026-09-27): the capture code now rechecks per-forum child records on each completed refresh and records forum failures. It is unexercised against real notes because of the access challenge. A complete capture could require one forum request per submission at the one-per-second cap, likely hours; no full corpus or ten-forum live audit is claimed. Current source-stage version role is `unknown` until a verified original/revision source is obtained. Evidence bundles include public note fields, but PDF extraction, figure checks, and historical rollback reconstruction are unavailable. Reports require exact quote spans and content-bound human approval before publication. No report was produced.

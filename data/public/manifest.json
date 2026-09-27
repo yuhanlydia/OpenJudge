@@ -1,0 +1,37 @@
+{
+  "capture_complete": false,
+  "capture_manifest": {
+    "capture_complete": false,
+    "errors": [
+      {
+        "code": "permission_403",
+        "offset": 0
+      }
+    ],
+    "failure_count": 1,
+    "success_count": 0
+  },
+  "coverage": {
+    "block_reason": "OpenReview ChallengeRequiredError HTTP 403; no notes enumerated",
+    "capture_complete": false,
+    "discovered_count": 0,
+    "forum_failure_count": 1,
+    "generated_at": "2026-09-27T07:00:50.837931+00:00",
+    "is_fixture": false,
+    "processed_count": 0,
+    "ranking_scope": "observed_sample",
+    "schema_version": "1.0",
+    "score_schema_verified": false,
+    "snapshot_id": "blocked-2026-09-27",
+    "unprocessed_count": 0
+  },
+  "file_hashes": {
+    "coverage.json": "6838e7a93d2fbeb1c6d38f9ae4dabf7fca701dda094f4839a11e38ce55104429",
+    "index/iclr2026.json": "487587781a0f7f71a1c0bc956ced0bb773e539287fff5d98b40b91e770474b74",
+    "rankings.json": "bd8a1fde494f15123e5d51f378354fab1951c81c5d69854ce8d50fe8a6e08af7"
+  },
+  "generated_at": "2026-09-27T07:00:50.837931+00:00",
+  "is_fixture": false,
+  "schema_version": "1.0",
+  "snapshot_id": "blocked-2026-09-27"
+}

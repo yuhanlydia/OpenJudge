@@ -1,0 +1,25 @@
+name: Public evidence correction
+description: Correct a fact, source, or version using public evidence only.
+title: '[Correction] '
+body:
+  - type: markdown
+    attributes:
+      value: 'This Issue is public. Do not submit private rebuttals, personal identity information, leaked mappings, email addresses, or unpublished work.'
+  - type: input
+    id: forum
+    attributes:
+      label: OpenReview forum URL
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Exact fact to correct and proposed replacement
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Public source, version, page, and quotation
+    validations:
+      required: true

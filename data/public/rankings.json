@@ -1,0 +1,12 @@
+{
+  "candidate_ids": [],
+  "eligible_count": 0,
+  "generated_at": "2026-09-27T07:00:50.837931+00:00",
+  "high_score_rejected": [],
+  "is_fixture": false,
+  "low_score_accepted": [],
+  "ranking_scope": "observed_sample",
+  "schema_version": "1.0",
+  "snapshot_id": "blocked-2026-09-27",
+  "ties": {}
+}

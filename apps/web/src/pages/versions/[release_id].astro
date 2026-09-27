@@ -1,0 +1,6 @@
+---
+import path from 'node:path';import Base from '../../layouts/BaseLayout.astro';import {releases,loadPublicSnapshot,ranked,releaseRoot,date,readJSON} from '../../lib/data';import CaseRow from '../../components/CaseRow.astro';
+export function getStaticPaths(){return releases().map((release:any)=>({params:{release_id:release.release_id},props:{release}}));}
+const {release}=Astro.props;const directory=path.join(releaseRoot,release.release_id);const s=loadPublicSnapshot(directory);const r=readJSON(path.join(directory,'release-manifest.json'),release);
+---
+<Base active="versions" title={`${release.release_id} · 历史快照`}><div class="eyebrow">ARCHIVED SNAPSHOT</div><h1>{release.release_id}</h1><div class="notice">历史快照，不代表当前状态。本页和论文详情均使用该期材料。</div><section class="panel"><p>采集区间：{date(r.collection_started_at)} — {date(r.collection_completed_at)}</p><p>发布时间：{r.published_at?date(r.published_at):'尚未发布'}</p><p>快照：{s.manifest.snapshot_id}</p></section><div class="boards">{(['low_score_accepted','high_score_rejected'] as const).map((key,i)=><section class="board"><div class="board-heading"><h2>{i?'高分拒稿':'低分录取'}</h2></div>{ranked(s,key).map((paper,n)=><CaseRow paper={paper} rank={n+1} prefix={'/versions/'+release.release_id+'/papers/'}/>)}</section>)}</div></Base>

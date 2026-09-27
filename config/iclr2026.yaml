@@ -1,0 +1,28 @@
+venue_id: ICLR.cc/2026/Conference
+submission_invitation: ICLR.cc/2026/Conference/-/Submission
+submission_name: Submission
+review_name: Official_Review
+rating_field: rating
+confidence_field: confidence
+decision_name: Decision
+decision_field: decision
+accept_labels: ['Accept (Oral)', 'Accept (Poster)', 'Conditional Accept (Oral)', 'Conditional Accept (Poster)']
+decision_labels:
+  Accept (Oral): Accept
+  Accept (Poster): Accept
+  Conditional Accept (Oral): Accept
+  Conditional Accept (Poster): Accept
+  Reject: Reject
+submission_venue_id: ICLR.cc/2026/Conference/Submission
+withdrawn_venue_id: ICLR.cc/2026/Conference/Withdrawn_Submission
+desk_rejected_venue_id: ICLR.cc/2026/Conference/Desk_Rejected_Submission
+rejected_venue_id: ICLR.cc/2026/Conference/Rejected_Submission
+score_schema: null
+verified: false
+public_only: true
+analysis_mode: import_only
+api_enabled: false
+api_budget_usd: 0
+cadence_mode: quarterly_manual
+refresh_interval_months: 3
+fetch_limits: {requests_per_second: 1, concurrency: 2, timeout_seconds: 30, max_attempts: 5, page_size: 1000}
