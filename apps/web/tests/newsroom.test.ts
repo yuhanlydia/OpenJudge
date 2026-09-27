@@ -57,3 +57,27 @@ test('a substantive zero rating is valid and unsupported odd-number ratings are 
   assert.deepEqual(validateNewsroom([item])[0].ratings,[6,0,0,6]);
   for(const value of [1,5]){item.ratings=[value];item.mean=value;assert.throws(()=>validateNewsroom([item]),/ratings/i);}
 });
+
+const publicArticle=()=>({...article(),review_state:'commentary_public',
+ publication:{basis:'owner_requested_publication',human_reviewed:false,date:'2026-09-28'},
+ finding:{level:'record-conflict',target:'ac',summary:'测试中的记录冲突',rationale:'两条记录并不一致。',source_ids:['forum']},
+ sections:['facts','reviews','response','decision','analysis','lessons','limits'].map(kind=>({heading:kind,kind,paragraphs:['测试用公开评论'],sources:['forum']}))});
+
+test('public mode loads explicit public commentary without declaring human approval',()=>{
+ const directory=fs.mkdtempSync(path.join(os.tmpdir(),'newsroom-public-'));
+ const filename=path.join(directory,'articles.json');fs.writeFileSync(filename,JSON.stringify([publicArticle()]));
+ try {const rows=loadNewsroom({NEWSROOM_PUBLIC:'1',NEWSROOM_PUBLIC_FILE:filename});assert.equal(rows.length,1);assert.equal(rows[0].review_state,'commentary_public');assert.equal(rows[0].publication?.human_reviewed,false);}
+ finally{fs.rmSync(directory,{recursive:true});}
+});
+test('public mode refuses private drafts and missing publication metadata',()=>{
+ assert.throws(()=>validateNewsroom([article()],'public'),/commentary_public/);
+ const item=publicArticle();delete (item as any).publication;
+ assert.throws(()=>validateNewsroom([item],'public'),/publication/);
+ assert.throws(()=>loadNewsroom({NEWSROOM_PUBLIC:'1',NEWSROOM_FILE:'/private-draft'}),/public source/i);
+});
+test('public findings must cite existing sources and retain limits',()=>{
+ const item=publicArticle();item.finding.source_ids=['missing'];
+ assert.throws(()=>validateNewsroom([item],'public'),/finding.*source/i);
+ item.finding.source_ids=['forum'];item.sections=item.sections.filter(s=>s.kind!=='limits');
+ assert.throws(()=>validateNewsroom([item],'public'),/sections/i);
+});

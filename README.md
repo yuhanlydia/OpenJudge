@@ -1,5 +1,12 @@
 # OpenJudge / ReviewCase · ICLR 2026
 
+## 公开新闻版
+
+网站： https://openjudge.longyunbo218.chatgpt.site
+
+10 篇 ICLR 2026 评审案例已改为证据分级的批判性评论。每篇提供具体争议、原始来源、反证和判断边界；不冒充人工技术鉴定。公开版构建：`node scripts/build-newsroom.mjs`。发布范围和材料口径见 [PUBLIC_NEWSROOM.md](docs/PUBLIC_NEWSROOM.md)。
+
+
 纯静态的公开评审资料浏览网站：低分录取、高分拒稿、论文详情、证据分析、版本记录和纠错说明。Astro + TypeScript 前端，Python 匿名只读数据管线，GitHub Pages 部署配置。按三个日历月手动更新；没有定时抓取、数据库、账号、MCP 或付费模型调用。
 
 ## 当前交付状态

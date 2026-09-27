@@ -4,7 +4,9 @@ import '../styles/editorial.css';
 import {sitePath} from '../lib/basepath';
 const {title='OpenJudge · ICLR 2026 评审观察',description='从公开论文、评审与作者回复出发，读懂 ICLR 2026 的评分与决定。',active=''}=Astro.props;
 const p=(url:string)=>sitePath(url,import.meta.env.BASE_URL);
-const nav=[['overview','新闻首页','/'],['boards','论文榜单','/iclr-2026/low-score-accepted/'],['methodology','阅读方法','/methodology/'],['data','数据状态','/data-status/'],['versions','版本记录','/versions/']];
+const publicEdition=process.env.NEWSROOM_PUBLIC==='1';
+const nav=publicEdition?[['overview','新闻首页','/'],['cases','全部案例','/#cases'],['methodology','判定标准','/methodology/'],['data','资料来源','/data-status/'],['corrections','回应与纠错','/contribute/']]:[['overview','新闻首页','/'],['boards','论文榜单','/iclr-2026/low-score-accepted/'],['methodology','阅读方法','/methodology/'],['data','数据状态','/data-status/'],['versions','版本记录','/versions/']];
+const canonical=Astro.site?new URL(Astro.url.pathname,Astro.site).href:undefined;
 ---
 <!doctype html>
 <html lang="zh-CN">
@@ -12,6 +14,8 @@ const nav=[['overview','新闻首页','/'],['boards','论文榜单','/iclr-2026/
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content={description}/>
+    <meta property="og:title" content={title}/><meta property="og:description" content={description}/><meta property="og:type" content="website"/>
+    {canonical&&<><link rel="canonical" href={canonical}/><meta property="og:url" content={canonical}/></>}
     <meta name="color-scheme" content="light"/>
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href={p('/favicon.svg')}/>
@@ -21,7 +25,7 @@ const nav=[['overview','新闻首页','/'],['boards','论文榜单','/iclr-2026/
     <header class="news-site-header container">
       <div class="masthead-top"><span>独立观察 · 公开证据</span><span>ICLR 2026 专题档案</span></div>
       <div class="masthead">
-        <div class="masthead-note"><span class="edition-rule"></span>分数之外<br/>回到论文与评审</div>
+        <div class="masthead-note"><span class="edition-rule"></span>把判断摊开<br/>让证据说话</div>
         <a class="news-brand" href={p('/')} aria-label="OpenJudge 首页">OpenJudge<span>公开评审观察</span></a>
         <div class="masthead-note masthead-note-right">RESEARCH · REVIEWS<br/><span>读论文，也读评审。</span></div>
       </div>

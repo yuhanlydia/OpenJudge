@@ -1,0 +1,2409 @@
+[
+  {
+    "slug": "unified-cross-scale-3d",
+    "forum_id": "mnI8CFj2WP",
+    "title": "Unified Cross-Scale 3D Generation and Understanding via Autoregressive Modeling",
+    "headline": "21.8 倍被写成 21%：这份高分拒稿里，有一处可核对的评审错误",
+    "deck": "同一项 QM9 加速主张，摘要与其他评审写21.8倍，一位评审却写成快21%。均分7.0仍被拒，除这处数字误述，AC援引旧轮摘评的裁决逻辑也值得逐条追问。",
+    "topic": "三维生成与统一建模",
+    "category": "high-rejected",
+    "decision": "Reject",
+    "ratings": [
+      4,
+      8,
+      6,
+      10
+    ],
+    "mean": 7,
+    "archive_date": "2026-05-08",
+    "read_minutes": 8,
+    "score_note": "均分按归档中的四份评审计算。ICLR 2026 曾将分数重置至 rebuttal 前；分数不能视为讨论结束后的最终共识。",
+    "sections": [
+      {
+        "heading": "裁决的缺口：旧问题仍在，证据对照在哪里？",
+        "kind": "facts",
+        "paragraphs": [
+          "Uni-3DAR的AC拒绝采纳8分和10分评审的接收意见，给出的概括性反驳是：现代三维生成模型都在处理稀疏建模与长序列，因此这不能使论文突出。问题在于，两份高分评审并没有仅凭“处理了这些问题”推荐接收；他们还强调多类任务上的成绩、晶体与对接改进，以及速度收益。领域共有的目标，不能直接推出某种解决方案没有足够贡献。",
+          "论文提出八叉树表示、两层子树压缩与掩码下一词元预测，将分子、蛋白质、晶体和宏观物体纳入同一流程。归档分数为4、8、6、10，平均7，最终拒稿。高均分并不强制接收；但推翻具体的正面论据，需要比“别人也研究这个问题”更具体的比较。",
+          "AC关于“所有现代三维生成模型”的全称说法，也没有在meta中附上足以核对的比较范围。即使这一概括成立，它最多说明稀疏与长序列不是独占问题；要驳倒论文的相对价值，仍须比较表示、训练目标、质量或开销。把研究目标普遍存在当作贡献不突出的理由，中间缺了一段关键推理。"
+        ],
+        "sources": [
+          "MqrjEKkTwqq",
+          "R2bJlkZDfeW7",
+          "R4uafoQWC5z7",
+          "PmnI8CFj2WP",
+          "DpYSpdKraLI"
+        ]
+      },
+      {
+        "heading": "“统一”争议有实质，但不只有一种合法定义",
+        "kind": "reviews",
+        "paragraphs": [
+          "4分评审正确指出，各任务分别训练，没有展示跨尺度共享权重或知识迁移；单原子与VQ-VAE图块的区别，也使标题容易引发过高预期。作者回应，“统一”指方法与架构，联合预训练明确留作未来，并愿意改标题。这不是已经完成通用基础模型的证据，也不是对质疑毫无回应。",
+          "由此可以要求标题收窄，却不能省略另一项判断：共同架构在多领域表现有效，是否本身值得发表？8分评审赞许的恰是这项经验贡献，同时追问简单排序点云、几何对称性和坐标解码。支持者并非没看见限制，而是给这些限制分配了不同权重。",
+          "但作者以改变图块等同于调整视觉模型patch大小作辩护，也不能抹平原子坐标与VQ潜变量在信息内容上的差异。争论应落在共有机制承担了多少工作、专用适配承担了多少工作；仅争夺“统一”这个词的定义，既无法证明统一充分，也无法证明框架没有研究价值。"
+        ],
+        "sources": [
+          "R1dakdSvWwUB",
+          "AzNWUnMW1Xo",
+          "R2bJlkZDfeW7",
+          "AAXt0S4bP68"
+        ]
+      },
+      {
+        "heading": "作者给了可检验回应，AC应说明哪些还不够",
+        "kind": "response",
+        "paragraphs": [
+          "针对八叉树是否只是复杂包装，作者指向删除粗粒度词元后的性能下降；针对压缩必要性，报告QM9平均词元数从1060降至160，四张4090上的训练时间由20小时降至6.9小时。针对对称性，则说明使用随机旋转和平移增强。数据尚未独立复现，但这些是可核查的实验主张，不是单纯换一套措辞。",
+          "这些回应也有清晰边界：系统内部的删除消融，不等于已完成所有简单点云替代方案的同预算比较；数据增强不等于严格的几何等变保证；用晶体与QM9序列长度接近来推测速度，仍不如直接计时。AC完全可以据此判定证据不足，却应指明缺的是哪种比较。",
+          "坐标量化则展示了更有用的审稿互动：8分评审区分八叉树压缩无损与坐标离散有损，作者说明实际分辨率为0.01埃，图中范围只是示例，并承诺修正说明。这类质疑能逼出可核对的参数。它也提醒读者：本文批评meta论证不足，不意味着作者的原始表述无需纠正。"
+        ],
+        "sources": [
+          "AKSor2fWDoJ",
+          "A3guMUGUVRT",
+          "AmMBoZVt2XX",
+          "A92vkt1pqpZ",
+          "AAXt0S4bP68"
+        ]
+      },
+      {
+        "heading": "旧轮“共识”只有转述，不能自动成为当前结论",
+        "kind": "decision",
+        "paragraphs": [
+          "Meta-review自述参与过NeurIPS 2025上一轮，列出难读、过度工程化、动机不足、相关工作不充分和标题不当，并粘贴若干旧评语。AC承认图1与部分章节变清楚了，却概括说问题仍在、未见显著变化。本案没有上一轮完整评审及论文版本对照，所谓旧轮拒稿共识只能归因于AC，不能当作我们独立重建的事实。",
+          "历史材料可以提示核查方向，不能省去本轮证据审理。比如旧评语质疑序列展平、设计必要性，当前作者已指向消融；如果这些实验仍不足，meta就应解释不足之处。将旧评论选摘与“问题持续”并排放置，没有完成从旧缺陷到当前拒稿的论证。"
+        ],
+        "sources": [
+          "MqrjEKkTwqq",
+          "AKSor2fWDoJ",
+          "AzNWUnMW1Xo"
+        ]
+      },
+      {
+        "heading": "能确定的转述错误，与不能确定的缺代码",
+        "kind": "analysis",
+        "paragraphs": [
+          "本轮还有一个可直接核对的数字转述错误：6分评审把对GeoLDM的加速写成最高21%，而摘要与其他评审记载的是作者声称最高21.8倍。两者显然不是同一量级。能确定的是评审转述与可见主张不符；实际加速是否达到21.8倍，仍须检查实验。这处错误也不能单独解释拒稿。",
+          "4分评审把“缺少源码”写成无法验证的原因，作者则明确说完整代码已随补充材料提交。这形成记录冲突，但在未取到代码包前，不能宣布评审一定漏读。同样，评审关于筛选成本的疑问已得到不同接受率速度曲线的回应，不能继续当作无人回答的确定缺陷。",
+          "这些区别决定批评的力度：数字误述可以直接指出；代码是否提交需要补件核对；“架构统一够不够新”属于评价标准；AC未解释新证据为何不足则是论证缺口。把四类问题混成“审稿全错”，反而会放过最需要问责的裁决环节。"
+        ],
+        "sources": [
+          "R3yJlhrgnmke",
+          "PmnI8CFj2WP",
+          "R1dakdSvWwUB",
+          "AzNWUnMW1Xo",
+          "A92vkt1pqpZ",
+          "MqrjEKkTwqq"
+        ]
+      },
+      {
+        "heading": "应当要求的是一份能复核的否定理由",
+        "kind": "lessons",
+        "paragraphs": [
+          "最有力的拒稿理由仍可能是贡献定位不清、简单替代基线不足，以及领域适配削弱标题承诺。但要成立，应逐项列出：哪个核心主张缺什么证据，作者新增材料解决了什么，为什么剩余缺口仍超过接收门槛。作者也应分开写共享架构、输入适配、共享权重与迁移能力。这样才能讨论研究本身，而不是让“上一轮已经拒过”承担本轮裁决的说服任务。"
+        ],
+        "sources": [
+          "R1dakdSvWwUB",
+          "R2bJlkZDfeW7",
+          "AzNWUnMW1Xo",
+          "MqrjEKkTwqq"
+        ]
+      },
+      {
+        "heading": "核查范围",
+        "kind": "limits",
+        "paragraphs": [
+          "本文依据2026年5月8日归档，读取摘要、四份评审、六条作者评论、meta-review与决定。原始论文、补充代码和上一轮完整材料未独立核验。本文批评的是公开裁决的论证充分性，不断言论文理应接收；归档分数也不代表讨论后的最终共识。"
+        ],
+        "sources": [
+          "ARCHIVE",
+          "MqrjEKkTwqq",
+          "DpYSpdKraLI",
+          "Cofficialcontext"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "PmnI8CFj2WP",
+        "label": "论文摘要与论坛",
+        "url": "https://openreview.net/forum?id=mnI8CFj2WP"
+      },
+      {
+        "id": "ARCHIVE",
+        "label": "2026-05-08 归档版本",
+        "url": "https://github.com/qhjqhj00/iclr-openreview-reviews/releases/tag/v1.0"
+      },
+      {
+        "id": "Cofficialcontext",
+        "label": "ICLR 官方：2026 评审流程回顾",
+        "url": "https://blog.iclr.cc/2026/03/31/a-retrospective-on-the-iclr-2026-review-process/"
+      },
+      {
+        "id": "DpYSpdKraLI",
+        "label": "正式决定 · pYSpdKraLI",
+        "url": "https://openreview.net/forum?id=mnI8CFj2WP&noteId=pYSpdKraLI"
+      },
+      {
+        "id": "AzNWUnMW1Xo",
+        "label": "作者回应 · zNWUnMW1Xo",
+        "url": "https://openreview.net/forum?id=mnI8CFj2WP&noteId=zNWUnMW1Xo"
+      },
+      {
+        "id": "R1dakdSvWwUB",
+        "label": "正式评审 · dakdSvWwUB",
+        "url": "https://openreview.net/forum?id=mnI8CFj2WP&noteId=dakdSvWwUB"
+      },
+      {
+        "id": "R2bJlkZDfeW7",
+        "label": "正式评审 · bJlkZDfeW7",
+        "url": "https://openreview.net/forum?id=mnI8CFj2WP&noteId=bJlkZDfeW7"
+      },
+      {
+        "id": "R3yJlhrgnmke",
+        "label": "正式评审 · yJlhrgnmke",
+        "url": "https://openreview.net/forum?id=mnI8CFj2WP&noteId=yJlhrgnmke"
+      },
+      {
+        "id": "R4uafoQWC5z7",
+        "label": "正式评审 · uafoQWC5z7",
+        "url": "https://openreview.net/forum?id=mnI8CFj2WP&noteId=uafoQWC5z7"
+      },
+      {
+        "id": "AKSor2fWDoJ",
+        "label": "作者回应 · KSor2fWDoJ",
+        "url": "https://openreview.net/forum?id=mnI8CFj2WP&noteId=KSor2fWDoJ"
+      },
+      {
+        "id": "AmMBoZVt2XX",
+        "label": "作者回应 · mMBoZVt2XX",
+        "url": "https://openreview.net/forum?id=mnI8CFj2WP&noteId=mMBoZVt2XX"
+      },
+      {
+        "id": "A3guMUGUVRT",
+        "label": "作者回应 · 3guMUGUVRT",
+        "url": "https://openreview.net/forum?id=mnI8CFj2WP&noteId=3guMUGUVRT"
+      },
+      {
+        "id": "A92vkt1pqpZ",
+        "label": "作者回应 · 92vkt1pqpZ",
+        "url": "https://openreview.net/forum?id=mnI8CFj2WP&noteId=92vkt1pqpZ"
+      },
+      {
+        "id": "MqrjEKkTwqq",
+        "label": "Meta-review · qrjEKkTwqq",
+        "url": "https://openreview.net/forum?id=mnI8CFj2WP&noteId=qrjEKkTwqq"
+      },
+      {
+        "id": "AAXt0S4bP68",
+        "label": "作者回应 · AXt0S4bP68",
+        "url": "https://openreview.net/forum?id=mnI8CFj2WP&noteId=AXt0S4bP68"
+      }
+    ],
+    "review_state": "commentary_public",
+    "finding": {
+      "level": "documented-error",
+      "target": "reviewer",
+      "summary": "六分评审把论文声称的最高21.8倍加速，转述成了快21%。",
+      "rationale": "该评审明确指向QM9上对GeoLDM的比较；另一份评审将同一任务记为7.5–21.8倍，作者回复也明确21.8倍。快21%约等于1.21倍，两者不是同一量级。这里确认的是转述错误，不是替作者认证实际加速，也不能单凭此错误推定拒稿不当。",
+      "source_ids": [
+        "PmnI8CFj2WP",
+        "R3yJlhrgnmke",
+        "R1dakdSvWwUB",
+        "A3guMUGUVRT",
+        "R4uafoQWC5z7"
+      ]
+    },
+    "publication": {
+      "basis": "owner_requested_publication",
+      "human_reviewed": false,
+      "date": "2026-09-28"
+    }
+  },
+  {
+    "slug": "plague-engineering-contribution",
+    "forum_id": "05hNleYOcG",
+    "title": "PLAGUE: Plug-and-play Framework for Lifelong Adaptive Generation of Multi-turn Jailbreaks",
+    "headline": "PLAGUE：一边引用多样性结果，一边批“只报告ASR”，这份低分评审先要自洽",
+    "deck": "同一份2分评审既描述多样性增加、成功率下降，又断言权衡被忽略。另一位评审坚持要求防御贡献，AC则认可工程价值；但AC的“若干4分可能升到6分”也与可见评分结构对不上。",
+    "topic": "大模型安全与多轮红队评测",
+    "category": "low-accepted",
+    "decision": "Accept (Poster)",
+    "ratings": [
+      2,
+      2,
+      4,
+      2
+    ],
+    "mean": 2.5,
+    "archive_date": "2026-05-08",
+    "read_minutes": 8,
+    "score_note": "均分来自归档中的四份正式评审。AC关于可能提分的判断不是实际改分记录；一位评审公开表示维持原分。",
+    "sections": [
+      {
+        "heading": "争议起点：低分不是问题，自相矛盾的理由才是",
+        "kind": "facts",
+        "paragraphs": [
+          "PLAGUE是一套多轮模型安全评测框架，以模块分工、记忆和反馈组织测试过程。四份公开正式评分为2、2、4、2，均分2.5，最终获Poster录用。值得追问的不是“低分为何能录用”，而是哪些拒稿理由经得起逐句核对。",
+          "最醒目的例子出现在7eQf的2分评审：他称评测“只报告ASR改善”，忽略多样性与成功率权衡；下一句却说，图4展示更换规划器后多样性增加15%、ASR下降。这不是作者另补证据才发生的反转，而是同一段评语里的冲突。"
+        ],
+        "sources": [
+          "P",
+          "R1",
+          "R2",
+          "R3",
+          "R4",
+          "D"
+        ]
+      },
+      {
+        "heading": "评审的问题：证据不够深入，不等于证据不存在",
+        "kind": "reviews",
+        "paragraphs": [
+          "如果评审认为图4只有观察、没有解释，可以要求更强的消融或统计分析；但已经能说出提升幅度与反向变化，再断言“只报告ASR”，就把分析不足写成了报告缺失。这种概括直接服务于低分判断，不能用“观点不同”一笔带过。",
+          "同一评审还将记忆池描述为静态、没有在线更新，并要求任意新模块的通用验证、人工筛查成本和实时安全系统的响应时限。这些要求需要先对应论文实际场景：离线自动化红队测试为何必须满足在线监测时限？评语没有建立这条联系。完整成本应当报告，但选错应用场景会把合理追问变成额外门槛。",
+          "这不意味着评审关于成本的每句话都矛盾。他明确知道表5统计了模型调用数，继而追问端到端延迟；调用次数确实不等于总时延。问题出在后续推论：没有解释为何测试工具必须赶上生产安全系统的响应窗口，就把实践威胁模型判为不现实。"
+        ],
+        "sources": [
+          "R1",
+          "A3"
+        ]
+      },
+      {
+        "heading": "作者反驳：有些击中误读，有些仍未完成举证",
+        "kind": "response",
+        "paragraphs": [
+          "作者指出，经验会持续加入检索池，已有自定义规划器、模块消融和多样性表；并反问全自动流程中的“人工筛查”指什么。这些回应具体对应评语，优于泛称评审不懂方法。不过，动态记忆是否足以叫“终身学习”仍是术语和贡献标准之争，不能仅靠作者自述就宣布评审犯了事实错误。",
+          "另一位评审把k=2猜成两轮对话，还询问k=1为何低。作者说明k表示尝试次数、全文使用k=2；同时承认指标命名混乱：SRE是连续分数，N-ASR是二元值。这里既有待纠正的阅读疑问，也有作者制造的表达障碍，不能把全部混淆推给评审。",
+          "针对缺少近邻方法，作者补上X-Teaming对照。这回应了实质性缺口；但Claude Opus 4.1表中，PLAGUE的SRE为0.465，低于Crescendo的0.480，二元指标也较低。该表支持相对X-Teaming的改善，不支持所有模型上碾压全部基线。"
+        ],
+        "sources": [
+          "A1",
+          "A3",
+          "A4",
+          "A5",
+          "R4"
+        ]
+      },
+      {
+        "heading": "AC的裁决：拒绝强制附带防御，但评分叙述仍需校正",
+        "kind": "decision",
+        "paragraphs": [
+          "LVmU把没有防御方案列为弱点，公开答辩后仍以缺少防御、数据集及比较设置为由维持原分。AC明确不同意攻击论文必须同时提出防御，并认定这是一项有效的工程贡献。这个裁决有清楚的评价依据：发现和测量漏洞本身可以构成贡献，不必先解决另一项完整研究问题。",
+          "但AC又写“若干评审可能从4升到6”。可见正式评分中只有一份4，另三份都是2；公开回复还保留一条维持原分的记录。这里的复数起点与可见评分结构不一致，最多能当作不够精确的预测，不能据此写成数位评审改票或形成录用共识。",
+          "缺少防御评估与必须提出防御机制也应分开。前者可以检查攻击在不同防护条件下是否仍有效；后者要求作者另解一个新问题。AC反对后一种强制门槛，并不意味着所有防御相关实验都无关紧要。把二者混为一谈，会夸大裁决对负面评审的否定范围。"
+        ],
+        "sources": [
+          "R2",
+          "R5",
+          "M",
+          "R1",
+          "R3",
+          "R4",
+          "D"
+        ]
+      },
+      {
+        "heading": "核心判断：拒稿理由必须落到可验证的增量上",
+        "kind": "analysis",
+        "paragraphs": [
+          "“组合既有方法，创新有限”是一种可争辩的学术评价，并非绝对错误。但若把工程整合一概排除，就应解释为什么同预算比较和模块消融不足以构成贡献。4Xpd承认系统有效，却认为工程导向不合会议定位；AC恰好拒绝这个门槛。录用来自标准选择，不是新算法突然在答辩中出现。",
+          "真正需要保留的反对意见也很具体：仅用HarmBench能否支持外部有效性，基线实现是否对齐，目标模型调用数是否低估整套系统成本。新增实验没有自动回答这些问题。把已经存在的多样性数据抹掉，反而削弱了这些本来有力的批评。",
+          "AC有权超越评分的简单平均，但越是与现有分数分歧明显，越需要准确转述理由。可以直接说工程价值足以抵偿概念增量有限；没有必要用对不上的评分起点强化支持印象。公开记录能证明的是AC独立权衡后支持录用，不能证明原来的反对票已经消失。"
+        ],
+        "sources": [
+          "R1",
+          "R2",
+          "R3",
+          "R4",
+          "A3",
+          "A5",
+          "M"
+        ]
+      },
+      {
+        "heading": "应当补上的交代：双方都不能靠标签过关",
+        "kind": "lessons",
+        "paragraphs": [
+          "对评审而言，应把“没报告”“没解释清楚”“不足以支持主张”分开写；引用一张表作为批评证据，就不能同时声称那类结果不存在。若把防御或实时性列为录用条件，还须说明它为何属于本文承诺。",
+          "对作者而言，先统一连续指标与二元成功率，再给出完整成本、同预算近邻对照与失败条件。格式问题也不能略过：评审指出页边距违规，作者解释为误用LaTeX包并称已经修正；公开记录不足以判断动机，更不能把形式争议包装为技术贡献的否定证据。"
+        ],
+        "sources": [
+          "R1",
+          "R2",
+          "A1",
+          "A2",
+          "A3",
+          "A5"
+        ]
+      },
+      {
+        "heading": "证据边界：批评到记录能支持的位置",
+        "kind": "limits",
+        "paragraphs": [
+          "本文依据2026年5月8日归档摘要、全部公开评议及决定，未独立核验原PDF、代码或实验。记忆更新和新增性能均为作者报告；评审段落的内部矛盾可以直接核对，机制是否实现则需要额外验证。",
+          "新增Claude表中的星号在该回复内未解释，不能将0.465与摘要的67.3%拼为同一设置。重复发布的同一张对照表也不算多次独立验证。本文不提供具体攻击操作，不把录用解释为全部主张已经获证。"
+        ],
+        "sources": [
+          "ARCHIVE",
+          "P",
+          "R1",
+          "A3",
+          "A5",
+          "M"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "P",
+        "label": "论文摘要与讨论主页",
+        "url": "https://openreview.net/forum?id=05hNleYOcG"
+      },
+      {
+        "id": "R1",
+        "label": "评审7eQf：术语、模块性和成本，2分",
+        "url": "https://openreview.net/forum?id=05hNleYOcG&noteId=utFk1lpGtz"
+      },
+      {
+        "id": "R2",
+        "label": "评审LVmU：近期工作、防御与格式，2分",
+        "url": "https://openreview.net/forum?id=05hNleYOcG&noteId=twNOgBALCS"
+      },
+      {
+        "id": "R3",
+        "label": "评审4Xpd：实证效果与创新性，4分",
+        "url": "https://openreview.net/forum?id=05hNleYOcG&noteId=ymKvgkHJvh"
+      },
+      {
+        "id": "R4",
+        "label": "评审WU4n：基线和评价口径，2分",
+        "url": "https://openreview.net/forum?id=05hNleYOcG&noteId=tNNFEkSguZ"
+      },
+      {
+        "id": "R5",
+        "label": "评审公开回复：维持原分",
+        "url": "https://openreview.net/forum?id=05hNleYOcG&noteId=0U5X0hp2q6"
+      },
+      {
+        "id": "A1",
+        "label": "作者解释k、SRE与二元ASR",
+        "url": "https://openreview.net/forum?id=05hNleYOcG&noteId=pSKDEAwzQR"
+      },
+      {
+        "id": "A2",
+        "label": "作者回应格式、防御范围和近期工作",
+        "url": "https://openreview.net/forum?id=05hNleYOcG&noteId=9ND7NkNOsX"
+      },
+      {
+        "id": "A3",
+        "label": "作者解释记忆、模块验证与成本",
+        "url": "https://openreview.net/forum?id=05hNleYOcG&noteId=7zAAjIW7oX"
+      },
+      {
+        "id": "A4",
+        "label": "作者讨论贡献和不同模型上的消融",
+        "url": "https://openreview.net/forum?id=05hNleYOcG&noteId=JZbdflwz6P"
+      },
+      {
+        "id": "A5",
+        "label": "作者新增X-Teaming对照表及稿件修改说明",
+        "url": "https://openreview.net/forum?id=05hNleYOcG&noteId=8VB7vPq3eQ"
+      },
+      {
+        "id": "M",
+        "label": "AC汇总及可能提分的判断",
+        "url": "https://openreview.net/forum?id=05hNleYOcG&noteId=KuzTZta1WZ"
+      },
+      {
+        "id": "D",
+        "label": "正式决定：Accept (Poster)",
+        "url": "https://openreview.net/forum?id=05hNleYOcG&noteId=Vmg9DHKxnh"
+      },
+      {
+        "id": "ARCHIVE",
+        "label": "公开评审档案v1.0，2026-05-08",
+        "url": "https://github.com/qhjqhj00/iclr-openreview-reviews/releases/tag/v1.0"
+      },
+      {
+        "id": "C",
+        "label": "ICLR官方：2026届评审流程回顾",
+        "url": "https://blog.iclr.cc/2026/03/31/a-retrospective-on-the-iclr-2026-review-process/"
+      }
+    ],
+    "review_state": "commentary_public",
+    "finding": {
+      "level": "record-conflict",
+      "target": "reviewer",
+      "summary": "同一评审称只报告ASR、忽略多样性权衡，却随即引用图4的多样性提升与ASR下降。",
+      "rationale": "R1的概括与其紧接着列出的证据不相容。可以批评缺少更深入分析，但不能把已有量化结果概括成未报告；未核验原PDF，因此定性为评审记录内部冲突。",
+      "source_ids": [
+        "R1"
+      ]
+    },
+    "publication": {
+      "basis": "owner_requested_publication",
+      "human_reviewed": false,
+      "date": "2026-09-28"
+    }
+  },
+  {
+    "slug": "not-a-bandit-full-information",
+    "forum_id": "JMmljf895g",
+    "title": "Not-a-Bandit: Provably No-Regret Drafter Selection in Speculative Decoding for LLMs",
+    "headline": "单请求速度回答不了并发负载：低分录用背后，AC把系统问题结案得太快",
+    "deck": "全信息草稿选择有明确价值，答辩也补了单卡、32B与REST实验。但评审要求的是并发吞吐，作者明确限定batch size=1；AC却把“所请求的内存／吞吐分析”列为已提供。",
+    "topic": "推测解码与在线学习",
+    "category": "low-accepted",
+    "decision": "Accept (Poster)",
+    "ratings": [
+      4,
+      2,
+      2,
+      4
+    ],
+    "mean": 3,
+    "archive_date": "2026-05-08",
+    "read_minutes": 9,
+    "score_note": "归档正式评分为4、2、2、4。AC列出的4→6和2→4均为其对可能变化的判断，公开记录没有相应评审改分或赞同回复。",
+    "sections": [
+      {
+        "heading": "AC把哪项未完成的要求写成了已回应",
+        "kind": "facts",
+        "paragraphs": [
+          "Not-a-Bandit最终获得Poster，AC称答辩提供了评审所请求的内存与吞吐分析。然而2分评审dMBY问的是现实并发负载下的token/s、GPU利用率和排队延迟；作者的直接回应却明确说研究聚焦batch size=1、缩短单请求完成时间。单请求速度表与多租户吞吐测试不是同一个问题，这项“已提供”的总结比可见证据走得更远。",
+          "这不意味着录用必然错误。论文将多草稿选择从仅观察所选模型的bandit反馈，改为利用目标模型已经验证的轨迹评价多个候选。四名评审都认可这一视角，正式归档评分为4、2、2、4。值得追问的是AC如何划定证据边界，而不是均分3的论文是否有资格被接收。"
+        ],
+        "sources": [
+          "M",
+          "R2",
+          "A8",
+          "P",
+          "R1",
+          "R3",
+          "R4",
+          "D"
+        ]
+      },
+      {
+        "heading": "全信息不等于免费，评审的计算疑虑有根据",
+        "kind": "reviews",
+        "paragraphs": [
+          "HedgeSpec的核心是无需增加目标模型查询，就能形成其他草稿的反馈，再使用在线专家算法。它仍须运行草稿评估。三位评审追问候选数、草稿大小、上下文与硬件资源，这些问题没有因“全信息”四个字失效：统计效率提高，可能被额外计算抵消。",
+          "理论质疑也不应被简化成评审不懂方法。4分评审问延迟是否依赖所选动作、对抗保证为何对应独立同分布近似；dMBY问估计器方差及接受长度与实际速度的关系。作者对token级固定延迟和NormalHedge作了澄清，但自回归过程不是独立同分布、固定最优草稿也不是随时切换的最优草稿，这些边界仍应保留。",
+          "“免训练”同样需要辨认修饰对象。2分评审指出草稿模型受过领域训练，作者澄清免训练指选择器，不指构建草稿池。若批评的是部署总成本，草稿训练当然有关；若据此否定选择算法无需预训练，就换了命题。不同层次的成本可以追问，不能混用。"
+        ],
+        "sources": [
+          "R1",
+          "R2",
+          "R3",
+          "R4",
+          "A1",
+          "A2",
+          "A11",
+          "A10"
+        ]
+      },
+      {
+        "heading": "答辩补得很具体，但每张表有自己的范围",
+        "kind": "response",
+        "paragraphs": [
+          "作者新增Qwen-3-32B、单A100、REST及分布外任务实验，实质回应了原稿集中于8B和EAGLE的局限。所报告的七草稿评估延迟增量约1.2%至2.0%，确实反驳了“评估更多候选必然吃掉全部收益”的直觉。但这只是在指定轻量草稿与工作负载下，不是所有候选池、硬件或并发场景的通行结论。",
+          "每草稿约32MB同样只指8k上下文下的额外KV缓存，不包括约0.76GB的草稿权重。作者把权重视为多草稿基线已经承担的常驻成本，这一比较口径可以成立，却不能被读作部署只花32MB。SpecBench还加入官方EAGLE通用草稿，形成七专家加一通用模型；它验证了扩大候选池后的选择能力，不是原专家池无条件覆盖陌生任务。"
+        ],
+        "sources": [
+          "A4",
+          "A5",
+          "A6",
+          "A7"
+        ]
+      },
+      {
+        "heading": "“已解决”应拆成已测、已解释与仍未测",
+        "kind": "decision",
+        "paragraphs": [
+          "AC认可新增结果并非没有依据：单卡实验直接回应资源限制，32B与REST扩大适用范围，补引MetaSD修正了先行工作的定位。但从这些结果推到已完成dMBY的吞吐要求，缺少关键一步。作者解释为何聚焦单请求，是范围答复；它不是并发实验，也没有给出原请求中的排队与利用率测量。",
+          "AC自己仍承认未找到候选数增大到何处会抵消收益，也保留对抗理论与实践近似的距离。既然系统成本交叉点尚未测定，就更应写清：目前证据足以支持特定单请求场景，生产并发仍待验证。录用可以基于有限而有价值的贡献，不需要先把所有问题包装成已解决。",
+          "另一个没有说透的点是参数：作者明确称实际BASE为NormalHedge，不需选择总轮数或步长；meta却概括实验依靠独立同分布假设调参。这未必意味着全部实践近似都不存在，但若把问题落到调参，就应指出具体参数和位置，不能将理论界与实现算法的条件混为一谈。"
+        ],
+        "sources": [
+          "M",
+          "R2",
+          "A8",
+          "A3",
+          "A5",
+          "A6",
+          "A7",
+          "A9",
+          "A11",
+          "A1"
+        ]
+      },
+      {
+        "heading": "作者的“全胜”叙述，也被自己的表格推翻了一次",
+        "kind": "analysis",
+        "paragraphs": [
+          "作者在Bird与MultiNews答辩中称仍胜过所有基线，但Llama/MultiNews表格显示：HedgeSpec平均接受长度5.53，高于EAGLE的5.21；实际速度却是65.20 token/s，低于66.10。这是同一条回复中文字与表格的直接冲突。差距不大，也没有置信区间支持显著性判断，但足以否定按该表宣称速度全面领先。",
+          "这组数字正好说明dMBY追问目标与实际速度关系的价值。优化接受长度确实可能减少昂贵的目标前向次数，但不能自动保证墙钟速度；草稿评估、缓存和执行调度都要付费。保留这条反例，比用“总体趋势一致”抹平它更有助于理解方法边界。",
+          "另一种夸大出现在读者对评分的理解：meta写4→6、2→4，并使用“应当提高”“可能支持接收”等措辞。它们是AC对潜在讨论结果的预测，不是公开发生的改分。此档案没有评审答辩后确认问题已解决的回复，不能把AC的预测写成四人最终转向支持。",
+          "估计器方差也有同样的尺度问题。作者给出归一化估计量至多四分之一的方差界，未归一化接受长度界为K²/4，说明该上界不随候选数N增长。这回答了候选规模依赖，却没有实测长上下文或领域切换时的方差。不能把已有理论回应忽略掉，也不能把最坏情况上界当作实际方差总是很小。"
+        ],
+        "sources": [
+          "A10",
+          "R2",
+          "M",
+          "ARCHIVE",
+          "A3"
+        ]
+      },
+      {
+        "heading": "公平的评价应同时约束否定和肯定",
+        "kind": "lessons",
+        "paragraphs": [
+          "低分评审若仅因没有覆盖所有生产场景就否认全信息创新，门槛会过宽；AC若因几组小开销结果就概括系统问题已解决，结论又过满。需要的是明确比较单位：目标调用、草稿计算、单请求延迟、并发吞吐分别报告；随候选规模找成本交叉点；把固定比较基准的遗憾保证与动态适应分开。候选数上的对数依赖改进，也不能写成实际推理速度指数增长。"
+        ],
+        "sources": [
+          "R1",
+          "R2",
+          "R4",
+          "A1",
+          "A2",
+          "A8",
+          "M"
+        ]
+      },
+      {
+        "heading": "核查范围",
+        "kind": "limits",
+        "paragraphs": [
+          "本文完整读取2026年5月8日归档的摘要、四份评审、二十条作者评论、meta与决定，未独立检查PDF证明或复现系统。新增结果仍属作者报告；本文指出的是公开回复与AC结案措辞不匹配，并保留方法在已测试场景中的正面证据。评分制度背景见专题说明。"
+        ],
+        "sources": [
+          "ARCHIVE",
+          "C",
+          "M",
+          "D"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "P",
+        "label": "论文摘要与讨论主页",
+        "url": "https://openreview.net/forum?id=JMmljf895g"
+      },
+      {
+        "id": "R1",
+        "label": "评审G2tp：草稿开销、参数与非平稳任务，4分",
+        "url": "https://openreview.net/forum?id=JMmljf895g&noteId=bnUeiE20bk"
+      },
+      {
+        "id": "R2",
+        "label": "评审dMBY：估计器、内存、并发与相关工作，2分",
+        "url": "https://openreview.net/forum?id=JMmljf895g&noteId=VjJfFSGWGo"
+      },
+      {
+        "id": "R3",
+        "label": "评审quC5：资源、数值精度与外推，2分",
+        "url": "https://openreview.net/forum?id=JMmljf895g&noteId=vOej68uJqA"
+      },
+      {
+        "id": "R4",
+        "label": "评审PCBy：理论定义、延迟与适用性，4分",
+        "url": "https://openreview.net/forum?id=JMmljf895g&noteId=TVNzUR8axY"
+      },
+      {
+        "id": "A1",
+        "label": "作者解释延迟、独立同分布近似和N方向的理论改善",
+        "url": "https://openreview.net/forum?id=JMmljf895g&noteId=TKtWRhQ4x5"
+      },
+      {
+        "id": "A2",
+        "label": "作者解释固定比较基准、非平稳扩展与草稿训练",
+        "url": "https://openreview.net/forum?id=JMmljf895g&noteId=MpFqy1xZoo"
+      },
+      {
+        "id": "A3",
+        "label": "作者承认MetaSD先行并讨论估计器方差",
+        "url": "https://openreview.net/forum?id=JMmljf895g&noteId=7eYcGWe2bi"
+      },
+      {
+        "id": "A4",
+        "label": "作者报告草稿KV缓存与评估延迟开销",
+        "url": "https://openreview.net/forum?id=JMmljf895g&noteId=x0O3NaRSSG"
+      },
+      {
+        "id": "A5",
+        "label": "作者新增单A100与数值精度实验",
+        "url": "https://openreview.net/forum?id=JMmljf895g&noteId=1A7GWzmAka"
+      },
+      {
+        "id": "A6",
+        "label": "作者新增Qwen-3-32B和SpecBench实验",
+        "url": "https://openreview.net/forum?id=JMmljf895g&noteId=mk9ekRBmwe"
+      },
+      {
+        "id": "A7",
+        "label": "作者新增REST框架结果",
+        "url": "https://openreview.net/forum?id=JMmljf895g&noteId=96EjIjxyTb"
+      },
+      {
+        "id": "A8",
+        "label": "作者限定单请求延迟场景并回应并发要求",
+        "url": "https://openreview.net/forum?id=JMmljf895g&noteId=uBom88n8rm"
+      },
+      {
+        "id": "A9",
+        "label": "作者解释开销及未来半bandit、异步方案",
+        "url": "https://openreview.net/forum?id=JMmljf895g&noteId=eoq8zclHAr"
+      },
+      {
+        "id": "A10",
+        "label": "作者解释免训练范围及Bird、MultiNews实验",
+        "url": "https://openreview.net/forum?id=JMmljf895g&noteId=DIS6sEiNgh"
+      },
+      {
+        "id": "A11",
+        "label": "作者解释实际使用NormalHedge及其免参数性质",
+        "url": "https://openreview.net/forum?id=JMmljf895g&noteId=uzUR75b5eL"
+      },
+      {
+        "id": "M",
+        "label": "AC汇总、未解决问题与可能评分变化",
+        "url": "https://openreview.net/forum?id=JMmljf895g&noteId=5RkIDc0HQE"
+      },
+      {
+        "id": "D",
+        "label": "正式决定：Accept (Poster)",
+        "url": "https://openreview.net/forum?id=JMmljf895g&noteId=uI4bDHxzCd"
+      },
+      {
+        "id": "ARCHIVE",
+        "label": "公开评审档案v1.0，2026-05-08",
+        "url": "https://github.com/qhjqhj00/iclr-openreview-reviews/releases/tag/v1.0"
+      },
+      {
+        "id": "C",
+        "label": "ICLR官方：2026届评审流程回顾",
+        "url": "https://blog.iclr.cc/2026/03/31/a-retrospective-on-the-iclr-2026-review-process/"
+      }
+    ],
+    "review_state": "commentary_public",
+    "finding": {
+      "level": "record-conflict",
+      "target": "ac",
+      "summary": "AC称答辩已提供评审所请求的内存／吞吐分析，但评审具体要求并发负载，作者回应明确聚焦batch size=1。",
+      "rationale": "dMBY要求真实并发下的tokens/s、排队与GPU利用率；uBom88n8rm解释单请求延迟目标，没有给出该并发实验。新增单卡与32B结果能缓解资源和规模疑虑，却不足以把原并发吞吐请求标作完成。原PDF未独立核验，因此分类为公开记录冲突，不作绝对事实错误认定。",
+      "source_ids": [
+        "R2",
+        "A8",
+        "A5",
+        "A6",
+        "M"
+      ]
+    },
+    "publication": {
+      "basis": "owner_requested_publication",
+      "human_reviewed": false,
+      "date": "2026-09-28"
+    }
+  },
+  {
+    "slug": "discrete-flow-error-analysis",
+    "forum_id": "EFYb8SsRi7",
+    "title": "Error Analysis of Discrete Flow with Generator Matching",
+    "headline": "三人写明维持评分，AC仍推测“可能降分”：离散流拒稿理由缺了哪一步",
+    "deck": "基础定理的新颖性确被作者纠正；但这一纠正，既不能抹去统计误差界，也不能自动生成审稿人转向拒稿的证据。",
+    "topic": "离散生成模型的理论保证",
+    "category": "high-rejected",
+    "decision": "Reject",
+    "ratings": [
+      4,
+      8,
+      6,
+      8
+    ],
+    "mean": 6.5,
+    "archive_date": "2026-05-08",
+    "read_minutes": 9,
+    "score_note": "归档原始评分为 4、8、6、8，均分 6.5。公开跟进中两位八分及一位六分审稿人均称维持评分；meta 的“部分人可能降分”是 AC 的反事实判断，不是实际改分记录。",
+    "sections": [
+      {
+        "heading": "争议起点：猜测降分之前，先解释已经留下的支持",
+        "kind": "facts",
+        "paragraphs": [
+          "这篇离散流论文被拒，最值得追问的不是均分6.5为什么没有换来接收，而是AC为何用“部分评审会降分”的推测解释评分走势，却未逐一回应三份明确维持原分的公开评论。这属于论证不足，尚不是虚报评分的硬事实错误：AC用了假设语气，公开评论也不能代表未发生的完整讨论。",
+          "论文以连续时间马尔可夫链描述离散生成过程，把分布误差拆为统计、近似和早停三部分；均匀化采样用于避开时间离散化误差。四份初始评分为4、8、6、8，正式决定是Reject。真正的技术焦点，是换测度工具被认定已有先例后，统计误差分析还剩下多大独立价值。"
+        ],
+        "sources": [
+          "P",
+          "R1",
+          "R2",
+          "R3",
+          "R4",
+          "R5",
+          "R6",
+          "R7",
+          "M",
+          "D"
+        ]
+      },
+      {
+        "heading": "确实纠正了什么：作者不能继续把记号差异算成推广",
+        "kind": "reviews",
+        "paragraphs": [
+          "六分评审指出，跳过程Girsanov理论并非新事物，Pham等人的定理已经给出相关显式结果。作者最初辩称，前作转移率受特定乘积形式限制，本文可处理任意转移率。评审随后明确反驳：那只是记号选择，不是限制。11月27日作者道歉，承认两次应用前作定理即可推出所需结果。",
+          "这一往返足以否定作者原先用来区分前作的理由。尖锐批评AC也不应删掉这项对作者不利的事实。不过，被纠正的是基础工具的原创定位，并非统计误差定理已经被推翻。六分评审从最初就把定理3的统计误差界列为主要优点，另一位八分评审也明确称它是重要贡献。两位八分评审原先都追问过相关工作的区别，他们的支持并非建立在完全不知道新颖性争议的状态上。究竟是哪一次后续澄清足以改变其评价，需要具体说明。"
+        ],
+        "sources": [
+          "R2",
+          "R3",
+          "R4",
+          "R6",
+          "A1",
+          "A2",
+          "A6",
+          "A7"
+        ]
+      },
+      {
+        "heading": "回应的实质：有新增证据，也有尚未补齐的账",
+        "kind": "response",
+        "paragraphs": [
+          "作者为转移率假设补充局部依赖的自回归分布示例，说明某些常数可以不随维度增长，同时承认其他情形可能依赖维度。一个可行例子不能证明条件在一般数据上温和；这项疑问仍有实质内容。作者还称补上证明梗概、覆盖数定义及分步解释，试图修复定理3难读的问题。",
+          "新增合成实验报告了样本量、维度和早停参数的影响，却没有替均匀化免除成本质疑。作者自己说，某些设置下优于tau-leaping时，计算成本约为三倍。因此“无离散化误差”不是“同预算更优”；AC要求采样复杂度分析有具体依据。实际网络优化误差也被作者明确留在范围之外。"
+        ],
+        "sources": [
+          "A1",
+          "A2",
+          "A3",
+          "A4",
+          "A5",
+          "A9",
+          "M"
+        ]
+      },
+      {
+        "heading": "决定的缺口：真实跟进不能被反事实评分略过",
+        "kind": "decision",
+        "paragraphs": [
+          "11月25日，一位八分评审表示读过更新的定理说明和实验，原有问题已获回应，维持原分。同日六分评审保留假设与定理关系的异议，仍明确维持评分。11月27日，另一位八分评审写下继续保持正面评分；这条评论发布在作者最终承认前作关系之后。",
+          "1月6日的meta仍推测，新颖性纠正会令部分人降分，却没有说明指谁、预期降幅是什么，或为何现有维持意见不适用。AC当然可以自行反对接收，但这项评分推断需要额外论证。尤其不能把三份公开维持意见，压缩成“审稿人后来意识到问题所以转向”的故事。"
+        ],
+        "sources": [
+          "R5",
+          "R6",
+          "R7",
+          "A2",
+          "M"
+        ]
+      },
+      {
+        "heading": "评论判断：把旧工具扣掉，不等于把新结果一并扣光",
+        "kind": "analysis",
+        "paragraphs": [
+          "AC对结构的批评相当具体：旧随机分析占据近三页，真正新增的第五节仅约两页半，证明思路、假设和近似误差解释不足。这可以构成独立拒稿理由。但meta又说多数评审没有清楚识别第五节贡献，这种概括至少应交代如何处理六分评审对定理3的明确定位，以及八分评审对统计界的直接肯定。",
+          "欠缺的不是另一句“创新有限”，而是扣除旧工具后对剩余贡献的逐项评估：哪个界已经存在，哪个假设使结果失去意义，哪个关键步骤还不能核验。现有meta提出了可读性和完整性问题，却没有把这些问题与持续存在的正面技术判断充分接起来。拒稿权不等于免于说明为何不同意这些判断。还有一处值得精确区分：AC自己说难以判断假设究竟多苛刻，原因是附录难读。证据目前支持的是可核查性不足，而不是这些假设已经被证明没有实际适用范围。把无法判断写成确定否定，会跨过尚未完成的技术审查。"
+        ],
+        "sources": [
+          "R3",
+          "R4",
+          "M"
+        ]
+      },
+      {
+        "heading": "应当补写的理由：逐项裁决，而不是代替评审猜分",
+        "kind": "lessons",
+        "paragraphs": [
+          "一份更有说服力的meta应直接区分：作者已承认的前作关系、尚有争议的假设强度、已补充但仍不充分的复杂度，以及仍被认可的统计界。若第五节不足以独立支撑接收，就解释它欠缺什么；若认为某份支持建立在误解上，就点出那份评审的具体误解和证据。",
+          "作者也有明确责任：重写贡献列表，把成熟换测度工具放回背景，为新增定理提供证明路线与可核查的常数依赖，并报告同成本采样比较。此次公开讨论确实纠正了一个贡献边界；可惜最终决定没有同样清晰地完成另一项工作——说明保留下来的贡献为何仍不够。"
+        ],
+        "sources": [
+          "R3",
+          "R4",
+          "A2",
+          "A3",
+          "M"
+        ]
+      },
+      {
+        "heading": "证据边界：批评落在推断，不冒充定理裁判",
+        "kind": "limits",
+        "paragraphs": [
+          "本文通读2026年5月8日归档的摘要与全部18条公开记录，未独立核读论文各版本、引用定理证明或实验代码。作者称补了前作比较，AC称相关位置仍未充分引用；没有逐版本全文对照，不能把这一落差直接定成任何一方说谎。",
+          "两条维持意见早于作者最终澄清，后一条虽然晚于澄清，也不证明评审实际读过它。这个时间限制削弱的是“评审绝不会降分”的断言，不能自动补强AC的相反猜测。文中评分均为归档初始值，不虚构讨论后的终分或拒稿共识。"
+        ],
+        "sources": [
+          "ARCHIVE",
+          "R5",
+          "R6",
+          "R7",
+          "A2",
+          "A9",
+          "M"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "P",
+        "label": "论文标题与摘要（归档论坛）",
+        "url": "https://openreview.net/forum?id=EFYb8SsRi7"
+      },
+      {
+        "id": "R1",
+        "label": "审稿 R1（评分 4）",
+        "url": "https://openreview.net/forum?id=EFYb8SsRi7&noteId=MsdfoMSlnz"
+      },
+      {
+        "id": "R2",
+        "label": "审稿 R2（评分 8）",
+        "url": "https://openreview.net/forum?id=EFYb8SsRi7&noteId=uKkyVLLE0a"
+      },
+      {
+        "id": "R3",
+        "label": "审稿 R3（评分 6）",
+        "url": "https://openreview.net/forum?id=EFYb8SsRi7&noteId=o4ohhS21oP"
+      },
+      {
+        "id": "R4",
+        "label": "审稿 R4（评分 8）",
+        "url": "https://openreview.net/forum?id=EFYb8SsRi7&noteId=Cc0Fg0P3lT"
+      },
+      {
+        "id": "A1",
+        "label": "作者回复",
+        "url": "https://openreview.net/forum?id=EFYb8SsRi7&noteId=fxIDEDQSNL"
+      },
+      {
+        "id": "A2",
+        "label": "Official Comment by Authors",
+        "url": "https://openreview.net/forum?id=EFYb8SsRi7&noteId=jw4twiyC62"
+      },
+      {
+        "id": "A3",
+        "label": "作者回复",
+        "url": "https://openreview.net/forum?id=EFYb8SsRi7&noteId=AV28s0BaFi"
+      },
+      {
+        "id": "A4",
+        "label": "作者回复",
+        "url": "https://openreview.net/forum?id=EFYb8SsRi7&noteId=DwqN9ie1g2"
+      },
+      {
+        "id": "A5",
+        "label": "作者回复",
+        "url": "https://openreview.net/forum?id=EFYb8SsRi7&noteId=lvJk50TI8u"
+      },
+      {
+        "id": "A6",
+        "label": "作者回复",
+        "url": "https://openreview.net/forum?id=EFYb8SsRi7&noteId=Lxr332Zyh8"
+      },
+      {
+        "id": "A7",
+        "label": "作者回复",
+        "url": "https://openreview.net/forum?id=EFYb8SsRi7&noteId=BG8M14pxEL"
+      },
+      {
+        "id": "A8",
+        "label": "作者回复",
+        "url": "https://openreview.net/forum?id=EFYb8SsRi7&noteId=bkV4jlC9Xs"
+      },
+      {
+        "id": "A9",
+        "label": "作者回复",
+        "url": "https://openreview.net/forum?id=EFYb8SsRi7&noteId=c5iE3LJMds"
+      },
+      {
+        "id": "M",
+        "label": "领域主席综合评议",
+        "url": "https://openreview.net/forum?id=EFYb8SsRi7&noteId=70rXyuPkNo"
+      },
+      {
+        "id": "D",
+        "label": "正式决定",
+        "url": "https://openreview.net/forum?id=EFYb8SsRi7&noteId=KCXzU7ycMf"
+      },
+      {
+        "id": "ARCHIVE",
+        "label": "2026-05-08 归档快照",
+        "url": "https://github.com/qhjqhj00/iclr-openreview-reviews/releases/tag/v1.0"
+      },
+      {
+        "id": "C",
+        "label": "ICLR 官方评审流程回顾（2026-03-31）",
+        "url": "https://blog.iclr.cc/2026/03/31/a-retrospective-on-the-iclr-2026-review-process/"
+      },
+      {
+        "id": "R5",
+        "label": "八分审稿人 R2 的跟进：维持正分",
+        "url": "https://openreview.net/forum?id=EFYb8SsRi7&noteId=PgDFl0t1o8"
+      },
+      {
+        "id": "R6",
+        "label": "六分审稿人 R3 的跟进：保留异议、维持评分",
+        "url": "https://openreview.net/forum?id=EFYb8SsRi7&noteId=OgT7ElrqRf"
+      },
+      {
+        "id": "R7",
+        "label": "八分审稿人 R4 的跟进：维持原分",
+        "url": "https://openreview.net/forum?id=EFYb8SsRi7&noteId=PSaVPEwWs1"
+      }
+    ],
+    "review_state": "commentary_public",
+    "finding": {
+      "level": "unsupported-inference",
+      "target": "ac",
+      "summary": "AC推测部分审稿人会因已有定理而降分，却没有逐一解释三份公开维持评分意见为何不足采信。",
+      "rationale": "meta明确把降分写成个人反事实判断；两位八分和一位六分评审均有维持评分记录。时间顺序不能证明每人读过最终澄清，故不能认定AC陈述了虚假终分；可确认的缺口是推断缺少针对现有反证的说明。",
+      "source_ids": [
+        "M",
+        "R5",
+        "R6",
+        "R7",
+        "A2"
+      ]
+    },
+    "publication": {
+      "basis": "owner_requested_publication",
+      "human_reviewed": false,
+      "date": "2026-09-28"
+    }
+  },
+  {
+    "slug": "one-step-density-ratio",
+    "forum_id": "rouPx6eo2G",
+    "title": "One-Step Score-Based Density Ratio Estimation: Solver-Free with Analytic Frames",
+    "headline": "OS-DRE评审的关键错位：解析积分被写成了离散近似",
+    "deck": "一位评审把时间基函数的积分当成离散近似；摘要、另两份评审与作者回应却指向闭式计算。这个可定位的冲突，比高分拒稿的反差更值得检查。",
+    "topic": "密度比估计与解析积分",
+    "category": "high-rejected",
+    "decision": "Reject",
+    "ratings": [
+      8,
+      6,
+      10,
+      4,
+      6
+    ],
+    "mean": 6.8,
+    "archive_date": "2026-05-08",
+    "read_minutes": 9,
+    "score_note": "分数为归档中重置至 rebuttal 前的可见值。讨论中的升分意愿和 AC 对预期结果的推断，不作为已实际生效的最终分数。",
+    "sections": [
+      {
+        "heading": "先核对方法：被质疑的第二层近似到底存不存在",
+        "kind": "facts",
+        "paragraphs": [
+          "OS-DRE的一位六分评审写道，方法先截断基展开，再以离散化近似时间基函数积分。可论文摘要、两份其他评审及作者回复都明确描述了解析积分。这是一个具体的方法描述冲突，不只是“创新够不够”的标准争议；在未核读原PDF的前提下，本文将它标为记录冲突，不冒充独立数学勘误。",
+          "论文要估计两个分布的密度比，思路是把时间得分拆成空间系数与时间基函数的乘积和。网络一次预测系数，时间基函数则选用可闭式积分的形式，最终做加权求和。有限项截断和学习误差仍然存在；消除数值求积步骤，并不意味着整个密度比估计变成精确答案。"
+        ],
+        "sources": [
+          "ProuPx6eo2G",
+          "R1VCmLaknZR3",
+          "R2XxxbgJAqT2",
+          "R44HBiQ12FmW",
+          "Am9ugftPTiV"
+        ]
+      },
+      {
+        "heading": "评审的误区：把基展开离散化等同于数值求积",
+        "kind": "reviews",
+        "paragraphs": [
+          "六分评审将frame解释为时间函数的离散化，并追问既然积分经过近似，第8式为何使用等号、系数又去了哪里。但八分评审的摘要已经写清，时间函数的积分具有闭式表达，因此不必做数值积分；四分评审也明确描述了这一机制。至少在公开文本内部，六分意见没有与论文的核心计算方式对齐。",
+          "这个冲突不能用评审最终态度积极来淡化：若批评一种“解析积分”方法时，先给它加上一层并不存在于作者描述中的数值求积，就必须核实再提出推导质疑。不过，该评审随后表示除路径存在性外，其余疑虑已被充分回应，并愿意升分。公开记录支持“误读被回应”，不支持“评审始终拒绝纠正”。作者对重尾数据的另一项澄清也很具体：被要求稠密的是时间函数空间，不是数据分布本身。这没有证明重尾任务全都容易，却说明质疑必须先找准条件作用的变量。"
+        ],
+        "sources": [
+          "R2XxxbgJAqT2",
+          "R1VCmLaknZR3",
+          "R44HBiQ12FmW",
+          "R8lAjCj7cWt",
+          "Ae6NtOrkAfT"
+        ]
+      },
+      {
+        "heading": "回应到底解释了什么：闭式常数、模型成本与实验",
+        "kind": "response",
+        "paragraphs": [
+          "作者的回答可以直接检查：时间基函数的积分预先算成常数；空间展开系数被吸收到可学习函数中。由此，有限项表达的积分无需离散求积。这里澄清的是表达式的计算，不保证有限基足以拟合任意目标；基函数数目K仍控制容量、内存与计算量，作者承认成本随K线性增加。",
+          "实验方面，作者补充真实耗时、更多网络调用次数的曲线和MNIST结果，报告一次调用、1.278 BPD、0.312秒，对照重实现基线约21秒。计时使用同一TITAN X上的完整测试集，基线也经过改进。追加到100或200次调用后，低差异任务的部分基线可以追平；所谓一步优势必须放在这些条件内阅读。"
+        ],
+        "sources": [
+          "Am9ugftPTiV",
+          "AOgA8C7SkkI",
+          "A9paFXQvIgX",
+          "AQ8hy3p6ZLJ"
+        ]
+      },
+      {
+        "heading": "AC拒稿：合理的条件追问，与没有展开的新颖性裁决",
+        "kind": "decision",
+        "paragraphs": [
+          "正式决定是Reject。AC承认计时、更大实验和调用次数曲线已补齐，也预计五位评审最终可能都持积极态度，但以理论原创性定位为由不推荐接收。这个预期不是五张已经生效的接收票；归档8、6、10、4、6及均值6.8不能当成讨论后的终分。",
+          "AC指出位置—尺度函数族的稠密性有长期文献，要求Lemma A.4及逼近界交代前作关系，方向合理。但公开meta给的是专著与文献领域，没有逐项列出哪条现有定理在相同条件下覆盖本文结论。从“这个领域已有很多结果”走到“理论新意不足以接收”，仍欠一段具体比较。"
+        ],
+        "sources": [
+          "MxnmOkHKCTP",
+          "Dp0EHCGw5Xz"
+        ]
+      },
+      {
+        "heading": "不能用误读替作者免责：平滑性与原创口号仍需收紧",
+        "kind": "analysis",
+        "paragraphs": [
+          "AC最有力的质疑不是笼统说数学古老，而是定位到Corollary 3.5和附录分部积分所用的Sobolev条件，并追问绝对收敛与有限体积假设。作者回答“一般L²目标不需额外平滑性”，至多涉及可定义性或一般近似；它没有自动回答特定收敛速率需要什么正则性。未验算全文之前，也不能反过来断言AC已推翻证明。",
+          "作者的原创性辩护同样摇摆：先承认时间变化能量模型可单步求值，收窄为首个解析路径积分方案，后又强调一般密度比问题使“首个”仍然成立。评审对这一口号的追问有依据。真正值得保护的贡献是可积分参数化及其实际收益，不是任何无需精确比较就可以保留的首创标签。作者还把低调用次数下的明显差距归因于数值积分；其高调用次数补充结果却显示，部分任务会进入估计误差主导的区间。因而“积分是主要瓶颈”也需要限定任务和计算预算，不能外推成所有实验的统一解释。"
+        ],
+        "sources": [
+          "Ae6NtOrkAfT",
+          "MxnmOkHKCTP",
+          "RAeBq22A7Wi",
+          "A28EBdnfoZ7",
+          "A9zsXJORqOU",
+          "AQ8hy3p6ZLJ"
+        ]
+      },
+      {
+        "heading": "应当怎样评：分别检查计算、保证与贡献",
+        "kind": "lessons",
+        "paragraphs": [
+          "本案需要三种不同核对。先按算法式确认积分是闭式还是数值近似；再按定理列出截断误差、学习误差和收敛速率的条件；最后比较前作究竟覆盖了哪个结论。把这三层揉成一句“理论不够新”，或把解析积分误当成离散求积，都会使批评失去对象。",
+          "对AC而言，若认定旧逼近工具不足以支持发表，还应说明新的可积分模型构造为何没有独立价值，而不能只审理引理的出处。对作者而言，高分和新增加速曲线也不能替代这张对应表。四分评审要求区分积分误差与估计误差、去掉误导性的CIFAR图名，正是有具体对象且促成修订的批评。"
+        ],
+        "sources": [
+          "R1VCmLaknZR3",
+          "R44HBiQ12FmW",
+          "AS9hKgA6I2a",
+          "MxnmOkHKCTP"
+        ]
+      },
+      {
+        "heading": "材料边界：一项可定位的冲突，不是整案技术认证",
+        "kind": "limits",
+        "paragraphs": [
+          "本文通读2026年5月8日归档的摘要与全部24条记录，未独立核读原PDF全部证明、相邻方法论文或实验代码。十分评审明确承认没有细查理论证明；作者报告的加速与误差数字也不是本文复现结果。",
+          "四分评审确实公开说主要问题已解决、已更新分数；具体4升6只见作者汇总，不据此重算终分。六分评审对解析积分问题的后续态度应一并呈现。能确定的是评审文本发生了可核对的描述冲突；论文是否应被接收，仍需更完整的技术与贡献比较。"
+        ],
+        "sources": [
+          "ARCHIVE",
+          "R3YsfVKHvwaK",
+          "RWq5BrDTa0r",
+          "A4NEMYqY11T",
+          "R8lAjCj7cWt",
+          "MxnmOkHKCTP"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "ProuPx6eo2G",
+        "label": "论文摘要与论坛",
+        "url": "https://openreview.net/forum?id=rouPx6eo2G"
+      },
+      {
+        "id": "ARCHIVE",
+        "label": "2026-05-08 归档版本",
+        "url": "https://github.com/qhjqhj00/iclr-openreview-reviews/releases/tag/v1.0"
+      },
+      {
+        "id": "Cofficialcontext",
+        "label": "ICLR 官方：2026 评审流程回顾",
+        "url": "https://blog.iclr.cc/2026/03/31/a-retrospective-on-the-iclr-2026-review-process/"
+      },
+      {
+        "id": "R1VCmLaknZR3",
+        "label": "正式评审 · VCmLaknZR3",
+        "url": "https://openreview.net/forum?id=rouPx6eo2G&noteId=VCmLaknZR3"
+      },
+      {
+        "id": "Am9ugftPTiV",
+        "label": "作者回应 · m9ugftPTiV",
+        "url": "https://openreview.net/forum?id=rouPx6eo2G&noteId=m9ugftPTiV"
+      },
+      {
+        "id": "Dp0EHCGw5Xz",
+        "label": "正式决定 · p0EHCGw5Xz",
+        "url": "https://openreview.net/forum?id=rouPx6eo2G&noteId=p0EHCGw5Xz"
+      },
+      {
+        "id": "R2XxxbgJAqT2",
+        "label": "正式评审 · XxxbgJAqT2",
+        "url": "https://openreview.net/forum?id=rouPx6eo2G&noteId=XxxbgJAqT2"
+      },
+      {
+        "id": "R3YsfVKHvwaK",
+        "label": "正式评审 · YsfVKHvwaK",
+        "url": "https://openreview.net/forum?id=rouPx6eo2G&noteId=YsfVKHvwaK"
+      },
+      {
+        "id": "R44HBiQ12FmW",
+        "label": "正式评审 · 4HBiQ12FmW",
+        "url": "https://openreview.net/forum?id=rouPx6eo2G&noteId=4HBiQ12FmW"
+      },
+      {
+        "id": "R5vkMuQrq1yf",
+        "label": "正式评审 · vkMuQrq1yf",
+        "url": "https://openreview.net/forum?id=rouPx6eo2G&noteId=vkMuQrq1yf"
+      },
+      {
+        "id": "RAeBq22A7Wi",
+        "label": "评审追评 · AeBq22A7Wi",
+        "url": "https://openreview.net/forum?id=rouPx6eo2G&noteId=AeBq22A7Wi"
+      },
+      {
+        "id": "A9paFXQvIgX",
+        "label": "作者回应 · 9paFXQvIgX",
+        "url": "https://openreview.net/forum?id=rouPx6eo2G&noteId=9paFXQvIgX"
+      },
+      {
+        "id": "AS9hKgA6I2a",
+        "label": "作者回应 · S9hKgA6I2a",
+        "url": "https://openreview.net/forum?id=rouPx6eo2G&noteId=S9hKgA6I2a"
+      },
+      {
+        "id": "AQ8hy3p6ZLJ",
+        "label": "作者回应 · Q8hy3p6ZLJ",
+        "url": "https://openreview.net/forum?id=rouPx6eo2G&noteId=Q8hy3p6ZLJ"
+      },
+      {
+        "id": "RWq5BrDTa0r",
+        "label": "评审追评 · Wq5BrDTa0r",
+        "url": "https://openreview.net/forum?id=rouPx6eo2G&noteId=Wq5BrDTa0r"
+      },
+      {
+        "id": "R8lAjCj7cWt",
+        "label": "评审追评 · 8lAjCj7cWt",
+        "url": "https://openreview.net/forum?id=rouPx6eo2G&noteId=8lAjCj7cWt"
+      },
+      {
+        "id": "A28EBdnfoZ7",
+        "label": "作者回应 · 28EBdnfoZ7",
+        "url": "https://openreview.net/forum?id=rouPx6eo2G&noteId=28EBdnfoZ7"
+      },
+      {
+        "id": "A9zsXJORqOU",
+        "label": "作者回应 · 9zsXJORqOU",
+        "url": "https://openreview.net/forum?id=rouPx6eo2G&noteId=9zsXJORqOU"
+      },
+      {
+        "id": "Ae6NtOrkAfT",
+        "label": "作者回应 · e6NtOrkAfT",
+        "url": "https://openreview.net/forum?id=rouPx6eo2G&noteId=e6NtOrkAfT"
+      },
+      {
+        "id": "MxnmOkHKCTP",
+        "label": "Meta-review · xnmOkHKCTP",
+        "url": "https://openreview.net/forum?id=rouPx6eo2G&noteId=xnmOkHKCTP"
+      },
+      {
+        "id": "AOgA8C7SkkI",
+        "label": "作者回应 · OgA8C7SkkI",
+        "url": "https://openreview.net/forum?id=rouPx6eo2G&noteId=OgA8C7SkkI"
+      },
+      {
+        "id": "A4NEMYqY11T",
+        "label": "作者回应 · 4NEMYqY11T",
+        "url": "https://openreview.net/forum?id=rouPx6eo2G&noteId=4NEMYqY11T"
+      }
+    ],
+    "review_state": "commentary_public",
+    "finding": {
+      "level": "record-conflict",
+      "target": "reviewer",
+      "summary": "六分评审将时间基函数积分描述为通过离散化近似，与摘要、其他评审及作者关于解析积分的明确描述冲突。",
+      "rationale": "XxxbgJAqT2明确提出第二层离散积分近似；m9ugftPTiV指出时间积分为预计算闭式常数，且VCmLaknZR3、4HBiQ12FmW独立描述同一机制。未核读原PDF，故严格标为记录冲突，不升级为已独立证明的数学错误。该评审随后称除路径问题外其余疑虑已获回应。",
+      "source_ids": [
+        "ProuPx6eo2G",
+        "R2XxxbgJAqT2",
+        "R1VCmLaknZR3",
+        "R44HBiQ12FmW",
+        "Am9ugftPTiV",
+        "R8lAjCj7cWt"
+      ]
+    },
+    "publication": {
+      "basis": "owner_requested_publication",
+      "human_reviewed": false,
+      "date": "2026-09-28"
+    }
+  },
+  {
+    "slug": "gptq-babai-equivalence",
+    "forum_id": "L4SwHIZEaJ",
+    "title": "The Lattice Geometry of Neural Network Quantization: A Short Equivalence Proof of GPTQ and Babai's Algorithm",
+    "headline": "一面说同期论文不影响评审，一面又扣新颖性：GPTQ短证明的双重口径",
+    "deck": "四分评审在同一份意见中留下两种表述；更大的争议是，解释既有算法的等价证明，是否必须先交出新的压缩实验才能获得承认。",
+    "topic": "模型量化与格几何",
+    "category": "low-accepted",
+    "decision": "Accept (Poster)",
+    "ratings": [
+      2,
+      4,
+      8
+    ],
+    "mean": 4.666666666666667,
+    "archive_date": "2026-05-08",
+    "read_minutes": 8,
+    "score_note": "原始数组[2,4,0,8]含K3b5的无实质评审占位0分；meta-review明确忽略其评审和分数。有效评分为[2,4,8]，均值14/3≈4.67；直接平均原数组所得3.50具有误导性。",
+    "sections": [
+      {
+        "heading": "同一份评审，两个新颖性口径",
+        "kind": "facts",
+        "paragraphs": [
+          "GPTQ与Babai等价证明的四分评审，在弱点中说与Chen等人同期工作的重叠“仍影响新颖性”，在问题栏又说知道那是同期arXiv论文，“不会影响本稿评审”。这两句话需要解释如何兼容。它是公开文字内部的口径冲突；未核对当届具体规则之前，不能升级为违规判决，更不能据此猜测评审动机。",
+          "论文本身研究线性单元的数据驱动量化与格上最近向量问题的联系，给出GPTQ和Babai最近平面算法的短等价证明，强调几何解释。三份实质评分为2、4、8，最终获Poster。它值得讨论的不是“低分也能侥幸录用”，而是评审是否按同一贡献对象提出了可回答的要求。"
+        ],
+        "sources": [
+          "P",
+          "R1",
+          "R2",
+          "R3",
+          "D"
+        ]
+      },
+      {
+        "heading": "实验门槛：为什么证明算法等价，还必须证明新算法更好",
+        "kind": "reviews",
+        "paragraphs": [
+          "两分评审承认联系有重要潜力，却要求至少验证部分应用推论；四分评审认为模型压缩属于应用领域，纯理论且无实验是一项缺失，并追问格基约化的成本、泛化和困惑度。这些问题针对应用承诺有价值，但它们没有指出等价证明中哪一步错误，也没有自动证明几何解释不足以独立成文。",
+          "八分评审恰好相反：成熟格理论与现代量化的联系本身重要，无实验有助于简洁和聚焦。他仍提出一项关键技术检查——文中的算法描述是否严格对应原始GPTQ与Babai。这比笼统要求压缩实验更贴近等价定理的成立条件：首先必须证明连接的确实是声称连接的两个算法。作者解释，其递归写法借助输入矩阵的嵌入关系展现几何对应，并处理不影响结果的修正项。若要评价这种证明是否只是压缩篇幅，评审需要讨论这些结构究竟带来了什么认识，而不只是统计附带实验数量。"
+        ],
+        "sources": [
+          "R1",
+          "R2",
+          "R3",
+          "A2"
+        ]
+      },
+      {
+        "heading": "作者确实收回了什么：应用设想不能白拿证明的信誉",
+        "kind": "response",
+        "paragraphs": [
+          "作者没有用新实验回应，而是收缩主张。数值改善建议被删除，理由是原方案要保存完整输入矩阵，校准样本多时内存成本高，实际通常宜保留Gram矩阵与等价Cholesky处理。这个撤回说明，低分评审对应用暗示的追问并非凭空找茬；原稿确实给读者留下了超出短证明的预期。",
+          "多层量化被作者重新定位为恰好恢复Qronos，实验依据来自另一篇论文；格基约化仍是未来方向，作者承认超参数敏感、运行时间和正则化尚需处理。作者还称增加附录，把原始算法步骤映射到本文表示。修订后的评价对象因此更清楚：短证明及其解释力，而非已经验证的新量化系统。"
+        ],
+        "sources": [
+          "A1",
+          "A2",
+          "A3"
+        ]
+      },
+      {
+        "heading": "AC做对的一件事：没有把空白零分算成反对票",
+        "kind": "decision",
+        "paragraphs": [
+          "原始数组是2、4、0、8，但零分条目K3b5的摘要、优点、缺点、问题都写着NA。AC明确说该人没有写评审，其评审及分数均忽略。因此本案有效均值是14/3，约4.67；用3.50渲染低分录用，会把无内容占位当作一次极端否定。作者提到的多个1分是分项与信心，主评分字段实际为0。",
+          "AC认可这项理论联系的潜在价值，愿意支持接收，但没有捏造反对者已经转向。meta对两分评审是否会升分、能否超过四分都保留不确定，对四分评审也不确定。这种表述应原样保留为预测，不能因最终Poster就倒推出讨论达成一致，或把初始分数改造成新的终分。作者说明，他们在讨论末期集中答复，因为当时评审已无法回应。因此，这份记录缺少修订后的评审表态，不能把沉默当成接受澄清，也不能当成无视澄清；两种叙事都没有公开证据。"
+        ],
+        "sources": [
+          "M",
+          "R0",
+          "A4",
+          "R1",
+          "R2",
+          "R3",
+          "D"
+        ]
+      },
+      {
+        "heading": "评论判断：同期比较可以做，但扣分逻辑不能含糊",
+        "kind": "analysis",
+        "paragraphs": [
+          "四分意见最需要补写的，是“同期工作不影响评审”究竟指什么。若指不因独立同期发现而惩罚本稿，那么用相同结论直接削弱新颖性就需要额外理由；若只是说两篇都可进入正常评审，同时仍比较贡献增量，也应明确说明。现有文字在这两层间跳转，作者难以知道自己究竟该回应优先权还是证明方法。",
+          "同样，要求新实验不是证明短文不够好的自动论据。评审可以认为简洁性增量不足，但应具体比较：删去了哪些技术负担，揭示了什么原来不透明的结构，能否严格恢复Qronos。把“模型压缩是应用领域”当作统一实验门槛，会跳过论文已经交付的解释性贡献；最终接收也不等于这些问题都已解决。"
+        ],
+        "sources": [
+          "R2",
+          "R3",
+          "A2",
+          "A3",
+          "M"
+        ]
+      },
+      {
+        "heading": "应有的审查：证明检查归证明，性能承诺归实验",
+        "kind": "lessons",
+        "paragraphs": [
+          "更扎实的评审应先核对算法版本、必要假设、递归步骤和修正项，再评价短证明相对同期工作的新增洞见。如果要以缺实验作为拒稿理由，就指出哪一项保留的性能声明缺证据，或者为什么仅有解释性结果仍不足；不要让实验数量替代对证明贡献的审查。",
+          "作者也不能把所有未来设想都贴上理论标签而免于验证。若重新宣称格基约化改善量化，就应报告误差、下游效果、时间、内存及泛化；若引用Qronos实验，就说明算法与实现条件如何对应。此次删除数值改善、限定未来工作的回应有实质意义，却没有独立证明剩余等价结论必然正确。"
+        ],
+        "sources": [
+          "R1",
+          "R2",
+          "R3",
+          "A1",
+          "A2",
+          "A3"
+        ]
+      },
+      {
+        "heading": "证据边界：有口径冲突，没有凭空补出的数学错误",
+        "kind": "limits",
+        "paragraphs": [
+          "本文通读2026年5月8日归档的全部10条记录，包括三份实质评审、占位条目、四份作者回复、meta及决定。未独立核查原PDF、同期论文、Qronos实验或所称修订，不能宣称某位评审证明了错误，也不能认证作者证明已经通过技术审计。",
+          "本案可以尖锐质疑的是同一评审对同期工作的两种口径，以及实验要求与证明贡献之间未充分展开的推理。零分剔除则有AC明文依据，不是编辑挑选有利分数；两分和四分中的实质反对意见仍完整保留。"
+        ],
+        "sources": [
+          "ARCHIVE",
+          "R1",
+          "R2",
+          "R3",
+          "R0",
+          "M",
+          "A4"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "P",
+        "label": "论文摘要与讨论主页",
+        "url": "https://openreview.net/forum?id=L4SwHIZEaJ"
+      },
+      {
+        "id": "R1",
+        "label": "评审8GUU：要求验证应用后果，2分",
+        "url": "https://openreview.net/forum?id=L4SwHIZEaJ&noteId=F5WgQMwmmj"
+      },
+      {
+        "id": "R2",
+        "label": "评审w5cR：实验、成本与同期工作，4分",
+        "url": "https://openreview.net/forum?id=L4SwHIZEaJ&noteId=E5MeUWoxZv"
+      },
+      {
+        "id": "R3",
+        "label": "评审Xcva：肯定简洁证明并追问算法对应，8分",
+        "url": "https://openreview.net/forum?id=L4SwHIZEaJ&noteId=KIJLEYnG21"
+      },
+      {
+        "id": "R0",
+        "label": "K3b5无实质评审占位条目：0分，AC明确忽略",
+        "url": "https://openreview.net/forum?id=L4SwHIZEaJ&noteId=GYWX6TveFb"
+      },
+      {
+        "id": "A1",
+        "label": "作者回应2分评审：删除数值建议及划定后果范围",
+        "url": "https://openreview.net/forum?id=L4SwHIZEaJ&noteId=Xq8IKvTK2S"
+      },
+      {
+        "id": "A2",
+        "label": "作者回应4分评审：实验范围和证明的几何特点",
+        "url": "https://openreview.net/forum?id=L4SwHIZEaJ&noteId=7F0Y5COI3K"
+      },
+      {
+        "id": "A3",
+        "label": "作者回应8分评审：算法对应附录及Qronos",
+        "url": "https://openreview.net/forum?id=L4SwHIZEaJ&noteId=u9zcCLKP4P"
+      },
+      {
+        "id": "A4",
+        "label": "作者面向AC的说明及无效评分提示",
+        "url": "https://openreview.net/forum?id=L4SwHIZEaJ&noteId=OyCEzgJGPB"
+      },
+      {
+        "id": "M",
+        "label": "AC汇总：理论价值、评分不确定性和忽略占位条目",
+        "url": "https://openreview.net/forum?id=L4SwHIZEaJ&noteId=UsgzRJZwT7"
+      },
+      {
+        "id": "D",
+        "label": "正式决定：Accept (Poster)",
+        "url": "https://openreview.net/forum?id=L4SwHIZEaJ&noteId=FF77Gmic3p"
+      },
+      {
+        "id": "ARCHIVE",
+        "label": "公开评审档案v1.0，2026-05-08",
+        "url": "https://github.com/qhjqhj00/iclr-openreview-reviews/releases/tag/v1.0"
+      },
+      {
+        "id": "C",
+        "label": "ICLR官方：2026届评审流程回顾",
+        "url": "https://blog.iclr.cc/2026/03/31/a-retrospective-on-the-iclr-2026-review-process/"
+      }
+    ],
+    "review_state": "commentary_public",
+    "finding": {
+      "level": "record-conflict",
+      "target": "reviewer",
+      "summary": "同一评审一方面说同期Chen预印本不影响本稿评审，另一方面又说结论重叠仍影响新颖性，未解释两个口径如何兼容。",
+      "rationale": "E5MeUWoxZv的weaknesses和questions有可直接对照的措辞。可能的解释是区分程序待遇与贡献比较，但原评审未说清；没有核对当届同期工作规则，故不认定违反政策或已证明的事实错误。",
+      "source_ids": [
+        "R2"
+      ]
+    },
+    "publication": {
+      "basis": "owner_requested_publication",
+      "human_reviewed": false,
+      "date": "2026-09-28"
+    }
+  },
+  {
+    "slug": "patch-reasoner",
+    "forum_id": "AXXCo0pOSO",
+    "title": "Scalable Supervising Software Agents with Patch Reasoner",
+    "headline": "一边写 SWE-bench，一边说“全是合成数据”：这份评审混淆了什么？",
+    "deck": "Patch Reasoner 均分 6.5 仍被拒。评审把真实任务与模型生成补丁混在一起，AC 又从公式问题推断“更深层问题”；作者回复里的数学错误同样不能放过。",
+    "topic": "软件智能体 · 奖励模型",
+    "category": "high-rejected",
+    "decision": "Reject",
+    "ratings": [
+      6,
+      6,
+      8,
+      6
+    ],
+    "mean": 6.5,
+    "archive_date": "2026-05-08",
+    "read_minutes": 8,
+    "review_state": "commentary_public",
+    "score_note": "四份官方评审均为 6 分或以上；公开决定为 Reject。分数是存档可见值，不代表讨论后重新提交的终评分。",
+    "sections": [
+      {
+        "kind": "facts",
+        "heading": "问题起点：真实软件任务，不等于每个候选补丁都是真人写的",
+        "paragraphs": [
+          "Patch Reasoner 提出 R4P，用模型推理判断一组代码补丁是否正确，再把判断作为训练软件智能体的奖励。摘要报告在 SWE-bench Verified 上取得 72.2% 补丁验证准确率，轻量 Mini-SE 的问题解决率为 26.2%。四份评审给出 6、6、8、6，均分 6.5，最终决定为 Reject。",
+          "需要先分清三个对象：软件问题从哪里来，候选补丁由谁生成，正确性标签怎样获得。SWE-bench 官方资料说明，任务来自真实 GitHub 软件问题；Verified 是其中 500 个经工程师筛选的实例。用模型生成补丁检验模型，不能把底层任务的真实来源一起抹掉。"
+        ],
+        "sources": [
+          "P",
+          "R2",
+          "D",
+          "BENCH"
+        ]
+      },
+      {
+        "kind": "reviews",
+        "heading": "评审的第一处问题：一句“完全合成”，省略了最关键的区分",
+        "paragraphs": [
+          "R2 在摘要中准确提到 SWE-bench Verified，弱点部分却说当前测试完全是合成数据，建议加入真实数据。这种写法没有告诉读者，所指究竟是问题、补丁、奖励标签还是实验环境。真实任务与模型补丁可以同时存在；把整个评测打包成“完全合成”，是一条过度概括的批评。",
+          "最有利于评审的解释是，他担心模型生成补丁缺乏真实开发者的错误分布。这个问题可以成立，但必须明确要求真人补丁或部署分布对照，而不是让读者以为基准任务也是虚构的。另一位评审称评估只在 Mini-SE 上进行，作者则区分了跨框架补丁验证与 Mini-SE 下游训练；这同样说明评价对象不能混写。"
+        ],
+        "sources": [
+          "R2",
+          "R1",
+          "A1",
+          "BENCH"
+        ]
+      },
+      {
+        "kind": "response",
+        "heading": "作者并非无懈可击：解释澄清了对象，数据也暴露了局限",
+        "paragraphs": [
+          "作者回复称，主要验证实验使用 SWE-agent、OpenHands 等框架的离线补丁，Mini-SE 用于检验奖励在下游 RL 与测试时扩展中的实用性。回复还澄清，图中的测试准确率来自缓存检查点的离线评估，并不是训练奖励。前者回应评估范围，后者回应测试集用途；都不能自动证明已经排除所有选择偏差。",
+          "作者也承认静态奖励的边界：训练后期代理奖励继续上升，测试准确率却从 24.4 降到 21.6。这直接削弱了没有期限的“稳定扩展”叙事。新增强基线中，GPT-5 的 Acc 为 76.2，高于 R4P 的 72.2；R4P 的 F1 与 EM 略高。只挑有利指标宣称全面领先，同样不成立。"
+        ],
+        "sources": [
+          "A1",
+          "A4",
+          "A5"
+        ]
+      },
+      {
+        "kind": "decision",
+        "heading": "AC 的推断：公式有问题，为什么就意味着更深层缺陷？",
+        "paragraphs": [
+          "AC 明确提出评审未充分讨论的数学记号问题：测试时扩展部分对模型参数取 argmax，分布写法与采样变量关系不清。指出这些问题完全正当。关键跳跃出现在下一句：AC 称这不是笔误，而是更深层问题的强烈迹象，并将其作为拒稿的重要依据。",
+          "这份公开 meta 没有进一步展示，这些写法究竟对应错误的优化目标、错误代码、无效实验，还是糟糕的数学表达。严格的拒稿理由可以是形式化定义尚不自洽；升级为更深层方法缺陷，则还欠一条连接定义与实际方法的证据链。AC 另问正确性标签从何而来，也应分别核查训练验证器与使用验证器两个阶段，不能把推理时免执行理解为整个训练完全没有标签。"
+        ],
+        "sources": [
+          "M",
+          "A2"
+        ]
+      },
+      {
+        "kind": "analysis",
+        "heading": "我们的判断：评审写得粗，作者公式也真的写错了",
+        "paragraphs": [
+          "对评审，批评应直截了当：既已识别出真实软件基准，就不该用“完全合成”模糊带过数据来源；既要判定方法存在更深层问题，就应指出推断链中缺失的中间环节。笼统概括与加重措辞不能代替核对。但这不等于能证明最终拒稿一定错误，更不意味着其他评审的合理疑问可以一并撤销。",
+          "对作者，同样有一处可直接检验的数学表达错误：回复把 EM 解释为预测补丁集合与真实集合完全一致，公式却只比较两者的元素数量。反例很简单，A={1}、B={2}，数量相等但集合不同。这足以说明回复里的公式不表达文字定义；没有运行代码，仍不能断言实现按错公式算分。",
+          "因此这不是“好论文遭坏评审”的单线故事。评审的对象混淆、AC 的证据跳跃，以及作者自己的定义错误，都必须分别追责到具体论断。将任何一项扩大成“全盘无效”都超出了现有材料。"
+        ],
+        "sources": [
+          "R2",
+          "M",
+          "A3",
+          "BENCH"
+        ]
+      },
+      {
+        "kind": "lessons",
+        "heading": "可执行的要求：不要让大词跳过可检验的细节",
+        "paragraphs": [
+          "给审稿人的要求是，把“合成”“只在一个框架”“存在更深层问题”拆成可核对句子：具体哪个数据部分是合成，哪个任务只用一个框架，哪条公式造成哪项错误结果。若指控范围改变，应明确缩小，而不能保留一个覆盖整篇论文的结论。给 AC 的要求是区分表达不合格与方法失效，写清拒稿门槛究竟是哪一种。",
+          "给作者的要求是，提交问题来源、补丁生成、标签获得和评估用途的四列表；把验证器预训练与下游免执行使用分开画。对集合指标给出可执行定义和最小反例测试，对静态奖励报告退化区间，对多指标基线完整展示。表述模糊确实会招来误读，但明确存在的公式错误更应该先纠正。"
+        ],
+        "sources": [
+          "R1",
+          "R2",
+          "R3",
+          "M",
+          "A1",
+          "A3",
+          "A4",
+          "A5"
+        ]
+      },
+      {
+        "kind": "limits",
+        "heading": "结论边界：能定位错误句子，不能替代原稿与代码审查",
+        "paragraphs": [
+          "本篇依据归档摘要、4 份正式评审、9 条作者回复、meta-review 与决定，以及 SWE-bench 官方任务说明。原始 PDF 请求仍遇到访问验证，未取得评审时可见的全文版本。因此 AC 对原公式的描述只能作为 AC 的陈述引用，不能装作已经逐页复核。",
+          "“完全合成”可能本意指模型补丁而非软件问题；本文批评的正是未作区分的过度概括。数学反例仅核验公开回复中的 EM 表达，不证明代码错误。公开记录也不足以量化这些问题对最终决定的因果影响，或推断任何参与者的动机。"
+        ],
+        "sources": [
+          "ARCHIVE",
+          "P",
+          "R2",
+          "A3",
+          "M",
+          "BENCH"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "P",
+        "label": "投稿摘要与论文入口",
+        "url": "https://openreview.net/forum?id=AXXCo0pOSO"
+      },
+      {
+        "id": "R1",
+        "label": "正式评审 R1",
+        "url": "https://openreview.net/forum?id=AXXCo0pOSO&noteId=v0KRarGvKX"
+      },
+      {
+        "id": "R2",
+        "label": "正式评审 R2",
+        "url": "https://openreview.net/forum?id=AXXCo0pOSO&noteId=IsBpHya3PX"
+      },
+      {
+        "id": "R3",
+        "label": "正式评审 R3",
+        "url": "https://openreview.net/forum?id=AXXCo0pOSO&noteId=tsN40Pys3N"
+      },
+      {
+        "id": "R4",
+        "label": "正式评审 R4",
+        "url": "https://openreview.net/forum?id=AXXCo0pOSO&noteId=ltmpCNDxxw"
+      },
+      {
+        "id": "A1",
+        "label": "作者回复 A1",
+        "url": "https://openreview.net/forum?id=AXXCo0pOSO&noteId=sVFlF5rqMk"
+      },
+      {
+        "id": "A2",
+        "label": "作者回复 A2",
+        "url": "https://openreview.net/forum?id=AXXCo0pOSO&noteId=pQD8833PSP"
+      },
+      {
+        "id": "A3",
+        "label": "作者回复 A3",
+        "url": "https://openreview.net/forum?id=AXXCo0pOSO&noteId=UsE0KUuzpK"
+      },
+      {
+        "id": "A4",
+        "label": "作者回复 A4",
+        "url": "https://openreview.net/forum?id=AXXCo0pOSO&noteId=6ceVx8WxE8"
+      },
+      {
+        "id": "A5",
+        "label": "作者回复 A5",
+        "url": "https://openreview.net/forum?id=AXXCo0pOSO&noteId=pePaR2W2ah"
+      },
+      {
+        "id": "A6",
+        "label": "作者回复 A6",
+        "url": "https://openreview.net/forum?id=AXXCo0pOSO&noteId=DfoMoIBmH6"
+      },
+      {
+        "id": "M",
+        "label": "Meta-review",
+        "url": "https://openreview.net/forum?id=AXXCo0pOSO&noteId=2aSx8TD5yH"
+      },
+      {
+        "id": "D",
+        "label": "最终决定",
+        "url": "https://openreview.net/forum?id=AXXCo0pOSO&noteId=coqcRFqMFR"
+      },
+      {
+        "id": "ARCHIVE",
+        "label": "公开存档 v1.0 · 2026-05-08",
+        "url": "https://github.com/qhjqhj00/iclr-openreview-reviews/releases/tag/v1.0"
+      },
+      {
+        "id": "C",
+        "label": "ICLR 官方评审过程回顾",
+        "url": "https://blog.iclr.cc/2026/03/31/a-retrospective-on-the-iclr-2026-review-process/"
+      },
+      {
+        "id": "BENCH",
+        "label": "SWE-bench 官方 FAQ：任务来源与 Verified 子集",
+        "url": "https://www.swebench.com/SWE-bench/faq/"
+      }
+    ],
+    "finding": {
+      "level": "record-conflict",
+      "target": "reviewer",
+      "summary": "“全是合成数据”没有区分真实软件问题与模型生成的候选补丁。",
+      "rationale": "同一评审的摘要已写明 SWE-bench Verified，缺点部分却将当前测试概括为完全合成。官方资料确认任务来自真实 GitHub 问题；候选补丁可以由模型生成。可批评的是笼统定性和对象混淆，不能据此断言这条意见造成了拒稿。",
+      "source_ids": [
+        "R2",
+        "P",
+        "BENCH"
+      ]
+    },
+    "publication": {
+      "basis": "owner_requested_publication",
+      "human_reviewed": false,
+      "date": "2026-09-28"
+    }
+  },
+  {
+    "slug": "recap-flawed-thinking",
+    "forum_id": "TSk3cIdIQK",
+    "title": "Large Reasoning Models Learn Better Alignment from Flawed Thinking",
+    "headline": "同一项修订被赞“显著改进”、又被判“削弱贡献”，AC未解释为何经验贡献仍不够",
+    "deck": "RECAP按评审建议收回强理论表述，得到明确接收支持；最终meta仍以机制解释不足拒稿，并提出数据混合风险，却未回应作者已澄清的同数据基线。这里最值得追问的是裁决如何处理反证。",
+    "topic": "推理模型安全对齐",
+    "category": "high-rejected",
+    "decision": "Reject",
+    "ratings": [
+      8,
+      8,
+      4,
+      6
+    ],
+    "mean": 6.5,
+    "archive_date": "2026-05-08",
+    "read_minutes": 9,
+    "score_note": "采用归档可见的 8、8、4、6 分。评审在讨论中表达升分意愿，不等于已生效的终评分；制度背景见专题首页说明。",
+    "sections": [
+      {
+        "heading": "同一项修订，为什么得到相反裁决？",
+        "kind": "facts",
+        "paragraphs": [
+          "RECAP有一处直接可见的标准冲突：6分评审认为弱定理反而拖累已经很强的实验，建议删去理论证据主张；归档追评又明确说，撤掉定理、提取实际实验的洞见使论文显著改善，愿意升分并支持接收。AC的meta却把从理论推导转向经验总结本身写成“削弱贡献”，并以机制仍不清楚为拒稿理由。",
+          "AC可以不同意评审，但需要交代：收窄理论主张为什么还不够？哪些经验结论必须有机制证明才可发表？meta承认方法有效、实验强，却没有正面处理这条支持接收的逻辑。本案归档分数8、8、4、6，均值6.5；问题不是高分为何没被照单全收，而是相反评价怎样被裁决。"
+        ],
+        "sources": [
+          "R4Cz2PEw0xCj",
+          "Ryp4QVDPO7J",
+          "MMic84PGUXz",
+          "DOS6aHuhMuR"
+        ]
+      },
+      {
+        "heading": "论文在做什么，理论又为什么挨批",
+        "kind": "reviews",
+        "paragraphs": [
+          "RECAP在强化学习中注入反向对齐的推理前缀：有害请求接不安全思路，无害请求接拒绝式思路，让模型练习从错误轨迹恢复。作者报告安全、越狱鲁棒性和减少过度拒绝的收益，同时保持数学能力。两位8分评审特别认可方法简单、压力测试充分，并没有把接收价值全部押在定理上。",
+          "对原理论的质疑也很具体：一位8分评审认为假设近乎预设结论，另一位评审要求估计误差项。作者因而新增训练检查点测量，把定理改成经验支持的分析。此举不能解释所有因果机制，但撤回过强理论包装本应减少主张负担；若仍要以理论深度不足拒稿，裁决必须说明缺失机制对哪项核心结论不可替代。"
+        ],
+        "sources": [
+          "PTSk3cIdIQK",
+          "R17dTHP8auNs",
+          "R2pvxUahDTCR",
+          "R3CmfXTRGqM6",
+          "ApvQpTLO0X5"
+        ]
+      },
+      {
+        "heading": "“可能是数据混合”不能跳过已经给出的控制",
+        "kind": "response",
+        "paragraphs": [
+          "AC担心数学收益可能来自基线优化或数据混合。但作者在11月28日的明确回应中说，DAPO与RECAP均使用相同5K混合：3K数学、2K安全与过度拒绝，区别是后者为这2K样本注入前缀，并称其他数据处理与监督相同。这不能独立证明实现无误，却直接回答了“基线是否见过相同数学数据”。",
+          "作者还补三种子结果、数学与安全数据拆分消融，并在非DeepSeek蒸馏的Granite上测试。AC若怀疑其他训练差异，应点名预算、奖励或采样的具体缺口，不能只重提泛化的“数据混合”可能性。最强反证是原先点名的普通Llama-8B及完整14B消融未补齐，小幅数学收益也不都等于稳定显著提升。",
+          "4分评审11月26日追评说，作者没有直接回答问题；11月28日回复则逐项给出误差项估计，明确否认假定DAPO从不生成或恢复不安全轨迹，并解释Granite选择。可以认为答案不充分，但不能将“还未回答”原封不动搬成归档最终状态。答案是否成立，与答案是否存在，是两种必须分开的判断。"
+        ],
+        "sources": [
+          "MMic84PGUXz",
+          "AXb4drGmQgX",
+          "ASp4rz1nm74",
+          "ArucFqRzg4H",
+          "Am2MDuEMr1Y",
+          "RSQsQhgQTzq"
+        ]
+      },
+      {
+        "heading": "作者没有证明内部机制，却已反驳最简单的替代解释",
+        "kind": "decision",
+        "paragraphs": [
+          "8分评审怀疑模型只是检测外来前缀，而非真正改善反思。作者提供两类针对性证据：无前缀WildJailbreak上反思频率74.2%对43.9%；使用策略模型自身生成的前缀训练后，安全收益仍然存在。首次反思位置统计也显示，事件并非都集中在前缀之后开头几步。",
+          "这些结果不能唯一识别内部机制，尤其反思标签仍依赖模型评判，行为频率也不是因果干预。但它们确实削弱了“只是见到注入文本就触发纠错”的简单解释。meta要求解释为何干净输入也受益时，应区分“还未解释因果路径”与“没有提供迁移证据”；前者成立，后者不符合可见回应。",
+          "作者说多数主要安全评估没有测试时前缀，这使“干净输入受益”至少已经成为受测现象。真正需要加强的是排除其他训练路径，而不是再把现象当作没有证据的惊奇。反思标签的人工一致性也未因使用常见评判协议而自动确立；跨基准一致能增加可信度，仍不能替代直接人工复核。"
+        ],
+        "sources": [
+          "R2pvxUahDTCR",
+          "AtCztM9a8Vy",
+          "AWYzn2X4Wi8",
+          "AyMi1iA31Ye",
+          "MMic84PGUXz",
+          "R17dTHP8auNs"
+        ]
+      },
+      {
+        "heading": "哪些质疑成立，哪些需要收回笼统措辞",
+        "kind": "analysis",
+        "paragraphs": [
+          "成本是AC更扎实的批评点。摘要称不增加训练成本，但前缀数据生成和辅助模型准备并不会凭主RL阶段预算相同而消失。作者可以说主RLHF阶段无需额外预算，不能由此推出完整流程零增量。公开记录缺成本明细，既不能确认费用很大，也不能替作者免去核算责任。",
+          "作者同样有过度解释：把无前缀行为和案例描述为已内化真正自我纠错机制，证据仍不够；数据消融中“安全数据单独不提升数学”的概括也过强，DSLlama的MATH500均值实际从81.13升到82.00。这不证明有显著增益，却足以阻止把“所有指标都不升”当成表格结论。",
+          "因此，合理的处理应是分别收窄机制、成本与能力主张，而不是让“没有完整解释为何有效”吞掉已经被承认的经验贡献。此处批评的是证据权重和接收门槛未交代清楚，不是宣称AC提出的每个问题都错，更不是把评审愿意升分写成已生效终分。"
+        ],
+        "sources": [
+          "MMic84PGUXz",
+          "PTSk3cIdIQK",
+          "AtCztM9a8Vy",
+          "ArucFqRzg4H",
+          "Ryp4QVDPO7J"
+        ]
+      },
+      {
+        "heading": "裁决需要回答的具体问题",
+        "kind": "lessons",
+        "paragraphs": [
+          "一份更可复核的meta应说明：去掉弱定理后，哪些结论仍越过证据边界；同数据控制后，数学比较还缺哪项控制；无前缀和自生成前缀实验为何不足；成本限定到主训练阶段后，剩余缺口为何仍足以拒稿。作者则应把“观察到更多反思”“反思造成安全收益”“完整流程不增成本”分开表述。要求严格，应当严格到命题，而不是停在“科学性不够”的总评。",
+          "同理，“保持数学能力”与“逆转对齐税”应接受不同强度的检验：前者可在明确容忍区间和同数据基线上评估，后者需要更稳定的优势及归因证据。AC把改善与保持并列称为反直觉，又共同要求因果解释，容易把保守的能力保持主张也抬到突破性机制发现的证明门槛。"
+        ],
+        "sources": [
+          "Ryp4QVDPO7J",
+          "AXb4drGmQgX",
+          "AtCztM9a8Vy",
+          "MMic84PGUXz"
+        ]
+      },
+      {
+        "heading": "核查范围",
+        "kind": "limits",
+        "paragraphs": [
+          "本文读取2026年5月8日归档的摘要、四份评审、十六条评论、meta与决定，未独立查验PDF、日志或复现实验。追评有后续修改时间，不能仅凭创建日期断言AC当时见到完全相同版本。本文据可见记录辨析标准冲突；不把作者报告当作独立验证，也不把归档分数当终评分。"
+        ],
+        "sources": [
+          "ARCHIVE",
+          "Cofficialcontext",
+          "Ryp4QVDPO7J",
+          "MMic84PGUXz"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "PTSk3cIdIQK",
+        "label": "论文摘要与论坛",
+        "url": "https://openreview.net/forum?id=TSk3cIdIQK"
+      },
+      {
+        "id": "ARCHIVE",
+        "label": "2026-05-08 归档版本",
+        "url": "https://github.com/qhjqhj00/iclr-openreview-reviews/releases/tag/v1.0"
+      },
+      {
+        "id": "Cofficialcontext",
+        "label": "ICLR 官方：2026 评审流程回顾",
+        "url": "https://blog.iclr.cc/2026/03/31/a-retrospective-on-the-iclr-2026-review-process/"
+      },
+      {
+        "id": "R17dTHP8auNs",
+        "label": "正式评审 · 7dTHP8auNs",
+        "url": "https://openreview.net/forum?id=TSk3cIdIQK&noteId=7dTHP8auNs"
+      },
+      {
+        "id": "R2pvxUahDTCR",
+        "label": "正式评审 · pvxUahDTCR",
+        "url": "https://openreview.net/forum?id=TSk3cIdIQK&noteId=pvxUahDTCR"
+      },
+      {
+        "id": "MMic84PGUXz",
+        "label": "Meta-review · Mic84PGUXz",
+        "url": "https://openreview.net/forum?id=TSk3cIdIQK&noteId=Mic84PGUXz"
+      },
+      {
+        "id": "DOS6aHuhMuR",
+        "label": "正式决定 · OS6aHuhMuR",
+        "url": "https://openreview.net/forum?id=TSk3cIdIQK&noteId=OS6aHuhMuR"
+      },
+      {
+        "id": "R3CmfXTRGqM6",
+        "label": "正式评审 · CmfXTRGqM6",
+        "url": "https://openreview.net/forum?id=TSk3cIdIQK&noteId=CmfXTRGqM6"
+      },
+      {
+        "id": "R4Cz2PEw0xCj",
+        "label": "正式评审 · Cz2PEw0xCj",
+        "url": "https://openreview.net/forum?id=TSk3cIdIQK&noteId=Cz2PEw0xCj"
+      },
+      {
+        "id": "ApvQpTLO0X5",
+        "label": "作者回应 · pvQpTLO0X5",
+        "url": "https://openreview.net/forum?id=TSk3cIdIQK&noteId=pvQpTLO0X5"
+      },
+      {
+        "id": "Ryp4QVDPO7J",
+        "label": "评审追评 · yp4QVDPO7J",
+        "url": "https://openreview.net/forum?id=TSk3cIdIQK&noteId=yp4QVDPO7J"
+      },
+      {
+        "id": "RhTd1SVEyqf",
+        "label": "评审追评 · hTd1SVEyqf",
+        "url": "https://openreview.net/forum?id=TSk3cIdIQK&noteId=hTd1SVEyqf"
+      },
+      {
+        "id": "RSQsQhgQTzq",
+        "label": "评审追评 · SQsQhgQTzq",
+        "url": "https://openreview.net/forum?id=TSk3cIdIQK&noteId=SQsQhgQTzq"
+      },
+      {
+        "id": "AXb4drGmQgX",
+        "label": "作者回应 · Xb4drGmQgX",
+        "url": "https://openreview.net/forum?id=TSk3cIdIQK&noteId=Xb4drGmQgX"
+      },
+      {
+        "id": "ASp4rz1nm74",
+        "label": "作者回应 · Sp4rz1nm74",
+        "url": "https://openreview.net/forum?id=TSk3cIdIQK&noteId=Sp4rz1nm74"
+      },
+      {
+        "id": "ArucFqRzg4H",
+        "label": "作者回应 · rucFqRzg4H",
+        "url": "https://openreview.net/forum?id=TSk3cIdIQK&noteId=rucFqRzg4H"
+      },
+      {
+        "id": "Am2MDuEMr1Y",
+        "label": "作者回应 · m2MDuEMr1Y",
+        "url": "https://openreview.net/forum?id=TSk3cIdIQK&noteId=m2MDuEMr1Y"
+      },
+      {
+        "id": "AtCztM9a8Vy",
+        "label": "作者回应 · tCztM9a8Vy",
+        "url": "https://openreview.net/forum?id=TSk3cIdIQK&noteId=tCztM9a8Vy"
+      },
+      {
+        "id": "AWYzn2X4Wi8",
+        "label": "作者回应 · WYzn2X4Wi8",
+        "url": "https://openreview.net/forum?id=TSk3cIdIQK&noteId=WYzn2X4Wi8"
+      },
+      {
+        "id": "AyMi1iA31Ye",
+        "label": "作者回应 · yMi1iA31Ye",
+        "url": "https://openreview.net/forum?id=TSk3cIdIQK&noteId=yMi1iA31Ye"
+      },
+      {
+        "id": "Aurz0hc9PPW",
+        "label": "作者回应 · urz0hc9PPW",
+        "url": "https://openreview.net/forum?id=TSk3cIdIQK&noteId=urz0hc9PPW"
+      }
+    ],
+    "review_state": "commentary_public",
+    "finding": {
+      "level": "standard-dispute",
+      "target": "ac",
+      "summary": "评审认可撤掉弱定理、以经验分析呈现，AC却把这一转向本身视为贡献削弱，未充分解释为何经验贡献仍不足以成立。",
+      "rationale": "归档追评明确欢迎删除定理并支持接收；meta-review承认实证强、方法有效，却把从理论推导转向经验总结列作拒稿理由。AC可持不同标准，但应解释该标准与已收窄主张、补充控制的关系；现有记录不能证明机制已经识别，也不能据此认定拒稿在事实层面绝对错误。",
+      "source_ids": [
+        "R4Cz2PEw0xCj",
+        "Ryp4QVDPO7J",
+        "MMic84PGUXz",
+        "AXb4drGmQgX",
+        "AtCztM9a8Vy"
+      ]
+    },
+    "publication": {
+      "basis": "owner_requested_publication",
+      "human_reviewed": false,
+      "date": "2026-09-28"
+    }
+  },
+  {
+    "slug": "ladir-latent-reasoning",
+    "forum_id": "z5cPEZ4n6i",
+    "title": "LaDiR: Latent Diffusion Enhances LLMs for Text Reasoning",
+    "headline": "LaDiR：AC称多样性疑虑已解决，核心基线却在同一回复里报出89.0和49.8",
+    "deck": "两份0分都是有内容的强拒。补实验确实改变了证据，但同一作者回复给出冲突的MATH Pass@100，AC没有解释；评审对扩散“明显更慢”的先验判断，也不能代替对齐后的成本测量。",
+    "topic": "潜在推理与扩散语言模型",
+    "category": "low-accepted",
+    "decision": "Accept (Poster)",
+    "ratings": [
+      6,
+      0,
+      0,
+      6
+    ],
+    "mean": 3.0,
+    "archive_date": "2026-05-08",
+    "read_minutes": 8,
+    "score_note": "归档原始评分为 6、0、0、6，均分 3.0；两个 0 均对应完整强拒意见，并非缺失值。meta 的 reviewer_scores 字段含义不明确，不能据此声称审稿人确认或改分。",
+    "sections": [
+      {
+        "heading": "研究与结果：两个零分不能被当作噪声删掉",
+        "kind": "facts",
+        "paragraphs": [
+          "LaDiR先用VAE把文本推理压缩成潜在思维块，再以扩散生成轨迹，并用最终答案的训练信号约束中间思维。工作希望同时改善推理、多样性与可解释性，主要在8B骨干上评估。公开评分是6、0、0、6，最终Poster录用；两个0都对应完整强拒意见，不是缺失值或占位符。",
+          "录用本身不能证明强拒错误。但本案也不能满足于“答辩补实验，AC认可”的顺滑叙事：用于证明疑虑已解决的数字，内部还没有对齐。"
+        ],
+        "sources": [
+          "P",
+          "A1",
+          "A4",
+          "R1",
+          "R2",
+          "R3",
+          "R4",
+          "D"
+        ]
+      },
+      {
+        "heading": "最直接的冲突：一条回复，同一基线，两个Pass@100",
+        "kind": "reviews",
+        "paragraphs": [
+          "作者的总回复先给出延迟表：MATH上LLaMA CoT SFT的Pass@1为43.1、Pass@100为89.0。紧接着的跨任务表，同一方法同一任务又变成43.1与49.8。两处单次成绩一致，多样本成绩却相差39.2个百分点，回复没有解释可将两者调和的评估协议。",
+          "这不是可忽略的小数点误差。前一张表中89.0还是后一张表的GSM8K Pass@100数值，确实值得核对，但不能擅自宣布发生了列错位。当前可确认的是记录冲突，不能挑对LaDiR更有利的那张表直接报道。",
+          "这项冲突还改变了读者对效率表的理解：若延迟表中的高Pass@100来自另一采样协议，就需要解释它与跨任务结果为何并列；若只是笔误，则必须指出哪一项应改。两种情况都不能由读者代为修补，更不能未经核对就据其计算多样性优势。"
+        ],
+        "sources": [
+          "A3"
+        ]
+      },
+      {
+        "heading": "评审哪里越过了证据：扩散步数不等于实测慢多少",
+        "kind": "response",
+        "paragraphs": [
+          "nMv9写推理“应该慢得多”，VgbG也从多步去噪推断会明显慢于自回归。要求报告墙钟时间完全合理，但在未计入序列压缩前先宣布速度结论，证据不足。作者称每块4个潜在词元平均承载约22个文本词元；不同步数背后的单步工作量并不相等。",
+          "作者随后报告同硬件、批量8的MATH结果：CoT为4.7秒、Pass@1为43.1；LaDiR十步为4.9秒、42.9，三十步为14.8秒、44.9。低步数接近基线、准确率略低，高步数更准但约慢三倍。这组自报结果反驳的是不分设置的慢速断言，绝不是“扩散全面更快”。多阶段训练成本也未被这张推理表消除。",
+          "评审的有效部分是“缺测量”，越界部分是“已知会慢很多”。这两层必须拆开。单一任务的自报延迟还不足以确立普遍效率优势，但已经足以说明，判断复杂模型的运行代价不能只数去噪步骤而忽略每步处理的表示长度。"
+        ],
+        "sources": [
+          "R2",
+          "R4",
+          "A3",
+          "A9"
+        ]
+      },
+      {
+        "heading": "AC遗漏的关键说明：补了表，不等于表已支持结论",
+        "kind": "decision",
+        "paragraphs": [
+          "AC认为最近邻比较、延迟测量和跨数学任务的Pass@K已充分回应主要疑虑，并保留流程复杂、调参脆弱及规模不足的问题。它解释了为何仍愿意录用，但没有说明如何处理上述同任务基线冲突。对于以多样性为主要卖点的论文，这项遗漏直接影响读者能否复核裁决。",
+          "作者在同条回复又概括LaDiR在数学数据集上都有最高Pass@100；可其表中Olympia是LaDiR 15.3、Discrete Latent 17.8。这个反例足以否定“各数据集均最高”的文字结论。AC没有逐项背书这句话，报道也不应替作者重复它。"
+        ],
+        "sources": [
+          "M",
+          "A3",
+          "D"
+        ]
+      },
+      {
+        "heading": "强拒抓对了什么：近邻遗漏不能靠大幅领先一笔勾销",
+        "kind": "analysis",
+        "paragraphs": [
+          "两位强拒者要求补充LD4LG、PLANNER，指出自编码器加潜在扩散并非新架构；也指出自回归同样能批量采样。作者承认应补引并重写贡献定位。这些是有内容的纠偏，不能因为最后接收就反称评审不懂创新。",
+          "新增MATH比较为PLANNER 5.7、LD4LG 9.1、LaDiR 45.2，但前两者采用FLAN-T5编码器和整段表示。大幅领先可以支持当前配置更适合推理，不能单独证明收益来自哪项新机制。同样，Pass@100衡量多次采样命中机会，还受到单次能力与候选相关性影响，不是轨迹多样性的直接测量。",
+          "遗漏直接相关工作足以要求大修定位，却不足以证明作者有意误导。强拒评语中“巧妙避开讨论”的措辞带有动机暗示；公开记录只支持近邻文献缺失、作者随后承认补齐，不能进一步推定为什么遗漏。批评贡献包装应停留在文字和比较对象上。"
+        ],
+        "sources": [
+          "R2",
+          "R3",
+          "A1",
+          "A2",
+          "A3"
+        ]
+      },
+      {
+        "heading": "应补的审计：先对表，再谈“已经解决”",
+        "kind": "lessons",
+        "paragraphs": [
+          "作者应逐表标明采样设置、扩散步数、评估集合与指标计算，公开解释89.0和49.8为何不同，并修正“全部最高”的概括。分块消融也有任务列值与其他表不一致的问题，须核对后才能据此分析压缩粒度。",
+          "评审则应将计算代价写成需要验证的假设，按相同硬件、批量、时间预算比较；用不匹配的步数直觉拒稿没有必要。AC可以认定剩余不确定性不阻碍录用，但应点明接受的是哪组可对照证据，而不是把“新增评估”本身当成争议结束的理由。",
+          "作者关于“高温采样更不易读，说明潜在空间不受流畅文本约束”的回应也没有直接证明更抽象的推理能力。可读性降低可能有多种原因；可解码本身也不等于解码内容忠实解释计算。这是仍需专门评估的主张，不能借评审肯定可解释性就视为解决。"
+        ],
+        "sources": [
+          "A2",
+          "A3",
+          "A6",
+          "R2",
+          "R4",
+          "M",
+          "R1"
+        ]
+      },
+      {
+        "heading": "判断边界：公开材料能确认的错误与不能确认的结论",
+        "kind": "limits",
+        "paragraphs": [
+          "作者已承认把本应属于Gaokao的优势写到了DM-Math，评审在这里抓到了真实文字错误；41.8对40.8则涉及相对提升与百分点区分，不能简单当算错。低新颖性属于评价意见，本文不将其列为绝对错误。",
+          "本文通读2026年5月8日归档的摘要与全部评议，未核验原PDF或复现实验。meta的评分字段只写“I dont think so.”，无法据此恢复任何改分共识。核心数字冲突尚未解决；公开记录也没有提供两位强拒者在补实验后改票的证据。",
+          "因而，最稳固的批评对象是可核对的表格矛盾、被表中反例推翻的概括，以及未对齐成本前的速度断言。两份强拒是否总体合理仍属于贡献门槛判断，不能用最终录用结果反向给整份评审判错。"
+        ],
+        "sources": [
+          "A7",
+          "R1",
+          "M",
+          "ARCHIVE"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "P",
+        "label": "论文标题与摘要（归档论坛）",
+        "url": "https://openreview.net/forum?id=z5cPEZ4n6i"
+      },
+      {
+        "id": "R1",
+        "label": "审稿 R1（评分 6）",
+        "url": "https://openreview.net/forum?id=z5cPEZ4n6i&noteId=QGPSHkseXj"
+      },
+      {
+        "id": "R2",
+        "label": "审稿 R2（评分 0）",
+        "url": "https://openreview.net/forum?id=z5cPEZ4n6i&noteId=I0QVSqFF6r"
+      },
+      {
+        "id": "R3",
+        "label": "审稿 R3（评分 0）",
+        "url": "https://openreview.net/forum?id=z5cPEZ4n6i&noteId=xMCJ4X0Nss"
+      },
+      {
+        "id": "R4",
+        "label": "审稿 R4（评分 6）",
+        "url": "https://openreview.net/forum?id=z5cPEZ4n6i&noteId=arGCud5JG5"
+      },
+      {
+        "id": "A1",
+        "label": "Response to Reviewer D4vn and nMv9's Concerns on Related Work and Novelty [Part 1]",
+        "url": "https://openreview.net/forum?id=z5cPEZ4n6i&noteId=R5HSj1khPX"
+      },
+      {
+        "id": "A2",
+        "label": "Response to Reviewer D4vn and nMv9's Concerns on Related Work and Novelty [Part 2]",
+        "url": "https://openreview.net/forum?id=z5cPEZ4n6i&noteId=p2N2L5xUcQ"
+      },
+      {
+        "id": "A3",
+        "label": "General Response to Common Weaknesses",
+        "url": "https://openreview.net/forum?id=z5cPEZ4n6i&noteId=2Vj06vtx7Q"
+      },
+      {
+        "id": "A4",
+        "label": "Author Response to Reviewer nMv9",
+        "url": "https://openreview.net/forum?id=z5cPEZ4n6i&noteId=iW6TQhyKg9"
+      },
+      {
+        "id": "A5",
+        "label": "Author Response to Reviewer D4vn [Part 1]",
+        "url": "https://openreview.net/forum?id=z5cPEZ4n6i&noteId=wE319l3SCD"
+      },
+      {
+        "id": "A6",
+        "label": "Author Response to Reviewer VgbG [Part 2]",
+        "url": "https://openreview.net/forum?id=z5cPEZ4n6i&noteId=NMS9VvfHcz"
+      },
+      {
+        "id": "A7",
+        "label": "Author Response to Reviewer FWxU [Part 2]",
+        "url": "https://openreview.net/forum?id=z5cPEZ4n6i&noteId=tQtbuCpXgS"
+      },
+      {
+        "id": "A8",
+        "label": "Final Remarks from Authors",
+        "url": "https://openreview.net/forum?id=z5cPEZ4n6i&noteId=OvJ04kYZSa"
+      },
+      {
+        "id": "A9",
+        "label": "Author Response to Reviewer VgbG [Part 1]",
+        "url": "https://openreview.net/forum?id=z5cPEZ4n6i&noteId=3wPQ6M9FAi"
+      },
+      {
+        "id": "A10",
+        "label": "Author Response to Reviewer FWxU [Part 1]",
+        "url": "https://openreview.net/forum?id=z5cPEZ4n6i&noteId=aKFPfBUkKT"
+      },
+      {
+        "id": "A11",
+        "label": "Author Response to Reviewer D4vn [Part 2]",
+        "url": "https://openreview.net/forum?id=z5cPEZ4n6i&noteId=lKh6EFq2kL"
+      },
+      {
+        "id": "A12",
+        "label": "Follow-up to all Reviewers",
+        "url": "https://openreview.net/forum?id=z5cPEZ4n6i&noteId=7Ytyh0BhL1"
+      },
+      {
+        "id": "M",
+        "label": "领域主席综合评议",
+        "url": "https://openreview.net/forum?id=z5cPEZ4n6i&noteId=KnW02tELT8"
+      },
+      {
+        "id": "D",
+        "label": "正式决定",
+        "url": "https://openreview.net/forum?id=z5cPEZ4n6i&noteId=J170j4Xbb3"
+      },
+      {
+        "id": "ARCHIVE",
+        "label": "2026-05-08 归档快照",
+        "url": "https://github.com/qhjqhj00/iclr-openreview-reviews/releases/tag/v1.0"
+      },
+      {
+        "id": "C",
+        "label": "ICLR 官方评审流程回顾（2026-03-31）",
+        "url": "https://blog.iclr.cc/2026/03/31/a-retrospective-on-the-iclr-2026-review-process/"
+      }
+    ],
+    "review_state": "commentary_public",
+    "finding": {
+      "level": "record-conflict",
+      "target": "authors",
+      "summary": "同一作者回复的两张表将LLaMA CoT SFT在MATH上的Pass@100分别写为89.0与49.8。",
+      "rationale": "A3两表使用同一方法和任务标签却给出不同数值，未交代足以解释差异的协议。M接受跨数学任务的多样性补强但没有处理此冲突；不能擅定哪个数正确，也不能将其包装成已经核实的优势。",
+      "source_ids": [
+        "A3",
+        "M"
+      ]
+    },
+    "publication": {
+      "basis": "owner_requested_publication",
+      "human_reviewed": false,
+      "date": "2026-09-28"
+    }
+  },
+  {
+    "slug": "discrete-diffusion-scaling",
+    "forum_id": "GDYaNzxt9T",
+    "title": "Scaling Behavior of Discrete Diffusion Language Models",
+    "headline": "离散扩散Scaling：评审要看到交点，AC猜三人会升分，真正该解释的是结论为何改了",
+    "deck": "作者补到10B参数，却只在这一尺度训练了均匀扩散；新拟合把“明显胜出”收缩为“趋同”。把答辩写成原主张获验证，会同时误读审稿意见和新增证据。",
+    "topic": "扩散语言模型的规模规律",
+    "category": "low-accepted",
+    "decision": "Accept (Poster)",
+    "ratings": [
+      4,
+      4,
+      2,
+      4
+    ],
+    "mean": 3.5,
+    "archive_date": "2026-05-08",
+    "read_minutes": 8,
+    "score_note": "归档原始评分为 4、4、2、4，均分 3.5。meta 所说三位审稿人可能升分是 AC 的反事实评估，档案没有显示三次实际改分。",
+    "sections": [
+      {
+        "heading": "先把变化说清：接收的已不是原先那句强结论",
+        "kind": "facts",
+        "paragraphs": [
+          "这项研究比较掩码、均匀和混合噪声的离散扩散模型，考察参数、数据、批量与学习率如何随预算变化。公开初始评分4、4、2、4，均分3.5，最终Poster录用。最值得追究的不是低分与接收的反差，而是答辩后核心结论的收缩。",
+          "初稿引发争议的是均匀扩散在更大算力下会胜出的预测。作者补实验、改拟合后，改为不同噪声在算力受限时趋近相似损失，没有明确赢家；均匀扩散偏好更多参数、较少数据，仍可能在数据受限时有优势。这两类预算条件不能混写。"
+        ],
+        "sources": [
+          "P",
+          "R1",
+          "R2",
+          "R3",
+          "R4",
+          "A1",
+          "A2",
+          "D"
+        ]
+      },
+      {
+        "heading": "评审的强要求：必须看到交点，适用于哪种主张？",
+        "kind": "reviews",
+        "paragraphs": [
+          "foon指出，最大模型仅约5.7亿参数，外推线相交不等于实测优势，要求至少为掩码和均匀扩散追加15倍算力，并称直接看到交点至关重要。对“更大规模必将胜出”的强断言，这个警惕有实质依据：细小斜率差足以支配遥远外推。",
+          "但不能把直接跨过交点设成所有规模规律研究的录用门槛；缩小主张、报告不确定性和留出更大尺度验证，也能形成有价值的结果。该评审的问题栏其实允许无法做到15倍时先做2—3倍验证。因此批评应针对门槛与具体主张如何匹配，不能歪曲成评审一味要求烧算力。"
+        ],
+        "sources": [
+          "R1",
+          "R4"
+        ]
+      },
+      {
+        "heading": "答辩究竟补了什么：10B不是成对胜负验证",
+        "kind": "response",
+        "paragraphs": [
+          "作者训练了3B掩码和3B均匀模型，预算均为10²¹ FLOPs；另加10B均匀模型至10²² FLOPs。因算力限制，没有10B掩码模型。新增运行比原最大运行分别约大5倍、50倍，却不能用“已做到50倍”替代最高尺度的成对比较。",
+          "更关键的是拟合也变了：作者从参数化损失曲面转为iso-FLOP曲线。新曲线与新增运行较吻合，同时预测转向趋同；作者报告掩码和均匀之间的似然差从10¹⁸ FLOPs的3.2%缩到10²¹的1.7%。这支持差距缩小，没有直接观察到均匀反超。",
+          "作者还补下游评测、分组指数和退火统计，删除趋近零损失时的巨大批量外推，并承认“最优批量与噪声类型无关”过强。审稿没有把正确结论无端打低；至少部分质疑促成了实质修正。",
+          "分组结果也揭示了统一口号的代价：作者报告最优批量指数在掩码噪声下为0.7759，在均匀噪声下为0.8787。因此，要求按噪声类型拆表并非枝节；它迫使作者把“无关”改成带条件的近似。不过统计差异有多大实践影响，还须看硬件允许的离散批量选择。"
+        ],
+        "sources": [
+          "A1",
+          "A2",
+          "A5",
+          "A8",
+          "A9"
+        ]
+      },
+      {
+        "heading": "AC的解释缺口：三人可能升分，不能代替逐项判定",
+        "kind": "decision",
+        "paragraphs": [
+          "AC说答辩回应了追加实验这一主要疑虑，并估计四名评审中三人可能提分，从而走向接收。公开meta也提到作者修订了表述，但没有展开说明：原来的胜出预测已经变为趋同，最高尺度又缺一侧对照，剩余哪些主张足以支撑录用？",
+          "这里最需要的是证据与主张的对应关系，而非假设中的票数。AC可以认为更克制的资源分配规律仍值得接收；但“可能有三人升分”只是其反事实判断，不是三次改分记录，更不能充当原外推正确的证明。",
+          "现有记录中的正当拒稿理由已经足以说明：作者当时的强措辞超出了小规模拟合能独立承载的证据。修订后的贡献可能依然成立，但这恰好说明需要重新评价较窄的命题。若只说“大实验解决疑虑”，就会遮住论文究竟撤回了什么。"
+        ],
+        "sources": [
+          "M",
+          "A1",
+          "A2",
+          "D"
+        ]
+      },
+      {
+        "heading": "另一处标准错位：训练损失不能直接拿测试泛化否定",
+        "kind": "analysis",
+        "paragraphs": [
+          "2分评审以小批量有利测试准确率的文献质疑极大最优批量，并认为不考虑过拟合不现实。问题在于本文讨论不足一轮的互联网规模预训练；反复使用有限数据时的泛化经验，不能不加条件地移到这一区间。目标是给定训练词元预算下的损失，也不同于最终测试准确率。",
+          "不过，作者自己先用了巨大外推数字和“鲜明对比”的措辞，制造了超出区间的印象，随后删除数字是必要纠正。这里可批评的是评审没有充分区分训练制度，不能宣称所有批量质疑都被驳倒；原文的外推边界本就没有交代好。",
+          "另一个尚不能算已解决的问题是训练目标。评审追问不加权代理损失会否改变规模规律；作者回复强调评估数字确为负ELBO。评估量合法，并不直接回答改用另一训练目标后指数是否变化。公开答辩没有在这段回复中给出该项对照，不能将说明指标与验证训练选择当成同一件事。"
+        ],
+        "sources": [
+          "R3",
+          "A3",
+          "A5",
+          "R1",
+          "A7"
+        ]
+      },
+      {
+        "heading": "真正的证据清单：保留旧曲线，也保留没有赢的任务",
+        "kind": "lessons",
+        "paragraphs": [
+          "作者应并列旧、新拟合及验证运行，交代哪些数据用于拟合、哪些用于独立验证。方法改变后“贴近新预测”，不能自动追认为旧预测准确；计算预算再大，也不能省略对照缺失这一事实。评审则应明确哪条强主张需要交点，哪条较弱主张已由局部验证支持。",
+          "下游结果同样不能只摘优势。3B均匀模型的PIQA、OBQA和BoolQ低于3B掩码，ARC-C相同；均匀模型并未在全部任务领先。10B只训练一类噪声，不能把模型变大后的提升全归给噪声。这样的对照边界比“追加实验后被说服”更有信息。"
+        ],
+        "sources": [
+          "A1",
+          "A2",
+          "A8",
+          "R4"
+        ]
+      },
+      {
+        "heading": "事实边界：没有足够材料给评审判“绝对错误”",
+        "kind": "limits",
+        "paragraphs": [
+          "新增GSM8K最好成绩仅2.43，三个检查点的HumanEval全为零；作者称没有专门数学和代码训练数据。自回归参照还使用不同数据，绝对损失不能直接横比。这些限制排除了“均匀扩散全面胜出”或“已具强推理能力”的报道口径。",
+          "本文依据2026年5月8日归档全部公开评议，未核验原PDF、图像外链或训练日志。作者报告的趋势值得讨论，却没有足够材料证明评审的外推警惕在数学上错误。本案可成立的尖锐结论是：AC应解释为何收缩后的论文仍值得接收，而不是让推测的改分替代这项说明。"
+        ],
+        "sources": [
+          "A1",
+          "A3",
+          "A4",
+          "M",
+          "ARCHIVE"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "P",
+        "label": "论文标题与摘要（归档论坛）",
+        "url": "https://openreview.net/forum?id=GDYaNzxt9T"
+      },
+      {
+        "id": "R1",
+        "label": "审稿 R1（评分 4）",
+        "url": "https://openreview.net/forum?id=GDYaNzxt9T&noteId=ea4fmETati"
+      },
+      {
+        "id": "R2",
+        "label": "审稿 R2（评分 4）",
+        "url": "https://openreview.net/forum?id=GDYaNzxt9T&noteId=LTleNGvfqt"
+      },
+      {
+        "id": "R3",
+        "label": "审稿 R3（评分 2）",
+        "url": "https://openreview.net/forum?id=GDYaNzxt9T&noteId=Wf1HuKS4Rm"
+      },
+      {
+        "id": "R4",
+        "label": "审稿 R4（评分 4）",
+        "url": "https://openreview.net/forum?id=GDYaNzxt9T&noteId=EXriizyFds"
+      },
+      {
+        "id": "A1",
+        "label": "General Comment",
+        "url": "https://openreview.net/forum?id=GDYaNzxt9T&noteId=v0VkoSaCVj"
+      },
+      {
+        "id": "A2",
+        "label": "Official response to Reviewer foon (1/2)",
+        "url": "https://openreview.net/forum?id=GDYaNzxt9T&noteId=BUu3eL2J2f"
+      },
+      {
+        "id": "A3",
+        "label": "Official response to Reviewer foon (2/2)",
+        "url": "https://openreview.net/forum?id=GDYaNzxt9T&noteId=kqjaX2tjZ3"
+      },
+      {
+        "id": "A4",
+        "label": "Official response to Reviewer a8ML",
+        "url": "https://openreview.net/forum?id=GDYaNzxt9T&noteId=3iVaMUKFBt"
+      },
+      {
+        "id": "A5",
+        "label": "Official response to Reviewer 5DFM (1/2)",
+        "url": "https://openreview.net/forum?id=GDYaNzxt9T&noteId=dzSERJqPa3"
+      },
+      {
+        "id": "A6",
+        "label": "Official response to Reviewer 5DFM (2/2)",
+        "url": "https://openreview.net/forum?id=GDYaNzxt9T&noteId=f9DNjYbglI"
+      },
+      {
+        "id": "A7",
+        "label": "Official response to Reviewer ZRSL (1/2)",
+        "url": "https://openreview.net/forum?id=GDYaNzxt9T&noteId=aPFvdIu0mJ"
+      },
+      {
+        "id": "A8",
+        "label": "Official response to Reviewer ZRsL (2/2)",
+        "url": "https://openreview.net/forum?id=GDYaNzxt9T&noteId=tnALWnwTTu"
+      },
+      {
+        "id": "A9",
+        "label": "Updated Manuscript",
+        "url": "https://openreview.net/forum?id=GDYaNzxt9T&noteId=2OrWwQZ8QG"
+      },
+      {
+        "id": "M",
+        "label": "领域主席综合评议",
+        "url": "https://openreview.net/forum?id=GDYaNzxt9T&noteId=BSiaNTCuxi"
+      },
+      {
+        "id": "D",
+        "label": "正式决定",
+        "url": "https://openreview.net/forum?id=GDYaNzxt9T&noteId=hZM2xUsjUy"
+      },
+      {
+        "id": "ARCHIVE",
+        "label": "2026-05-08 归档快照",
+        "url": "https://github.com/qhjqhj00/iclr-openreview-reviews/releases/tag/v1.0"
+      },
+      {
+        "id": "C",
+        "label": "ICLR 官方评审流程回顾（2026-03-31）",
+        "url": "https://blog.iclr.cc/2026/03/31/a-retrospective-on-the-iclr-2026-review-process/"
+      }
+    ],
+    "review_state": "commentary_public",
+    "finding": {
+      "level": "standard-dispute",
+      "target": "reviewer",
+      "summary": "评审将直接看到两类噪声曲线交点列为强优势主张的关键条件，并提出至少15倍算力验证。",
+      "rationale": "这是对证据门槛的严格要求而非可确认的事实错误；同一评审也明确接受2–3倍局部验证。作者最终增加实验、改换拟合并收缩主张，因此合理批评应指向区分原强主张与修订弱主张所需门槛，而不是宣称评审被全面驳倒。",
+      "source_ids": [
+        "R4",
+        "A1",
+        "A2",
+        "M"
+      ]
+    },
+    "publication": {
+      "basis": "owner_requested_publication",
+      "human_reviewed": false,
+      "date": "2026-09-28"
+    }
+  }
+]

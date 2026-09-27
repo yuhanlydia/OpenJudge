@@ -1,0 +1,80 @@
+{
+  "edition": "ICLR2026-critical-commentary-v1",
+  "publication_date": "2026-09-28",
+  "authorization": {
+    "basis": "owner_requested_publication",
+    "requested_at": "2026-09-28T00:17:06+08:00",
+    "scope": "Public website and sharper evidence-grounded commentary on ten cases"
+  },
+  "human_technical_review": false,
+  "original_pdfs_verified": false,
+  "experiments_reproduced": false,
+  "archive_date": "2026-05-08",
+  "archive_url": "https://github.com/qhjqhj00/iclr-openreview-reviews/releases/tag/v1.0",
+  "archive_sha256": "350071daf25ebf1aef854ee1d5dc3a81834e1c468917c82a4f78af5548de34fc",
+  "articles_sha256": "9452606ee07877c80b0a866c68946b54825b8b715d39b81449ceabf562a75632",
+  "cases": [
+    {
+      "forum_id": "mnI8CFj2WP",
+      "sha256": "01efa48654da7bf7216477e4daa97f023ad75c1ac2f64115c485051e88d96b9b",
+      "notes": 12,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "05hNleYOcG",
+      "sha256": "2ed53c6ab330120f448f319ce954f9479cab2c960988a01007e226db2cb9a061",
+      "notes": 16,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "JMmljf895g",
+      "sha256": "471f8d1524e2dbdd1a9b42f6723ea8b094ec064b09221cc46fad1813fc43deee",
+      "notes": 26,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "EFYb8SsRi7",
+      "sha256": "395f60e43415d7d822107a76d58a064dc2bd88510aa8a1e1b3c495632c6d02c5",
+      "notes": 18,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "rouPx6eo2G",
+      "sha256": "717e672892bfd0594f4eaa467d804e84e548ba800ac419202ae815c71ee185e7",
+      "notes": 24,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "L4SwHIZEaJ",
+      "sha256": "c05f3bfbbc6fd863587989b7cc3eb10f0bc0a0d8575034b852524e1f180e5a19",
+      "notes": 10,
+      "excluded_rating_note_ids": [
+        "GYWX6TveFb"
+      ]
+    },
+    {
+      "forum_id": "AXXCo0pOSO",
+      "sha256": "a0b1334a240e9d7e9a7b7bb7b502c82a3e7d8b17694edf0cbd9bf6fa926a8609",
+      "notes": 15,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "TSk3cIdIQK",
+      "sha256": "6137d67eaed69ab8f3f5c6fb4ae97b273a0840746dcc5dc05bb25114858f5a1a",
+      "notes": 22,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "z5cPEZ4n6i",
+      "sha256": "0cf8117245e1527fe801c3c6d38c225c75cc3fa1c33806bcfeeead447a5f6f10",
+      "notes": 18,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "GDYaNzxt9T",
+      "sha256": "75c871710af5d7c6164f17ae22ee8407c0a1bc4556442f71771724e121a39dec",
+      "notes": 15,
+      "excluded_rating_note_ids": []
+    }
+  ]
+}

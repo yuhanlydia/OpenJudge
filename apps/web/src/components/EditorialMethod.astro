@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/BaseLayout.astro';
+---
+<Base active="methodology" title="我们怎样判定评审有问题 · OpenJudge">
+ <div class="page-top"><div><div class="eyebrow">EVIDENCE BEFORE VERDICT</div><h1>批评要尖锐，证据要更尖锐。</h1><p>我们追问评审与 AC 的具体论断是否成立。高分被拒不是冤案证明，低分录取也不是错评证明。</p></div></div>
+ <div class="prose">
+  <section class="panel"><h2>五种结论，不混成一句“审错了”</h2><dl class="evidence-levels">
+   <dt>可核对错误</dt><dd>存在足以直接证伪的事实或数学陈述。必须明确错误的那句话与反证，不能把新颖性判断或喜好当作客观错误。</dd>
+   <dt>记录冲突</dt><dd>同一评议前后矛盾，或评议与另一条已定位的公开记录不能同时成立。若缺少原稿，不能自动裁定冲突的哪一方正确。</dd>
+   <dt>推断缺口</dt><dd>结论比证据走得更远。例如从符号错误推断方法存在更深层缺陷，或把可能改分当作已经形成的评审共识。</dd>
+   <dt>标准争议</dt><dd>双方采用不同的贡献门槛、实验要求或发表标准。可以批评不一致、不合理的门槛，但不能冒充计算错误。</dd>
+   <dt>尚不能定错</dt><dd>现有材料不足以证明评审错误，或者相关质疑确有依据。公开保留这一结论，避免只选择有利于指控的材料。</dd>
+  </dl></section>
+  <section class="panel"><h2>每篇先回答四个问题</h2><ol><li>谁在什么时候说了什么？定位到匿名评审或 AC 的具体 note。</li><li>哪条证据与这句话冲突？区分原稿已有内容与答辩后来补充。</li><li>最强的反驳是什么？作者回复同样接受核对，不能自动当作事实。</li><li>能够下多重的结论？证据只支持表达错误时，不扩大为实现错误；证据只支持疑点时，不指控动机。</li></ol></section>
+  <section class="panel"><h2>本期的实际证据边界</h2><p>本期依据 2026-05-08 的公开 OpenReview 存档，包含摘要、正式评审、作者回复、meta-review 与最终决定。原始投稿 PDF 尚未独立取得，因此不裁定正文证明的正确性，不宣称实验已经复现。</p><p>ICLR 2026 曾将评分恢复至 rebuttal 前并冻结讨论。我们把公开分数、实际跟进评论与 AC 对潜在改分的推测分开呈现。<a href="https://blog.iclr.cc/2026/03/31/a-retrospective-on-the-iclr-2026-review-process/" target="_blank" rel="noopener noreferrer">会议官方回顾 ↗</a></p><p>10 篇是争议案例选题，不能代表整届会议的错评比例。0 是合法评分；仅当记录是空白占位且 AC 明确排除时才不计入均分。</p></section>
+  <section class="panel"><h2>谁对这些分析负责？</h2><p>本站由站长发起并授权公开，文章采用 AI 辅助检索与分析；不宣称已经获得独立人工专业鉴定，也不代表 ICLR。我们保留公开来源和可追踪的修改记录，接受针对具体论断的公开回应与纠错。</p><p>尖锐评论不需要猜测匿名评审的身份，也不需要编造恶意。指出一条论证为什么站不住，比给一个人贴标签更有说服力。</p></section>
+ </div>
+</Base>

@@ -1,0 +1,12 @@
+---
+import {findingLabels,targetLabels,type NewsArticle} from '../lib/newsroom';
+interface Props {article:NewsArticle}
+const {article}=Astro.props;
+const finding=article.finding;
+const sources=new Map(article.sources.map(s=>[s.id,s]));
+---
+{finding&&<aside class="finding-box" aria-label="本篇核查结论">
+ <div class="finding-heading"><span>争议焦点 / THE FINDING</span><b>{findingLabels[finding.level]} · {targetLabels[finding.target]}</b></div>
+ <h2>{finding.summary}</h2><p>{finding.rationale}</p>
+ <div class="section-sources"><span>核对依据</span>{finding.source_ids.map(id=>{const s=sources.get(id)!;return <a href={s.url} target="_blank" rel="noopener noreferrer">{s.label} ↗</a>;})}</div>
+</aside>}
