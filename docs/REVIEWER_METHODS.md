@@ -24,3 +24,11 @@ Each article's current finding must agree with its audit panel, headline and lim
 ## Verification
 
 Run the existing frontend tests and type check, `node scripts/build-newsroom.mjs`, and public-edition browser tests with `NEWSROOM_PUBLIC=1` and `TEST_DIST=../../dist`. Source validation binds the article digest, ten-case inventory, raw ratings, decisions, cited note identities and 176-note evidence archive. CI now explicitly validates and browser-tests the public edition in addition to the original project checks.
+
+## Reader-first revision (2026-09-28, v3)
+
+The owner requested a fixed reading sequence: individual scores and outcome, exactly three paper-summary paragraphs (gap, method, comparative result), one primary contribution, every official review, AC, and author-response/data consistency. The homepage now has three exclusive editorial desks. Direct numerical or mathematical conflicts are selected for the serious-errors desk; the remaining cases retain their low-score accepted or high-score rejected category. A desk label never establishes misconduct or an erroneous conference decision.
+
+Each public record now supplies `brief`, `checks`, `desk`, and `desk_reason`. `brief` separates reported comparative results from the selected contribution and its attribution limits. `checks.reviewers` preserves all 41 official review notes in source order; 40 scores count toward averages and the documented GPTQ placeholder does not. Each reviewer check links its own note and the corresponding reply evidence. Claims are evaluated individually, not used as characterizations of people. Mathematical errors, conflicting numbers, overclaims, and unverified experiments are explicitly distinguished from fabricated data.
+
+The three-paragraph introduction and separate reviewer/AC/author sections are the default reading path. The previous seven-section analysis and five-step audit remain available in a native HTML disclosure. No runtime model or JavaScript is needed. The original evidence files and score records are unchanged. Updated manuscript access is listed per paper in `release.json` and the public sources page; later versions are not treated as material available to original reviewers.

@@ -4,9 +4,9 @@ test('news home retains the masthead, both archive entrances and a plain-languag
   await page.goto('/');
   await expect(page.getByRole('link',{name:'OpenJudge 首页',exact:true})).toBeVisible();
   await expect(page.getByRole('link',{name:'新闻首页',exact:true})).toBeVisible();
-  await expect(page.getByRole('heading',{name:'低分录取',exact:true})).toBeVisible();
-  await expect(page.getByRole('heading',{name:'高分拒稿',exact:true})).toBeVisible();
-  await expect(page.locator('body')).toContainText('评分反差本身不构成错评证据');
+  await expect(page.locator('.archive-entrances a[href$="/low-score-accepted/"]')).toBeVisible();
+  await expect(page.locator('.archive-entrances a[href$="/high-score-rejected/"]')).toBeVisible();
+  await expect(page.locator('body')).toContainText('分数反差不自动构成错评');
 });
 
 test('preview article is static, attributed, readable at 200 percent and makes no third-party requests',async({browser})=>{

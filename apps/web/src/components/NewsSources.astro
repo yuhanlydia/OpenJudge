@@ -1,0 +1,7 @@
+---
+import type {NewsArticle} from '../lib/newsroom';
+interface Props {article:NewsArticle;ids:string[]}
+const {article,ids}=Astro.props;
+const sources=ids.map(id=>article.sources.find(s=>s.id===id)).filter(Boolean);
+---
+<div class="section-sources"><span>核对来源</span>{sources.map(source=><a href={source!.url} target="_blank" rel="noopener noreferrer">{source!.label} ↗</a>)}</div>

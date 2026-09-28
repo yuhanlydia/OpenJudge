@@ -1,11 +1,11 @@
 {
-  "edition": "ICLR2026-review-audit-v2",
+  "edition": "ICLR2026-reader-first-v3",
   "publication_date": "2026-09-28",
   "authorization": {
     "basis": "owner_requested_publication",
     "requested_at": "2026-09-28T00:17:06+08:00",
-    "scope": "Public website and sharper evidence-grounded commentary on ten cases",
-    "revision_requested_at": "2026-09-28T01:18:40+08:00"
+    "scope": "Owner requested three editorial desks; scores and outcome first, three-paragraph paper explanation, one core contribution, each reviewer, AC and author-response/data checks; continue updating existing public site",
+    "revision_requested_at": "2026-09-28T11:15:19+08:00"
   },
   "human_technical_review": false,
   "original_pdfs_verified": false,
@@ -13,7 +13,7 @@
   "archive_date": "2026-05-08",
   "archive_url": "https://github.com/qhjqhj00/iclr-openreview-reviews/releases/tag/v1.0",
   "archive_sha256": "350071daf25ebf1aef854ee1d5dc3a81834e1c468917c82a4f78af5548de34fc",
-  "articles_sha256": "97a49b8915078c62e09d1e532998f0205bbbaa34d0b36ac43a694cec54cc9ad1",
+  "articles_sha256": "388dbb3a861b873aa94176a5ac4bece69348f8424b37fc166acc086b5a915824",
   "cases": [
     {
       "forum_id": "mnI8CFj2WP",
@@ -102,7 +102,7 @@
           "https://arxiv.org/html/2503.16278v3",
           "https://arxiv.org/abs/2503.16278"
         ],
-        "scope": "复核所引归档评议及arXiv v3 D.3、版本时间；未比对原始投稿PDF、运行代码或复现实验。"
+        "scope": "归档结果为4、8、6、10分，均分7，Reject。定量补查使用2025-10-09 arXiv v3的表1、表12及D.3，早于正式评审，但未与原投稿PDF逐字比对；数值均为论文报告值。"
       },
       {
         "forum_id": "05hNleYOcG",
@@ -110,14 +110,59 @@
           "https://arxiv.org/html/2510.17947v2",
           "https://arxiv.org/abs/2510.17947"
         ],
-        "scope": "通读归档摘要和全部16条记录；局部核对2025-10-22 arXiv v2的方法、附录C.2及版本史。未逐页核对送审PDF，未检查代码、实验或图像数值；仅报告高层方法观察。"
+        "scope": "归档为2、2、4、2分，均分2.5，Accept (Poster)。主结果使用2025-10-22 arXiv v2表2至4，X-Teaming使用归档回复；未将归档之后的v3混入。所有攻击成效是特定历史模型与评测设置下的报告值。"
       },
       {
         "forum_id": "JMmljf895g",
         "urls": [
           "https://arxiv.org/html/2510.20064v1"
         ],
-        "scope": "所引归档评议与arXiv v1相关段落；没有审完全部证明、比对投稿PDF或复现系统。"
+        "scope": "数值取自公开arXiv v1表3及2025年11月24日作者答辩表；均为作者报告，未复现。公开论文版本未与提交PDF逐字比对。百分比由所列平均token/s直接计算，不是并发、所有任务或所有草稿池的保证。 当前标为v1的HTML还出现归档中称为答辩新增的32B内容，因此不以该页面重建初评时材料。"
+      },
+      {
+        "forum_id": "EFYb8SsRi7",
+        "urls": [
+          "https://arxiv.org/html/2509.21906v1",
+          "https://arxiv.org/abs/2509.21906v1",
+          "https://arxiv.org/abs/2509.21906",
+          "https://arxiv.org/html/2509.21906v3"
+        ],
+        "scope": "采用2025-09-26 arXiv v1第5节及归档答辩；未逐行验证全部证明或复现实验。2026-05-26 v3改动了假设与结果，不用于反推2025年评审当时看到了什么，也不据其后续改进判定原评审错误。"
+      },
+      {
+        "forum_id": "rouPx6eo2G",
+        "urls": [
+          "https://arxiv.org/html/2604.10672v1",
+          "https://arxiv.org/abs/2604.10672"
+        ],
+        "scope": "归档为8、6、10、4、6分，均分6.8，Reject。量化结果来自评审期公开回复，非原稿已具备的全部实验。另查2026-04-12 arXiv v1，它晚于决定且理论编号与内容已变化，不能替代送审版本。"
+      },
+      {
+        "forum_id": "L4SwHIZEaJ",
+        "urls": [
+          "https://arxiv.org/pdf/2508.01077v1",
+          "https://arxiv.org/abs/2508.01077v1",
+          "https://arxiv.org/html/2508.01077v2",
+          "https://arxiv.org/abs/2508.01077",
+          "https://arxiv.org/html/2507.18553v1"
+        ],
+        "scope": "核对2025-08-01 arXiv v1的相关段落、2026-03-02 v2的定理与算法说明，以及归档评议。v2晚于答辩，不假定评审已看到其新增附录；未核读Qronos实验或运行量化实现。"
+      },
+      {
+        "forum_id": "AXXCo0pOSO",
+        "urls": [
+          "https://arxiv.org/html/2510.22775v1",
+          "https://arxiv.org/abs/2510.22775"
+        ],
+        "scope": "归档为6、6、8、6分，均分6.5，Reject。补查2025-10-26 arXiv v1（早于评审），未与投稿PDF逐字比对；不混入2026-08-26后续v2。验证准确率不是软件问题解决率，所报EM不等于已核实实现正确。"
+      },
+      {
+        "forum_id": "TSk3cIdIQK",
+        "urls": [
+          "https://arxiv.org/html/2510.00938v3",
+          "https://arxiv.org/abs/2510.00938"
+        ],
+        "scope": "简介结果采用2025年11月归档作者答辩；局部核对2026-08-27 arXiv v3的方法、主表和版本史，仅作后续版本对照，不以其新增实验倒推原评审错误。v1/v2全文未成功取得；未核验原始日志、实现或复现实验。"
       },
       {
         "forum_id": "z5cPEZ4n6i",
@@ -127,7 +172,7 @@
           "https://arxiv.org/html/2510.04573v6",
           "https://arxiv.org/abs/2510.04573"
         ],
-        "scope": "通读归档摘要与全部18条记录；局部核对2025-10-13 v3方法、2025-12-11 v4表4/7/8、2026-04-23 v6表1/7/9及版本史。未读送审PDF、未审代码或复现实验；后续版本不用于追责初评。"
+        "scope": "三段简介的核心数值取自2025-11-18答辩A3；方法及消融局部交叉核对2025-12-11 arXiv v4。v4不是送审初稿，2026-04-23 v6亦不能用来反判初评。未审实现、训练日志或复现实验。"
       },
       {
         "forum_id": "GDYaNzxt9T",
@@ -135,12 +180,23 @@
           "https://arxiv.org/html/2512.10858v1",
           "https://arxiv.org/abs/2512.10858"
         ],
-        "scope": "通读归档摘要与全部15条记录；局部核对2025-12-11 arXiv v1第4.2—4.5节、附录D及版本史。v1晚于答辩；未核验送审PDF、图像外链、代码、日志或复现实验。"
+        "scope": "数值与比较范围以归档答辩为主，局部核对2025-12-11 arXiv v1第4.2—4.5节和附录A.1；该预印本首次发表晚于答辩，不能当作送审初稿。未核验外链图像、训练日志或复现实验。"
       }
     ],
     "original_submission_version_identity_verified": false,
     "complete_proofs_verified": false,
     "code_reviewed": false,
     "experiments_reproduced": false
+  },
+  "reader_structure": {
+    "date": "2026-09-28",
+    "desks": {
+      "serious-errors": 3,
+      "low-accepted": 4,
+      "high-rejected": 3
+    },
+    "official_review_notes": 41,
+    "included_ratings": 40,
+    "source_snapshot_changed": false
   }
 }

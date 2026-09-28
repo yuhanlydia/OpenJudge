@@ -2,7 +2,8 @@
 import {sitePath} from '../lib/basepath';
 const p=(v:string)=>sitePath(v,import.meta.env.BASE_URL);
 ---
-<section class="panel" id="updates"><h2>2026-09-28 · 审稿方法复核版</h2><p>本轮十篇均新增五步核查栏，并逐项重新审视最强的合理解释、证据版本和决定影响。采用的方法与使用范围见<a href={p('/methodology/')}>方法说明</a>。本轮没有改变公开评分、最终决定或原始评议档案。</p>
+<section class="panel" id="updates"><h2>2026-09-28 · 三板块与逐位核查版</h2><p>首页重排为严重矛盾和错误、低分录取、高分被拒绝。每篇先展示各位评分与结果，再用三段解释研究缺口、方法和效果，挑出一项主要贡献；随后逐位核查 reviewer，并单列 AC 与作者回复。旧的详细讨论与五步核查仍可展开阅读。</p><p>本轮逐一对应全部正式评审记录，包括 GPTQ/Babai 不计均分的空白占位项。评分、决定和原始归档未改动。新的稿件版本只用于明确标注的核查，不回填为评审当时已经可知的事实。</p><p>Patch Reasoner 的焦点改为作者回复中“集合相等”与“集合基数相等”的公式错误；这一反例不能证明实现错误或实验造假。每篇新增作者数据核查，具体区分数值冲突、夸大、未验证与编造。</p></section>
+<section class="panel" id="audit-v2"><h2>2026-09-28 · 审稿方法复核版</h2><p>本轮十篇均新增五步核查栏，并逐项重新审视最强的合理解释、证据版本和决定影响。采用的方法与使用范围见<a href={p('/methodology/')}>方法说明</a>。本轮没有改变公开评分、最终决定或原始评议档案。</p>
 <ul>
  <li><a href={p('/news/unified-cross-scale-3d/')}>Uni-3DAR</a>：新增公开论文D.3和版本日期，强化21.8倍与21%的对照；同时明确错误位于优点栏，不能推断拒稿因果。</li>
  <li><a href={p('/news/not-a-bandit-full-information/')}>Not-a-Bandit</a>：补充原文的单请求范围及系统可调设置，不再让NormalHedge免调参暗示整套系统没有超参数。</li>

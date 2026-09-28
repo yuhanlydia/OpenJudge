@@ -1,15 +1,32 @@
 import {test,expect} from '@playwright/test';
-test('public edition exposes ten complete attributed articles and working internal navigation',async({page})=>{
+test('public edition exposes ten complete attributed articles and working internal navigation',async({page},testInfo)=>{
  test.skip(process.env.NEWSROOM_PUBLIC!=='1','Public edition build required');
  const outbound:string[]=[];const base=process.env.PREVIEW_URL||'http://127.0.0.1:4321';
  page.on('request',r=>{if(!r.url().startsWith(base))outbound.push(r.url());});
  await page.goto('/');
  const links=await page.locator('[data-news-link]').evaluateAll(nodes=>nodes.map(n=>n.getAttribute('href')!));
  expect(new Set(links).size).toBe(10);
+ expect(links.length).toBe(10);
+ expect(await page.locator('[data-desk]').count()).toBe(3);
  await expect(page.locator('body')).not.toContainText('编辑预览');
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ await page.evaluate(()=>document.documentElement.style.fontSize='32px');
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ await page.evaluate(()=>document.documentElement.style.fontSize='');
+ if(process.env.CAPTURE_UI==='1')await page.screenshot({path:`../../.cache/v3-home-${testInfo.project.name}.png`,fullPage:true});
  for(const route of links){
   await page.goto(route);await expect(page.locator('h1')).toBeVisible();
   await expect(page.locator('.finding-box')).toBeVisible();
+  expect(await page.locator('.paper-paragraph').count()).toBe(3);
+  await expect(page.locator('.contribution-focus')).toBeVisible();
+  await expect(page.locator('.author-check .data-verdict')).toBeVisible();
+  if(process.env.CAPTURE_UI==='1'&&route===links[0])await page.screenshot({path:`../../.cache/v3-article-${testInfo.project.name}.png`});
+  expect(await page.locator('.reviewer-check').count()).toBeGreaterThanOrEqual(4);
+  expect(await page.evaluate(()=>{
+   const order=['.article-result','.paper-story','.reviewer-checks','.ac-check','.author-check','.takeaway'];
+   return order.slice(1).every((s,i)=>Boolean(document.querySelector(order[i])!.compareDocumentPosition(document.querySelector(s)!)&Node.DOCUMENT_POSITION_FOLLOWING));
+  })).toBe(true);
+  await page.locator('.full-analysis>summary').click();
   await expect(page.locator('.review-audit')).toBeVisible();
   expect(await page.locator('.audit-row').count()).toBe(5);
   await expect(page.locator('.audit-scope')).not.toBeEmpty();
@@ -31,6 +48,9 @@ test('public commentary remains readable without JavaScript',async({browser})=>{
  const context=await browser.newContext({javaScriptEnabled:false,viewport:{width:375,height:812}});
  const page=await context.newPage();const base=process.env.PREVIEW_URL||'http://127.0.0.1:4321';
  await page.goto(base);await page.locator('[data-news-link]').first().click();
+ await expect(page.locator('.paper-story')).toBeVisible();
+ await expect(page.locator('.reviewer-check').first()).toBeVisible();
+ await page.locator('.full-analysis>summary').click();
  await expect(page.locator('.finding-box')).toBeVisible();await expect(page.locator('.section-limits')).toBeVisible();
  expect(await page.locator('.article-section').count()).toBe(7);await context.close();
 });

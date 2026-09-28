@@ -8,6 +8,13 @@ export const targetLabels={ac:'AC',reviewer:'审稿人',authors:'作者',process
 export interface NewsFinding {level:keyof typeof findingLabels;target:keyof typeof targetLabels;summary:string;rationale:string;source_ids:string[]}
 export const auditLabels={claim:'争议原句',evidence:'原文证据',alternative:'合理解释',verdict:'技术判定',impact:'决定影响'} as const;
 export interface NewsAudit {reviewed_at:string;claim:string;evidence:string;alternative:string;verdict:string;impact:string;scope:string;source_ids:string[]}
+export const deskLabels={'serious-errors':'严重矛盾和错误','low-accepted':'低分录取','high-rejected':'高分被拒绝'} as const;
+export const contributionLabels={method:'方法模块',data:'数据引入',process:'流程创新',theory:'理论贡献',empirical:'实证发现'} as const;
+export const assessmentLabels={accurate:'该意见有依据','partly-accurate':'部分有依据','contradicted':'存在明确反证',unverifiable:'尚不能核实','value-judgment':'属于评价标准'} as const;
+export interface ClaimCheck {claim:string;assessment:keyof typeof assessmentLabels;analysis:string;source_ids:string[]}
+export interface ReviewerCheck extends ClaimCheck {note_id:string;label:string;score:number|null;included:boolean;author_reply:string}
+export interface PaperBrief {gap:string;method:string;results:string;result_scope:string;source_ids:string[];contribution:{kind:keyof typeof contributionLabels;module:string;why:string;evidence:string;caveat:string}}
+export interface ArticleChecks {reviewers:ReviewerCheck[];ac:ClaimCheck;authors:ClaimCheck & {data_verdict:string};takeaway:string}
 export interface NewsArticle {
   slug:string;forum_id:string;title:string;headline:string;deck:string;topic:string;
   category:'low-accepted'|'high-rejected';decision:string;ratings:number[];mean:number;
@@ -15,6 +22,7 @@ export interface NewsArticle {
   review_state:'draft_private'|'commentary_public';score_note?:string;finding?:NewsFinding;
   publication?:{basis:'owner_requested_publication';human_reviewed:false;date:string};
   audit?:NewsAudit;
+  desk?:keyof typeof deskLabels;desk_reason?:string;brief?:PaperBrief;checks?:ArticleChecks;
 }
 export const sectionLabels:Record<NewsSectionKind,string>={facts:'公开事实',reviews:'评审意见',response:'作者主张',decision:'公开决定',analysis:'AI 分析',lessons:'AI 写作建议',limits:'分析限制'};
 export const categoryLabels={'low-accepted':'低分录取','high-rejected':'高分拒稿'} as const;
@@ -68,6 +76,33 @@ export function validateNewsroom(value:unknown,mode:'preview'|'public'='preview'
       if(!audit||!/^\d{4}-\d{2}-\d{2}$/.test(audit.reviewed_at)) throw new Error('Newsroom public audit and date are required');
       for(const key of [...Object.keys(auditLabels),'scope']) requireText(audit[key],`audit ${key}`);
       if(!Array.isArray(audit.source_ids)||!audit.source_ids.length||audit.source_ids.some((id:string)=>!sourceIds.has(id))) throw new Error('Newsroom audit source must exist');
+      if(!Object.hasOwn(deskLabels,item.desk)) throw new Error('Newsroom editorial desk is required');
+      requireText(item.desk_reason,'desk reason');
+      if(item.desk==='serious-errors'&&!['documented-error','record-conflict'].includes(finding.level)) throw new Error('Newsroom serious desk requires a concrete finding');
+      if(item.desk!=='serious-errors'&&item.desk!==item.category) throw new Error('Newsroom desk must agree with decision category');
+      const cite=(ids:unknown,name:string)=>{if(!Array.isArray(ids)||!ids.length||ids.some((id:string)=>!sourceIds.has(id)))throw new Error(`Newsroom ${name} source must exist`);};
+      const brief=item.brief;
+      for(const key of ['gap','method','results','result_scope']) requireText(brief?.[key],`brief ${key}`);
+      cite(brief.source_ids,'brief');
+      if(!Object.hasOwn(contributionLabels,brief.contribution?.kind))throw new Error('Newsroom one primary contribution is required');
+      for(const key of ['module','why','evidence','caveat'])requireText(brief.contribution[key],`contribution ${key}`);
+      const checks=item.checks;
+      if(!Array.isArray(checks?.reviewers)||!checks.reviewers.length)throw new Error('Newsroom reviewer checks are required');
+      const checkedScores=checks.reviewers.filter((r:ReviewerCheck)=>r.included).map((r:ReviewerCheck)=>r.score);
+      if(JSON.stringify(checkedScores)!==JSON.stringify(item.ratings))throw new Error('Newsroom reviewer scores must match score display in order');
+      const noteIds=new Set<string>();
+      for(const reviewer of checks.reviewers){
+        for(const key of ['note_id','label','author_reply'])requireText(reviewer[key],`reviewer ${key}`);
+        if(noteIds.has(reviewer.note_id))throw new Error('Newsroom duplicate reviewer note');
+        noteIds.add(reviewer.note_id);
+        if(typeof reviewer.included!=='boolean')throw new Error('Newsroom reviewer inclusion must be explicit');
+      }
+      for(const check of [...checks.reviewers,checks.ac,checks.authors]){
+        requireText(check?.claim,'check claim');requireText(check?.analysis,'check analysis');
+        if(!Object.hasOwn(assessmentLabels,check.assessment))throw new Error('Newsroom check assessment is invalid');
+        cite(check.source_ids,'check');
+      }
+      requireText(checks.authors.data_verdict,'author data verdict');requireText(checks.takeaway,'takeaway');
     }
   }
   return value as NewsArticle[];

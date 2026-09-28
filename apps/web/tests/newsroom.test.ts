@@ -59,6 +59,9 @@ test('a substantive zero rating is valid and unsupported odd-number ratings are 
 });
 
 const publicArticle=()=>({...article(),review_state:'commentary_public',
+ desk:'low-accepted',desk_reason:'录取且归档均分较低。',
+ brief:{gap:'旧方法缺口。',method:'方法内容。',results:'比较结果。',result_scope:'仅测试材料。',source_ids:['forum'],contribution:{kind:'method',module:'核心模块',why:'解决缺口。',evidence:'消融证据。',caveat:'尚未复现。'}},
+ checks:{reviewers:[4,4,6].map((score,index)=>({note_id:`review${index}`,label:`R${index+1}`,score,included:true,claim:'具体意见',assessment:'unverifiable',analysis:'证据不足。',author_reply:'回复内容。',source_ids:['forum']})),ac:{claim:'决定理由',assessment:'value-judgment',analysis:'贡献标准。',source_ids:['forum']},authors:{claim:'作者主张',assessment:'unverifiable',analysis:'没有复现。',data_verdict:'不能认定编造。',source_ids:['forum']},takeaway:'分数不替代证据。'},
  publication:{basis:'owner_requested_publication',human_reviewed:false,date:'2026-09-28'},
  finding:{level:'record-conflict',target:'ac',summary:'测试中的记录冲突',rationale:'两条记录并不一致。',source_ids:['forum']},
  audit:{reviewed_at:'2026-09-28',claim:'争议原句',evidence:'可核对记录',alternative:'另一种合理解释',verdict:'局部记录冲突',impact:'不能确定决定影响',scope:'仅测试材料',source_ids:['forum']},
@@ -90,4 +93,16 @@ test('public audit refuses missing counterevidence or untraceable citations',()=
  assert.throws(()=>validateNewsroom([item],'public'),/audit source/i);
  item.audit.source_ids=['forum'];delete (item as any).audit;
  assert.throws(()=>validateNewsroom([item],'public'),/audit/i);
+});
+
+test('public reviewer assessments cannot silently drop or swap a score',()=>{
+ const item=publicArticle();item.checks.reviewers[0].score=6;
+ assert.throws(()=>validateNewsroom([item],'public'),/reviewer.*score/i);
+ item.checks.reviewers[0].score=4;item.checks.reviewers.pop();
+ assert.throws(()=>validateNewsroom([item],'public'),/reviewer.*score/i);
+});
+
+test('serious-error desk cannot turn an unestablished accusation into a finding',()=>{
+ const item=publicArticle();item.desk='serious-errors';item.finding.level='not-established';
+ assert.throws(()=>validateNewsroom([item],'public'),/serious.*finding/i);
 });

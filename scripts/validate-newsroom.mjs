@@ -25,6 +25,15 @@ for(const a of articles){
  const reviews=notes.filter(n=>n.kind==='Official_Review'&&!entry.excluded_rating_note_ids.includes(n.id));
  const scores=reviews.map(n=>n.content.rating).sort((a,b)=>a-b);
  check(JSON.stringify(scores)===JSON.stringify([...a.ratings].sort((a,b)=>a-b)),'Raw rating mismatch');
+ const checks=a.checks.reviewers;
+ check(JSON.stringify(checks.map(r=>r.note_id))===JSON.stringify(paper.reviews),'Every official reviewer must be checked in source order');
+ for(const r of checks){
+  const note=notes.find(n=>n.id===r.note_id);
+  check(note?.kind==='Official_Review'&&note.content.rating===r.score,'Reviewer check score or note mismatch');
+  check(r.included===!entry.excluded_rating_note_ids.includes(r.note_id),'Reviewer score inclusion mismatch');
+  check(r.source_ids.some(id=>new URL(a.sources.find(s=>s.id===id).url).searchParams.get('noteId')===r.note_id),'Reviewer check must cite its own review');
+ }
+ check(a.checks.ac.source_ids.some(id=>paper.meta_ids.includes(new URL(a.sources.find(s=>s.id===id).url).searchParams.get('noteId'))),'AC check must cite meta-review');
  for(const id of entry.excluded_rating_note_ids){check(a.score_note&&notes.some(n=>n.id===id&&n.content.rating===0),'Undocumented score exclusion');}
  const ids=new Set(notes.map(n=>n.id));
  for(const s of a.sources){const url=new URL(s.url);if(url.hostname==='openreview.net'&&url.pathname==='/forum'){check(url.searchParams.get('id')===a.forum_id,'Wrong forum citation');if(url.searchParams.has('noteId'))check(ids.has(url.searchParams.get('noteId')),'Unknown cited note');}}

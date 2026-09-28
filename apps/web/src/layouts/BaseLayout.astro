@@ -5,7 +5,7 @@ import {sitePath} from '../lib/basepath';
 const {title='OpenJudge · ICLR 2026 评审观察',description='从公开论文、评审与作者回复出发，读懂 ICLR 2026 的评分与决定。',active=''}=Astro.props;
 const p=(url:string)=>sitePath(url,import.meta.env.BASE_URL);
 const publicEdition=process.env.NEWSROOM_PUBLIC==='1';
-const nav=publicEdition?[['overview','新闻首页','/'],['cases','全部案例','/#cases'],['methodology','判定标准','/methodology/'],['data','资料来源','/data-status/'],['corrections','回应与纠错','/contribute/']]:[['overview','新闻首页','/'],['boards','论文榜单','/iclr-2026/low-score-accepted/'],['methodology','阅读方法','/methodology/'],['data','数据状态','/data-status/'],['versions','版本记录','/versions/']];
+const nav=publicEdition?[['overview','新闻首页','/'],['cases','三个板块','/#cases'],['methodology','判定标准','/methodology/'],['data','资料来源','/data-status/'],['corrections','回应与纠错','/contribute/']]:[['overview','新闻首页','/'],['boards','论文榜单','/iclr-2026/low-score-accepted/'],['methodology','阅读方法','/methodology/'],['data','数据状态','/data-status/'],['versions','版本记录','/versions/']];
 const canonical=Astro.site?new URL(Astro.url.pathname,Astro.site).href:undefined;
 ---
 <!doctype html>

@@ -3,7 +3,9 @@ import Base from '../../layouts/BaseLayout.astro';
 import ScorePlot from '../../components/ScorePlot.astro';
 import FindingBox from '../../components/FindingBox.astro';
 import ReviewAudit from '../../components/ReviewAudit.astro';
-import {loadNewsroom,categoryLabels,sectionLabels,type NewsArticle} from '../../lib/newsroom';
+import PaperStory from '../../components/PaperStory.astro';
+import ReviewChecks from '../../components/ReviewChecks.astro';
+import {loadNewsroom,categoryLabels,deskLabels,sectionLabels,type NewsArticle} from '../../lib/newsroom';
 import {sitePath} from '../../lib/basepath';
 export function getStaticPaths(){return loadNewsroom().map(article=>({params:{slug:article.slug},props:{article}}));}
 interface Props {article:NewsArticle}
@@ -19,24 +21,27 @@ const publicCommentary=article.review_state==='commentary_public';
   <nav class="article-breadcrumb" aria-label="面包屑"><a href={p('/')}>新闻首页</a><span aria-hidden="true">/</span><span>ICLR 2026 深读</span></nav>
   <article class="news-article">
     <header class="article-header">
-      <div class="article-labels"><span class:list={['news-category',{'is-rejected':article.category==='high-rejected'}]}>{categoryLabels[article.category]}</span><span>{article.topic}</span><span class="preview-label">{publicCommentary?'公开评论 · AI 辅助分析':'编辑预览 · AI 分析待复核'}</span></div>
+      <div class="article-labels"><span class:list={['news-category',{'is-rejected':article.category==='high-rejected'}]}>{article.desk?deskLabels[article.desk]:categoryLabels[article.category]}</span><span>{article.topic}</span><span class="preview-label">{publicCommentary?'公开评论 · AI 辅助分析':'编辑预览 · AI 分析待复核'}</span></div>
+      <div class="article-result" id="scores"><div><span>评审评分</span><strong>{article.ratings.join(' / ')}</strong></div><div><span>均分 / 10</span><strong>{article.mean.toFixed(2)}</strong></div><div class="result-decision"><span>最终结果</span><strong>{article.decision==='Reject'?'拒绝':'录取 · Poster'}</strong></div></div>
       <h1>{article.headline}</h1>
+      <p class="article-paper-title" lang="en">{article.title}</p>
       <p class="article-deck">{article.deck}</p>
+      <details class="score-details" open={!article.checks}><summary>查看逐人评分图、统计口径与排除项</summary><ScorePlot article={article}/><p class="score-caption">采用归档中的公开推荐评分。ICLR 2026 曾回退评分至 rebuttal 前；这里不是最终共识票数。</p></details>
       <div class="article-byline"><span>OpenJudge 公开评审观察</span><span>{publicCommentary?'AI 辅助分析 · 非会议官方结论':'AI 辅助分析 · 尚待人工复核'}</span><span>{article.read_minutes} 分钟深读</span></div>
     </header>
     <div class="article-reading-grid">
       <aside class="article-rail">
         <div class="rail-paper"><span class="small-caps">THE PAPER</span><h2 lang="en">{article.title}</h2><dl><div><dt>公开决定</dt><dd>{article.decision}</dd></div><div><dt>材料归档日期</dt><dd>{archiveDate}</dd></div><div><dt>评审评分</dt><dd>{article.ratings.join(' / ')}</dd></div></dl><a class="rail-source" href={`https://openreview.net/forum?id=${encodeURIComponent(article.forum_id)}`} target="_blank" rel="noopener noreferrer">OpenReview 讨论页 ↗</a></div>
-        <nav class="article-toc" aria-label="文章目录"><h2>本文导读</h2><ol>{article.sections.map((section,index)=><li><a href={`#section-${index+1}`}><span>{String(index+1).padStart(2,'0')}</span>{section.heading}</a></li>)}</ol></nav>
+        <nav class="article-toc" aria-label="文章目录"><h2>本文导读</h2><ol>{[['scores','评分与结果'],['paper-story','论文三段式'],['reviewers','逐位 reviewer 核查'],['ac','AC 判断'],['authors','作者回复与数据'],['takeaway','结论'],['full-analysis','完整证据记录']].map(([id,label],index)=><li><a href={`#${id}`}><span>{String(index+1).padStart(2,'0')}</span>{label}</a></li>)}</ol></nav>
       </aside>
       <div class="article-body">
+        <PaperStory article={article}/>
+        <ReviewChecks article={article}/>
         <FindingBox article={article}/>
+        <details class="full-analysis" id="full-analysis" open={!article.checks}><summary>展开完整讨论、五步核查与分析边界</summary>
         <ReviewAudit article={article}/>
-        <div class="article-score-intro"><div><span class="small-caps">AT A GLANCE</span><h2>先看评分，再读理由。</h2></div><span class="article-decision">{article.decision}</span></div>
-        <ScorePlot article={article}/>
-        <p class="score-caption">以上为材料中收录的公开评分，均分按图示有效分数计算后保留两位小数；如有排除项，已在图下注明。分数不能独立还原完整讨论与决定过程。</p>
-        <div class="article-boundary"><strong>如何核对这篇评论</strong><p>事实错误、记录冲突、推断缺口与评价标准争议分别标注。文中的批评针对具体论断；点击每节来源可核对原始评议。AI 分析不是人工专业鉴定。</p></div>
         {article.sections.map((section,index)=><section class:list={['article-section',`section-${section.kind}`]} id={`section-${index+1}`}><div class="section-category"><span>{String(index+1).padStart(2,'0')}</span><span>{sectionLabels[section.kind]}</span></div><h2>{section.heading}</h2>{section.paragraphs.map(paragraph=><p>{paragraph}</p>)}{section.sources.length>0&&<div class="section-sources"><span>依据</span>{section.sources.map(id=>{const source=sourceMap.get(id)!;return <a href={source.url} target="_blank" rel="noopener noreferrer">{source.label} ↗</a>;})}</div>}</section>)}
+        </details>
         <section class="article-sources" aria-labelledby="sources-title"><span class="small-caps">SOURCES & NOTES</span><h2 id="sources-title">来源与核验</h2><p>以下链接指向公开材料。本文依据归档时可取得的记录，链接内容可能继续更新；作者回复中的陈述不自动视为已独立验证。</p><ol>{article.sources.map(source=><li><a href={source.url} target="_blank" rel="noopener noreferrer">{source.label} <span aria-hidden="true">↗</span></a><span class="source-domain">{new URL(source.url).hostname}</span></li>)}</ol></section>
         <div class="article-correction"><strong>发现遗漏或需要纠正？</strong><p>具体的原文、版本和公开链接，有助于把讨论向前推进。</p><a href={p('/contribute/')}>补充证据 / 提交纠错 →</a></div>
       </div>

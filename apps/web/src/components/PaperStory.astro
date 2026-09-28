@@ -1,0 +1,14 @@
+---
+import {contributionLabels,type NewsArticle} from '../lib/newsroom';
+import NewsSources from './NewsSources.astro';
+interface Props {article:NewsArticle}
+const {article}=Astro.props;const b=article.brief;
+---
+{b&&<section class="paper-story reading-section" id="paper-story">
+ <div class="reading-heading"><span>01 / 论文</span><h2>这篇论文到底做了什么？</h2></div>
+ <div class="paper-paragraph"><h3>Gap：已有工作缺什么</h3><p>{b.gap}</p></div>
+ <div class="paper-paragraph"><h3>方法：它提出了什么</h3><p>{b.method}</p></div>
+ <div class="paper-paragraph"><h3>效果：比已有最好结果强多少</h3><p>{b.results}</p></div>
+ <aside class="contribution-focus"><span>最关键的一项贡献 · {contributionLabels[b.contribution.kind]}</span><h3>{b.contribution.module}</h3><p>{b.contribution.why}</p><p><strong>为什么选它：</strong>{b.contribution.evidence}</p><p class="contribution-limit"><strong>归因边界：</strong>{b.contribution.caveat}</p></aside>
+ <p class="reading-scope">{b.result_scope}</p><NewsSources article={article} ids={b.source_ids}/>
+</section>}

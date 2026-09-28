@@ -1,0 +1,29 @@
+---
+import {assessmentLabels,type NewsArticle} from '../lib/newsroom';
+import NewsSources from './NewsSources.astro';
+interface Props {article:NewsArticle}
+const {article}=Astro.props;const checks=article.checks;
+---
+{checks&&<>
+ <section class="reviewer-checks reading-section" id="reviewers">
+  <div class="reading-heading"><span>02 / REVIEWERS</span><h2>每位 reviewer 说得准不准？</h2></div>
+  <p class="reading-scope">逐条判断下列主要意见，不把一个局部错误扩大成整份评审无效。R 编号仅对应本文评分顺序。</p>
+  {checks.reviewers.map(review=><article class="reviewer-check" data-review-note={review.note_id}>
+   <header><h3>{review.label}<span>{review.score===null?'无评分':`${review.score} 分`}{!review.included?' · 不计均分':''}</span></h3><span class:list={['check-verdict',`verdict-${review.assessment}`]}>{assessmentLabels[review.assessment]}</span></header>
+   <dl><div><dt>主要意见</dt><dd>{review.claim}</dd></div><div><dt>作者怎么答</dt><dd>{review.author_reply}</dd></div><div><dt>我们的核查</dt><dd>{review.analysis}</dd></div></dl>
+   <NewsSources article={article} ids={review.source_ids}/>
+  </article>)}
+ </section>
+ <section class="ac-check reading-section" id="ac">
+  <div class="reading-heading"><span>03 / AREA CHAIR</span><h2>AC 的判断准确吗？</h2></div>
+  <span class:list={['check-verdict',`verdict-${checks.ac.assessment}`]}>{assessmentLabels[checks.ac.assessment]}</span>
+  <h3>AC 给出的理由</h3><p>{checks.ac.claim}</p><h3>核查结论</h3><p>{checks.ac.analysis}</p><NewsSources article={article} ids={checks.ac.source_ids}/>
+ </section>
+ <section class="author-check reading-section" id="authors">
+  <div class="reading-heading"><span>04 / AUTHOR RESPONSE</span><h2>作者回复与论文、数据矛盾吗？</h2></div>
+  <span class:list={['check-verdict',`verdict-${checks.authors.assessment}`]}>{assessmentLabels[checks.authors.assessment]}</span>
+  <h3>需要核对的作者主张</h3><p>{checks.authors.claim}</p><h3>逐项对照</h3><p>{checks.authors.analysis}</p>
+  <div class="data-verdict"><strong>能否认定编造数据？</strong><p>{checks.authors.data_verdict}</p></div><NewsSources article={article} ids={checks.authors.source_ids}/>
+ </section>
+ <section class="takeaway reading-section" id="takeaway"><div class="reading-heading"><span>05 / 结论</span><h2>真正站得住的批评是什么？</h2></div><p>{checks.takeaway}</p></section>
+</>}

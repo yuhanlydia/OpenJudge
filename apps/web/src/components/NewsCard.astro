@@ -1,5 +1,5 @@
 ---
-import {categoryLabels,findingLabels,targetLabels,type NewsArticle} from '../lib/newsroom';
+import {categoryLabels,type NewsArticle} from '../lib/newsroom';
 import {sitePath} from '../lib/basepath';
 interface Props {article:NewsArticle;index:number}
 const {article,index}=Astro.props;
@@ -7,9 +7,10 @@ const p=(url:string)=>sitePath(url,import.meta.env.BASE_URL);
 ---
 <article class="news-card">
   <div class="news-card-top"><span class="news-index">{String(index).padStart(2,'0')}</span><span class:list={['news-category',{'is-rejected':article.category==='high-rejected'}]}>{categoryLabels[article.category]}</span><span class="news-topic">{article.topic}</span></div>
+  <div class="card-result"><span>评分 <b>{article.ratings.join(" / ")}</b></span><span>均分 <b>{article.mean.toFixed(2)}</b></span><strong>{article.decision==="Reject"?"拒绝":"录取 · Poster"}</strong></div>
   <h3><a href={p(`/news/${article.slug}/`)} data-news-link>{article.headline}</a></h3>
-  {article.finding&&<p class="finding-tag">{findingLabels[article.finding.level]} <span>/ {targetLabels[article.finding.target]}</span></p>}
+  {article.brief&&<p class="card-contribution"><strong>核心贡献</strong>{article.brief.contribution.module}</p>}
   <p class="news-card-deck">{article.deck}</p>
-  <div class="news-card-scores"><span>评分 <b>{article.ratings.join(' · ')}</b></span><span>均分 <strong>{article.mean.toFixed(2)}</strong></span></div>
+
   <div class="news-card-footer"><span>{article.read_minutes} 分钟深读</span><a href={p(`/news/${article.slug}/`)} aria-label={`阅读全文：${article.headline}`}>阅读全文 <span aria-hidden="true">↗</span></a></div>
 </article>
