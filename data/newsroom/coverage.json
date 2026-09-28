@@ -1,0 +1,77 @@
+{
+  "schema_version": "archive_screening_v1",
+  "generated_at": "2026-09-28T05:31:40.494689+00:00",
+  "scope": "entire ICLR 2026 year within the supplied archive; not certified current OpenReview completeness",
+  "source": {
+    "archive_sha256": "350071daf25ebf1aef854ee1d5dc3a81834e1c468917c82a4f78af5548de34fc",
+    "archive_source_url": "https://github.com/qhjqhj00/iclr-openreview-reviews/releases/download/v1.0/iclr.tar.bz2",
+    "source_capture_time": null,
+    "source_snapshot_date_author_reported": "2026-05-08",
+    "papers_sha256": "0660a58ce45117646ae97f9193c20c6b9271275d0acd822c07e828e88b75dab0",
+    "reviews_sha256": "755397d19580b3ad3d3a34c44130f7e153231cac73a5a2505f7ffb73ebbdf294"
+  },
+  "paper_count": 19814,
+  "note_count": 284355,
+  "notes_by_kind": {
+    "Decision": 14175,
+    "Meta_Review": 14175,
+    "Official_Comment": 180146,
+    "Official_Review": 75859
+  },
+  "paper_venue_counts": {
+    "ICLR.cc/2026/Conference": 5352,
+    "ICLR.cc/2026/Conference/Withdrawn_Submission": 5178,
+    "ICLR.cc/2026/Conference/Rejected_Submission": 8376,
+    "ICLR.cc/2026/Conference/Desk_Rejected_Submission": 908
+  },
+  "papers_with_notes": 19474,
+  "papers_without_notes": 340,
+  "observed_rating_distribution": {
+    "0": 1319,
+    "2": 19865,
+    "4": 29765,
+    "6": 19712,
+    "8": 5010,
+    "10": 188
+  },
+  "rating_schema_status": "observed archive values only; official invitation schema not independently fetched",
+  "zero_rating_is_valid": true,
+  "eligible_count": 13699,
+  "eligible_accept": 5341,
+  "eligible_reject": 8358,
+  "threshold_candidates": {
+    "accepted_mean_at_most_4": 329,
+    "rejected_mean_at_least_7": 1,
+    "total": 330
+  },
+  "exclusion_counts_primary_exclusive": {
+    "withdrawn": 5178,
+    "desk_rejected": 908,
+    "explicit_nonassessment_review": 8,
+    "ac_review_artifact": 14,
+    "fewer_than_three_valid_reviews": 4,
+    "blank_placeholder_review": 2,
+    "duplicate_reviewer_notes": 1
+  },
+  "issue_counts_nonexclusive": {
+    "withdrawn": 5178,
+    "desk_rejected": 908,
+    "explicit_nonassessment_review": 10,
+    "ac_review_artifact": 17,
+    "blank_placeholder_review": 3,
+    "fewer_than_three_valid_reviews": 345,
+    "duplicate_reviewer_notes": 2
+  },
+  "evidence_bundle_count": 339,
+  "requested_serious_ids_missing": [],
+  "all_archive_records_parsed": true,
+  "limitations": [
+    "Mechanical screening does not certify substantive reviews, review correctness, paper correctness, or serious misconduct.",
+    "Known artifact patterns are documented heuristics; semantic false negatives remain possible.",
+    "Desk/duplicate-submission meta-review mentions are audit flags, not automatically exclusions; they require semantic adjudication before case selection.",
+    "Archival score snapshot is not assigned to an original/rebuttal/final stage without version evidence.",
+    "Full current website coverage, original paper versions, and API invitation schema were not independently verified."
+  ],
+  "all_manuscripts_read": false,
+  "screening_is_semantic_review": false
+}

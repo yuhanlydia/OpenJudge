@@ -1,30 +1,26 @@
-# 本次实际验证记录
+# 严格新闻版验证记录（2026-09-28）
 
-日期：2026-09-27。所有测试均在当前云端工作目录执行。真实数据目标没有达成，不由测试替代。
+本文件记录当前静态新闻版；早期API全会议榜单管线的完整性限制见PUBLIC_NEWSROOM.md，不把两者视作同一个生产数据集。
 
-| 命令 / 检查 | 实际结果 |
+已实际执行：
+
+| 检查 | 结果 |
 |---|---|
-| `PYTHONPATH=pipeline python -m pytest pipeline/tests -q` | 27 passed，exit 0 |
-| `python -m unittest discover -s scripts/tests -q` | 3 passed，exit 0 |
-| `pnpm --dir apps/web test` | 8 passed，exit 0 |
-| `pnpm --dir apps/web exec tsc --noEmit` | exit 0 |
-| `pnpm --dir apps/web build` | 7 个静态页面与两个空索引，exit 0 |
-| `pnpm --dir apps/web exec playwright test site.spec.ts` | 10 passed：1440/375px、无第三方请求、键盘、200% 字体、URL 筛选、禁用 JS |
-| `node scripts/verify-ui-fixtures.mjs` | 10 passed：34 条虚构记录，双向排序、25 条分页、详情转义、stale 隐藏、历史隔离 |
-| `BASE_PATH=/reviewcase/ … node scripts/verify-static.mjs` | 375/1440px 子路径链接及资源检查通过 |
-| `python scripts/check-dist.py` | 通过；首屏 JS gzip 约 1.8KB，空索引 gzip 44 字节 |
-| `python scripts/repository-guard.py` | 已跟踪内容检查通过；不能撤销已经公开的数据泄露 |
-| `reviewcase validate-public --path data/public --mode fixture` | 结构校验通过；不表示数据为 fixture，也不表示生产通过 |
-| `reviewcase validate-public --path data/public --mode production` | **预期 exit 1**：完整性、量表、provenance、capture inventory 四项未满足 |
+| Python pipeline pytest | 27 passed |
+| 发布辅助脚本 unittest | 3 passed |
+| 前端单元测试 | 25 passed |
+| TypeScript tsc --noEmit | exit0 |
+| 新闻版生产数据验证 | 原始评分、决定、所有评审顺序、引用ID、证据及文章哈希一致 |
+| 静态构建与内容检查 | 无外部脚本、活跃嵌入或私有构建文件；运行时JavaScript为0 |
+| 公共版浏览器测试 | 桌面1440px、手机375px，逐篇检查、200%字号、来源与内部链接、无JavaScript阅读 |
+| 独立代码审查 | 无Critical/Important；采纳首页路由精确集合检查建议 |
+
+最终实际验证：118篇文章（113篇当前、5篇历史），2,498条随文记录；当前分栏为16篇严重错误、96篇低分录用、1篇高分拒稿。构建后公开122个HTML页面、运行时JavaScript为0；全部118篇逐一通过桌面及手机浏览器检查，4项Playwright测试通过（22.3秒），包括展开完整首页、200%字号与无JavaScript阅读。release.json中的来源与文章哈希均通过。
 
 ## 浏览器环境
 
-Playwright 自带浏览器下载在此环境取得了损坏下载包，未将该失败视为成功。实际使用从 npm 获取的 `@sparticuz/chromium@153.0.0` 所含 Chromium 153，通过 `CHROMIUM_PATH` 指定，运行同一 Playwright 测试。预览环境补充了官方 Noto CJK 字体以检查中文布局；网站本身使用系统字体，不请求外部字体。
+Playwright浏览器下载地址返回HTML而非ZIP，未把失败当作通过。实际采用npm提供的@sparticuz/chromium@153.0.0，通过CHROMIUM_PATH运行同一套测试；预览环境安装官方Noto CJK字体。网站采用系统字体，不加载第三方字体。
 
-## 有针对性的回归测试
+## 阅读与证据范围
 
-不完整 manifest、错误 quote/source hash、重用错误审批、未核实评分、withdrawal/decision 冲突、刷新失败沿用 complete 标志、子评论变化、非法评分跨论文污染、下架后未来快照重新导出、首页子路径尾斜线、首次翻页与 stale 内容残留等问题均有对应检查或回归测试。
-
-## 未执行
-
-全会议采集、至少 10 篇 API/schema 样本对照、30 篇真实论文审计、原稿/PDF/图表专业核查、真实报告审批、GitHub Actions 实际运行、正式公网发布、未登录线上验收、线上回滚演练。源码级 workflow 与本地构建通过不能代替这些验收。
+完成整个存档的程序扫描，不等于通读全部19,814篇论文。选中案例逐条读取公开论坛记录，并按文章披露相关论文版本、正文/表格/附录和代码核查范围。部分原稿无法取得；后续稿不倒推为评审当时所见。没有宣称独立实验复现、完整证明审计、真实人类专家审批或确认学术不端。

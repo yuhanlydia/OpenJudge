@@ -1,12 +1,18 @@
 ---
 import Base from '../layouts/BaseLayout.astro';
-import {loadNewsroom,categoryLabels} from '../lib/newsroom';
+import {loadNewsroom} from '../lib/newsroom';
 import {sitePath} from '../lib/basepath';
-const articles=loadNewsroom();const p=(v:string)=>sitePath(v,import.meta.env.BASE_URL);
+import coverage from '../../../../data/newsroom/coverage.json';
+import release from '../../../../data/newsroom/release.json';
+const articles=loadNewsroom();const current=articles.filter(a=>a.selection_status!=='historical');
+const p=(v:string)=>sitePath(v,import.meta.env.BASE_URL);
+const notes=release.cases.reduce((n,c)=>n+c.notes,0);
+const labels:Record<string,string>={withdrawn:'撤稿',desk_rejected:'Desk Reject',explicit_nonassessment_review:'明确不作技术评估的短评',ac_review_artifact:'AC 提及缺失、空白或重复评审',fewer_than_three_valid_reviews:'少于三份有效评分',blank_placeholder_review:'空白占位评审',duplicate_reviewer_notes:'重复评审代号'};
 ---
-<Base active="data" title="本期 10 篇案例的资料来源 · OpenJudge"><div class="page-top"><div><div class="eyebrow">SOURCE DESK</div><h1>每个判断，都有回到原始记录的路。</h1><p>本期 10 篇案例；材料归档于 2026-05-08。公开评论，非全会议排行榜。</p></div></div><div class="prose">
- <section class="panel"><h2>本期材料</h2><p>5 篇低分录取、5 篇高分拒稿，共 176 条公开评议记录。每篇列出投稿讨论页和支持分析的具体 note 链接。材料来自 <a href="https://github.com/qhjqhj00/iclr-openreview-reviews/releases/tag/v1.0" target="_blank" rel="noopener noreferrer">ICLR OpenReview reviews archive v1.0 ↗</a>；不是实时读取 OpenReview，也不使用泄露的身份数据。</p><p>正式决定与投稿状态交叉检查；含撤稿与拒稿状态冲突的候选未纳入本期。原稿 PDF 的独立核验尚未完成，本文不会用后来的答辩内容冒充评审当时已经看过的内容。</p></section>
- <section class="panel"><h2>逐篇来源入口</h2><div class="table-wrap"><table><thead><tr><th>论文</th><th>结果与均分</th><th>原始讨论</th></tr></thead><tbody>{articles.map(a=><tr><td><a href={p(`/news/${a.slug}/`)}>{a.title}</a></td><td>{categoryLabels[a.category]}<br/>{a.mean.toFixed(2)}</td><td><a href={`https://openreview.net/forum?id=${a.forum_id}`} target="_blank" rel="noopener noreferrer">OpenReview ↗</a></td></tr>)}</tbody></table></div></section>
- <section class="panel"><h2>2026-09-28 · 本轮读取范围</h2><p>十篇均新增论文三段式、核心贡献与逐位核查。以下逐篇说明结果来自哪里、属于哪个版本；未将后续稿件自动视为初评时已经存在的内容。</p>{articles.map(a=><div class="source-scope-item"><h3><a href={p(`/news/${a.slug}/`)}>{a.title}</a></h3><p>{a.brief?.result_scope||a.audit?.scope}</p></div>)}<p><a href={p('/contribute/#updates')}>阅读本轮修改记录 →</a></p></section>
- <section class="panel"><h2>可以确认什么，不能确认什么</h2><p>可以核对的是归档记录中的文字、分数、回复顺序和公开决定。不能据此自动确认的是实现正确性、实验可复现性、原稿每一处内容，以及评审者的真实动机。</p><p>发布于 2026-09-28（上海）。计划每三个月手动检查一次材料；事实纠错随时处理。版本修改记录保留在 <a href="https://github.com/yuhanlydia/OpenJudge" target="_blank" rel="noopener noreferrer">OpenJudge 代码仓库 ↗</a>。</p></section>
+<Base active="data" title="资料来源与全量初筛 · OpenJudge"><div class="page-top"><div><div class="eyebrow">SOURCE DESK</div><h1>从全量初筛，到逐篇核查。</h1><p>本期 {current.length} 篇，另保留 {articles.length-current.length} 篇历史文章。筛选覆盖不等于全文审读。</p></div></div><div class="prose">
+ <section class="panel"><h2>扫描了哪些材料？</h2><p>读取 <a href="https://github.com/qhjqhj00/iclr-openreview-reviews/releases/tag/v1.0" target="_blank" rel="noopener noreferrer">2026-05-08 公开存档 ↗</a> 中 ICLR 2026 的全部 {coverage.paper_count.toLocaleString('en-US')} 篇论文元数据及 {coverage.note_count.toLocaleString('en-US')} 条公开记录，包括 {coverage.notes_by_kind.Official_Review.toLocaleString('en-US')} 条正式评审。按分数、决定及评审缺失、占位、重复等记录问题作程序初筛；没有声称逐篇读完全部论文。</p><p>存档不是实时 OpenReview，也不能恢复所有历史编辑。只使用公开匿名记录，不使用身份泄露资料。</p></section>
+ <section class="panel"><h2>严格分数门槛与排除项</h2><div class="table-wrap"><table><thead><tr><th>初筛指标</th><th>数量</th></tr></thead><tbody><tr><td>机械检查后可比较的记录</td><td>{coverage.eligible_count.toLocaleString('en-US')}</td></tr><tr><td>录取 / 拒绝</td><td>{coverage.eligible_accept} / {coverage.eligible_reject}</td></tr><tr><td>录取且均分 ≤4</td><td>{coverage.threshold_candidates.accepted_mean_at_most_4}</td></tr><tr><td>拒绝且均分 ≥7</td><td>{coverage.threshold_candidates.rejected_mean_at_least_7}</td></tr>{Object.entries(coverage.exclusion_counts_primary_exclusive).map(([k,v])=><tr><td>排除：{labels[k]||k}</td><td>{v}</td></tr>)}</tbody></table></div><p>这 {coverage.threshold_candidates.total} 篇是评分候选，不是已确认的错评。初筛规则无法替代语义判断；候选中的评审实质内容、AC 政策说明与版本仍需逐篇阅读。严重错误另按核心影响选题，不要求分数极端。100 篇是扩展目标，不是错误数或会议错评率。</p></section>
+ <section class="panel"><h2>本期实际成稿范围</h2><p>共 {articles.length} 篇文章、{notes} 条随文归档记录。每篇逐项核对分数、正式决定及所引 reviewer、AC 和作者回复。原稿取得情况不同；可读取的论文方法、表格、消融与版本在下方逐篇披露，未取得原稿时明确限制判断。</p><p>未完成独立人工技术鉴定、全部证明检查、代码审计或实验复现。作者报告的数据仍标为报告值。</p></section>
+ <section class="panel"><h2>逐篇来源与阅读范围</h2>{articles.map(a=><div class="source-scope-item"><h3><a href={p(`/news/${a.slug}/`)}>{a.title}</a></h3><p><strong>{a.ratings.join(' / ')} · 均分 {a.mean.toFixed(2)} · {a.decision}</strong>{a.selection_status==='historical'?' · 历史文章':''} · <a href={`https://openreview.net/forum?id=${a.forum_id}`} target="_blank" rel="noopener noreferrer">OpenReview ↗</a></p><p>{a.brief?.result_scope||a.audit?.scope}</p></div>)}</section>
+ <section class="panel"><h2>更新与可追溯性</h2><p>每三个月手动检查材料，事实纠错随时处理。每篇证据及文章文件有哈希校验；旧版不符合新门槛的文章保留历史标识。<a href={p('/contribute/#updates')}>查看修订说明 →</a></p></section>
 </div></Base>

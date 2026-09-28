@@ -1,0 +1,337 @@
+{
+  "paper": {
+    "id": "khBHJz2wcV",
+    "title": "Physics-Constrained Fine-Tuning of Flow-Matching Models for Generation and Inverse Problems",
+    "abstract": "We present a framework for fine-tuning flow-matching generative models to enforce physical constraints and solve inverse problems in scientific systems. Starting from a model trained on low-fidelity or observational data, we apply a differentiable post-training procedure that minimizes weak-form residuals of governing partial differential equations (PDEs), promoting physical consistency and adherence to boundary conditions without distorting the underlying learned distribution. To infer unknown physical inputs, such as source terms, material parameters, or boundary data, we augment the generative process with a learnable latent parameter predictor and propose a joint optimization strategy. The resulting model produces physically valid field solutions alongside plausible estimates of hidden parameters, effectively addressing ill-posed inverse problems in a data-driven yet physics-aware manner. We validate our method on canonical PDE problems, demonstrating improved satisfaction of physical constraints and accurate recovery of latent coefficients. Further, we confirm cross-domain utility through fine-tuning of natural-image models. Our approach bridges generative modelling and scientific inference, opening new avenues for simulation-augmented discovery and data-efficient modelling of physical systems.",
+    "venue": "ICLR 2026 Poster",
+    "venueid": "ICLR.cc/2026/Conference",
+    "pdf": "/pdf/bd101e2dc591436d01faae477b1916554f68cba9.pdf",
+    "keywords": [
+      "Generative Modeling",
+      "Physics‑Informed Machine Learning",
+      "Inverse Problems",
+      "Parameter Identification"
+    ],
+    "primary_area": "generative models",
+    "number": null,
+    "license": "CC BY 4.0",
+    "source_hash": "31c0ce502b20459278c7d6643c54c18b93649526ad73470df694d5306014c372",
+    "scores": [
+      4,
+      6,
+      2,
+      0
+    ],
+    "invalid_scores": [],
+    "decisions": [
+      {
+        "id": "kyTb8nYKDo",
+        "decision": "Accept (Poster)"
+      }
+    ],
+    "meta_ids": [
+      "MFfFlKzcAI"
+    ],
+    "reviews": [
+      "150xxQEo77",
+      "3t7QZxiKLP",
+      "zOIoPgVHjN",
+      "voHngDO1tb"
+    ],
+    "comments": 10
+  },
+  "notes": [
+    {
+      "id": "kyTb8nYKDo",
+      "kind": "Decision",
+      "replyto": "khBHJz2wcV",
+      "role": "program_chair",
+      "content": {
+        "title": "Paper Decision",
+        "decision": "Accept (Poster)",
+        "comment": ""
+      },
+      "date": "2026-01-26T08:48:22.892000+00:00",
+      "modified": "2026-02-06T05:28:14.671000+00:00",
+      "url": "https://openreview.net/forum?id=khBHJz2wcV&noteId=kyTb8nYKDo",
+      "license": "CC BY 4.0",
+      "source_hash": "fc6acf940950860ec5a7093c8b2da416cec3b6769950d7ff5f227a796c2bc704"
+    },
+    {
+      "id": "MFfFlKzcAI",
+      "kind": "Meta_Review",
+      "replyto": "khBHJz2wcV",
+      "role": "area_chair",
+      "content": {
+        "summary": "Reviewers are mainly concerned about the following points:\n1. Many reviewers concerned about the contribution being incremental (e.g. Reviewer Mbyw, ZYUG).\n2. Reviewers concerned about the quality of the evaluation. For example, Reviewer n7dD concerned that there is no quantitative results. Reviewer Pud7 pointed out that the evaluation are done limited set of physics problems and comparing to limited baselines.\n\nOther limitations pointed by reviewers include:\n* The diversity metric can mislaign with the PDE solver (by Reviewer Pud7)\n* Physics constraints are only softly enforced but not guaranteed (by Reviewer Mbyw)",
+        "reviewer_concerns": "The authors provided many additional quantitative results, which addressed the main concerns from Reviewer Pud7 and n7dD. Authors also provide additional clarification about the paper's contributions and novelty in respond to reviewer Mbyw and ZYUG's concerns that the paper can be incremental. The concerns about not being able to guarantee physical constraints is perhaps not well addressed.",
+        "reviewer_scores": "Through the discussion, I believe that reviewer n7dD, Pud7 will increase their scores to be more toward acceptance side. Reviewer ZYUG might maintain his/her score."
+      },
+      "date": "2026-01-06T01:54:53.153000+00:00",
+      "modified": "2026-02-09T06:46:23.172000+00:00",
+      "url": "https://openreview.net/forum?id=khBHJz2wcV&noteId=MFfFlKzcAI",
+      "license": "CC BY 4.0",
+      "source_hash": "5e31fb85003b471fa0911678844024193b729846532d0def43755dedcd4b9c7d"
+    },
+    {
+      "id": "JsyVEgpvoI",
+      "kind": "Official_Comment",
+      "replyto": "khBHJz2wcV",
+      "role": "author",
+      "content": {
+        "title": "Summary of Rebuttal Phase",
+        "comment": "We thank all reviewers for their thoughtful assessments and constructive feedback, and we appreciate the Area Chair’s effort in handling this challenging situation. \n\nThe reviews consistently highlighted the novelty of the problem setting, the methodological soundness of the approach, and the relevance of post-training physics enforcement on pretrained flow-matching models. Below we briefly summarize how we addressed the reviewer's concerns.\n\n## 1. Quantitative evaluation and breadth of experiments\nA key request was for more extensive quantitative evidence. In the revised manuscript, we have:\n- added **two new PDE benchmarks** (in total four diverse PDE settings and one natural image example)\n- reported **weak/strong residuals** and **distributional similarity metrics** across all datasets,\n- included **ablations**,\n- compared against **raw FM outputs**, **training-time physics incorporation**, and **inference-time correction**.\n\nThese additions provide a much more complete picture of the method’s behavior across regimes and directly address all quantitative concerns raised.\n\n---\n\n\n## 2. Clarification of the Stokes lid-driven cavity case\nOne reviewer requested further analysis of the seemingly higher residuals in the incompressible-flow example.  \nWe expanded this section with:\n- a study of different levels of misspecification (varying assumed forcing), reporting weak-residuals across misspecification levels and\n- qualitative vortex-structure comparisons.\n\nThis analysis shows that the residuals are driven primarily by **extreme physics misspecification**, not by a failure to handle incompressibility.\n\n---\n\n\n## 3. Resolution of reviewers’ objections\nThe reviewers who re-engaged with the rebuttal indicated that the revisions substantially improved the paper.  \nIn particular:\n- one reviewer (initial score of 0) explicitly stated that their **initial objection is resolved**,  \n- another acknowledged the strengthened evaluation and clarified that their remaining point concerned only additional detail on the Stokes case, which we now addressed in the revision.\n\nOur responses and the revised manuscript also resolve the concerns raised by the remaining reviewers.\n\n---\n\n\n## Closing remark\nWe believe the revised submission now provides a comprehensive and convincing evaluation of the proposed post-training framework, with clear evidence of robustness across a wide range of PDE settings."
+      },
+      "date": "2025-12-02T09:51:30.073000+00:00",
+      "modified": "2026-02-12T17:35:05.311000+00:00",
+      "url": "https://openreview.net/forum?id=khBHJz2wcV&noteId=JsyVEgpvoI",
+      "license": "CC BY 4.0",
+      "source_hash": "cc745323663222ae1458f535b2083ba44a2794b9f388a43b20ae4a7da3456367"
+    },
+    {
+      "id": "zXdfYm8Lhf",
+      "kind": "Official_Comment",
+      "replyto": "ZVupBurPtF",
+      "role": "author",
+      "content": {
+        "comment": "Thank you for revisiting the Stokes experiment and for raising this important point.  \nWe address the concern directly, and added details in Appendix F.2.1.\n\n\n### **1. Why Stokes behaves differently**\nThe lid–driven cavity is substantially more challenging than the other PDEs we study, which is already reflected in the *base FM model*: its weak residuals are up to an order of magnitude higher than in Darcy, Helmholtz, or elasticity.  \nWe agree that this makes it a meaningful test for scalability.\n\n### **2. The remaining residuals are driven primarily by misspecification—not by failure to model incompressible flow**\nIn the main-paper setting, the base model is trained on flows with a strong Kolmogorov forcing $F_0 = 2.0$,\nwhereas fine-tuning assumes **no forcing**.  \nAs shown in Fig. 12 (App. F.2.1), these regimes generate **qualitatively different vortex topologies**: multi-vortex structures at $F_0=2.0$ versus a single large lid-driven vortex at $F_0=0.0$.  \nFine-tuning must therefore perform a *structural transformation* of the flow—far more drastic than in our other PDEs.\n\nThus the residual gap reflects the combination of:\n- a **complex PDE**, and  \n- **severe physics misspecification**, forcing the model far outside the base distribution.\n\n### **3. Additional experiments confirm this interpretation**\nTo test this explicitly, we conducted fine-tuning runs with different assumed forcings:\n$\\tilde F_0 \\in \\{0.0,\\,0.5,\\,1.0,\\,1.5,\\,2.0\\}.$\n(App. F.2.1, Figs. 12–13).  \nAll hyperparameters were held fixed.  \nWeak residuals were normalized by the mean residual of synthetic data generated under the corresponding forcing.  \nThe extracted median values are:\n\n| $\\lvert F_0 - \\tilde F_0 \\rvert$ | 0.0 | 0.5 | 1.0 | 1.5 | 2.0 |\n| --- | --- | --- | --- | --- | --- |\n| FM | 23.4 | 32.6 | 55.8 | 94.9 | 138.4 |\n| Ours | **1.3** | **1.6** | **4.8** | **5.8** | **6.9** |\n\nThese results show that:\n- When the assumed forcing matches the true one, the weak residual nearly reaches ground-truth level.  \n- As misspecification increases, the residuals increase in a predictable way.  \n- **Across all settings, fine-tuning reduces the residual by at least an order of magnitude** relative to the base FM model.\n\nThis is consistent across both the main-paper scatter plots (Fig. 5) and the full sweeps (Fig. 11): even under the strongest misspecification, our method achieves the best attainable trade-off between physics consistency and distributional fidelity.\n\n---\n\nIn summary, the Stokes case is difficult not because the method struggles with incompressibility, but because the experiment combines our most challenging PDE with the most extreme misspecification.  \nThe additional results in App. F.2.1 confirm that the method behaves exactly as expected across misspecification levels and remains robust in this demanding regime."
+      },
+      "date": "2025-11-30T16:46:20.135000+00:00",
+      "modified": "2025-11-30T16:46:20.135000+00:00",
+      "url": "https://openreview.net/forum?id=khBHJz2wcV&noteId=zXdfYm8Lhf",
+      "license": "CC BY 4.0",
+      "source_hash": "ce4c04627829b7174a71ed730dc6b1684882478dfadf27d4fe0fdba09e4ab0de"
+    },
+    {
+      "id": "ZVupBurPtF",
+      "kind": "Official_Comment",
+      "replyto": "dHPvLP39Np",
+      "role": "reviewer",
+      "content": {
+        "comment": "Thank you for the detailed rebuttal and the additional experiments. Your clarifications on the diversity–versus–PDE‑correctness trade‑off and the new results on more complex PDEs address many of my earlier concerns, so I have updated my scores for soundness and clarity from 2 to 4.\n\nHowever, I would still like to be a bit cautious about the Navier–Stokes–type (Stokes lid‑driven cavity) experiment. The reported normalized/relative errors remain noticeably larger than for the other PDE benchmarks, so the improvement there feels somewhat conservative. This suggests that the current choice of hyperparameters (e.g., trade‑off weights $ \\lambda $, noise‑scaling parameter $ \\kappa $, number of fine‑tuning steps) may not yet be fully optimized. For a future revision, it would be reassuring either (i) to further tune these settings and demonstrate a clearer reduction in NS‑related error, or (ii) to discuss more explicitly why this case is intrinsically harder and should be regarded as a limitation of the present method.\n\nOverall, I appreciate the substantial improvements in the revision, but I still encourage you to be careful in your claims and to continue refining the NS experiment to further improve the physics quality."
+      },
+      "date": "2025-11-27T08:47:42.674000+00:00",
+      "modified": "2025-11-27T08:47:42.674000+00:00",
+      "url": "https://openreview.net/forum?id=khBHJz2wcV&noteId=ZVupBurPtF",
+      "license": "CC BY 4.0",
+      "source_hash": "bba0a966f1fefc7e4c821a60286d4deb38ce0d7bae9d21396cb6f48a720f7dd3",
+      "public_alias": "reviewer_3"
+    },
+    {
+      "id": "2VLhj4zNei",
+      "kind": "Official_Comment",
+      "replyto": "7ukH6lPbrw",
+      "role": "author",
+      "content": {
+        "comment": "Thank you for engaging and for your openness to raising the score. Since the original objection has now been resolved, we would be grateful to know whether any remaining concerns prevent a higher assessment, so that we can provide further clarification or improve the paper accordingly."
+      },
+      "date": "2025-11-26T07:35:26.352000+00:00",
+      "modified": "2025-11-26T07:35:26.352000+00:00",
+      "url": "https://openreview.net/forum?id=khBHJz2wcV&noteId=2VLhj4zNei",
+      "license": "CC BY 4.0",
+      "source_hash": "e78a8a5be7ecb54045c6900ea5372a934a5a95179c6c12462bc83ce7449c522b"
+    },
+    {
+      "id": "7ukH6lPbrw",
+      "kind": "Official_Comment",
+      "replyto": "jC0P4cKfYA",
+      "role": "reviewer",
+      "content": {
+        "comment": "Thanks for the thorough revision. My original objection is resolved, and I have updated my score upward to reflect the substantially strengthened evaluation."
+      },
+      "date": "2025-11-25T15:22:07.382000+00:00",
+      "modified": "2025-11-25T15:22:07.382000+00:00",
+      "url": "https://openreview.net/forum?id=khBHJz2wcV&noteId=7ukH6lPbrw",
+      "license": "CC BY 4.0",
+      "source_hash": "f3046e835e2bc6d15c5e144e9a5b7cb4a345c23ab09cae73ada446c78423d809",
+      "public_alias": "reviewer_4"
+    },
+    {
+      "id": "jC0P4cKfYA",
+      "kind": "Official_Comment",
+      "replyto": "voHngDO1tb",
+      "role": "author",
+      "content": {
+        "comment": "We thank the reviewer for the clear articulation of the main concern—namely, the absence of quantitative experiments in the original submission. We agree that quantitative evaluation strengthens the paper.\nIn response, we have added extensive quantitative results across four PDE datasets, reporting:\n- weak and strong PDE residuals,\n- distributional similarity for both $x$ and $\\alpha$,\n- normalized residual diagnostics,\n- and comparisons to ablated variants and a PBFM-style baseline.\n\nIn the main paper, we quantify results for boundary conditions in Section 4.3 for the linear elasticity problem (Table 1):\n\n**Elasticity**\n\n| Model | BC (MSE) ↓ | R weak ↓ | R strong ↓ | MMDx ↓ | MMDa ↓ |\n|------|------|------|------|--------|--------|\n| FM | 6.98e-5 | 1.59e1 | 1.83e1 | 0.24 | 0.05 |\n| PBFM | 2.32e-5 | 6.32e0 | 4.22e0 | 0.92 | 0.54 |\n| FM+ECI | 0.0 | 1.01e3 | 2.49e2 | 1.16 | 0.36 |\n| AM (ours) | 1.71e-6 | 6.15e0 | 3.79e0 | 0.15 | 0.12 |\n\nand in Section 4.4 for the Helmholtz problem (Table 2):\n\n**Helmholtz**\n\n| Model | Crit | R weak ↓ | R strong ↓ | MMDx ↓ | MMDa ↓ |\n|-------|------|-------|-------|---------|---------|\n| FM | – | 1.5e1 | 2.55e1 | 0.18 | 0.03 |\n| PBFM | – | 8.33e0 | 1.22e1 | 0.09 | 0.03 |\n| Base AM | Rw | 4.9e0 | 1.34e1 | 0.15 | 0.04 |\n| Base AM | MMDx | 5.64e0 | 1.59e1 | 0.13 | 0.04 |\n| AM+ϕ | Rw | 4.99e0 | 1.16e1 | 0.13 | 0.05 |\n| AM+ϕ | MMDx | 5.46e0 | 1.59e1 | 0.12 | 0.04 |\n| AM (ours) | Rw | 4.3e0 | 1.14e1 | 0.07 | 0.04 |\n| AM (ours) | MMDx | 4.32e0 | 1.05e1 | 0.06 | 0.04 |\n\nFull results are provided in Appendix F, including scatter visualisations of the trade-off between PDE residuals and distributional fidelity.\n\nTogether with the updated Figure 3,\nthese experiments constitute a complete quantitative evaluation of the framework in all settings considered, directly addressing the reviewer’s objection. We believe the new results substantially strengthen the paper and resolve the reviewer’s concern."
+      },
+      "date": "2025-11-25T10:00:42.488000+00:00",
+      "modified": "2025-11-25T10:00:42.488000+00:00",
+      "url": "https://openreview.net/forum?id=khBHJz2wcV&noteId=jC0P4cKfYA",
+      "license": "CC BY 4.0",
+      "source_hash": "253a8fed57ac14840f0ae24e89ee55b8a93952097229e594194bdebe8bd2af79"
+    },
+    {
+      "id": "dHPvLP39Np",
+      "kind": "Official_Comment",
+      "replyto": "zOIoPgVHjN",
+      "role": "author",
+      "content": {
+        "comment": "We thank the reviewer for the positive remarks on our post-training approach to physics\nenforcement, the joint latent-parameter evolution for inverse recovery without paired labels, and\nthe clarity of our weak-form derivation. Below we address the remaining concerns.\n\n### **1. Diversity metric vs. task-specific correctness**\nWe agree that SSIM-based diversity is not a measure of PDE-solution accuracy. In Figure 3,\nsample diversity is used only as a diagnostic to detect *distributional collapse* in the generative\nmodel. Because the method outputs full joint samples $(x,\\alpha)$, correctness is naturally\nmeasured through *weak and strong PDE residuals*, which quantify the physical consistency\nbetween the generated state and inferred parameters.\n\n---\n\n### **2. More challenging PDE settings**\nWe agree that extending the evaluation to more complex PDE regimes strengthens the work. In\nresponse, we added:\n\n- **Helmholtz** (oscillatory elliptic with damping–lossless mismatch),  \n- **Stokes lid-driven cavity** (incompressible flow).\n\nThese additions demonstrate that the fine-tuning framework remains effective under oscillatory\nbehavior, boundary-driven flow, and substantial system misspecification (Sec. 4, App. F).\n\n---\n\n### **3. Baselines and comparative evaluation**\nDirect baselines for post-training recovery of a joint $(x,\\alpha)$ distribution from unpaired\ndata are limited. Nevertheless, we now include:\n\n- **two adjoint-matching variants** without the augmented flow;  \n- a **PBFM-style baseline** augmented with our pretrained inverse predictor.\n\nThese comparisons illustrate the effect of removing or altering the joint state–parameter\nevolution. The augmented flow consistently provides the best balance between residual reduction and\ndistribution fidelity across PDE datasets. As reference, we include the Helmholtz results from the\nmain paper:\n\n**Helmholtz (Table 2)**\n\n| Model | Crit | R weak ↓ | R strong ↓ | MMDx ↓ | MMDa ↓ |\n|-------|------|-------|-------|---------|---------|\n| FM | – | 1.5e1 | 2.55e1 | 0.18 | 0.03 |\n| PBFM | – | 8.33e0 | 1.22e1 | 0.09 | 0.03 |\n| Base AM | Rw | 4.9e0 | 1.34e1 | 0.15 | 0.04 |\n| Base AM | MMDx | 5.64e0 | 1.59e1 | 0.13 | 0.04 |\n| AM+ϕ | Rw | 4.99e0 | 1.16e1 | 0.13 | 0.05 |\n| AM+ϕ | MMDx | 5.46e0 | 1.59e1 | 0.12 | 0.04 |\n| AM (ours) | Rw | 4.3e0 | 1.14e1 | 0.07 | 0.04 |\n| AM (ours) | MMDx | 4.32e0 | 1.05e1 | 0.06 | 0.04 |\n\nFull results for all models and datasets are in Appendix F.\n\n---\n\n### **4. Quantitative recovery metrics**\nThe reviewer suggests accuracy measures such as solution error, boundary-violation rates, or\nparameter RMSE. In our generative setting—where the aim is to learn coupled *distributions* rather than\nsolve deterministic inverse problems—pointwise accuracy is not well-defined. Instead, we evaluate:\n\n- **weak/strong residuals**, capturing physics consistency of $(x,\\alpha)$;\n- **MMD-based distributional similarity** of state and parameter marginals.\n\nThese are the natural analogues of “accuracy’’ for generative models. We now report them\ncomprehensively across all four PDE datasets (App. F).\n\nWe further added quantitative comparison to inference-time correction (ECI) under misspecified\nboundary conditions, showing that ECI does not steer the generator toward physically meaningful\nsamples, while our method *simultaneously* reduces BC MSE and PDE residuals:\n\n**Elasticity (Table 1)**\n\n| Model | BC (MSE) ↓ | R weak ↓ | R strong ↓ | MMDx ↓ | MMDa ↓ |\n|------|------|------|------|--------|--------|\n| FM | 6.98e-5 | 1.59e1 | 1.83e1 | 0.24 | 0.05 |\n| PBFM | 2.32e-5 | 6.32e0 | 4.22e0 | 0.92 | 0.54 |\n| FM+ECI | 0.0 | 1.01e3 | 2.49e2 | 1.16 | 0.36 |\n| AM (ours) | 1.71e-6 | 6.15e0 | 3.79e0 | 0.15 | 0.12 |\n\n---\n\n### **5. Ablations (strong residuals, κ scaling, and other choices)**\n\n- **Weak vs. strong residuals.**  \n  Strong-form residuals require higher derivatives and are highly sensitive to noise and\n  misspecification. Under such conditions, the inverse predictor fails to converge, making strong-form\n  training unstable. Weak-form enforcement is the only feasible formulation here.\n\n- **Noise-schedule scaling (κ).**  \n  κ is not a tuning knob but a practical requirement for *pixel-space* flow models: due to the large amount of injected noise, with κ=0,\n  our FM models produce noisy samples unless the number of sampling steps is increased dramatically. Scaled memoryless noise restores\n  sample quality while staying theoretically consistent.  \n  (In latent models, we do *not* use this heuristic.)\n\n- **Other design choices.**  \n  We compare against adjoint-matching variants *without* the augmented flow; removing it leads to\n  inferior physics–fidelity trade-offs (Section 4, App. F).\n\n---\n\nOverall, the expanded experiments and clarified methodology fully address the reviewer’s concerns\nand significantly strengthen the submission."
+      },
+      "date": "2025-11-25T10:00:21.159000+00:00",
+      "modified": "2025-11-25T10:00:21.159000+00:00",
+      "url": "https://openreview.net/forum?id=khBHJz2wcV&noteId=dHPvLP39Np",
+      "license": "CC BY 4.0",
+      "source_hash": "af667c10383adeafe62ba6d5d5febbff0ac5d4a2c774238dad3d6cdc7981eaea"
+    },
+    {
+      "id": "ecI3qxSzqU",
+      "kind": "Official_Comment",
+      "replyto": "3t7QZxiKLP",
+      "role": "author",
+      "content": {
+        "comment": "We thank the reviewer for the positive assessment of our conceptual unification of physics-\nconstrained generative modeling with adjoint matching, the strength of the joint state–\nparameter evolution, and the breadth of the empirical evaluation. We address the remaining\nconcerns below.\n\n### **1. Two-stage setup and the role of the inverse predictor**\n\nThe reviewer raises the concern that using a pretrained inverse predictor $\\varphi$ may weaken the\ncoupling between $x$ and $\\alpha$, and requests ablations for jointly trained parameter flows. Our\nsetting, however, specifically targets the *unpaired-data regime*, where paired\n$(x,\\alpha)$ supervision is unavailable or impractical. In this regime, retraining a full flow matching model jointly over states and parameters is typically infeasible—particularly for large-scale models.\n\nIn our framework, the inverse predictor is used only as a *warm start* that allows us to\nconstruct the surrogate base flow. Fine-tuning then learns a *fully joint* velocity field\n$(v_x^{\\mathrm{ft}}, v_\\alpha^{\\mathrm{ft}}) = v^\\mathrm{ft}(x,\\alpha)$, with shared architecture and shared\nloss, optimized end-to-end under the same adjoint-matching objective. During fine-tuning, the\nevolution of $x_t$ and $\\alpha_t$ is fully coupled at every time step.\n\nThe necessity of this formulation becomes clearest in our natural-image experiment: here\n$\\alpha$ is a hidden color-transformation parameter for a large pretrained model. No paired\nsupervision exists, and retraining such a model for every possible parameterization is\nprohibitively expensive. The same situation frequently arises in scientific settings where\nmeasurements are limited and the governing physics may be misspecified. In such cases, the\ntwo-stage strategy is not a simplification—it is the only viable approach for learning joint\nstate–parameter dynamics from unpaired data.\n\n---\n\n### **2. Notation and clarity of exposition**\n\nWe appreciate the reviewer’s comment. Our notation follows the adjoint-matching literature and\npresents state and parameter as an augmented state variable for consistency with the underlying\nstochastic optimal control formulation. Nonetheless, we have improved Algorithm 1 to make the flow\nof information clearer: neural fields and their evaluations are now explicitly distinguished, the\nrole of the inverse predictor $\\varphi$ is made explicit, and the full adjoint-matching loss is\nspelled out.\n\n---\n\n### **3. Scalability and stability in harder PDE regimes**\n\nThe reviewer asks about performance in nonlinear or higher-dimensional PDEs. While formal guarantees\nare difficult due to the problem-dependent geometry of PDE residuals, we now evaluate\non substantially more challenging regimes—including oscillatory elliptic problems and cases with\npronounced physics–data mismatch. The new results (Section 4, Appendix F) show\nthat the framework remains stable and effective across all tested PDEs, even under strong\nmisspecification.\n\n---\n\n### **4. Clarifying the methodological contribution**\n\nWe clarify here what is fundamentally new relative to prior work on adjoint matching and flow\nmatching:\n\n- **Joint fine-tuning with latent-parameter recovery from unpaired data.**  \n  No prior generative method recovers a paired $(x,\\alpha)$ distribution under PDE constraints\n  without paired supervision.\n\n- **Surrogate base-flow construction for adjoint matching with unknown parameter flows.**  \n  Since the pretrained FM model provides no dynamics for $\\alpha$, we build a surrogate flow using\n  $\\varphi$ and one-step consistency. This yields a practical base flow that can be used effectively within\n  adjoint matching for regularization.  \n  We now include ablations against Adjoint Matching versions without this augmented flow and against\n  a training-time method (PBFM) in Section 4 and Appendix F. Results show that our joint flow offers\n  strong control of the PDE-residual vs. distribution-fidelity trade-off.\n\n- **Adjoint-matching fine-tuning in pixel space for PDE models.**  \n  Previous work applied adjoint matching only in latent spaces of large image models. We show that\n  the method can also be applied directly in pixel space for PDE systems with limited data and\n  provide a principled way (via $\\kappa$) to attenuate artefacts of the memoryless noise schedule.\n\n- **Objectives depending on hidden quantities.**  \n  Our residuals involve unknown PDE parameters that must be inferred jointly with the state. This\n  includes the natural-image setting, where the “parameter” is an interpretable color transform.\n\n- **Broad applicability beyond PDEs.**  \n  The natural-image recoloring example shows that our approach can fine-tune a model far outside\n  its training distribution while learning meaningful parameter–state structure—capabilities that\n  existing adjoint-matching and flow-matching methods do not provide.\n\nThese points together constitute a substantial methodological advance beyond adapting adjoint\nmatching to a new domain."
+      },
+      "date": "2025-11-25T09:59:49.780000+00:00",
+      "modified": "2025-11-25T09:59:49.780000+00:00",
+      "url": "https://openreview.net/forum?id=khBHJz2wcV&noteId=ecI3qxSzqU",
+      "license": "CC BY 4.0",
+      "source_hash": "91d6052e2d76a38e5d9e44bedbd890ea3913ccec91a43438445614e2d7f9d2fd"
+    },
+    {
+      "id": "PSRxhQ465Q",
+      "kind": "Official_Comment",
+      "replyto": "150xxQEo77",
+      "role": "author",
+      "content": {
+        "comment": "We thank the reviewer for the positive assessment of the core idea—post-training enforcement of\nPDE constraints without paired data—and for highlighting the practicality of weak-form residuals\nand the joint state/parameter evolution. Below we address the raised concerns.\n\n### 1. Novelty and conceptual contribution\nExisting flow- and adjoint-matching methods either (i) model *states only* or (ii) require *paired* supervision for joint state–parameter learning. We extend these frameworks to recovering $(x,\\alpha)$ from *unpaired* data during post-training under PDE constraints and possible misspecification. No prior generative method can infer latent parameters without paired labels *and* without retraining the base model. Conceptually, we introduce a joint flow over states and parameters, augmenting the state-only FM flow with a surrogate parameter flow, enabling principled regularization within Adjoint Matching (Sec. 3).\n\n---\n\n### 2. PDE feasibility diagnostics\nThe reviewer requested post–fine-tuning feasibility metrics. We now include comprehensive\nquantitative evaluations on four PDE datasets, reporting weak residuals, strong residuals,\nboundary-condition errors, and distributional similarities for both $x$ and $\\alpha$. For example,\nthe elasticity experiment (Table 1 in the main paper) reports boundary-condition MSE, weak/strong\nresiduals, and MMD metrics:\n\n**Elasticity**\n\n| Model | BC (MSE) ↓ | R weak ↓ | R strong ↓ | MMDx ↓ | MMDa ↓ |\n|------|------|------|------|--------|--------|\n| FM | 6.98e-5 | 1.59e1 | 1.83e1 | 0.24 | 0.05 |\n| PBFM | 2.32e-5 | 6.32e0 | 4.22e0 | 0.92 | 0.54 |\n| FM+ECI | 0.0 | 1.01e3 | 2.49e2 | 1.16 | 0.36 |\n| AM (ours) | 1.71e-6 | 6.15e0 | 3.79e0 | 0.15 | 0.12 |\n\nWe additionally compare against Adjoint Matching variants (without our augmented flow), PBFM\n(Physics-Based Flow Matching), and the base FM model. For instance, the Helmholtz results in the\nmain text (Table 2) are:\n\n**Helmholtz**\n\n| Model | Crit | R weak ↓ | R strong ↓ | MMDx ↓ | MMDa ↓ |\n|-------|------|-------|-------|---------|---------|\n| FM | – | 1.5e1 | 2.55e1 | 0.18 | 0.03 |\n| PBFM | – | 8.33e0 | 1.22e1 | 0.09 | 0.03 |\n| Base AM | Rw | 4.9e0 | 1.34e1 | 0.15 | 0.04 |\n| Base AM | MMDx | 5.64e0 | 1.59e1 | 0.13 | 0.04 |\n| AM+ϕ | Rw | 4.99e0 | 1.16e1 | 0.13 | 0.05 |\n| AM+ϕ | MMDx | 5.46e0 | 1.59e1 | 0.12 | 0.04 |\n| AM (ours) | Rw | 4.3e0 | 1.14e1 | 0.07 | 0.04 |\n| AM (ours) | MMDx | 4.32e0 | 1.05e1 | 0.06 | 0.04 |\n\n\nExperimental results for all hyperparameters are provided in Appendix F. These results directly\naddress the reviewer’s request for feasibility and physics-consistency diagnostics.\n\n---\n\n### 3. Hyperparameter sensitivity and heuristics\nWe summarize the reviewer’s requests and our response:\n- All heuristic choices are *fixed across all experiments*; we do not tune them per dataset.\n- $K$ and $K_{\\text{last}}$ follow the original Adjoint Matching paper. Larger values only\n  affect compute, not optimization stability. Our fine-tuning already uses small budgets compared\n  to full FM training.\n- Noise-schedule scaling and time-tilting are not ad-hoc tricks for our optimization but address a practical issue specific to our pixel-space flow models.  \n  With $\\kappa = 0$, the base pixel-space FM models tend to produce noisy final samples unless the number of sampling steps is increased significantly. Adjusting the memoryless noise schedule yields clean samples while remaining theoretically consistent. This issue does not arise in our latent-image experiment, where we do not use these heuristics.\n- Task-specific hyperparameters $(\\lambda_x,\\lambda_\\alpha,\\lambda_f)$ determine the desired\n  physics–fidelity trade-off. Appendix F reports results across multiple configurations, including\n  scatter plots showing the attainable residual–distribution trade-offs across methods.\n\n---\n\n### 4. Coverage and sampling of test functions\nWeak-form residuals require careful test-function design. Our choices reflect two considerations:\n- **Compact support:** differentiating through globally supported RBFs is memory-intensive, whereas compactly supported test functions drastically reduce memory and allow fully vectorized computation (see residual computation in supplementary material).\n- **One test function per grid point:** with minor jitter, providing full coverage. Reducing the number of test functions provided no advantage, as fine-tuning is already inexpensive.\n\nFor future large-scale PDE generative models (higher resolution or 3D), adaptive test-function\nsampling may become beneficial, and we thank the reviewer for pointing in this direction."
+      },
+      "date": "2025-11-25T09:58:42.401000+00:00",
+      "modified": "2025-11-25T09:58:42.401000+00:00",
+      "url": "https://openreview.net/forum?id=khBHJz2wcV&noteId=PSRxhQ465Q",
+      "license": "CC BY 4.0",
+      "source_hash": "b823344183ef3e04dc053fb45d4fa29c6a79604d3e8cd951db2eb6ae65756a6d"
+    },
+    {
+      "id": "rgqkwEz9xL",
+      "kind": "Official_Comment",
+      "replyto": "khBHJz2wcV",
+      "role": "author",
+      "content": {
+        "title": "General Reply and Changelog",
+        "comment": "We thank all reviewers for their constructive feedback. Across reviews, there is clear agreement on the importance of our setting—post-training enforcement of parameter-dependent PDE constraints on pretrained flow-matching models—and on the usefulness of our joint state–parameter evolution to recover $(x,\\alpha)$ distributions from *unpaired* data while preserving inference-time efficiency.\n\nA common request concerned broader quantitative evaluation and a clearer characterization across different PDE regimes. We agree and have substantially expanded the experiments, ablations, and diagnostics accordingly. The additions below directly address feasibility checks (weak/strong residuals, boundary-condition errors), robustness to hyperparameters, and trade-offs between physics fidelity and distributional similarity.\n\n### **Changes Made**\n\n- **Two additional PDE families.**  \n  We added Helmholtz and Stokes (lid-driven cavity) to complement Darcy and linear elasticity. Appendices B–D contain full dataset specifications and weak-form derivations, and we include non-curated qualitative samples for AM variants in Appendix F. We will release generation code.\n\n- **Expanded quantitative evaluation.**  \n  Sec. 4 reports representative results for weak/strong residuals, boundary-condition errors, and distributional similarity (MMD) for the four PDEs. Full tables are in Appendix F. We compare FM, AM variants (with/without our augmentations), PBFM, and ECI-style baselines.\n\n- **Physics–fidelity vs. distribution trade-offs.**  \n  We make the residual–distribution trade-off explicit with scatter plots and tables in Sec. 4 and Appendix F, showing improvement over alternatives.\n\n- **Residual reporting and figures.**  \n  Figure 3 now reports *relative* PDE residuals and clarifies SSIM/MMD for distributional similarity. The earlier qualitative BC figure (Fig. 5) has been moved to the appendix; the main text now shows quantitative BC evaluation.\n\n- **Algorithmic clarity.**  \n  Algorithm 1 was revised for improved readability and clarity.\n\n### **Scope Clarification**\n\nThe Darcy and elasticity experiments are unchanged; we refined only the reporting for consistency (relative residuals, unified diagnostics). Beyond PDEs, our natural-image study illustrates generality: treating a parametric color transform as $\\alpha$, we fine-tune a large latent flow model on unpaired images, demonstrating $(x,\\alpha)$ recovery without retraining the base generator.\n\n### **Summary**\n\nWith the added PDE families, diagnostics, ablations, and clarified figures, the paper now provides a broader and more rigorous empirical foundation. These changes address the reviewers’ requests for feasibility analyses, robustness, and cross-regime characterization, while sharpening the central contribution: post-training recovery of paired $(x,\\alpha)$ under physics constraints from a model trained on unpaired data."
+      },
+      "date": "2025-11-25T09:57:20.539000+00:00",
+      "modified": "2025-11-25T09:57:52.120000+00:00",
+      "url": "https://openreview.net/forum?id=khBHJz2wcV&noteId=rgqkwEz9xL",
+      "license": "CC BY 4.0",
+      "source_hash": "f3c0fa55894c4e75f472f905aabc04307eb442fda481c6f31cb7dc38221aa6cc"
+    },
+    {
+      "id": "150xxQEo77",
+      "kind": "Official_Review",
+      "replyto": "khBHJz2wcV",
+      "role": "reviewer",
+      "content": {
+        "summary": "The paper presents a post-training scheme that takes a pretrained flow-matching generator and tilts its distribution toward PDE-consistent samples by minimizing weak-form PDE residuals—so you can enforce physics (and boundary conditions) without retraining from scratch or having paired (state, parameter) data. Fine-tuning is posed as Adjoint Matching (a memoryless stochastic optimal control) with a small theoretical extension that scales the noise schedule for stability.",
+        "soundness": 3,
+        "presentation": 3,
+        "contribution": 2,
+        "strengths": "-The key selling point is the enforcement of PDEs via weak-form residuals on a pretrained flow-matching model—no paired data or full retraining while keeping the base model’s inference cost.\n\n-The model jointly evolves state and latent parameters with an inverse predictor, enabling guided sampling from sparse parameter observations and adaptation under model misspecification.",
+        "weaknesses": "The proposed method is practical for post-training physics enforcement for flow matching (no paired data or full retraining). It is useful and timely, but quite incremental rather than foundational.\n\nPhysics is imposed via a weak-form residual penalty added to the flow-matching objective; it aligns the denoiser with PDE residuals but does not guarantee exact constraint satisfaction.\n\nThe method relies on several heuristics and hyperparameters, such as scaled “memoryless” noise with factor κ, time-grid tilting (q = 0.9), and computing loss on only a subset of late steps (K_last, K). These improve stability but introduce tuning sensitivity without a comprehensive robustness study.",
+        "questions": "Since physics is enforced via weak-form residual penalties (not hard projections), could you report post–fine-tuning feasibility diagnostics—e.g., distributions of PDE residual norms, boundary-condition violations, and conservation drift?\n\nCan you provide sensitivity curves (accuracy and residuals) versus the hyperparameters across datasets, along with any principled guidance or conditions that ensure stability without ad-hoc tuning? \n\nBecause dense weak-residual evaluation is costly, you use compact test functions and patch-based subsampling. Could you quantify coverage (e.g., how many test centers are required to achieve a target residual error) and explore adaptive sampling that targets high-residual regions?",
+        "flag_for_ethics_review": [
+          "No ethics review needed."
+        ],
+        "rating": 4,
+        "confidence": 4,
+        "code_of_conduct": "Yes"
+      },
+      "date": "2025-11-05T07:42:06.392000+00:00",
+      "modified": "2025-11-12T06:07:31.295000+00:00",
+      "url": "https://openreview.net/forum?id=khBHJz2wcV&noteId=150xxQEo77",
+      "license": "CC BY 4.0",
+      "source_hash": "3ba677af4e9b5921f4c07dce5248e9bc029d1820c6cb06c65b288f2efafa0d62",
+      "public_alias": "reviewer_1"
+    },
+    {
+      "id": "3t7QZxiKLP",
+      "kind": "Official_Review",
+      "replyto": "khBHJz2wcV",
+      "role": "reviewer",
+      "content": {
+        "summary": "The paper introduces a physics-constrained fine-tuning framework for pretrained flow-matching generative models, enabling them to satisfy PDE-based physical laws and jointly infer latent parameters without retraining from scratch. It casts the physics-constrained fine-tuning as  Adjoint-Matching loss for distribution-level correction and a lightweight architectural extension with residual heads for joint state–parameter evolution. Overall, it positions itself as a general and data-efficient bridge between physics-informed learning and modern generative modeling.",
+        "soundness": 3,
+        "presentation": 2,
+        "contribution": 3,
+        "strengths": "**S1.** The paper recasts physics-based simulation as an adjoint-matching control framework, elegantly linking preference-aligned generative fine-tuning with physics-constrained inference. This bridges simulation-augmented modeling and stochastic optimal control, enabling physically consistent generative trajectories.\n\n**S2.** The method’s joint treatment of state and latent parameters allows simultaneous forward generation and inverse recovery within a unified flow-matching model.\n\n**S3.** The experimental evaluation is broad and convincing, demonstrating consistent improvements in physics residuals and inverse reconstruction accuracy across multiple PDE benchmarks, while maintaining generative fidelity and efficiency.",
+        "weaknesses": "**W1**: A core conceptual weakness of the paper is that it does not truly model the joint state–parameter distribution $(x, α)$. The latent variable $α$ is introduced post hoc through a frozen inverse predictor $\\phi(x_1)$, which breaks end-to-end coupling between physical states and governing parameters. I would be interested know what tradeoffs do this approach have. An ablation where the base model jointly learns $(x, α)$ during pretraining would help clarify the effectiveness of the two-stage setup or if a single joint flow $v_t(x, α)$ could achieve stronger physical coherence and lower residuals.\n\n\n**W2:** The mathematical notation is dense and inconsistent, making the exposition difficult to follow even for technically skilled readers. Symbols like ($v_t$), ($b_t$), and ($u_t$) are overloaded across base, fine-tuned, and control flows, while stochastic and deterministic forms are interleaved without clear separation. Algorithm 1 is not self consistent, missing how for e.g. $\\phi$ is used. As a result, the formalism obscures theoretical contributions and could benefit from a clearer hierarchy of variables (e.g., consistently distinguishing state vs. parameter flows) and unified notation across sections.\n\n**W3:** The theoretical novelty of the paper is incremental over the original Adjoint Matching framework (Domingo-Enrich et al., 2025). The core stochastic optimal control formulation, adjoint dynamics, and lean-adjoint optimization are directly inherited, with the main contribution being their adaptation to PDE-constrained fine-tuning. While this is a valuable and well-motivated extension, it constitutes more of an application-level adaptation than a fundamentally new methodological advance.",
+        "questions": "Q1: How does the proposed fine-tuning framework scale to nonlinearity where PDE constraints become non-analytic or high-dimensional? Are there stability or performance guarantees in such regimes?\n\nQ2: Could the authors clarify which aspects of their method represent core methodological contributions beyond the existing Adjoint Matching framework (Domingo-Enrich et al., 2025)?",
+        "flag_for_ethics_review": [
+          "No ethics review needed."
+        ],
+        "rating": 6,
+        "confidence": 3,
+        "code_of_conduct": "Yes"
+      },
+      "date": "2025-11-01T08:34:36.438000+00:00",
+      "modified": "2025-11-12T06:07:31.744000+00:00",
+      "url": "https://openreview.net/forum?id=khBHJz2wcV&noteId=3t7QZxiKLP",
+      "license": "CC BY 4.0",
+      "source_hash": "ba81295a1da03db5a0b5405143736f4eb8b578f99801a5388f0107d5c1dd05a1",
+      "public_alias": "reviewer_2"
+    },
+    {
+      "id": "zOIoPgVHjN",
+      "kind": "Official_Review",
+      "replyto": "khBHJz2wcV",
+      "role": "reviewer",
+      "content": {
+        "summary": "This paper proposes a post-training framework that fine-tunes flow-matching generators using randomized weak-form PDE residuals and a joint latent-parameter pathway, so the model produces physics-consistent fields while simultaneously inferring hidden coefficients; experiments on canonical PDE tasks indicate reduced residuals with limited impact on sample diversity.\n\nContributions.\n1) Post-training physics alignment: turns an already trained flow-matching model into a physics-respecting generator by minimizing weak-form residuals with compact test functions, avoiding unstable high-order derivatives and limiting drift from the base distribution.\n2) Joint state–parameter generation: augments the generator with a learned evolution for latent physical parameters and an inverse predictor, and fine-tunes both under an adjoint-matching objective (with a scaled memoryless schedule) to couple solutions and parameters.\n3) Practical control and coverage: demonstrates denoising, sparse-observation guidance, and boundary-condition adaptation, and exposes simple knobs to trade off constraint strength versus fidelity/diversity, with lightweight fine-tuning overhead.",
+        "soundness": 2,
+        "presentation": 2,
+        "contribution": 2,
+        "strengths": "1) Proposes a post-training route to impose physics on pretrained flow-matching models via weak-form PDE residuals, coupled with joint latent-parameter evolution for inverse problems without paired labels; also introduces a scaled memoryless noise schedule within adjoint matching.\n\n2) Grounds the method in adjoint matching and implements randomized local test functions for stable weak residuals; experiments span Darcy denoising, sparse-observation guidance, linear-elasticity boundary adaptation, and a small natural-image recoloring case, with ablations showing a residual–diversity trade-off.\n\n3) Clearly states goals and contributions, provides a pipeline diagram, derives the weak forms and test-function design, includes a full training algorithm and detailed dataset/backbone specs, and offers a reproducibility statement.",
+        "weaknesses": "1) Diversity objective may be misaligned for PDE solvers. For well-posed forward/inverse PDEs the target is a single solution; promoting output “diversity” is not desirable, and when partial observations make the task ill-posed, diversity stems from the problem, not the pipeline. The paper treats diversity as a knob/metric (SSIM-based) and studies its trade-off against residuals (Fig.\\ 3), which can conflict with PDE goals.\n\n2) Test problems are not comprehensive. Evaluations focus on Darcy denoising, sparse-obs guidance, and a linear-elasticity boundary change, plus a small image recoloring demo; there is no coverage of more challenging PDEs such as Poisson, Navier–Stokes, or Helmholtz, nor larger-scale or multi-physics settings.\n\n3) Limited baselines and quantitative recovery metrics. Beyond an ECI comparison in the elasticity case, there is no systematic head-to-head with alternative physics-constrained generative methods, and the paper provides little quantitative evaluation of latent-parameter recovery accuracy or real-data tests (most results are residual reductions and visuals).",
+        "questions": "1) Diversity vs. PDE correctness. For well-posed forward/inverse PDEs, please justify when output diversity is desirable; otherwise, replace or augment SSIM-based diversity with task metrics (solution error L2/H1, weak/strong residual distributions, boundary-violation rates) and, for partial-observation settings, include posterior calibration (coverage vs. nominal).\n\n2) Scope of test problems. Add at least one oscillatory elliptic case (Poisson/Helmholtz) and one basic incompressible flow (e.g., lid-driven cavity or cylinder shedding); if new runs are infeasible, provide higher-resolution or 3D variants or a brief scaling analysis (compute, stability bottlenecks).\n\n3) Baselines and recovery metrics. Include matched-compute head-to-head with (i) training-time physics-regularized flow matching, (ii) inference-time projection/ECI, and (iii) a classical PDE-constrained inversion baseline. Report solution error, boundary violations, weak/strong residuals, latent-parameter MAE/RMSE, and wall-clock.\n\n4) Ablations for method choices. Provide a small ablation comparing weak vs. strong residuals (stability, final residuals) and sensitivity to test-function sampling; show how the scaled memoryless parameter kappa affects stability, residual reduction, and drift from the base distribution.",
+        "flag_for_ethics_review": [
+          "No ethics review needed."
+        ],
+        "rating": 2,
+        "confidence": 4,
+        "code_of_conduct": "Yes"
+      },
+      "date": "2025-11-01T07:30:03.504000+00:00",
+      "modified": "2025-11-28T19:37:07.137000+00:00",
+      "url": "https://openreview.net/forum?id=khBHJz2wcV&noteId=zOIoPgVHjN",
+      "license": "CC BY 4.0",
+      "source_hash": "b22a2b318e91d0ffc7adc5243464fd0bac4f15675a81d92affeb3dd01fc5bd7a",
+      "public_alias": "reviewer_3"
+    },
+    {
+      "id": "voHngDO1tb",
+      "kind": "Official_Review",
+      "replyto": "khBHJz2wcV",
+      "role": "reviewer",
+      "content": {
+        "summary": "This paper introduces a physics-consrtained post-training scheme for pre-trained flow-matching generators that enforces PDE consistency and simultaneously infers latent physical parameters for inverse problems without paired (state, parameter) supervision. The key idea is to treat weak-form PDE residuals as a reward and fine-tune the generator via Adjoint Matching. Experiments on Darcy flow, linear elasticity and natural images demonstrate PDE residual reduction and parameter recovery.",
+        "soundness": 1,
+        "presentation": 3,
+        "contribution": 1,
+        "strengths": "## Originality\n- Novel problem formulation. Enforcing parameter-dependent PDE constraints without paired (parameter, solution) training data.\n- Creative architecture design. Joint state-parameter evolution with surrogate base flows constructed via inverse predictor.\n- Technical contribution. Scaled memoryless noise schedule (Lemma 1) provides useful numerical stabilization.\n- Weak-form residual approach.Stochastic sampling of Wendland-wavelet test functions is practical and avoids instabilities of strong-form residuals\n\n## Quality\n- solid theoretical grounding via adjoint matching framework.\n- thoughtful multi-faced regularization with clear ablations.\n- diverse experimental scenarios covering denoising, sparse conditioning and boundary misspecification\n- extensive reproducibility details \n\n## Clarity\nGood visual explanation, well-motivated problem setup\n\n## Significance\nPost-training paradigm is more practical than training from scratch. Proof-of-concept establishes feasibility of joint parameter-solution generation post-training, potentially inspiring future work.",
+        "weaknesses": "## Unacceptable Absence of Quantitive Results\nThe paper is almost entirely based on qualitative visualizations with virtually no quantitative evaluation. Only Figure 3 quantifies how the hyperparameters mediate the trade-off between staying close to the base model and reducing the (weak) PDE residual. Everyting else is visualizations of cherry picked samples. No quantitive parameter recovery metrics despite solving \"inverse problems\". No numerical residual comparisons with other methods despite claiming constraint enforcement. No baseline comparison tables of even one numerical metric despite comparing with ECI. \nThe absence of quantitive results makes it impossible to assess\n- Whether the method actually works reliably?\n- How it compares to alternatives (I am not talking about a comprehensive benchmarking agains other SOTA methods)\n- When it succeeds vs fails\n- what design choice actually matter.\n\nThe authors are encouraged to conduct thorough quantitative experiments for future submissions of this work.",
+        "questions": "Please refer to weaknesses section.",
+        "flag_for_ethics_review": [
+          "No ethics review needed."
+        ],
+        "rating": 0,
+        "confidence": 4,
+        "code_of_conduct": "Yes"
+      },
+      "date": "2025-10-29T21:22:34.280000+00:00",
+      "modified": "2025-11-28T19:37:06.697000+00:00",
+      "url": "https://openreview.net/forum?id=khBHJz2wcV&noteId=voHngDO1tb",
+      "license": "CC BY 4.0",
+      "source_hash": "573cc3e94a5f7eb0a5d2ab397e259e4ea094db7cdc52d8c0345f956c954cfe09",
+      "public_alias": "reviewer_4"
+    }
+  ],
+  "provenance": {
+    "archive_sha256": "350071daf25ebf1aef854ee1d5dc3a81834e1c468917c82a4f78af5548de34fc",
+    "source_capture_time": null,
+    "source_snapshot_date_author_reported": "2026-05-08",
+    "score_stage": "current_archive_snapshot_unknown_review_stage",
+    "pdf_version_role": "unknown",
+    "scope": "Archive source records only; editorial reading scope is disclosed in the corresponding article."
+  }
+}

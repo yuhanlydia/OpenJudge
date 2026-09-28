@@ -58,10 +58,10 @@ test('a substantive zero rating is valid and unsupported odd-number ratings are 
   for(const value of [1,5]){item.ratings=[value];item.mean=value;assert.throws(()=>validateNewsroom([item]),/ratings/i);}
 });
 
-const publicArticle=()=>({...article(),review_state:'commentary_public',
+const publicArticle=()=>({...article(),ratings:[4,4,4],mean:4,review_state:'commentary_public',
  desk:'low-accepted',desk_reason:'录取且归档均分较低。',
  brief:{gap:'旧方法缺口。',method:'方法内容。',results:'比较结果。',result_scope:'仅测试材料。',source_ids:['forum'],contribution:{kind:'method',module:'核心模块',why:'解决缺口。',evidence:'消融证据。',caveat:'尚未复现。'}},
- checks:{reviewers:[4,4,6].map((score,index)=>({note_id:`review${index}`,label:`R${index+1}`,score,included:true,claim:'具体意见',assessment:'unverifiable',analysis:'证据不足。',author_reply:'回复内容。',source_ids:['forum']})),ac:{claim:'决定理由',assessment:'value-judgment',analysis:'贡献标准。',source_ids:['forum']},authors:{claim:'作者主张',assessment:'unverifiable',analysis:'没有复现。',data_verdict:'不能认定编造。',source_ids:['forum']},takeaway:'分数不替代证据。'},
+ checks:{reviewers:[4,4,4].map((score,index)=>({note_id:`review${index}`,label:`R${index+1}`,score,included:true,claim:'具体意见',assessment:'unverifiable',analysis:'证据不足。',author_reply:'回复内容。',source_ids:['forum']})),ac:{claim:'决定理由',assessment:'value-judgment',analysis:'贡献标准。',source_ids:['forum']},authors:{claim:'作者主张',assessment:'unverifiable',analysis:'没有复现。',data_verdict:'不能认定编造。',source_ids:['forum']},takeaway:'分数不替代证据。'},
  publication:{basis:'owner_requested_publication',human_reviewed:false,date:'2026-09-28'},
  finding:{level:'record-conflict',target:'ac',summary:'测试中的记录冲突',rationale:'两条记录并不一致。',source_ids:['forum']},
  audit:{reviewed_at:'2026-09-28',claim:'争议原句',evidence:'可核对记录',alternative:'另一种合理解释',verdict:'局部记录冲突',impact:'不能确定决定影响',scope:'仅测试材料',source_ids:['forum']},
@@ -105,4 +105,25 @@ test('public reviewer assessments cannot silently drop or swap a score',()=>{
 test('serious-error desk cannot turn an unestablished accusation into a finding',()=>{
  const item=publicArticle();item.desk='serious-errors';item.finding.level='not-established';
  assert.throws(()=>validateNewsroom([item],'public'),/serious.*finding/i);
+});
+
+
+test('current score desks require strict 4 and 7 thresholds but retain historical routes',()=>{
+ const item:any=publicArticle();item.ratings=[4,4,6];item.mean=14/3;item.checks.reviewers[2].score=6;
+ assert.throws(()=>validateNewsroom([item],'public'),/threshold/i);
+ item.selection_status='historical';assert.equal(validateNewsroom([item],'public').length,1);
+ item.selection_status='current';item.category='high-rejected';item.desk='high-rejected';item.decision='Reject';item.ratings=[6,6,8];item.mean=20/3;
+ item.checks.reviewers.forEach((r:any,i:number)=>r.score=item.ratings[i]);assert.throws(()=>validateNewsroom([item],'public'),/threshold/i);
+});
+test('serious desk requires material core consequence and attributable evidence',()=>{
+ const item:any=publicArticle();item.desk='serious-errors';
+ assert.throws(()=>validateNewsroom([item],'public'),/serious.*basis/i);
+ item.serious_basis={core_claim:'核心基线比较',consequence:'修正后领先变落后',source_ids:['forum']};
+ assert.equal(validateNewsroom([item],'public').length,1);
+ item.serious_basis.source_ids=['missing'];assert.throws(()=>validateNewsroom([item],'public'),/serious.*source/i);
+});
+test('reader-first records require full structured checks without duplicate legacy sections',()=>{
+ const item:any=publicArticle();item.format='reader-first';item.sections=[];
+ assert.equal(validateNewsroom([item],'public').length,1);
+ delete item.checks.ac;assert.throws(()=>validateNewsroom([item],'public'),/check/i);
 });

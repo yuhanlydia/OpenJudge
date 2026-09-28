@@ -7,7 +7,7 @@ const p=(url:string)=>sitePath(url,import.meta.env.BASE_URL);
 ---
 <article class="news-card">
   <div class="news-card-top"><span class="news-index">{String(index).padStart(2,'0')}</span><span class:list={['news-category',{'is-rejected':article.category==='high-rejected'}]}>{categoryLabels[article.category]}</span><span class="news-topic">{article.topic}</span></div>
-  <div class="card-result"><span>评分 <b>{article.ratings.join(" / ")}</b></span><span>均分 <b>{article.mean.toFixed(2)}</b></span><strong>{article.decision==="Reject"?"拒绝":"录取 · Poster"}</strong></div>
+  <div class="card-result"><span>评分 <b>{article.ratings.join(" / ")}</b></span><span>均分 <b>{article.mean.toFixed(2)}</b></span><strong>{article.decision==="Reject"?"拒绝":article.decision.replace("Accept","录取")}</strong></div>
   <h3><a href={p(`/news/${article.slug}/`)} data-news-link>{article.headline}</a></h3>
   {article.brief&&<p class="card-contribution"><strong>核心贡献</strong>{article.brief.contribution.module}</p>}
   <p class="news-card-deck">{article.deck}</p>

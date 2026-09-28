@@ -17,15 +17,17 @@ export interface PaperBrief {gap:string;method:string;results:string;result_scop
 export interface ArticleChecks {reviewers:ReviewerCheck[];ac:ClaimCheck;authors:ClaimCheck & {data_verdict:string};takeaway:string}
 export interface NewsArticle {
   slug:string;forum_id:string;title:string;headline:string;deck:string;topic:string;
-  category:'low-accepted'|'high-rejected';decision:string;ratings:number[];mean:number;
+  category:'low-accepted'|'high-rejected'|'accepted'|'rejected';decision:string;ratings:number[];mean:number;
   archive_date:string;read_minutes:number;sections:NewsSection[];sources:NewsSource[];
   review_state:'draft_private'|'commentary_public';score_note?:string;finding?:NewsFinding;
   publication?:{basis:'owner_requested_publication';human_reviewed:false;date:string};
   audit?:NewsAudit;
   desk?:keyof typeof deskLabels;desk_reason?:string;brief?:PaperBrief;checks?:ArticleChecks;
+  format?:'reader-first';selection_status?:'current'|'historical';
+  serious_basis?:{core_claim:string;consequence:string;source_ids:string[]};
 }
 export const sectionLabels:Record<NewsSectionKind,string>={facts:'公开事实',reviews:'评审意见',response:'作者主张',decision:'公开决定',analysis:'AI 分析',lessons:'AI 写作建议',limits:'分析限制'};
-export const categoryLabels={'low-accepted':'低分录取','high-rejected':'高分拒稿'} as const;
+export const categoryLabels={'low-accepted':'低分录取','high-rejected':'高分拒稿',accepted:'录取',rejected:'拒绝'} as const;
 
 function requireText(value:unknown,name:string):asserts value is string {
   if(typeof value!=='string'||!value.trim()) throw new Error(`Newsroom ${name} must be non-empty text`);
@@ -40,7 +42,9 @@ export function validateNewsroom(value:unknown,mode:'preview'|'public'='preview'
     if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(item.slug)) throw new Error('Newsroom slug must be a safe route');
     if(slugs.has(item.slug)) throw new Error(`Newsroom duplicate slug: ${item.slug}`);
     slugs.add(item.slug);
-    if(!['low-accepted','high-rejected'].includes(item.category)) throw new Error('Newsroom category is invalid');
+    if(!Object.hasOwn(categoryLabels,item.category)) throw new Error('Newsroom category is invalid');
+    if(item.format!==undefined&&item.format!=='reader-first')throw new Error('Newsroom article format is invalid');
+    if(item.selection_status!==undefined&&!['current','historical'].includes(item.selection_status))throw new Error('Newsroom selection status is invalid');
     const expectedState=mode==='public'?'commentary_public':'draft_private';
     if(item.review_state!==expectedState) throw new Error(`Newsroom ${mode} requires ${expectedState} state`);
     if(mode==='public'&&(item.publication?.basis!=='owner_requested_publication'||item.publication?.human_reviewed!==false||!/^\d{4}-\d{2}-\d{2}$/.test(item.publication?.date||''))) throw new Error('Newsroom public commentary requires honest publication metadata');
@@ -57,7 +61,7 @@ export function validateNewsroom(value:unknown,mode:'preview'|'public'='preview'
       let url:URL;try{url=new URL(source.url);}catch{throw new Error('Newsroom source URL must use HTTPS');}
       if(url.protocol!=='https:'||url.username||url.password) throw new Error('Newsroom source URL must use HTTPS without credentials');
     }
-    if(!Array.isArray(item.sections)||!item.sections.length) throw new Error('Newsroom sections are required');
+    if(!Array.isArray(item.sections)||(!item.sections.length&&item.format!=='reader-first')) throw new Error('Newsroom sections are required');
     for(const section of item.sections){
       requireText(section.heading,'section heading');
       if(!Object.hasOwn(sectionLabels,section.kind)) throw new Error('Newsroom section kind is invalid');
@@ -71,7 +75,7 @@ export function validateNewsroom(value:unknown,mode:'preview'|'public'='preview'
       if(!finding||!Object.hasOwn(findingLabels,finding.level)||!Object.hasOwn(targetLabels,finding.target)) throw new Error('Newsroom public finding classification is required');
       requireText(finding.summary,'finding summary');requireText(finding.rationale,'finding rationale');
       if(!Array.isArray(finding.source_ids)||!finding.source_ids.length||finding.source_ids.some((id:string)=>!sourceIds.has(id))) throw new Error('Newsroom finding source must exist');
-      if(item.sections.length!==7||new Set(item.sections.map((s:NewsSection)=>s.kind)).size!==7) throw new Error('Newsroom public sections must include all seven evidence and limitation roles');
+      if(item.format!=='reader-first'&&(item.sections.length!==7||new Set(item.sections.map((s:NewsSection)=>s.kind)).size!==7)) throw new Error('Newsroom public sections must include all seven evidence and limitation roles');
       const audit=item.audit;
       if(!audit||!/^\d{4}-\d{2}-\d{2}$/.test(audit.reviewed_at)) throw new Error('Newsroom public audit and date are required');
       for(const key of [...Object.keys(auditLabels),'scope']) requireText(audit[key],`audit ${key}`);
@@ -81,6 +85,16 @@ export function validateNewsroom(value:unknown,mode:'preview'|'public'='preview'
       if(item.desk==='serious-errors'&&!['documented-error','record-conflict'].includes(finding.level)) throw new Error('Newsroom serious desk requires a concrete finding');
       if(item.desk!=='serious-errors'&&item.desk!==item.category) throw new Error('Newsroom desk must agree with decision category');
       const cite=(ids:unknown,name:string)=>{if(!Array.isArray(ids)||!ids.length||ids.some((id:string)=>!sourceIds.has(id)))throw new Error(`Newsroom ${name} source must exist`);};
+      if(item.desk==='serious-errors'){
+        requireText(item.serious_basis?.core_claim,'serious basis core claim');
+        requireText(item.serious_basis?.consequence,'serious basis consequence');
+        cite(item.serious_basis.source_ids,'serious basis');
+      }
+      if(item.selection_status!=='historical'){
+        if(item.ratings.length<3)throw new Error('Newsroom current threshold requires at least three reviews');
+        if(item.desk==='low-accepted'&&(!/^Accept/.test(item.decision)||mean>4))throw new Error('Newsroom low accepted threshold requires mean <= 4');
+        if(item.desk==='high-rejected'&&(item.decision!=='Reject'||mean<7))throw new Error('Newsroom high rejected threshold requires mean >= 7');
+      }
       const brief=item.brief;
       for(const key of ['gap','method','results','result_scope']) requireText(brief?.[key],`brief ${key}`);
       cite(brief.source_ids,'brief');

@@ -1,10 +1,10 @@
 {
-  "edition": "ICLR2026-reader-first-v3",
+  "edition": "ICLR2026-strict-full-corpus-v4",
   "publication_date": "2026-09-28",
   "authorization": {
     "basis": "owner_requested_publication",
     "requested_at": "2026-09-28T00:17:06+08:00",
-    "scope": "Owner requested three editorial desks; scores and outcome first, three-paragraph paper explanation, one core contribution, each reviewer, AC and author-response/data checks; continue updating existing public site",
+    "scope": "Owner requested 100+ strict cases across three exclusive desks, detailed reviewer/AC/author checks and public Site updates; continued 2026-09-28.",
     "revision_requested_at": "2026-09-28T11:15:19+08:00"
   },
   "human_technical_review": false,
@@ -13,12 +13,102 @@
   "archive_date": "2026-05-08",
   "archive_url": "https://github.com/qhjqhj00/iclr-openreview-reviews/releases/tag/v1.0",
   "archive_sha256": "350071daf25ebf1aef854ee1d5dc3a81834e1c468917c82a4f78af5548de34fc",
-  "articles_sha256": "388dbb3a861b873aa94176a5ac4bece69348f8424b37fc166acc086b5a915824",
+  "articles_sha256": "77388c561b51a85d003d08cf4ca14b6a394e30bde84946a7c711fe78daa85bc1",
   "cases": [
     {
-      "forum_id": "mnI8CFj2WP",
-      "sha256": "01efa48654da7bf7216477e4daa97f023ad75c1ac2f64115c485051e88d96b9b",
-      "notes": 12,
+      "forum_id": "s9Ej5SQs5z",
+      "sha256": "f4b479de337e7d63a33ac46481c8fd2ca458c3bf29ae8c20406b64b83d5a450e",
+      "notes": 21,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "itUo64aUeK",
+      "sha256": "f9c2dbd2405e60ad2f32d3817f0adb7df359395f18c69605ffda7b6d0b029374",
+      "notes": 11,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "fENEDBJAV3",
+      "sha256": "39854a536d1465d78e1611abb622bf0decffa690f0674ba42bf37287049f5b38",
+      "notes": 17,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "2bbqHOWFTU",
+      "sha256": "fb4257c71707e4685215bb6e1c5dfb3262a7f5b1142290ad61a7b35edcbe4c7f",
+      "notes": 22,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "713ywmTZHv",
+      "sha256": "5b5be63ea1280f0530c58c0dac189067cf22cb6e5abc1466ddcfe12c09a768b9",
+      "notes": 24,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "G9UhQEZHjY",
+      "sha256": "ef0c1353ca41c7dd874fb02216c25e11599e63ab79b2e7cd77b362ad94bc5cee",
+      "notes": 15,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "b1ITgc4J4M",
+      "sha256": "1542dfff64bf593ee62c4726c8de8f5f1ca80a62f2f7a24aef2b8f8619e3b93a",
+      "notes": 11,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "z5cPEZ4n6i",
+      "sha256": "0cf8117245e1527fe801c3c6d38c225c75cc3fa1c33806bcfeeead447a5f6f10",
+      "notes": 18,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "h6VtqCN9m3",
+      "sha256": "4a93555b49ac3985f239d02e02b8070295fa628c3b2f198a568f372a9ea24ca7",
+      "notes": 23,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "kGEuZXaXU6",
+      "sha256": "3cd7aaf18cdb78f217a638a19eafcc913489232ea7783ae63c3545758c2095f2",
+      "notes": 20,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "ulTRUwrzt9",
+      "sha256": "df7e4c6c920387c55ff9de08b9d465f7da82f5fe695f55ca25d95f73351e427f",
+      "notes": 16,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "aJd636PxP1",
+      "sha256": "8690cbc60ca202f09c993bd53a72fed35420dabfdeffc1dceec176ed7b08f47a",
+      "notes": 21,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "uKrcWZ2V0F",
+      "sha256": "82533c62122f96e91f5f670782276a85b445875ccb7592ddd9bbb815623310b2",
+      "notes": 28,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "dZKl7uc0XQ",
+      "sha256": "f29c1680cbd38e8362415f08d87175445af0f01253b63b44193b238bc2a6f0b0",
+      "notes": 13,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "F7rUng23nw",
+      "sha256": "e9ba7850106bb3c0b60e27a2df3f879f92bac3bea1adbf86a3d082595547e854",
+      "notes": 26,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "Gba02UMvrG",
+      "sha256": "1578f9c56a359d1b59c2d157c44eb24477b8770979a748dd057f0b1fafbcd73b",
+      "notes": 16,
       "excluded_rating_note_ids": []
     },
     {
@@ -28,21 +118,579 @@
       "excluded_rating_note_ids": []
     },
     {
+      "forum_id": "Q9gz8lVyAi",
+      "sha256": "71212311fa9d4b7a6171ec81bcb0322cadeff238238d7c898435fa11ba1b7440",
+      "notes": 18,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "4K2NNr9W5C",
+      "sha256": "bdc72944506b23e3da1dcb1edf159ed757f95334683949814cbbd265b40e379c",
+      "notes": 35,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "4sGEvpwyxN",
+      "sha256": "0b2e84d8c7a56d8d63306b913761d3d32246f683658432b18a139f2441f3e6f6",
+      "notes": 24,
+      "excluded_rating_note_ids": []
+    },
+    {
       "forum_id": "JMmljf895g",
       "sha256": "471f8d1524e2dbdd1a9b42f6723ea8b094ec064b09221cc46fad1813fc43deee",
       "notes": 26,
       "excluded_rating_note_ids": []
     },
     {
-      "forum_id": "EFYb8SsRi7",
-      "sha256": "395f60e43415d7d822107a76d58a064dc2bd88510aa8a1e1b3c495632c6d02c5",
+      "forum_id": "YAWpZcXHnP",
+      "sha256": "27138f929138b0fbfc24abe806aa3fd7008483c7cf447045ce6fc6d47cfded42",
+      "notes": 12,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "ioYdy7aghG",
+      "sha256": "74a47f4950f179f13a267a3928002a1e7789361125917b5a6e853254529681db",
+      "notes": 14,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "khBHJz2wcV",
+      "sha256": "7b44d7efb501b1d899141fd9bca0d417bd0ac2e08aea94bef15958ecdfc23457",
+      "notes": 16,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "DYjyFDn8K7",
+      "sha256": "38f4d8a233769103f163965815a2e2948e8cc4f25f10f14d5a2eb916f5fae828",
       "notes": 18,
       "excluded_rating_note_ids": []
     },
     {
-      "forum_id": "rouPx6eo2G",
-      "sha256": "717e672892bfd0594f4eaa467d804e84e548ba800ac419202ae815c71ee185e7",
+      "forum_id": "EHs3tSukHC",
+      "sha256": "6e453152fcb492561f23a7aff8c3f29bce3345ce579b6081bc628b042cae567b",
+      "notes": 15,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "Hgw56DUFzD",
+      "sha256": "f3a9a90b7821efcf64b3169dd38f4364664bc51007fcf06374d1ab6aebb4ff96",
+      "notes": 12,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "MMLAvR1juf",
+      "sha256": "b63c164215e69780940c97c63d2720d17213f9f51b286bb05fe6e4dc3605fe31",
+      "notes": 21,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "gdafM5zp1h",
+      "sha256": "47d49c780c7ce430dd94e0ad97fcc302e689966dbbc3195cf9b54a192cbf69eb",
+      "notes": 23,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "izbBFuHtAX",
+      "sha256": "4300f9a002449a2f873fc6dea245ead00b7586ee16251e00f29967b004b2fed0",
+      "notes": 22,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "10JEfJtiJM",
+      "sha256": "ec88b1d443fb51bb8b08f793c6ad3b46075338c26e26069965d6d8ebb8c17495",
+      "notes": 12,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "2Td8r7KYK2",
+      "sha256": "6697a3b33c412543f9886c0e2a7b0541c39eef39a664150b6e0b81d9eaf3bb35",
+      "notes": 25,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "3qiCnLf3jf",
+      "sha256": "9563f4898694c6ec3259ebffad6beba038f7815975c9e229a10d047a5a7f5fa1",
+      "notes": 13,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "47ToW7T1iU",
+      "sha256": "aa8f5558b80f37a6bdfc19ac8b634b0794cd9f2aea06d96691a1b9a959e28032",
+      "notes": 16,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "6bthH14pD8",
+      "sha256": "b4493dba4cb571bd9d201228b428d41de82ea539ce599b6bcd3ef799c0ec2e6d",
+      "notes": 26,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "6dTHxb9JuA",
+      "sha256": "52ebf2133b07af7662c0cec5d72b53c575666aaa5f508dacb2a6b504c635df15",
+      "notes": 35,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "750tza3sGf",
+      "sha256": "618300fbe101c3820c44de99129c4edf9634290070090c829533e524dc1ff1a4",
+      "notes": 22,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "9k7bvBVenZ",
+      "sha256": "c4fa6767bf2343c22a3ae054ac04fbf7b547efc03f8ce434323860594853521d",
+      "notes": 13,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "GDYaNzxt9T",
+      "sha256": "75c871710af5d7c6164f17ae22ee8407c0a1bc4556442f71771724e121a39dec",
+      "notes": 15,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "GU2197a3Lm",
+      "sha256": "6aff09ec74ccc480a85ad13123a93e05f22a13d1032446f53d632172a4c4ef20",
+      "notes": 14,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "IQhaeSzyup",
+      "sha256": "7e625903d20d18b7ee3413351b4aaaae09dd9917b7c799bf65df97596339f752",
+      "notes": 23,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "JxmjzC6syB",
+      "sha256": "fa3103790f9145d34ae57171900cb1ff2dc10287f6c9e2142b3f475ea1fb2cac",
+      "notes": 13,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "LkWsQ3Tawx",
+      "sha256": "15cef8ec78e1f4f531b9c36cd1737c2754885248aecac1b4fe2a9f1d80b35c67",
+      "notes": 13,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "Lp1noMpMUG",
+      "sha256": "a55fc08569a896693d7d1f47554bfb2865b04e4c5bae93a6b03320c2b9a53529",
+      "notes": 18,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "O93c9H4SXc",
+      "sha256": "024d5535c9d5631e2fe1215e8ef057dbd3a029c0d123b24da34f86270fce6fbd",
+      "notes": 18,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "P38RYdkFLI",
+      "sha256": "c8f17766e4aaa4b7e615ba7c0b70dd908b535a71a255f498df7e8185b8da691a",
+      "notes": 26,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "RlPVSeKjoc",
+      "sha256": "2ea4e281d5a2f64e486563083a233d95b0deae693d0e7235512fbfd388f3c5a3",
+      "notes": 29,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "SA8xDYrUYB",
+      "sha256": "36560f35f92df773b143cc6a0691f6040e07310342d7a3b26e2b5f5c94ba4aef",
+      "notes": 20,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "ST0wOB1bdX",
+      "sha256": "c789abbb7b1f564a22c33014db01d7e356a1be577a036efbfe84f27916c950ab",
+      "notes": 33,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "ShEDWasmDG",
+      "sha256": "5de93902b0c53a41fbb00821b5f853377375ac978707027b418c046b2721cfe9",
+      "notes": 12,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "T6NVogsXCZ",
+      "sha256": "461dbd59fca48f28f67facab0ebb4be5ecce0978c9211ebba576c22873a168f5",
+      "notes": 13,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "T9PNKPmjGc",
+      "sha256": "933924069ca89bd252015fd7b17e85c2ae64a5610695c9c140e8255db7fabf02",
+      "notes": 25,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "UQZ0Y0dbP9",
+      "sha256": "902780004ab7dbb0e611dbb071f39282fa39b0cd75a019a5de9695b0a1f2071d",
+      "notes": 30,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "YgudIlQ9nC",
+      "sha256": "b63e4132b7af86e1b0bc6c8655cb1e210d8e74c9fd8fe578b729b2cd70799670",
+      "notes": 23,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "f5MC1G6XhB",
+      "sha256": "3202ee899653ab58da23b2cde0dfa24a84dba4a5b5779e087e48a7d2fec231a0",
+      "notes": 18,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "i2IQRtYchF",
+      "sha256": "5a45f68521a3c2bc2c0a39f8222c0a7ec7aadc3dc82033f4df770c26a33c5cdb",
+      "notes": 13,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "if1Ndb6RWD",
+      "sha256": "3327ff2157cbc473ac54f4cbf5f43b91b63e151645d8f91b30be56088d1b800d",
+      "notes": 12,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "igZItUbY6n",
+      "sha256": "3b979538b2b9ead4241549957f44627cd06ced74511246a202db397457d013de",
+      "notes": 9,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "itoNJ3gJl2",
+      "sha256": "3bb7f9b37320ea8c4f9ded5a7fc142e1163de5fdf6fa14a828732ab542bd876f",
+      "notes": 17,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "iu9dbz2lB9",
+      "sha256": "2a8aaf42210d3832878b66a34fbd2c9e3c9c9f3ccf784fd3a47d6e55477b1cf1",
+      "notes": 26,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "kHhMs642rR",
+      "sha256": "d1dcc5d275f45503f00c9f19e5b381505e826fb5192a680c1eee3bc2897ab598",
+      "notes": 15,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "m38vyzeoO0",
+      "sha256": "c64139af538e9e46084a4d8f51b67613e74b40bb31d92db2cc748a1e4c204ad8",
+      "notes": 13,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "rp2RDBRA0Y",
+      "sha256": "8f74aeb112f45193c70dd0d0432ae3e33b7cd9e479322f8243d4da600e07bd6e",
+      "notes": 18,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "sAzUQkP47r",
+      "sha256": "b704252d7903585eef1c50d26b94c9ca874cae797c9262a1358c314e71d2b695",
+      "notes": 22,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "t7wIerUT2E",
+      "sha256": "f970d676c5ea400f3a7d580bd2c65cb9bad9165b52fae0d3ea8db396b48b00be",
+      "notes": 18,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "tvDlQj0GZB",
+      "sha256": "ce4b22bac0acb5fe7cebfe2eb3cdb8d27f94363cbf33fc211f728db1f5f53e5e",
+      "notes": 14,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "xXRqWpt3Xr",
+      "sha256": "d3fabed32456ad3e55ea04a35a5f0da842ed32655fc1d632855b57660ebdb625",
+      "notes": 23,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "0M6BfcAVMW",
+      "sha256": "eb4c7c6099b5b4e4288eb8e232d3a0b50f7f7ae3f3d69e9e982c856efab95c8b",
+      "notes": 39,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "5N3z9JQJKq",
+      "sha256": "168a008a48e0d73dde74ee1229d92f78e53100306bac1697e261a78d358e23ed",
+      "notes": 47,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "0KFQ4F9YEH",
+      "sha256": "455ba0addaac91d1b8a0863de22f5d04d42323b3f12d06f6f93a46f13c6811aa",
+      "notes": 23,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "0R6HLWvWYk",
+      "sha256": "dbe0739e8b2e3203b9593f6b4e6d02a3f89072dd2a8cdacf66067bd12ae83cc2",
+      "notes": 29,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "24QX6XpvSL",
+      "sha256": "767ba114961435eca5760e0790b68fc2852e4cb00befe50835b78e18905f5141",
+      "notes": 49,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "3CKdjb5SuH",
+      "sha256": "52210eed4f6560f86189206cbe501e14df61fc3e57b1f22e6bcefdcb0e51fb36",
+      "notes": 30,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "6UJf6B8RZ8",
+      "sha256": "7314eff4bbca1596d8c44c542dfaf57bd2ec73d48a6258f1a6d9d7644a4f1a44",
+      "notes": 17,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "7pQv7qitFV",
+      "sha256": "5112ad10cf6b014c79fb73b94979c522925f513e5a27e0ba914da253816c00e1",
+      "notes": 18,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "BUUfUcIcfE",
+      "sha256": "19f3dd97ece3444679d16f2bb905764ce398e1697a0640e7b5252196fa47255c",
+      "notes": 29,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "CODnlyYUli",
+      "sha256": "efa8d15887f48c8f405d2c0f1e683fe76d0b36cbd4d4b62fcae36ec6bc73a890",
+      "notes": 35,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "E3bBZ02Qcc",
+      "sha256": "2aa6a1a1bdaeb6f8b9eb34a8fedfbbd538647c3e9d1096c90d603bd3b01567fd",
+      "notes": 17,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "GFyVxtyMvq",
+      "sha256": "d0524990aef6df4c20ca399598e9830384497caf4c302148c2d25b3618c4044f",
+      "notes": 27,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "HK6t5x5gJq",
+      "sha256": "85c079e1366d4c470496ad7ed503925b3ba1cbfe6a328303dfaee1b50b77a394",
+      "notes": 25,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "IbcdVwzLrp",
+      "sha256": "1ff0c4d0800291b5f2079be1d21e920920b2ab40c065bf3cff12615b0bb44da9",
+      "notes": 28,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "IdF6JqXWzx",
+      "sha256": "62a50ab27a3a4ac410622bc6ad2051e8428c651a6ac55f7d03e98d400eb1536b",
+      "notes": 26,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "JMweItBmbx",
+      "sha256": "94ff0fffcd08743a4150d503b978a8706a255300cff139108a3c9f98b9ce4184",
+      "notes": 37,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "K5tcKEQaUr",
+      "sha256": "96318630c3324ba09aaa04b275f7762c6c1f14ec249b7ae9bbf8998a56751d61",
+      "notes": 40,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "MN1qlAVJLV",
+      "sha256": "c7168c96d37e5926558bb313316b11906f3997a85b55fb45ddc5f113f290d4a5",
+      "notes": 10,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "OQOmOIIX9F",
+      "sha256": "c0456bd200434ad0c77a32ae114456ee2570fadab0eedbac2deb4dae93d54787",
       "notes": 24,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "Q3MisVkuTu",
+      "sha256": "e3a7e05393db0fc453faafb0f41b9c31b159682881c921eaae6ce612cd9019f0",
+      "notes": 17,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "QZmKyAy1VK",
+      "sha256": "21be5f921466edd0df74ac83b0b43b47c2bf2935e7df456ac390ff2df7ae2aaf",
+      "notes": 13,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "RCsBoUr72G",
+      "sha256": "99e45a8d38744b88e807566a5f53d7ba433442769e16d524261180777620899b",
+      "notes": 24,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "RNkErKpCAp",
+      "sha256": "dd5fa312eb055f47137fbe8c4292e61bcacc97ad3ac18eb8d2807ab1c314bfe7",
+      "notes": 14,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "Sm3Y0TMnDv",
+      "sha256": "128985375799f5a51e41f62bf0c3159f05470dca9556b2cf9fc749637f345891",
+      "notes": 11,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "Sxj4o3qXtl",
+      "sha256": "d31f663b768bb710890d096ea5bf1dd1a2ce9612117fcbd5190bc2b84edf3799",
+      "notes": 24,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "UFwnsmFZ6R",
+      "sha256": "0f09eb03b1ae940977f245587f97c04ba4989e781aa6d4591eafaa5eba920f78",
+      "notes": 16,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "UoYdZQIZWj",
+      "sha256": "69921f69b002cbf9cd8bd74fc7dfe40020e20a66c61950644a5f871f80501bf7",
+      "notes": 19,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "Uv3efQiPBZ",
+      "sha256": "97346de02401874b385b7339d98cdadd90a7be05fdd06f35fb61bcccaccf79f4",
+      "notes": 21,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "XcPDT615Gd",
+      "sha256": "66c3c4993066412dba0b72af34308e7e9a300bc29fe84157b5f3fbacd4cd1782",
+      "notes": 14,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "YbQxus1KEa",
+      "sha256": "905f7e3e7e74c2dea5c8e7df1e71f4ebff6a12123c7e644a2e7e87c95a2cbae0",
+      "notes": 15,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "ZCjWUBwCwE",
+      "sha256": "5511873a5e01802e1b5f605d160c85a7d2c0fa394cf134cdc869e788debffd2d",
+      "notes": 17,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "ZFZhV7Snf4",
+      "sha256": "59b106e1b9c9ae171d86e28a6f2cb00729236d87f46488c83a536933b7e965e0",
+      "notes": 21,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "avwNGWtiHF",
+      "sha256": "f796dc0e7fdc34542a8e646925f13aef5f9dc230362e8bfcd2369355511d3689",
+      "notes": 21,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "cZFgsLq8Gs",
+      "sha256": "29c9dc5708342bb2645a44878259c49c9bed2e80164eaff65c65825489cbda9d",
+      "notes": 31,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "d5GmZP2qrd",
+      "sha256": "c02ea9e226460c803587b006c088a6c44d6446d98050080601aa6ea16fee93cd",
+      "notes": 18,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "fN0MED2Idq",
+      "sha256": "72144b7c4130fca78a6d8defe33759ff413643770df96a33e5d53e192a6b253f",
+      "notes": 29,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "gcT2BCGcZJ",
+      "sha256": "dab6f3c6f76f2f5064121866443ede2953ceeb0240751a8922d9abeaee2ee7b3",
+      "notes": 38,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "huEYU44Ax4",
+      "sha256": "d9432e6cde0f3fef8322fd4cb643499a65d3d90fc59550963501a175d5ec85b4",
+      "notes": 18,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "msLnKDvhBx",
+      "sha256": "686e4ff2e37965ca69480620aa000da211bdcb3610f1f30eb81dafb3696bb833",
+      "notes": 42,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "nfURupkdRJ",
+      "sha256": "fe845bcf550b0537f002e6f5da87cab02f5236b832ca07b6fece79424ad30340",
+      "notes": 29,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "qQ5MZ5Mx7p",
+      "sha256": "a6930149ea6e092fbfe095d2b88848a46e39ceb7b64dfd15268a349a0842aaf4",
+      "notes": 32,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "rTlPfuKTNg",
+      "sha256": "2a1c3ab11d34ceb61cadad915ff7f0840c9fe0128ab95cafe7ab5c965a543b8d",
+      "notes": 26,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "rcmfu1ydAf",
+      "sha256": "873be4d96b516dd593b5d64ea4bb8bd804e76cf05b15c8128c17457c8981f28f",
+      "notes": 18,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "sVN9K0BLQj",
+      "sha256": "8e9cbba929adc49311afd89594f70225fa52953dec6cabf6fc40b45508d9fd04",
+      "notes": 24,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "yfBs0GQxx9",
+      "sha256": "801bcaae9513236fe0f0c2a87d35faf281122196e383372535cc515aecb19ee8",
+      "notes": 16,
+      "excluded_rating_note_ids": []
+    },
+    {
+      "forum_id": "mnI8CFj2WP",
+      "sha256": "01efa48654da7bf7216477e4daa97f023ad75c1ac2f64115c485051e88d96b9b",
+      "notes": 12,
       "excluded_rating_note_ids": []
     },
     {
@@ -60,27 +708,27 @@
       "excluded_rating_note_ids": []
     },
     {
+      "forum_id": "EFYb8SsRi7",
+      "sha256": "395f60e43415d7d822107a76d58a064dc2bd88510aa8a1e1b3c495632c6d02c5",
+      "notes": 18,
+      "excluded_rating_note_ids": []
+    },
+    {
       "forum_id": "TSk3cIdIQK",
       "sha256": "6137d67eaed69ab8f3f5c6fb4ae97b273a0840746dcc5dc05bb25114858f5a1a",
       "notes": 22,
       "excluded_rating_note_ids": []
     },
     {
-      "forum_id": "z5cPEZ4n6i",
-      "sha256": "0cf8117245e1527fe801c3c6d38c225c75cc3fa1c33806bcfeeead447a5f6f10",
-      "notes": 18,
-      "excluded_rating_note_ids": []
-    },
-    {
-      "forum_id": "GDYaNzxt9T",
-      "sha256": "75c871710af5d7c6164f17ae22ee8407c0a1bc4556442f71771724e121a39dec",
-      "notes": 15,
+      "forum_id": "rouPx6eo2G",
+      "sha256": "717e672892bfd0594f4eaa467d804e84e548ba800ac419202ae815c71ee185e7",
+      "notes": 24,
       "excluded_rating_note_ids": []
     }
   ],
   "review_audit": {
     "date": "2026-09-28",
-    "case_count": 10,
+    "case_count": 118,
     "human_technical_review": false,
     "execution": "AI-assisted scoped evidence reading; upstream external-model pipeline not executed",
     "methods": [
@@ -97,72 +745,52 @@
     ],
     "additional_manuscript_access": [
       {
-        "forum_id": "mnI8CFj2WP",
-        "urls": [
-          "https://arxiv.org/html/2503.16278v3",
-          "https://arxiv.org/abs/2503.16278"
-        ],
-        "scope": "归档结果为4、8、6、10分，均分7，Reject。定量补查使用2025-10-09 arXiv v3的表1、表12及D.3，早于正式评审，但未与原投稿PDF逐字比对；数值均为论文报告值。"
+        "forum_id": "s9Ej5SQs5z",
+        "urls": [],
+        "scope": "逐条阅读21条公开记录，并核对作者网站2025年工作坊稿的方法、定义、定理条件与实验；工作坊稿不是经认证完全相同的ICLR送审稿。"
       },
       {
-        "forum_id": "05hNleYOcG",
+        "forum_id": "itUo64aUeK",
         "urls": [
-          "https://arxiv.org/html/2510.17947v2",
-          "https://arxiv.org/abs/2510.17947"
+          "https://arxiv.org/pdf/2507.09264v2"
         ],
-        "scope": "归档为2、2、4、2分，均分2.5，Accept (Poster)。主结果使用2025-10-22 arXiv v2表2至4，X-Teaming使用归档回复；未将归档之后的v3混入。所有攻击成效是特定历史模型与评测设置下的报告值。"
+        "scope": "阅读全部11条公开记录；核对决定后arXiv v2方法、表2—3和官方ViT代码。后期表格用于说明具体设置，不能证明原审稿人看到的每个数字完全相同。"
       },
       {
-        "forum_id": "JMmljf895g",
+        "forum_id": "fENEDBJAV3",
         "urls": [
-          "https://arxiv.org/html/2510.20064v1"
+          "https://arxiv.org/html/2505.13087v1"
         ],
-        "scope": "数值取自公开arXiv v1表3及2025年11月24日作者答辩表；均为作者报告，未复现。公开论文版本未与提交PDF逐字比对。百分比由所列平均token/s直接计算，不是并发、所有任务或所有草稿池的保证。 当前标为v1的HTML还出现归档中称为答辩新增的32B内容，因此不以该页面重建初评时材料。"
+        "scope": "对照2025年5月19日arXiv v1与2025年11月公开回复；未复现实验，未将其他版本默认为送审稿。"
       },
       {
-        "forum_id": "EFYb8SsRi7",
+        "forum_id": "2bbqHOWFTU",
         "urls": [
-          "https://arxiv.org/html/2509.21906v1",
-          "https://arxiv.org/abs/2509.21906v1",
-          "https://arxiv.org/abs/2509.21906",
-          "https://arxiv.org/html/2509.21906v3"
+          "https://proceedings.iclr.cc/paper_files/paper/2026/file/c1233cb30ef11a3fe6ab10aa96beabaf-Supplemental-Conference.zip"
         ],
-        "scope": "采用2025-09-26 arXiv v1第5节及归档答辩；未逐行验证全部证明或复现实验。2026-05-26 v3改动了假设与结果，不用于反推2025年评审当时看到了什么，也不据其后续改进判定原评审错误。"
+        "scope": "已逐读全部22条公开notes及日期和replyto。主文为ICLR2026公开终稿，PDF元数据为2026-02-28，晚于1月26日决定，不能视为原评审所见版本。核读§2–5、Eq(1)–(3)、Theorem1–2/Corollary1、表1；核读论文集补充算法1–2、A.1–A.8相关模型/误差/备份/实验和消融、表2–3，目视主文第5/7页和补充印刷第25页。仅核查特定Theorem1反例，未认证其余证明、运行作者实现或复现实验。"
       },
       {
-        "forum_id": "rouPx6eo2G",
+        "forum_id": "713ywmTZHv",
         "urls": [
-          "https://arxiv.org/html/2604.10672v1",
-          "https://arxiv.org/abs/2604.10672"
+          "https://proceedings.iclr.cc/paper_files/paper/2026/file/b2e20d7402c9985eae4ba924c65370a8-Paper-Conference.pdf"
         ],
-        "scope": "归档为8、6、10、4、6分，均分6.8，Reject。量化结果来自评审期公开回复，非原稿已具备的全部实验。另查2026-04-12 arXiv v1，它晚于决定且理论编号与内容已变化，不能替代送审版本。"
+        "scope": "全部24条公开笔记、最终稿方法/主表/消融/附录B与E；新增理论也直接核对11月28日回复，最终稿不冒充初稿。未训练复现。"
       },
       {
-        "forum_id": "L4SwHIZEaJ",
+        "forum_id": "G9UhQEZHjY",
         "urls": [
-          "https://arxiv.org/pdf/2508.01077v1",
-          "https://arxiv.org/abs/2508.01077v1",
-          "https://arxiv.org/html/2508.01077v2",
-          "https://arxiv.org/abs/2508.01077",
-          "https://arxiv.org/html/2507.18553v1"
+          "https://proceedings.iclr.cc/paper_files/paper/2026/file/dbdc7a9779ce0278c6e43b62c7e97759-Paper-Conference.pdf"
         ],
-        "scope": "核对2025-08-01 arXiv v1的相关段落、2026-03-02 v2的定理与算法说明，以及归档评议。v2晚于答辩，不假定评审已看到其新增附录；未核读Qronos实验或运行量化实现。"
+        "scope": "全部15条存档公开记录已读；核对ICLR2026决定后终稿第2—4节、表1—2、6—8，视觉检查第16页。读取公开NCBench代码固定快照的指标与聚合逻辑，但未找到表6外部基线的评估实现，未运行模型。"
       },
       {
-        "forum_id": "AXXCo0pOSO",
+        "forum_id": "b1ITgc4J4M",
         "urls": [
-          "https://arxiv.org/html/2510.22775v1",
-          "https://arxiv.org/abs/2510.22775"
+          "https://arxiv.org/pdf/2505.11771v2",
+          "https://proceedings.neurips.cc/paper_files/paper/2023/file/3819a070922cc0d19f3d66ce108f28e0-Paper-Conference.pdf"
         ],
-        "scope": "归档为6、6、8、6分，均分6.5，Reject。补查2025-10-26 arXiv v1（早于评审），未与投稿PDF逐字比对；不混入2026-08-26后续v2。验证准确率不是软件问题解决率，所报EM不等于已核实实现正确。"
-      },
-      {
-        "forum_id": "TSk3cIdIQK",
-        "urls": [
-          "https://arxiv.org/html/2510.00938v3",
-          "https://arxiv.org/abs/2510.00938"
-        ],
-        "scope": "简介结果采用2025年11月归档作者答辩；局部核对2026-08-27 arXiv v3的方法、主表和版本史，仅作后续版本对照，不以其新增实验倒推原评审错误。v1/v2全文未成功取得；未核验原始日志、实现或复现实验。"
+        "scope": "逐条阅读11条公开记录；核对ReFine v2方法、理论陈述、表2及附录E，并对照AMT的2023年会议原文。未复现、未逐行认证证明；v2是决定后材料。"
       },
       {
         "forum_id": "z5cPEZ4n6i",
@@ -175,12 +803,783 @@
         "scope": "三段简介的核心数值取自2025-11-18答辩A3；方法及消融局部交叉核对2025-12-11 arXiv v4。v4不是送审初稿，2026-04-23 v6亦不能用来反判初评。未审实现、训练日志或复现实验。"
       },
       {
+        "forum_id": "h6VtqCN9m3",
+        "urls": [
+          "https://proceedings.iclr.cc/paper_files/paper/2026/file/c354d2a64a71776538d6dbbc38285216-Paper-Conference.pdf"
+        ],
+        "scope": "完整阅读23条存档公开记录；核对决定后会议终稿第3—5节、定理1—4及附录B.1—B.6，逐页查看第4—6、15页公式原图。反例为解析核查，未运行解释器，不能推断原审稿人见过同一版本或录用受此影响。"
+      },
+      {
+        "forum_id": "kGEuZXaXU6",
+        "urls": [
+          "https://arxiv.org/pdf/2510.11688v1"
+        ],
+        "scope": "对照v1第5节、公式1、表1及全部20条公开记录，并检查PDF第8页图像确认列对齐；没有取得原始运行记录，不能宣布实际最优模型是谁。"
+      },
+      {
+        "forum_id": "ulTRUwrzt9",
+        "urls": [
+          "https://arxiv.org/pdf/2607.21120v1"
+        ],
+        "scope": "错误与前后胜数来自答辩；2026年7月arXiv v1是决定后版本，仅用于核对修订方法和结果。未复现。"
+      },
+      {
+        "forum_id": "aJd636PxP1",
+        "urls": [
+          "https://arxiv.org/html/2510.10544v1"
+        ],
+        "scope": "方法参照2025年10月arXiv v1；修正回报来自公开答辩，未独立复现，约数保持约数。"
+      },
+      {
+        "forum_id": "uKrcWZ2V0F",
+        "urls": [],
+        "scope": "阅读全部28条公开记录；OpenReview PDF访问遇到验证页，搜索仅见摘要。11月26日、12月3日的认错文字与2月12日才修改的扩展解释严格分开。"
+      },
+      {
+        "forum_id": "dZKl7uc0XQ",
+        "urls": [
+          "https://arxiv.org/html/2510.08929v1",
+          "https://proceedings.iclr.cc/paper_files/paper/2026/file/d33a2d61ff49d6156e0abfd906b23cf1-Paper-Conference.pdf"
+        ],
+        "scope": "对照2025-10-10 v1、答辩和决定后会议终稿表1；未复现。"
+      },
+      {
+        "forum_id": "F7rUng23nw",
+        "urls": [
+          "https://arxiv.org/pdf/2510.03346v1",
+          "https://arxiv.org/pdf/2510.03346v3"
+        ],
+        "scope": "核对2025年10月v1、11月20日认错回复及2026年2月22日v3；v3是决定后版本，只用于核查修正被保留。未复现实验。"
+      },
+      {
+        "forum_id": "Gba02UMvrG",
+        "urls": [
+          "https://arxiv.org/html/2510.17206v1",
+          "https://proceedings.iclr.cc/paper_files/paper/2026/file/ac6bd5acdf0c9446389e56e919f62ff0-Paper-Conference.pdf"
+        ],
+        "scope": "比对v1方法和表格、答辩认错与会议终稿第9页表3；检查该页图像以确认列对齐。未复现。"
+      },
+      {
+        "forum_id": "05hNleYOcG",
+        "urls": [
+          "https://arxiv.org/html/2510.17947v2",
+          "https://arxiv.org/abs/2510.17947"
+        ],
+        "scope": "归档为2、2、4、2分，均分2.5，Accept (Poster)。主结果使用2025-10-22 arXiv v2表2至4，X-Teaming使用归档回复；未将归档之后的v3混入。所有攻击成效是特定历史模型与评测设置下的报告值。"
+      },
+      {
+        "forum_id": "Q9gz8lVyAi",
+        "urls": [
+          "https://arxiv.org/html/2507.09043v3"
+        ],
+        "scope": "完整阅读18条公开笔记及replyto、日期；OpenReview PDF访问遇验证页，改读arXiv v3方法§2–3、实验§4和附录C–F相关部分。v3晚于决定，未将其等同投稿版；未复现、未核验匿名代码。"
+      },
+      {
+        "forum_id": "4K2NNr9W5C",
+        "urls": [
+          "https://arxiv.org/html/2512.07222v1"
+        ],
+        "scope": "已读35条公开记录及日期、回复关系；另读2025-12-08 arXiv v1方法、攻击定义、主表及相关消融。未复现攻击、未检查训练代码；新增消融不倒推为原提交已有。"
+      },
+      {
+        "forum_id": "4sGEvpwyxN",
+        "urls": [
+          "https://proceedings.iclr.cc/paper_files/paper/2026/file/03382840834c7fbdc1e882fac11904d6-Paper-Conference.pdf"
+        ],
+        "scope": "完整阅读24条公开记录及日期/回复链；OpenReview PDF验证墙后，取得ICLR会议版并读假设、主定理、§4.2推导及实验与局限。会议版为录用后材料；未逐行重证附录、未运行代码，未据曲线估造数值。"
+      },
+      {
+        "forum_id": "JMmljf895g",
+        "urls": [
+          "https://arxiv.org/html/2510.20064v1"
+        ],
+        "scope": "数值取自公开arXiv v1表3及2025年11月24日作者答辩表；均为作者报告，未复现。公开论文版本未与提交PDF逐字比对。百分比由所列平均token/s直接计算，不是并发、所有任务或所有草稿池的保证。 当前标为v1的HTML还出现归档中称为答辩新增的32B内容，因此不以该页面重建初评时材料。"
+      },
+      {
+        "forum_id": "YAWpZcXHnP",
+        "urls": [
+          "https://arxiv.org/html/2603.02406v1"
+        ],
+        "scope": "完整阅读12条笔记及日期/replyto，读取录用后arXiv v1 §2–3及附录G相关方法、控制和消融；公开HTML引用有转换缺失，未据此核验文献优先权。未复现、未湿实验。"
+      },
+      {
+        "forum_id": "ioYdy7aghG",
+        "urls": [
+          "https://arxiv.org/html/2507.17259v1"
+        ],
+        "scope": "完整阅读14条公开笔记、日期和回复链，读取arXiv v1方法§3–4、结果§5.1–5.4；该版本早于评审，不能证明承诺的camera-ready实验已实施。未复现或审计训练语料。"
+      },
+      {
+        "forum_id": "khBHJz2wcV",
+        "urls": [
+          "https://arxiv.org/pdf/2508.09156"
+        ],
+        "scope": "完整阅读16条公开笔记及回复链/日期，成功获取arXiv v3 PDF前部框架与相关工作；后续方法和结果定位请求超时，具体实验主要依据反驳表，未声称完成46页全文或证明审计，未复现。"
+      },
+      {
+        "forum_id": "DYjyFDn8K7",
+        "urls": [
+          "https://proceedings.iclr.cc/paper_files/paper/2026/hash/ee0ca8e48b694b7f183ad855da0b3868-Abstract-Conference.html",
+          "https://proceedings.iclr.cc/paper_files/paper/2026/file/ee0ca8e48b694b7f183ad855da0b3868-Paper-Conference.pdf"
+        ],
+        "scope": "完整阅读18条公开记录及日期、回复链；另取得2026年3月生成的会议终稿，核读§2.1—2.2、§3方法与理论陈述、§5.1—5.2、表2—4、附录E.1.2—E.1.4和E.4，目视第9页表格。终稿晚于决定，不倒推为初评材料；未逐式认证证明或复现实验。"
+      },
+      {
+        "forum_id": "EHs3tSukHC",
+        "urls": [
+          "https://arxiv.org/html/2603.23889v1"
+        ],
+        "scope": "完整读取15条公开笔记与日期/replyto，读取录用后arXiv v1 §4、§6.3–6.4与限制。未复现控制或审计初稿伪代码；后版指标不作为原评审已见证据。"
+      },
+      {
+        "forum_id": "Hgw56DUFzD",
+        "urls": [
+          "https://arxiv.org/html/2510.09872v1"
+        ],
+        "scope": "完整阅读12条公开笔记与回复链，读取v1§2–5、数据划分和表2–3。未运行网站重放或训练；v1与后续回复分别标明，未将新增实验写成原稿已有。"
+      },
+      {
+        "forum_id": "MMLAvR1juf",
+        "urls": [
+          "https://proceedings.iclr.cc/paper_files/paper/2026/file/33386b8293bc475ac35acbfb4eebf2cd-Paper-Conference.pdf"
+        ],
+        "scope": "完整阅读21条公开记录、日期与回复链；阅读会议版§3与附录B–D的标签、架构消融及同源过滤。会议版不是原提交快照，主要比较数值以带日期的作者回复为准。未核验所有54靶点文献，未做对接或湿实验。"
+      },
+      {
+        "forum_id": "gdafM5zp1h",
+        "urls": [
+          "https://arxiv.org/html/2602.11956v1"
+        ],
+        "scope": "完整阅读23条公开记录与日期、回复关系；阅读录用后arXiv v1的先验重加权、响应对应、结果表1及缩放消融与NP/CKA表。未访问私有讨论，未复现模型或重分析神经数据。"
+      },
+      {
+        "forum_id": "izbBFuHtAX",
+        "urls": [
+          "https://arxiv.org/pdf/2503.00127"
+        ],
+        "scope": "完整阅读22条公开记录及时间回复链；读取arXiv v2方法、噪声分数定义、好坏划分对照、外部ARI相关性和附录运行时间、µ、噪声分布及真实数据实验。未下载另一评审的私人Drive代码，未独立复现。"
+      },
+      {
+        "forum_id": "10JEfJtiJM",
+        "urls": [
+          "https://arxiv.org/pdf/2512.19734v1"
+        ],
+        "scope": "完整读取12条公开记录；核对2025年12月17日arXiv v1的方法、表1—3、概念数消融、统计检验和二次扩展附录。版本晚于回复但早于决定，未当作最初投稿内容。未重训SAE或评估生成行为。"
+      },
+      {
+        "forum_id": "2Td8r7KYK2",
+        "urls": [
+          "https://arxiv.org/pdf/2505.21605v2"
+        ],
+        "scope": "已读全部25条公开记录及2025-06-14 arXiv v2第3—4节、评估器人工校准附录和推理预算分析。该版早于投稿，GPT-5判断与新置信区间依据答辩记录；未调用任何模型或重新核标3000题。"
+      },
+      {
+        "forum_id": "3qiCnLf3jf",
+        "urls": [
+          "https://arxiv.org/html/2509.21091v1"
+        ],
+        "scope": "实读arXiv:2509.21091v1（2025-09-25）§2–4、图6及跨年度实验；11月回应中的新增Beta基线与有限时间分析仅按作者公开陈述记录，未复现。"
+      },
+      {
+        "forum_id": "47ToW7T1iU",
+        "urls": [
+          "https://arxiv.org/pdf/2511.09731v2"
+        ],
+        "scope": "完整读取16条公开记录；核对2025年12月7日arXiv v2方法、集合评价、表1—6及求解器附录。此版本在回复后、决定前，新增结果与最初投稿区分；没有多种子复现或物理一致性测试。"
+      },
+      {
+        "forum_id": "6bthH14pD8",
+        "urls": [
+          "https://arxiv.org/pdf/2508.16112v2"
+        ],
+        "scope": "完整读取26条公开记录，核对2026年5月19日arXiv v2的§3—5、表1—3和附录A、B、C、D及提示模板。该稿在决定后；带分子式、排除检索库目标及翻译器扰动结果主要以当时回复为据，未重跑模型或重新标注光谱。"
+      },
+      {
+        "forum_id": "6dTHxb9JuA",
+        "urls": [
+          "https://arxiv.org/pdf/2601.21560v1"
+        ],
+        "scope": "逐条阅读35条公开记录；方法与表1—4核对2026年1月29日arXiv v1及可读会议终稿，均晚于1月26日决定，不能倒推原审稿人已看到所有补充。未运行模型或核对患者级原始划分。"
+      },
+      {
+        "forum_id": "750tza3sGf",
+        "urls": [
+          "https://proceedings.iclr.cc/paper_files/paper/2026/file/63f2f854afe4905829a6df735aa1693b-Paper-Conference.pdf"
+        ],
+        "scope": "已读22条公开记录及日期、回复关系；另读接收后会议版环境、方法、实验、成本和争议相关附录。新增会议版数值不倒推为原提交证据。"
+      },
+      {
+        "forum_id": "9k7bvBVenZ",
+        "urls": [
+          "https://arxiv.org/html/2509.26337v1"
+        ],
+        "scope": "检查arXiv:2509.26337v1（2025-09-30）§3反例、算法1、§5–6定理假设与解释、§7实验、附录D；回复新增T=5按作者报告，未复现或检查终稿扩展。"
+      },
+      {
         "forum_id": "GDYaNzxt9T",
         "urls": [
           "https://arxiv.org/html/2512.10858v1",
           "https://arxiv.org/abs/2512.10858"
         ],
         "scope": "数值与比较范围以归档答辩为主，局部核对2025-12-11 arXiv v1第4.2—4.5节和附录A.1；该预印本首次发表晚于答辩，不能当作送审初稿。未核验外链图像、训练日志或复现实验。"
+      },
+      {
+        "forum_id": "GU2197a3Lm",
+        "urls": [],
+        "scope": "完整阅读14条公开笔记、日期及replyto。已尝试OpenReview公开PDF（验证页）、arXiv 2502.05468全文（获取错误），未绕过；仅核对公开讨论中引用的方法/定理/实验，不声称阅读全文、复现实验或证明审计。"
+      },
+      {
+        "forum_id": "IQhaeSzyup",
+        "urls": [
+          "https://arxiv.org/html/2512.05297v1"
+        ],
+        "scope": "核读23条公开记录及2025年12月4日arXiv v1的方法、主实验和相关附录。该版本晚于初评与答辩，不据此断言初稿已经包含新增实验；未运行代码或复现实验。"
+      },
+      {
+        "forum_id": "JxmjzC6syB",
+        "urls": [
+          "https://arxiv.org/html/2507.04033v1"
+        ],
+        "scope": "完整13条公开记录；核读arXiv v1（2025-07-05）的约束定义、算法假设表、实验与SSw附录。该稿早于ICLR初评，不能代表全部审稿版本；答辩新增内容按作者报告处理，未复现。"
+      },
+      {
+        "forum_id": "LkWsQ3Tawx",
+        "urls": [
+          "https://arxiv.org/html/2508.03067v1"
+        ],
+        "scope": "完整13条公开记录与2025-08-05 arXiv v1的方法、实验、消融和理论表述。v1早于ICLR稿，定理形式与评审所述不同，不能据此宣布某方误读；12个生成模型的范围按论坛修订摘要与答辩归属。未复现。"
+      },
+      {
+        "forum_id": "Lp1noMpMUG",
+        "urls": [
+          "https://arxiv.org/html/2511.21740v1"
+        ],
+        "scope": "完整阅读18条公开记录及AC长评、日期与回复链；阅读arXiv讨论期v1的§3–5、A.4、D、F、P及训练细节。版本中’25集成WER已为2.21%，初评摘要2.82%未混用。未审计原始数据划分或重新提交竞赛。"
+      },
+      {
+        "forum_id": "O93c9H4SXc",
+        "urls": [
+          "https://arxiv.org/pdf/2601.12604v1"
+        ],
+        "scope": "匿名原PDF遇验证页面；取得arXiv:2601.12604v1（2026-01-18），阅读§3假设/定理、§4复杂度、§5实验，视觉检查PDF第4页。该稿晚于初评及回应，不倒推原稿内容。"
+      },
+      {
+        "forum_id": "P38RYdkFLI",
+        "urls": [
+          "https://proceedings.iclr.cc/paper_files/paper/2026/file/d2c50c5b2e3fcb33e8554d44b84eb52f-Paper-Conference.pdf"
+        ],
+        "scope": "已读全部26条公开记录，核对决定后会议终稿第3—4节、表2—3及7—12、评估提示。152页终稿中的全部逐题生成附录未逐项审阅，未复现、未审训练实现。"
+      },
+      {
+        "forum_id": "RlPVSeKjoc",
+        "urls": [
+          "https://arxiv.org/html/2512.12167v1",
+          "https://arxiv.org/html/2307.09288v2"
+        ],
+        "scope": "全读29条记录及三份明确改分跟进；核读12月13日arXiv v1理论、方法、主表和附录C／D，并对照Llama2原报告。v1晚于答辩，不能据其改动断言初评误读所有细节。"
+      },
+      {
+        "forum_id": "SA8xDYrUYB",
+        "urls": [
+          "https://proceedings.iclr.cc/paper_files/paper/2026/file/9d8cf1247786d6dfeefeeb53b8b5f6d7-Paper-Conference.pdf"
+        ],
+        "scope": "全读20条论坛记录；原OpenReview稿遇验证页，未绕过。另核读ICLR2026正式论文第3—4节、附录C—E，属决定后版本，不据此判断初稿已具备哪些内容。结果按答辩日期归属，未复现。"
+      },
+      {
+        "forum_id": "ST0wOB1bdX",
+        "urls": [
+          "https://arxiv.org/pdf/2510.01146v2"
+        ],
+        "scope": "已读33条公开记录及日期、回复关系；另读接收后arXiv v2第3节、实验相关表、C.3–C.5去重、H消融说明及I人工评价。数值主线引用讨论期回复；后续20人及抽样设计明确归属于v2。未复现实验或审计原始标注。"
+      },
+      {
+        "forum_id": "ShEDWasmDG",
+        "urls": [
+          "https://arxiv.org/html/2509.11536v1"
+        ],
+        "scope": "全读12条公开记录；核读2025-09-15 arXiv v1第3—5节和相关附录。答辩新增GSM8K Reasoning Patch、MoE与10次实验按作者报告归属，未独立复现，也未据初版缺席否定其后续存在。"
+      },
+      {
+        "forum_id": "T6NVogsXCZ",
+        "urls": [
+          "https://proceedings.iclr.cc/paper_files/paper/2026/file/e45b0e8c296fa782d997f8a660bac512-Paper-Conference.pdf"
+        ],
+        "scope": "全读13条公开记录；核读ICLR2026正式稿方法、表1—2及附录F计时／鲁棒性，表1另作页面截图核对。正式稿在决定后，历史答辩数值与其差别不能自动还原成原送审表错误；未复现。"
+      },
+      {
+        "forum_id": "T9PNKPmjGc",
+        "urls": [
+          "https://arxiv.org/pdf/2602.01853"
+        ],
+        "scope": "完整25条记录；2月2日arXiv v1已在接收决定之后，核读第3—4节、A.1以及B节消融和运行时间。数值主要按可公开核对的答辩表报告，没有复现模拟。"
+      },
+      {
+        "forum_id": "UQZ0Y0dbP9",
+        "urls": [
+          "https://proceedings.iclr.cc/paper_files/paper/2026/file/d02ff1aeaa5c268dc34790dd1ad21526-Paper-Conference.pdf"
+        ],
+        "scope": "全部30条公开记录已读，并核对决定后ICLR会议终稿第4—5节、D.2.4—D.2.5攻击实验及D.6消融。关键新增结果已见2025年11月回复；未取得原始输出或复现实验。"
+      },
+      {
+        "forum_id": "YgudIlQ9nC",
+        "urls": [
+          "https://arxiv.org/pdf/2603.02064"
+        ],
+        "scope": "全读23条记录；核读2026年3月arXiv v1第4—5节、定理条件、图3解释、表1—2及实验协议。后稿晚于决定，未将新增条件当成最初送审已具备的内容；未逐行复证全部附录。"
+      },
+      {
+        "forum_id": "f5MC1G6XhB",
+        "urls": [
+          "https://arxiv.org/pdf/2507.01028"
+        ],
+        "scope": "完整读取18条笔记、日期和回复链；OpenReview PDF遇验证，成功读取arXiv PDF v3相关问题设定、命题3.2、§3.3与§4.1。录用后版不等同投稿；未重算实验或逐式认证全部证明。"
+      },
+      {
+        "forum_id": "i2IQRtYchF",
+        "urls": [
+          "https://arxiv.org/html/2507.13332v1"
+        ],
+        "scope": "全读13条公开记录；核读2025年7月arXiv v1的方法、评估协议、主表、模块消融及局限。该版本早于评审，答辩新增比较按作者报告处理。未运行训练或独立核验自动判分。"
+      },
+      {
+        "forum_id": "if1Ndb6RWD",
+        "urls": [
+          "https://proceedings.iclr.cc/paper_files/paper/2026/file/e102ffbdb12009251f844ec1fbdb990a-Paper-Conference.pdf"
+        ],
+        "scope": "已读全部12条公开记录及ICLR2026会议终稿第3—4节、表1—4和讨论。终稿是决定后的版本，新增规模、噪声结果不能倒推初稿已有；未运行代码或验证统计显著性。"
+      },
+      {
+        "forum_id": "igZItUbY6n",
+        "urls": [
+          "https://arxiv.org/html/2507.14111v9"
+        ],
+        "scope": "arXiv:2507.14111v9，检查§2对比提示与GRPO、§3奖励漏洞、§4表4–6及§5代码案例；不以网页后来版本的摘要替代对应评审记录，也未运行内核。"
+      },
+      {
+        "forum_id": "itoNJ3gJl2",
+        "urls": [
+          "https://proceedings.iclr.cc/paper_files/paper/2026/file/5cb58625f49ddf70fe2d527e9e4bbae5-Paper-Conference.pdf"
+        ],
+        "scope": "全读17条公开记录及回复链；原OpenReview稿遇验证页面，arXiv v1不可取，改核ICLR正式稿第2—6节和表1—2。正式稿改成七任务并更新数值，不能用它反推初稿错误；本文历史数值明确来自答辩。"
+      },
+      {
+        "forum_id": "iu9dbz2lB9",
+        "urls": [
+          "https://proceedings.iclr.cc/paper_files/paper/2026/file/aa31dc84098add7dd2ffdd20646f2043-Paper-Conference.pdf"
+        ],
+        "scope": "26条公开记录全读，核读官方会议终稿第3—5节、算法1、表1—4、附录7.2—7.5。终稿包含答辩补充，不能把新增实验当原审稿时已存在；通信指标没有独立测量复现。"
+      },
+      {
+        "forum_id": "kHhMs642rR",
+        "urls": [],
+        "scope": "完整阅读15条公开笔记、日期/replyto。OpenReview PDF遇验证页，arXiv2507.08473 HTML获取错误；未绕过，本文只核查公开摘要与讨论中方法和实验陈述，不声称阅读全文或独立重算相关。"
+      },
+      {
+        "forum_id": "m38vyzeoO0",
+        "urls": [],
+        "scope": "完整阅读13条公开记录；尝试OpenReview主论文PDF遇验证页面，未绕过；未找到并取得独立完整原稿。因此方法与结果仅按公开摘要、评审和11月回复归属，不宣称检查了论文表格或证明。"
+      },
+      {
+        "forum_id": "rp2RDBRA0Y",
+        "urls": [
+          "https://proceedings.iclr.cc/paper_files/paper/2026/file/45824c7580778ad1ba384982b9e6b39f-Paper-Conference.pdf"
+        ],
+        "scope": "全文读取18条公开记录；核对决定后会议终稿第3—6节、图1—3、表1及附录A、E、F、I。原评审引用7.11/5.20/6.50等旧图值，不与修订后数值混用。未复算参与者数据或复现统计模型。"
+      },
+      {
+        "forum_id": "sAzUQkP47r",
+        "urls": [
+          "https://arxiv.org/html/2510.15096v1"
+        ],
+        "scope": "实读arXiv:2510.15096v1（2025-10-16）§2、§3及提示消融；新增lognormal和CRPS取11月26日公开表，不与v1同一实验混记。"
+      },
+      {
+        "forum_id": "t7wIerUT2E",
+        "urls": [
+          "https://arxiv.org/pdf/2507.02902v1"
+        ],
+        "scope": "全部18条公开记录已读。另核对2025-06-24 arXiv v1第2—3、5节和表1—3；该版早于投稿，MRI与答辩新增分析以公开回复为证，不能假定两版完全一致。OpenReview匿名PDF访问遇验证页，未绕过。"
+      },
+      {
+        "forum_id": "tvDlQj0GZB",
+        "urls": [
+          "https://arxiv.org/html/2604.07569v1"
+        ],
+        "scope": "全读14条记录；核读4月arXiv v1方法、结果、界限附录E.8及稳健性G。该稿晚于决定；全部作者回复创建于11月但2月12日修改，当前措辞不能逐字还原AC当时所见。"
+      },
+      {
+        "forum_id": "xXRqWpt3Xr",
+        "urls": [
+          "https://arxiv.org/pdf/2509.25095v1"
+        ],
+        "scope": "原始arXiv v1（2025-09-29）PDF§3–5、表1/2和标签效率设置已读；11月新增CKA、资源指标及消融按回复归属，不视作9月稿已有结果。"
+      },
+      {
+        "forum_id": "0M6BfcAVMW",
+        "urls": [
+          "https://arxiv.org/html/2509.23986v1"
+        ],
+        "scope": "39条完整记录及9月28日arXiv v1方法、表1—3、两生物案例与相关附录。答辩五次重复、热启动和文献过滤表按作者公开报告处理，未重跑优化或支付API调用。"
+      },
+      {
+        "forum_id": "5N3z9JQJKq",
+        "urls": [
+          "https://arxiv.org/pdf/2602.03828"
+        ],
+        "scope": "47条评审与回复全读；核读2026年2月12日arXiv v2的数据、方法、主结果及H—P相关附录。后稿晚于接收，补充试验仍是作者报告，未重跑商业模型或审阅全部数据样本。"
+      },
+      {
+        "forum_id": "0KFQ4F9YEH",
+        "urls": [],
+        "scope": "完整阅读23条公开note，包括作者完整表达力构造、等价Lean代码、主要结果和消融表。PDF正文访问遇挑战后停止，未取得完整手稿；技术分析据答复所转载内容与公开索引摘要，不声称审读全文或运行Lean。"
+      },
+      {
+        "forum_id": "0R6HLWvWYk",
+        "urls": [
+          "https://proceedings.iclr.cc/paper_files/paper/2026/file/0886e50806c3faf55e557bd63ba3e70c-Paper-Conference.pdf"
+        ],
+        "scope": "会议最终版第3—4节与11月审稿期回复分开核对；只对回复公开的五对数字复算t检验，未重训模型。"
+      },
+      {
+        "forum_id": "24QX6XpvSL",
+        "urls": [
+          "https://proceedings.iclr.cc/paper_files/paper/2026/file/035625bfefffb23c88cf64cea0a77d6b-Paper-Conference.pdf"
+        ],
+        "scope": "完整阅读49条公开note；阅读最终会议版§3方法、§4主表和结构消融、附录C划分、D.1指标、E.1—E.4外部集与库/预训练/缺失率；视觉核验第19页。只读固定commit README、验证函数和fused模型forward/按ID更新，不运行代码、不核验临床效果，不将后期版本当初稿。"
+      },
+      {
+        "forum_id": "3CKdjb5SuH",
+        "urls": [
+          "https://proceedings.iclr.cc/paper_files/paper/2026/file/0f402cddc6ab9e74c66e684d63651cf0-Paper-Conference.pdf"
+        ],
+        "scope": "完整阅读30条公开note；阅读会议终稿§3局部检查与概率调整、§4表1—5及效率、附录A.2校准。未重新实现CRITIC或验证器，终稿不反向当作初始投稿。"
+      },
+      {
+        "forum_id": "6UJf6B8RZ8",
+        "urls": [
+          "https://arxiv.org/html/2510.11512v1"
+        ],
+        "scope": "完整阅读17条公开note；阅读arXiv v1 §3方法及式2—5、§3.3基准、§4人工研究与表2。没有重跑扩散模型、检查每一模拟视频或验证去噪代理的精确似然排序。"
+      },
+      {
+        "forum_id": "7pQv7qitFV",
+        "urls": [
+          "https://arxiv.org/html/2603.00585v1"
+        ],
+        "scope": "完整阅读18条公开note及回复链；阅读2026年3月arXiv v1的§2基准、§3数据与训练、§4结果、主表及附录消融。该版本晚于决定，不证明原评审看过全部内容；未检查原始视频、独立专家评估或重跑训练。"
+      },
+      {
+        "forum_id": "BUUfUcIcfE",
+        "urls": [
+          "https://proceedings.iclr.cc/paper_files/paper/2026/file/cf277f3529fc80ab3665965283555b29-Paper-Conference.pdf"
+        ],
+        "scope": "数值核对录用后会议最终稿，并与11月公开回复交叉检查；最终稿新增内容不冒充最初审稿材料，未复现。"
+      },
+      {
+        "forum_id": "CODnlyYUli",
+        "urls": [
+          "https://arxiv.org/html/2502.10328v3"
+        ],
+        "scope": "读2025年9月27日v3及35条公开笔记；更早v1使用GePT名称，未与v3表混用；未运行反例或采样器。"
+      },
+      {
+        "forum_id": "E3bBZ02Qcc",
+        "urls": [
+          "https://arxiv.org/html/2505.24254v1"
+        ],
+        "scope": "arXiv v1（2025-05-30）第3—5节、附录A.4，与11—12月补充回复分别记录；未复现训练。"
+      },
+      {
+        "forum_id": "GFyVxtyMvq",
+        "urls": [
+          "https://arxiv.org/html/2512.11391v1"
+        ],
+        "scope": "27条公开记录及答辩后arXiv v1第3—5节、表1/2/4、附录A证明。主要结果存在调参、换裁判和修订版本差别，逐表解释而不混拼。未重训或逐行审代码。"
+      },
+      {
+        "forum_id": "HK6t5x5gJq",
+        "urls": [
+          "https://arxiv.org/html/2508.04045v1",
+          "https://arxiv.org/html/2508.04045v2"
+        ],
+        "scope": "25条全记录，8月6日v1方法、主结果与隐私附录，以及录用后3月15日v2相关修订。新增中央对照、MMD、极端不平衡、方差和敏感性按作者答辩报告；未执行代码、隐私攻击或独立复现。"
+      },
+      {
+        "forum_id": "IbcdVwzLrp",
+        "urls": [
+          "https://arxiv.org/html/2509.23159v1"
+        ],
+        "scope": "读取全部28条笔记与2025-09-27 arXiv v1方法、主表、消融、用户研究及附录C/G；回复新增288窗口、24人研究另行标注，未复现。"
+      },
+      {
+        "forum_id": "IdF6JqXWzx",
+        "urls": [
+          "https://arxiv.org/pdf/2510.11062v5"
+        ],
+        "scope": "已读全部26条公开notes及其日期、replyto；论文为2026-01-29 arXiv v5，晚于1月26日决定，不能假定原评审看到相同文字。核读§3–5、算法1、表1–4、图5文字、B.6–B.7、C.1、E表6、F表7–8、G.1–G.2，目视PDF第21/28页。未复现训练、核验代码实际奖励或认证其余证明。"
+      },
+      {
+        "forum_id": "JMweItBmbx",
+        "urls": [
+          "https://proceedings.iclr.cc/paper_files/paper/2026/file/dabf612543b97ea9c8f46d058d33cf74-Paper-Conference.pdf"
+        ],
+        "scope": "全部37条公开记录及决定后会议终稿第2—3节、表1—5和附录A.2相关实验；未运行模型或复查人工标注。"
+      },
+      {
+        "forum_id": "K5tcKEQaUr",
+        "urls": [
+          "https://proceedings.iclr.cc/paper_files/paper/2026/file/c5b00c5bdcc6fe35907dbcca03d27652-Paper-Conference.pdf"
+        ],
+        "scope": "全部40条公开记录；会议终稿第3—6节、表1—4、9—10、附录A.3—A.6与相关结果核对，并视觉检查第8、22、28页。终稿为决定后版本，未复现。"
+      },
+      {
+        "forum_id": "MN1qlAVJLV",
+        "urls": [
+          "https://arxiv.org/html/2510.02334v1"
+        ],
+        "scope": "arXiv v1方法、表2—4与消融；五份回复创建于11月，最终修改均为2026年2月12日，不能保证所有新增数字在AC决策时已经可见。"
+      },
+      {
+        "forum_id": "OQOmOIIX9F",
+        "urls": [],
+        "scope": "完整阅读24条公开note及回复链；原始PDF仅检索服务可见前两页、图1及简介，进一步访问遇403/验证页后停止。数值与理论修订主要据2025年11—12月公开答辩；没有逐条验算附录证明、运行代码或复现实验。"
+      },
+      {
+        "forum_id": "Q3MisVkuTu",
+        "urls": [
+          "https://arxiv.org/html/2505.15547v3"
+        ],
+        "scope": "完整阅读17条公开note；阅读v3 §2指标与Cora示例、§3异配反例、§4瓶颈区分及图4解释。未逐篇复核所有九项文献的语境、复现实验或完整检验附录推导；v3不倒填原评审版本。"
+      },
+      {
+        "forum_id": "QZmKyAy1VK",
+        "urls": [
+          "https://arxiv.org/html/2508.07180v2"
+        ],
+        "scope": "完整阅读13条公开note；阅读arXiv v2 §2构造与覆盖门槛、§3数据、§4表3/4与HumanEval比较。v2晚于决定；未检查每个提交时间、去重或运行PBT。"
+      },
+      {
+        "forum_id": "RCsBoUr72G",
+        "urls": [
+          "https://arxiv.org/html/2601.18595v1"
+        ],
+        "scope": "24条全部公开笔记和2026-01-26 arXiv v1方法、主表、消融、翻译及成本部分；该稿与决定同日，新增实验以11月回复交叉核对。未复现。"
+      },
+      {
+        "forum_id": "RNkErKpCAp",
+        "urls": [
+          "https://arxiv.org/html/2510.11653v1"
+        ],
+        "scope": "完整阅读14条公开note及日期、回复关系；阅读arXiv v1 §3构造、核验、子集与用途，§4表2及比较限定。未逐题检查思维链、审计后训练样本或复现1024次采样。"
+      },
+      {
+        "forum_id": "Sm3Y0TMnDv",
+        "urls": [
+          "https://csse.szu.edu.cn/attachment/cglr/1779069724_3662_WavePolyp_Video_Polyp_Seg.pdf"
+        ],
+        "scope": "已读全部11条公开记录和2026年5月生成的18页终稿相关章节，目视核对表1、表2；终稿晚于决定，不能代替原投稿版。未复现实验。"
+      },
+      {
+        "forum_id": "Sxj4o3qXtl",
+        "urls": [
+          "https://arxiv.org/html/2510.14635v1"
+        ],
+        "scope": "24条全部讨论与初评前arXiv v1第3—5节、表1—3及下游设置；TACO、精确率、令牌成本与GPT-5-mini结果来自答辩。未执行程序或检查输入约束验证器。"
+      },
+      {
+        "forum_id": "UFwnsmFZ6R",
+        "urls": [
+          "https://arxiv.org/html/2605.05227v1"
+        ],
+        "scope": "审稿期回复与2026年4月19日arXiv v1分开核对；后者晚于决定，不能反推初稿内容；未复现实验。"
+      },
+      {
+        "forum_id": "UoYdZQIZWj",
+        "urls": [
+          "https://arxiv.org/html/2512.09365v1"
+        ],
+        "scope": "完整阅读19条公开note；阅读v1方法§2、阈值公式11及投影约束、§3主表与隔离协议、附录D/E消融。未执行代码或验证湿实验，不把答复后稿当初稿。"
+      },
+      {
+        "forum_id": "Uv3efQiPBZ",
+        "urls": [
+          "https://arxiv.org/html/2502.05709v2"
+        ],
+        "scope": "全21条笔记；arXiv v2于2025-12-09发布，已含反驳修改、早于决定。读取方法、理论及相关证明、主表、消融和附录，未复现。"
+      },
+      {
+        "forum_id": "XcPDT615Gd",
+        "urls": [
+          "https://arxiv.org/html/2509.23348v1"
+        ],
+        "scope": "读取审稿前arXiv v1方法和主实验，并另读12月回复；回复新增独立耦合及反向基准不冒充初稿结果，未复现。"
+      },
+      {
+        "forum_id": "YbQxus1KEa",
+        "urls": [
+          "https://arxiv.org/html/2510.01153v1"
+        ],
+        "scope": "读取审稿前arXiv v1及全部回复；11月28日作者称补入官方MM:R，但本稿不编造该新增表的具体领先幅度；未运行实现。"
+      },
+      {
+        "forum_id": "ZCjWUBwCwE",
+        "urls": [
+          "https://arxiv.org/html/2510.10397v1"
+        ],
+        "scope": "2025年10月12日v1与11月补实验分开核对；回复表格存在不同数字版本，采用来源一致的主表与明确对照，不做复现。"
+      },
+      {
+        "forum_id": "ZFZhV7Snf4",
+        "urls": [
+          "https://arxiv.org/html/2512.11912v1"
+        ],
+        "scope": "完整阅读21条公开note；阅读12月arXiv v1 §3实验设置与表1—3、§4梯度表4、附录J固定预算表及K设置。版本已含答辩增补，不倒填成初评可见；未复现训练或完整验证理论。"
+      },
+      {
+        "forum_id": "avwNGWtiHF",
+        "urls": [
+          "https://arxiv.org/html/2509.22246v1"
+        ],
+        "scope": "完整阅读21条公开note；阅读v1§3框架、理论定位和有限战术实现、§4数据标注/阈值协议/结果与消融；扩展1247对及时间来自11月答复，未独立运行Lean或完整重证定理。"
+      },
+      {
+        "forum_id": "cZFgsLq8Gs",
+        "urls": [
+          "https://arxiv.org/html/2509.26603v1"
+        ],
+        "scope": "完整阅读31条公开note及154任务答复中所有展示行；阅读v1§3系统设计、§4.1三任务与原基线、§4.2人工评价、§4.3筛选消融和失败分析。追加实验取自答复，未运行智能体或独立验证生成论文。"
+      },
+      {
+        "forum_id": "d5GmZP2qrd",
+        "urls": [
+          "https://arxiv.org/html/2601.23064v1"
+        ],
+        "scope": "完整阅读18条公开note；阅读录用后v1§3.2—3.4实体与图像表示、§4数据与主表、§4.2消融、§5限制。未取得原始投稿版本，跨数据集测试是否初稿已有按作者说明表述，未独立复现。"
+      },
+      {
+        "forum_id": "fN0MED2Idq",
+        "urls": [
+          "https://arxiv.org/html/2508.09101v1"
+        ],
+        "scope": "完整阅读29条公开note；阅读v1§2.1规模、§2.2合成与过滤、§4.1人工验证及附录B标注协议。后续Opus4.1、SFT、Swift与Qwen实验据答复，未运行代码或独立审计题目。"
+      },
+      {
+        "forum_id": "gcT2BCGcZJ",
+        "urls": [
+          "https://proceedings.iclr.cc/paper_files/paper/2026/file/45ecdd6cf1f507d378a3442ed89e580b-Paper-Conference.pdf"
+        ],
+        "scope": "全部38条公开记录与决定后会议终稿第3—4节、附录B.1—B.4及E核对；原始提交稿未独立取得，未运行代码。"
+      },
+      {
+        "forum_id": "huEYU44Ax4",
+        "urls": [
+          "https://proceedings.iclr.cc/paper_files/paper/2026/file/883ce2a9f07d6cab4e2c07d36fb555d7-Paper-Conference.pdf"
+        ],
+        "scope": "读取18条全部讨论与录用后最终稿方法、表1—6及附录；所列新增数字可追溯11月回复，未运行模型。"
+      },
+      {
+        "forum_id": "msLnKDvhBx",
+        "urls": [
+          "https://proceedings.iclr.cc/paper_files/paper/2026/file/7c68f26cecf67f0b76fed25a702ddd94-Paper-Conference.pdf"
+        ],
+        "scope": "完整阅读42条note，含超长R2全部弱点和问题；阅读终稿§3目标与HGR公式、§4协议及表1、附录表7—8和图12说明。未重跑检测或推导全局收敛；当前条件性10分note有决定后修改。"
+      },
+      {
+        "forum_id": "nfURupkdRJ",
+        "urls": [
+          "https://proceedings.iclr.cc/paper_files/paper/2026/file/1cac8326ce3fbe79171db9754211530c-Paper-Conference.pdf"
+        ],
+        "scope": "全部29条公开记录；决定后会议终稿方法、主表、消融、等样本数对照及附录B/F/H；未训练模型或调用生成API。"
+      },
+      {
+        "forum_id": "qQ5MZ5Mx7p",
+        "urls": [
+          "https://arxiv.org/pdf/2511.07327v1"
+        ],
+        "scope": "全部32条记录及arXiv v1第3—4节、表1—2、图3核对；该版本发布于初评期，不能认证等同原始提交稿。未运行模型或复现实验。"
+      },
+      {
+        "forum_id": "rTlPfuKTNg",
+        "urls": [
+          "https://arxiv.org/html/2507.21533v1"
+        ],
+        "scope": "读取2025年7月29日arXiv v1及全部26条讨论；新增结果明确来自回复，后续MPAIL2不作为原稿证据，未复现。"
+      },
+      {
+        "forum_id": "rcmfu1ydAf",
+        "urls": [
+          "https://arxiv.org/html/2510.10062v1"
+        ],
+        "scope": "完整阅读18条公开note；阅读arXiv v1方法§3、结果§4、总分与分项表，答辩补充结果和AC逐项核对。未独立重标注、检查全部模型训练集或复现统计检验；后续稿新增实验不倒填进v1。"
+      },
+      {
+        "forum_id": "sVN9K0BLQj",
+        "urls": [
+          "https://arxiv.org/html/2601.10477v1"
+        ],
+        "scope": "完整阅读24条公开note；阅读1月v1§3数据、§4.1—4.2二阶段提示与RL、§5主结果和消融、附录A.2.3训练与A.3提示。未独立运行分割、重审地图许可或复原原始稿。"
+      },
+      {
+        "forum_id": "yfBs0GQxx9",
+        "urls": [
+          "https://arxiv.org/html/2302.01976v3"
+        ],
+        "scope": "完整阅读16条公开note；阅读v3 §3定理与密度条件、§5架构/误差定义/密度与重训实验、图案干预结果。v3条件措辞较评审版有变化，不反向证明初稿具备所有细节；未完整检验长篇附录证明或运行实验。"
+      },
+      {
+        "forum_id": "mnI8CFj2WP",
+        "urls": [
+          "https://arxiv.org/html/2503.16278v3",
+          "https://arxiv.org/abs/2503.16278"
+        ],
+        "scope": "归档结果为4、8、6、10分，均分7，Reject。定量补查使用2025-10-09 arXiv v3的表1、表12及D.3，早于正式评审，但未与原投稿PDF逐字比对；数值均为论文报告值。"
+      },
+      {
+        "forum_id": "L4SwHIZEaJ",
+        "urls": [
+          "https://arxiv.org/pdf/2508.01077v1",
+          "https://arxiv.org/abs/2508.01077v1",
+          "https://arxiv.org/html/2508.01077v2",
+          "https://arxiv.org/abs/2508.01077",
+          "https://arxiv.org/html/2507.18553v1",
+          "https://proceedings.iclr.cc/paper_files/paper/2026/hash/a6a6891cf1dfc64d664f086cf5976e93-Abstract-Conference.html"
+        ],
+        "scope": "核对2025-08-01 arXiv v1的相关段落、2026-03-02 v2的定理与算法说明，以及归档评议。v2晚于答辩，不假定评审已看到其新增附录；未核读Qronos实验或运行量化实现。"
+      },
+      {
+        "forum_id": "AXXCo0pOSO",
+        "urls": [
+          "https://arxiv.org/html/2510.22775v1",
+          "https://arxiv.org/abs/2510.22775"
+        ],
+        "scope": "归档为6、6、8、6分，均分6.5，Reject。补查2025-10-26 arXiv v1（早于评审），未与投稿PDF逐字比对；不混入2026-08-26后续v2。验证准确率不是软件问题解决率，所报EM不等于已核实实现正确。"
+      },
+      {
+        "forum_id": "EFYb8SsRi7",
+        "urls": [
+          "https://arxiv.org/html/2509.21906v1",
+          "https://arxiv.org/abs/2509.21906v1",
+          "https://arxiv.org/abs/2509.21906",
+          "https://arxiv.org/html/2509.21906v3",
+          "https://proceedings.mlr.press/v267/pham25a.html"
+        ],
+        "scope": "采用2025-09-26 arXiv v1第5节及归档答辩；未逐行验证全部证明或复现实验。2026-05-26 v3改动了假设与结果，不用于反推2025年评审当时看到了什么，也不据其后续改进判定原评审错误。"
+      },
+      {
+        "forum_id": "TSk3cIdIQK",
+        "urls": [
+          "https://arxiv.org/html/2510.00938v3",
+          "https://arxiv.org/abs/2510.00938"
+        ],
+        "scope": "简介结果采用2025年11月归档作者答辩；局部核对2026-08-27 arXiv v3的方法、主表和版本史，仅作后续版本对照，不以其新增实验倒推原评审错误。v1/v2全文未成功取得；未核验原始日志、实现或复现实验。"
+      },
+      {
+        "forum_id": "rouPx6eo2G",
+        "urls": [
+          "https://arxiv.org/html/2604.10672v1",
+          "https://arxiv.org/abs/2604.10672"
+        ],
+        "scope": "归档为8、6、10、4、6分，均分6.8，Reject。量化结果来自评审期公开回复，非原稿已具备的全部实验。另查2026-04-12 arXiv v1，它晚于决定且理论编号与内容已变化，不能替代送审版本。"
       }
     ],
     "original_submission_version_identity_verified": false,
@@ -191,12 +1590,23 @@
   "reader_structure": {
     "date": "2026-09-28",
     "desks": {
-      "serious-errors": 3,
-      "low-accepted": 4,
-      "high-rejected": 3
+      "serious-errors": 16,
+      "low-accepted": 96,
+      "high-rejected": 1
     },
-    "official_review_notes": 41,
-    "included_ratings": 40,
+    "official_review_notes": 464,
+    "included_ratings": 463,
     "source_snapshot_changed": false
+  },
+  "coverage_sha256": "aca288d2845415b5386fcedbac0ddb17a6f631c2f9dd1cb6ec671f588a3e7d63",
+  "public_note_count": 2498,
+  "selection_policy": {
+    "low_accepted_max_mean": 4,
+    "high_rejected_min_mean": 7,
+    "min_valid_reviews": 3,
+    "serious_requires_material_consequence": true,
+    "target_not_quota": 100,
+    "current_case_count": 113,
+    "historical_case_count": 5
   }
 }

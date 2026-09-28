@@ -85,3 +85,16 @@ main{padding-top:24px}
 @media(max-width:550px){.desk-navigation{grid-template-columns:minmax(0,1fr)}.desk-navigation a,.desk-navigation a:first-child{border-right:0;border-bottom:1px solid var(--line);padding:15px 0}.desk-navigation b{margin-left:auto}.desk-heading{gap:12px}.desk-heading h2{font-size:1.4rem}.news-card h3{font-size:1.4rem}.contribution-focus{padding:17px}.article-result{gap:15px}.article-result strong{font-size:1.1rem}.reading-heading h2{font-size:1.35rem}.reading-section h3{font-size:1rem}.article-labels,.article-byline{font-size:.8125rem}.article-header h1{font-size:1.75rem}.article-result span{font-size:.875rem}.data-verdict{padding:16px}}
 
 .article-paper-title{font:1rem/1.8 Georgia,var(--serif);color:var(--muted);overflow-wrap:anywhere;margin:0 0 22px}
+/* Long, static case inventories retain keyboard and no-JavaScript access. */
+.desk-more,.historical-cases{margin:1.5rem 0 2rem;border-top:1px solid var(--line,#d1d5db);padding:1rem 0;}
+.desk-more summary,.historical-cases summary{cursor:pointer;font-size:1.05rem;font-weight:650;line-height:1.6;}
+.desk-more ol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.1rem 2rem;list-style:none;padding:1rem 0;}
+.desk-more li{min-width:0;padding-bottom:.9rem;border-bottom:1px solid #d1d5db;overflow-wrap:anywhere;}
+.desk-more li>span{display:block;font-size:.9rem;color:#59636e;margin-bottom:.3rem;}
+.desk-more a{font-size:1.1rem;font-weight:600;line-height:1.55;}
+.historical-cases ul{padding-left:1.3rem;}.historical-cases li{margin:.8rem 0;overflow-wrap:anywhere;}
+.historical-notice{border-left:3px solid #777;padding:.8rem 1rem;background:#f0f2f5;font-size:1rem;}
+.serious-basis{padding:1rem 1.3rem;margin:0 0 1.5rem;border-left:4px solid #9b2c2c;background:#fff7f7;overflow-wrap:anywhere;}
+.serious-basis h2{font-size:1.25rem;}.serious-basis p{font-size:1rem;line-height:1.75;}
+.source-scope-item{overflow-wrap:anywhere;}.source-scope-item h3{font-size:1.1rem;line-height:1.5;}
+@media(max-width:700px){.desk-more ol{grid-template-columns:minmax(0,1fr);}.serious-basis{padding:.8rem 1rem;}}

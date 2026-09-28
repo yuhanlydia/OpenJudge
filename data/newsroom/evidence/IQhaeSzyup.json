@@ -1,0 +1,444 @@
+{
+  "paper": {
+    "id": "IQhaeSzyup",
+    "title": "CFO: Learning Continuous-Time PDE Dynamics via Flow-Matched Neural Operators",
+    "abstract": "Neural operator surrogates for time-dependent partial differential equations (PDEs) conventionally employ autoregressive (AR) prediction schemes, which accumulate error over long rollouts and require uniform temporal discretization.\nWe introduce the Continuous Flow Operator (CFO), a framework that learns continuous-time PDE dynamics without the computational burden of standard continuous approaches, e.g., neural ODE. The key insight is repurposing flow matching to directly learn the right-hand side of PDEs without backpropagating through ODE solvers. CFO fits temporal splines to trajectory data, using finite-difference estimates of time derivatives at knots to construct probability paths whose velocities closely approximate the true PDE dynamics. A neural operator is then trained via flow matching to predict these analytic velocity fields. This approach is inherently time-resolution invariant: training accepts trajectories sampled on trajectory-specific, non-uniform time grids while inference queries solutions at any temporal resolution through ODE integration. \nAcross four benchmarks (Lorenz, 1D Burgers, 2D diffusion-reaction, 2D shallow water), CFO demonstrates superior long-horizon stability and remarkable data efficiency. \nCFO trained on only 25% of irregularly subsampled time points outperforms autoregressive baselines trained on complete data, with relative error reductions up to 87%. \nDespite requiring numerical integration at inference, CFO achieves competitive efficiency, exceeding AR accuracy using only half the AR rollout step budget, while uniquely enabling reverse-time inference and arbitrary temporal querying. Code is available at https://github.com/shannon-hou/CFO_official",
+    "venue": "ICLR 2026 Poster",
+    "venueid": "ICLR.cc/2026/Conference",
+    "pdf": "/pdf/94f3d45a24c448d3abe4e17e8ea66f470a569e0b.pdf",
+    "keywords": [
+      "Neural PDE Solver",
+      "Operator Learning",
+      "Flow Matching",
+      "Machine Learning",
+      "Long Rollouts"
+    ],
+    "primary_area": "applications to physical sciences (physics, chemistry, biology, etc.)",
+    "number": null,
+    "license": "CC BY 4.0",
+    "source_hash": "80aff790e8b7d91ef592969b807151667b243c734d8b86ffc5c52b1f91916f2d",
+    "scores": [
+      2,
+      6,
+      2,
+      4
+    ],
+    "invalid_scores": [],
+    "decisions": [
+      {
+        "id": "ax3AgC2sfq",
+        "decision": "Accept (Poster)"
+      }
+    ],
+    "meta_ids": [
+      "4sBNkxxcdv"
+    ],
+    "reviews": [
+      "uLgSHXhv3v",
+      "TcvqL9UIxL",
+      "P4qDoLFT9V",
+      "D3YXO9SQMP"
+    ],
+    "comments": 17
+  },
+  "notes": [
+    {
+      "id": "ax3AgC2sfq",
+      "kind": "Decision",
+      "replyto": "IQhaeSzyup",
+      "role": "program_chair",
+      "content": {
+        "title": "Paper Decision",
+        "decision": "Accept (Poster)",
+        "comment": ""
+      },
+      "date": "2026-01-26T08:51:21.084000+00:00",
+      "modified": "2026-02-06T05:53:24.577000+00:00",
+      "url": "https://openreview.net/forum?id=IQhaeSzyup&noteId=ax3AgC2sfq",
+      "license": "CC BY 4.0",
+      "source_hash": "dd54c34bdae8653f1e9b354883a0254694fdcf5f8759efcf1df523cabdb68f7d"
+    },
+    {
+      "id": "4sBNkxxcdv",
+      "kind": "Meta_Review",
+      "replyto": "IQhaeSzyup",
+      "role": "area_chair",
+      "content": {
+        "summary": "The paper introduces a framework for learning continuous-time PDE dynamics. Using the method of lines, the PDE is first transformed into a system of ODEs. Sample trajectories of these ODEs are then approximated with spline representations by fitting both their values and their time derivatives, the latter being estimated via finite differences at discretized time steps. This construction yields a probabilistic path that approximates the velocity field governing the PDE dynamics. A neural operator is subsequently trained to regress this spline-based representation. The key claim is that, unlike NeuralODE-based approaches—which also enable continuous-time prediction but require differentiating through a numerical solver during training—the proposed method avoids backpropagation through the solver. Instead, training reduces to learning a neural operator regressor, resulting in improved computational efficiency. At inference time, starting from an initial condition, the learned operator is used to integrate the estimated velocity field and forecast the system trajectory. Experiments are conducted on several 1D and 2D benchmark PDEs. The main novelty lies in the use of a flow-matching loss to learn the velocity field, enabling continuous-time querying of the dynamics without reliance on solver differentiation.\n\nThe reviewers recognize the originality of repurposing flow matching for learning physical ODE dynamics. They raise several concerns, including limited baselines, a restricted set of benchmarks, and some imprecision in the technical description. In response, the authors provide a thorough rebuttal and add multiple new experiments, including evaluations on additional benchmark datasets and comparisons with new baselines.",
+        "reviewer_concerns": "In my view, these additions adequately address the reviewers’ concerns. Given the extensive rebuttal and the inclusion of several new experiments with additional baselines and datasets that directly address the reviewers’ questions and concerns, I recommend acceptance.",
+        "reviewer_scores": "RCPTa, rating 2, they adressed all the weaknesses and questions, adding new experiments that cover in my opinion the reviewer concerns, would probably raise their score\n\nRCE6Q, rating 6, they answered all the questions/ concerns, would probably keep their score\n\nRweht, rating 2, extensive answer during the rebuttal, however I did not consider this review given its low-quality\n\nR3Ms9, rating 4, adress all the concerns, add experiments on new benchmarks and baselines. The reviewer indicates that they will raise their score to 6."
+      },
+      "date": "2026-01-05T20:49:25.372000+00:00",
+      "modified": "2026-02-09T06:48:43.722000+00:00",
+      "url": "https://openreview.net/forum?id=IQhaeSzyup&noteId=4sBNkxxcdv",
+      "license": "CC BY 4.0",
+      "source_hash": "f9c298f54a1ef4bfb7dce98bce3c64351ca2921bc3e28d9dcc3b52f816d9d6a2"
+    },
+    {
+      "id": "mhA3XFNWlQ",
+      "kind": "Official_Comment",
+      "replyto": "hetRdBoONU",
+      "role": "author",
+      "content": {
+        "comment": "We sincerely appreciate your response and the updated score. Thank you for your valuable review and for taking the time to carefully evaluate our work.\n\nBest regards,\nThe Authors"
+      },
+      "date": "2025-11-27T04:30:35.469000+00:00",
+      "modified": "2025-11-27T04:30:35.469000+00:00",
+      "url": "https://openreview.net/forum?id=IQhaeSzyup&noteId=mhA3XFNWlQ",
+      "license": "CC BY 4.0",
+      "source_hash": "de363b400b613f7de86c65d0f568415864fc65af223cb9b0f2c4a9bad5623fe8"
+    },
+    {
+      "id": "hetRdBoONU",
+      "kind": "Official_Comment",
+      "replyto": "27JF0ISenu",
+      "role": "reviewer",
+      "content": {
+        "comment": "I thank the authors for their detailed and clear responses. Most of my concerns have been addressed and I have raised my score to 6."
+      },
+      "date": "2025-11-27T03:23:40.605000+00:00",
+      "modified": "2025-11-27T03:23:40.605000+00:00",
+      "url": "https://openreview.net/forum?id=IQhaeSzyup&noteId=hetRdBoONU",
+      "license": "CC BY 4.0",
+      "source_hash": "78641403287996099b02aa8486809a817ae53ff6a4d63b32a7c79d2ed699ae9a",
+      "public_alias": "reviewer_4"
+    },
+    {
+      "id": "Nzu7aIqv8T",
+      "kind": "Official_Comment",
+      "replyto": "D3YXO9SQMP",
+      "role": "author",
+      "content": {
+        "comment": "Dear Reviewer,\n\nAs the end of the rebuttal period approaches, we welcome any remaining or additional questions you may have. In our responses, we have carefully followed your suggestions, adding clarifications to improve the clarity of the work and providing new experimental evidence.\n\nWe sincerely appreciate your time and effort in reviewing our work. If you find our rebuttal and additional results satisfactory, we would be grateful if you could reflect this in your final evaluation."
+      },
+      "date": "2025-11-26T23:35:33.112000+00:00",
+      "modified": "2026-02-12T17:38:59.267000+00:00",
+      "url": "https://openreview.net/forum?id=IQhaeSzyup&noteId=Nzu7aIqv8T",
+      "license": "CC BY 4.0",
+      "source_hash": "6d68a8e625055f0b5a992cbb9024bf5b230270734d2c532e1f7ccfcec0794740"
+    },
+    {
+      "id": "eFiJwxnxex",
+      "kind": "Official_Comment",
+      "replyto": "P4qDoLFT9V",
+      "role": "author",
+      "content": {
+        "comment": "Dear Reviewer,\n\nWe sincerely thank you for the time and effort you have invested in reviewing our work. In our rebuttal, we have clarified the method and experimental settings to prevent any misunderstandings.\n\nAs the rebuttal period comes to a close, we would welcome any further questions you might have. If you feel that our responses adequately address your main concerns, we would sincerely appreciate it if this could be reflected in your final scores."
+      },
+      "date": "2025-11-26T23:34:26+00:00",
+      "modified": "2026-02-12T17:38:59.308000+00:00",
+      "url": "https://openreview.net/forum?id=IQhaeSzyup&noteId=eFiJwxnxex",
+      "license": "CC BY 4.0",
+      "source_hash": "0eb1a4c9e0e72bec72ecf29c51b99e93960e520d9cdb80c8b1aae424e7a67509"
+    },
+    {
+      "id": "0Z1vmBe2OG",
+      "kind": "Official_Comment",
+      "replyto": "TcvqL9UIxL",
+      "role": "author",
+      "content": {
+        "comment": "Dear Reviewer,\n\nWe are grateful for your detailed and constructive feedback. In our rebuttal, we have followed your suggestions by clarifying the method and experimental settings and by adding additional results.\n\nIf there are any remaining questions, we would be happy to clarify them during the remaining discussion period, and we thank you for considering our responses in your final evaluation."
+      },
+      "date": "2025-11-26T23:29:54.768000+00:00",
+      "modified": "2026-02-12T17:38:59.315000+00:00",
+      "url": "https://openreview.net/forum?id=IQhaeSzyup&noteId=0Z1vmBe2OG",
+      "license": "CC BY 4.0",
+      "source_hash": "10d739678c519592fbc0788c284eba0f4cd09b7b098636eafe915ec079adcb63"
+    },
+    {
+      "id": "DIqak1edKK",
+      "kind": "Official_Comment",
+      "replyto": "uLgSHXhv3v",
+      "role": "author",
+      "content": {
+        "comment": "Dear Reviewers,\n\nWe appreciate your time and insightful comments on our submission. In our rebuttal, we have provided additional clarifications and results to address the concerns raised in the reviews.\n\nIf there are any remaining questions, we would be happy to clarify them during the remaining discussion period, and we thank you for considering our responses in your final evaluation."
+      },
+      "date": "2025-11-26T23:27:38.258000+00:00",
+      "modified": "2026-02-12T17:38:59.372000+00:00",
+      "url": "https://openreview.net/forum?id=IQhaeSzyup&noteId=DIqak1edKK",
+      "license": "CC BY 4.0",
+      "source_hash": "46d91c8846e7e0ae4e3edcaa64df0fd1625765634be6644182da7495b297eaae"
+    },
+    {
+      "id": "7Xa8UHats1",
+      "kind": "Official_Comment",
+      "replyto": "P4qDoLFT9V",
+      "role": "author",
+      "content": {
+        "title": "Response to Reviewer weht (part 3)",
+        "comment": "## Comment 5: RK4 Computational Efficiency\n\n `During inference, the authors employed the RK4 method, whose computational efficiency remains relatively low.`\n\n**This claim contradicts our extensive timing analysis.** Efficiency is defined by the accuracy-per-compute trade-off, rather than the cost of a single step. Because RK4 allows for larger time steps (i.e., fewer total function evaluations, NFE) to achieve high accuracy, CFO is faster than the baselines.\n\nTable 2 of the manuscript already shows that CFO achieves lower error at final-step prediction than AR on all benchmarks while using only 50% of AR’s NFE. For completeness, we also summarize wall-clock measurements and solver choices below.\n\n1. **Wall-Clock Measurements (Same Hardware, Same Backbone)**\n\n\n\n| Task     | Backbone | Time (ms/sample) |            | Rel. $L^2$ Error |                  |\n|----------|----------|------------------|------------|---------------|------------------|\n|          |          | AR               | CFO (50% NFE) | AR         | CFO (50% NFE)    |\n| Lorenz   | MLP      | 0.16            | **0.12**   | 1.48×10⁻¹ | **9.19×10⁻²**   |\n| Burgers  | 1D U-Net | 0.68            | **0.31**   | 1.03×10¹  | **1.49×10⁻²**   |\n| DR       | 2D U-Net | 117.18          | **49.36**  | 3.74×10⁻¹ | **6.98×10⁻²**   |\n| SWE      | 2D U-Net | 111.83          | **49.63**  | 3.84×10⁻¹ | **8.76×10⁻²**   |\n\n**CFO is consistently faster than AR while achieving lower error.**\n\n\n2. **Solver Flexibility (Tables 7-8, Appendix A.3.7)**\nWe demonstrate tradeoffs across Euler, Heun, and RK4—users can choose cheaper solvers for further speedup if desired.\n\nIn the revision, we will make this efficiency advantage explicit.\n\n---\n\n## Comment 6: Neural Operator Terminology\n`It should be noted that the neural operators referenced by the CFO are distinct from established architectures such as DeepONet or FNO, which may cause potential misunderstandings.`\n\nWe appreciate this observation and agree that it is a purely terminological clarification: it concerns how we use the term “neural operator,” not the underlying methodology.\n\n- **Established Usage**: \"Neural Operator\" typically refers to learning the solution operator $G: u _ 0 \\to u(\\cdot, t)$ directly in function space (e.g., FNO, DeepONet).\n\n- **Our Usage**: We use the term to describe the neural approximation $\\mathcal{N} _ \\theta$ of the spatial differential operator within a Method-of-Lines formulation: $\\partial_t u = \\mathcal{N} _ \\theta(u)$.\n\nCrucially, CFO is architecture-agnostic: it can utilize established architectures as the backbone for $\\mathcal{N}_\\theta$. As shown in Table 9, we successfully implemented CFO using U-Net, FNO, and DiT backbones. \n\nThis clarification does not change the underlying method or our experimental findings. We will explicitly clarify this distinction in the revised manuscript to prevent ambiguity.\n\nReferences\n\n[1] Lipman Y, Chen R T Q, Ben-Hamu H, et al. Flow matching for generative modeling[J]. arXiv preprint arXiv:2210.02747, 2022.\n\n[2] Chen R T Q, Rubanova Y, Bettencourt J, et al. Neural ordinary differential equations[J]. Advances in neural information processing systems, 2018, 31.\n\n[3] Zhang X N, Pu Y, Kawamura Y, et al. Trajectory flow matching with applications to clinical time series modelling[J]. Advances in Neural Information Processing Systems, 2024, 37: 107198-107224.\n\n\n[4] Takamoto M, Praditia T, Leiteritz R, et al. Pdebench: An extensive benchmark for scientific machine learning[J]. Advances in Neural Information Processing Systems, 2022, 35: 1596-1611.\n\n[5] Wang S, Wang H, Perdikaris P. Learning the solution operator of parametric partial differential equations with physics-informed DeepONets[J]. Science advances, 2021, 7(40): eabi8605.\n\n[6] Lippe, Phillip, et al. \"Pde-refiner: Achieving accurate long rollouts with neural pde solvers.\" Advances in Neural Information Processing Systems 36 (2023): 67398-67433.\n\n[7] John C Strikwerda. Finite difference schemes and partial differential equations. SIAM, 2004"
+      },
+      "date": "2025-11-21T08:06:20.079000+00:00",
+      "modified": "2025-11-21T08:06:20.079000+00:00",
+      "url": "https://openreview.net/forum?id=IQhaeSzyup&noteId=7Xa8UHats1",
+      "license": "CC BY 4.0",
+      "source_hash": "fe9305efc3c939e6ebed3d8f3eebc8b741dd4c601d278df501b94a039b8f35b0"
+    },
+    {
+      "id": "bPEKwlhoGE",
+      "kind": "Official_Comment",
+      "replyto": "P4qDoLFT9V",
+      "role": "author",
+      "content": {
+        "title": "Response to Reviewer weht (part 2)",
+        "comment": "## Comment 3: SOTA Baselines\n`It lacks comparison with existing SOTA baseline methods.`\n\nWe have included comprehensive baselines spanning major paradigms:\n\n1. **Continuous-Time Methods**\n**Neural ODE** [2] - the foundational continuous dynamics method:\n\n| Equation | Neural ODE | CFO        | Error Reduction | Training Speedup |\n|----------|------------|------------|-----------------|------------------|\n| Lorenz   |0.101   | **0.0453**  | 2.2×            | 367×             |\n| Burgers  | 0.0275   | **0.00589**  | 4.7×            | 38×              |\n\n2.  **Diffusion-Style PDE Solvers**\n**PDE-Refiner** [6] - current SOTA for long-horizon rollouts:\n\n| Equation | PDE-Refiner | CFO   | Error Reduction |\n|----------|-------------|-------|-----------------|\n| DR       | 0.125       | 0.044 | 2.8×            |\n| SWE      | 0.093       | 0.005 | 18.6×           |\n\n3. **Autoregressive baselines**: We evaluated **multiple architectures** (MLP, U-Net, FNO, DiT)  and reported the best-performing variant for each task. Notably, CFO trained on only 25% irregular data outperforms the best AR baseline trained on 100% uniform data (Table 1).\n\n\nThese are the exact baselines used in the top-tier neural operator literature. Again, we request concrete method names. Without naming specific baselines, this critique is non-actionable.\n\n---\n\n## Comment 4: Finite-Difference Accuracy\n`When using finite difference approximations for gradients, estimation errors are present. Particularly in cases involving non-uniform time steps and large time intervals, direct flow matching may suffer from insufficient accuracy.`\n\nWe acknowledge that finite difference approximations inherently introduce estimation errors. However, we address this concern through both theoretical guarantees and extensive empirical validation\n\n1. **Theoretical guarantees**\nOur finite-difference stencils have  **theoretical error bounds**  on non-uniform grids:\n- Our **Linear spline:** $\\partial_t s(t_i; u) = \\mathcal{N}(u(t_i)) + O(\\Delta t)$\n- Our **Quintic spline:** $\\partial_t s(t_i; u) = \\mathcal{N}(u(t_i)) + O(\\Delta t^2)$\n\nThese are standard results from numerical analysis [7], as detailed in Section 4.1 and Appendix A.1.1.\n\nMoreover, as in standard flow matching, the **probability-transport property** is ensured under mild regularity assumptions (Appendix A.2) and does *not* depend on the finite-difference approximation itself. However, the use of higher-order finite-difference stencils and a smooth quintic spline keeps the probability path in high-probability regions and close to the underlying PDE dynamics, which we find makes the flow easier to learn (Fig. 3).\n\n\n2. **Empirical Validation**\n\n- **Empirical convergence (Fig. 2, Table 3)**: We directly measure spline velocity error versus time-step size and observe empirical convergence rates that match theory (≈2.0 for quintic splines, ≈1.0 for linear).\n\n- **Irregular sampling robustness (Table 1, main paper)**: With only 25% **randomly subsampled, non-uniform** time points, CFO still outperforms AR trained on 100% uniform data, with error reductions of 24.6% (Lorenz), 78.7% (Burgers), 87.4% (DR), and 82.8% (SWE), contradicting the claim of “insufficient accuracy with non-uniform steps.”\n\n- **Large time-interval generalization (extrapolation, response to Reviewer CPTa)** When trained on [0, T/2) and tested on [0, T], CFO shows only mild degradation, indicating that it learns the underlying dynamics.\n\n\nWe request clarification on what evidence supports the reviewer’s claim, given that our empirical measurements show the opposite."
+      },
+      "date": "2025-11-21T07:37:07.881000+00:00",
+      "modified": "2025-11-21T07:37:07.881000+00:00",
+      "url": "https://openreview.net/forum?id=IQhaeSzyup&noteId=bPEKwlhoGE",
+      "license": "CC BY 4.0",
+      "source_hash": "f0433286043de38d8ba63011e019aba39617bc7664db7a041c19aa451929518e"
+    },
+    {
+      "id": "ifoRDJw1Ra",
+      "kind": "Official_Comment",
+      "replyto": "P4qDoLFT9V",
+      "role": "author",
+      "content": {
+        "title": "Response to Reviewer weht (part 1)",
+        "comment": "We sincerely thank the reviewer for the time invested. However, several of the claims are presented without any technical evidence or citations, which prevents meaningful scientific discussion. We respond to each point below and identify where further information from the reviewer is essential.\n\n---\n## Comment 1: Originality\n`The work lacks originality, as the idea of applying flow matching to train Neural ODEs has been previously explored in several earlier studies.`\n\nWe respectfully ask the reviewer to **provide specific references** to the \"earlier studies\" mentioned. Without naming specific works, the statement is unverifiable and impossible to address scientifically. We have thoroughly reviewed the literature and distinguish our work from existing paradigms in Section 2:\n\n- **Flow Matching for Generative Modeling**[1]:\n   - Purpose: Transport between two distributions (noise to data)\n   - Application: Image/video generation\n   - **Difference:** (i) CFO learns the continuous-time RHS of deterministic PDE systems (ii) it models transport between multiple physical time points, rather than a generative noise-to-data map.\n\n- **Neural ODEs**[2]:\n   - Purpose: Continuous dynamics learning\n   - Limitation: Requires expensive backpropagation through ODE solvers\n   - **Difference:** CFO eliminates solver backpropagation entirely via the flow matching objective.\n\n- **Trajectory Flow Matching** [3]:\n   - Purpose: Clinical time series modeling with linear interpolation\n   - **Difference:** CFO uses physics-aware high-order splines with finite-difference derivative estimates to accurately match PDE dynamics\n\n**Our novel contribution:** Repurposing flow matching to learn PDE operator dynamics by constructing probability paths whose velocities approximate the true PDE right-hand side through spline-based derivative estimation.\n\nTo properly address this critique, we respectfully ask the reviewer to provide at least one concrete citation supporting the claim. Without references, this concern cannot be assessed or rebutted.\n\n---\n\n## Comment 2 Real-World Datasets\n `The experimental section lacks validation on real-world datasets, which significantly limits the persuasiveness of the claims.`\n\nThe reviewer neither defines “real-world” nor provides examples. This makes the claim too vague to address. Our experiments follow field standards:\n\n1. **PDEBench** [4]: A widely-adopted benchmark suite specifically designed for evaluating ML methods on physically meaningful PDE systems:\n   - Used by: PDE-Refiner, FNO variants, U-NO, and dozens of recent papers\n   - Includes: Diffusion-reaction, shallow water, etc.\n\n2. **Burgers' Equation**: Standard benchmark from [5], used extensively in operator learning literature\n\n3. **Lorenz System**: Canonical chaotic dynamics benchmark in data-driven modeling\n\n**These represent physically meaningful systems** with complex, nonlinear dynamics governed by fundamental physical laws.\n\n**Context:** The vast majority of neural operator papers (FNO, DeepONet, Neural Operators, U-NO, Geo-FNO, etc.) are evaluated on similar synthetic PDE benchmarks. This is standard practice because:\n- Ground truth is known for rigorous evaluation\n- Physics is controlled and interpretable\n- Benchmarks enable fair comparison across methods\n\n**We request the reviewer to clarify:**\n- Why are standard PDE benchmarks used throughout the literature inadequate?\n- Which specific datasets do they recommend?\n\n If the reviewer has specific datasets in mind, we would be grateful for the recommendation. Without specificity, this criticism lacks actionable content."
+      },
+      "date": "2025-11-21T07:23:24.407000+00:00",
+      "modified": "2025-11-21T07:23:24.407000+00:00",
+      "url": "https://openreview.net/forum?id=IQhaeSzyup&noteId=ifoRDJw1Ra",
+      "license": "CC BY 4.0",
+      "source_hash": "fe9032dffd7495ce4074e1f2cd5fe136cff517f471f4f971e190a5bda79803d9"
+    },
+    {
+      "id": "E52GYqWqAg",
+      "kind": "Official_Comment",
+      "replyto": "TcvqL9UIxL",
+      "role": "author",
+      "content": {
+        "title": "Response to Reviewer CE6Q (part 3)",
+        "comment": "## Comment 3: Wall-Clock Efficiency Comparison\n\n`Efficiency comparisons mix fixed-step AR with variable NFE CFO. The NFE sweeps are good, but I suggest harmonizing by wall-clock on the same hardware and showing error vs. seconds to eliminate any suspicion of budget mismatch.`\n\nThank you for this suggestion. We now report **final-time relative $L_2$ error vs. per-sample wall-clock time** on identical hardware (Single NVIDIA A6000, JAX framework, fp32) with the same spatial backbone for CFO and AR.\n\nAs shown in the following table, CFO with 50% NFE consistently outperforms the AR baseline in both **speed** and **accuracy**.\n\n| Task     | Backbone | Time (ms/sample) |            | Rel. $L^2$ Error |                  |\n|----------|----------|------------------|------------|---------------|------------------|\n|          |          | AR               | CFO (50% NFE) | AR         | CFO (50% NFE)    |\n| Lorenz   | MLP      | 0.16            | **0.12**   | 1.48×10⁻¹ | **9.19×10⁻²**   |\n| Burgers  | 1D U-Net | 0.68            | **0.31**   | 1.03×10¹  | **1.49×10⁻²**   |\n| DR       | 2D U-Net | 117.18          | **49.36**  | 3.74×10⁻¹ | **6.98×10⁻²**   |\n| SWE      | 2D U-Net | 111.83          | **49.63**  | 3.84×10⁻¹ | **8.76×10⁻²**   |\n\n\n\nFor the PDE tasks (Burgers', DR, SWE), CFO achieves a roughly 2.2$\\times$ to 2.3$\\times$ wall-clock speedup compared to AR. This confirms that the theoretical 50% reduction in NFE translates directly to wall-clock time savings.\n\n**Note:** Numbers for Burgers and SWE differ from our earlier Table 1 because here we use the same backbone for both methods (for fairness), whereas Table 1 reports AR's best backbone across multiple architectures we tested.\n\nError vs. Wall-Clock Time sweep curves with different NFEs will be added in the revised manuscript.\n\n---\n\n## Comment 4: AR Baseline Architecture\n\n`For fairness, would the authors include an AR baseline with the same spatial backbone and time embedding that CFO uses, trained on the full grid?`\n\nWe clarify our experimental design regarding architecture selection:\n\n* **For Main Results (Table 1):** To provide the strongest possible baseline, we evaluated AR across multiple architectures, including the **backbone used by CFO** (with zero-padding time). Table 1 reports the **best-performing AR variant** for each task. The results for the specific backbones are detailed in Appendix A.3 (Tables 4, 5, & 6).\n* **For Wall-Clock Comparisons (Table above):** We employed **identical spatial backbones** for both models. CFO uses sinusoidal time embeddings, while the AR baseline uses zero-padding to maintain an equivalent parameter count. This strictly isolates the performance gains stemming from the CFO training objective.\n\n---\n\n## Comment 5: Additional Harder Benchmark\n\n`It would be very valuable to add one harder PDE. Two natural choices are 2D Navier-Stokes (Kolmogorov flow) and Kuramoto-Sivashinsky, both available in community suites such as PDEBench.`\n**1D Kuramoto-Sivashinsky (KS) equation**\n\nWe appreciate your suggestion. We evaluated CFO on the 1D Kuramoto-Sivashinsky (KS) equation from [5], a notoriously challenging chaotic PDE. All methods use the same 1D U-Net backbone; training details will be included in the appendix of the revised manuscript.\n\n| Method       | Rel. $L_2$ Error | Training Time|\n|--------------|---------------| ------\n| AR           | 0.317         | 1 h \n| Neural ODE   | 0.197         | 40 h 53 min\n| **CFO**      | **0.105**     | 1 h 5 min\n\nCFO achieves about **2× lower error** than the Neural ODE and **3× lower error** than AR. It is also much more **computationally efficient** than the Neural ODE baseline.\n\n\nReferences:\n\n[1] Zhang X N, Pu Y, Kawamura Y, et al. Trajectory flow matching with applications to clinical time series modelling[J]. Advances in Neural Information Processing Systems, 2024, 37: 107198-107224.\n\n[2] Kidger P, Morrill J, Foster J, et al. Neural controlled differential equations for irregular time series[J]. Advances in neural information processing systems, 2020, 33: 6696-6707.\n\n[3] Ricky T. Q. Chen, Yulia Rubanova, Jesse Bettencourt, and David Duvenaud.\n    “Neural Ordinary Differential Equations.” NeurIPS 2018.\n\n[4] Lippe, Phillip, et al. \"Pde-refiner: Achieving accurate long rollouts with neural pde solvers.\" Advances in Neural Information Processing Systems 36 (2023): 67398-67433.\n\n[5] https://huggingface.co/datasets/hrrsmjd/kuramoto_sivashinsky"
+      },
+      "date": "2025-11-21T05:22:51.959000+00:00",
+      "modified": "2025-11-21T05:22:51.959000+00:00",
+      "url": "https://openreview.net/forum?id=IQhaeSzyup&noteId=E52GYqWqAg",
+      "license": "CC BY 4.0",
+      "source_hash": "b9de662960587f8cfc4940726108ee3ec809937b0ce3827f2260528cc515c096"
+    },
+    {
+      "id": "I7roPSuPRi",
+      "kind": "Official_Comment",
+      "replyto": "TcvqL9UIxL",
+      "role": "author",
+      "content": {
+        "title": "Response to Reviewer CE6Q (part 2)",
+        "comment": "## Comment 2: Baseline Coverage: TFM and Neural CDEs\n\n `Since CFO's training avoids solver backprop similarly to newer flow-matching approaches for time series, a comparison to Trajectory Flow Matching (TFM) would situate the contribution more precisely; likewise Latent Neural CDEs are classic irregular-time references.`\n\n\n\nWe appreciate this suggestion and provide detailed positioning relative to Trajectory Flow Matching (TFM) and neural CDE/ODE. In addition, we introduce PDE-Refiner [4] as an extra baseline. For each equation,  baselines are trained with the same settings and architecture, and with a matched number of parameters as the corresponding CFO model.\n\n1. **TFM is close to our Linear CFO variant.** TFM [1] trains Neural SDEs in a simulation-free manner by applying flow matching along **linear conditional bridges** between consecutive observations. In our terminology, this corresponds to a **piecewise-linear path in time**. Our Linear CFO variant uses the same piecewise-linear temporal path (but without the uncertainty head), so its results in Table 1 can be viewed as a TFM-style baseline in the PDE setting.\n\nCFO extends this TFM-style setup in two key ways:\n- **Global Physics-Aware Path Design:**\nTFM uses a two-point linear path. CFO fits a multi-point spline to the entire trajectory and matches its analytic velocity. The spline lets us incorporate **global context**, choose **smoothness** (e.g., $C^2$ quintic), and inject **derivative information** at knots. \n\n- **Learning the RHS of PDE:**\nCFO serves two roles: (i) probability flow matching (as in TFM) and (ii) learning the RHS operator of the PDE. Our spline design is guided by (ii): we set spline derivatives using high-order finite differences so that the target velocity approximates the PDE vector field. As a by-product, (i) benefits because the learned flow stays closer to the data manifold; TFM does not explicitly enforce this PDE-consistent structure.\n\n\n- **Superior Performance with Sparse/Irregular Data:**\nOur Table 1 directly compares Linear CFO ($\\approx$ TFM) vs. Quintic CFO:\n\n| Dataset  | Sampling | Linear CFO      | Quintic CFO     | Improvement |\n|----------|----------|-----------------|-----------------|-------------|\n| Lorenz   | 25%      | 9.39×10⁻²      | **6.82×10⁻²**   | 27.4%       |\n| Burgers  | 25%      | 1.04×10⁻²      | **7.09×10⁻³**   | 31.8%       |\n| DR       | 25%      | 7.25×10⁻²      | **5.32×10⁻²**   | 26.6%       |\n| SWE      | 25%      | 1.69×10⁻²      | **1.55×10⁻²**   | 8.3%        |\n\nQuintic CFO consistently outperforms Linear CFO ($\\approx$ TFM), especially when training on irregular and sparse data. This demonstrates the value of physics-informed, high-order spline design.\n\n\n2. **Neural ODEs/CDEs** In our setting—forecasting $u(t)$ from one initial state $u(0)$ without external time-series controls—Neural CDEs [2] mathematically collapse to Neural ODEs. The following Neural ODE comparison therefore covers this baseline class.\n\n\n| Equation | Method      | Rel. L₂ Error | Training Time (s/batch) | \n|----------|-------------|---------------|-------------------------|\n| Lorenz   | Neural ODE  | 0.101     | 0.133              |\n|          | **CFO**     | **0.0453** | **0.00350**          |\n| Burgers  | Neural ODE  | 0.0275     | 3.38                   |\n|          | **CFO**     | **0.00589** | **0.00920**          |\n\nCFO demonstrates superior efficiency and accuracy against this continuous-time baseline class.\n\n3. **Other strong baseline: PDE-Refiner** We also added PDE-Refiner [4], as one of the current strong baselines for long-horizon PDE rollouts:\n\n| Equation | Method       | Rel. L₂ Error | Training Time (s/batch) |\n|----------|--------------|---------------|-------------------------|\n| DR       | PDE-Refiner  | 0.125         | 1.38                   |\n|          | CFO          | **0.044**         | **0.40**        |\n| SWE      | PDE-Refiner  | 0.093         | 1.40                   |\n|          | CFO          | **0.005**         | **0.40**          |"
+      },
+      "date": "2025-11-21T05:17:12.151000+00:00",
+      "modified": "2025-11-21T05:17:12.151000+00:00",
+      "url": "https://openreview.net/forum?id=IQhaeSzyup&noteId=I7roPSuPRi",
+      "license": "CC BY 4.0",
+      "source_hash": "258b488283d1af90347aa2e9c11f9a0404d5a5c7523c021abba34797420c9f4f"
+    },
+    {
+      "id": "Tenpvk8dEw",
+      "kind": "Official_Comment",
+      "replyto": "TcvqL9UIxL",
+      "role": "author",
+      "content": {
+        "title": "Response to Reviewer CE6Q (part 1)",
+        "comment": "We sincerely thank the reviewer for the thoughtful and constructive feedback. We have addressed all concerns with new experiments and analysis, as summarized below.\n\n---\n\n## Comment1: Reverse-Time Inference Stability\n\n`Dissipative PDEs often make backward integration ill-posed...showing how error grows with backward horizon and perturbation size`\n\n`How far does reverse-time hold before numerical blow-up on dissipative systems like Burgers/SWE...backward-horizon vs. error would be enough.`\n\nExcellent point. We agree that backward integration for dissipative PDEs is fundamentally ill-posed, and we only claim **short-horizon reverse-time inference capability** for such PDEs.\n\n1.**Quantitative Analysis:** We evaluated maximum backward horizon (as % of observed time window) when the relative $L_2$ error remains below 25%, after adding noise of magnitude $10^{-4}$ at the final state:\n\n| Equation | Maximum Backward Horizon (%) |\n|----------|------------------------------|\n| Burgers'  | 53.0                        |\n| SWE      | 88.9                        |\n\nThe results are consistent with the ill-posed nature of backward evolution for dissipative systems. Full curves of backward horizon vs. relative error including different terminal perturbations will be added in the revision.\n\n2. **Step Control & Regularization** We observed that using high-order solvers and reducing step sizes can marginally extend the stable horizon; they cannot overcome the inherent ill-posedness of the inverse diffusion operator. We agree that developing dedicated regularization techniques for long-horizon reverse inference is a valuable direction for future research."
+      },
+      "date": "2025-11-21T05:09:35.723000+00:00",
+      "modified": "2025-11-21T05:09:35.723000+00:00",
+      "url": "https://openreview.net/forum?id=IQhaeSzyup&noteId=Tenpvk8dEw",
+      "license": "CC BY 4.0",
+      "source_hash": "7bc4d61a7381d62eca8f90ed8453998aedb5430a86b6e480ef0e29821f7e3293"
+    },
+    {
+      "id": "27JF0ISenu",
+      "kind": "Official_Comment",
+      "replyto": "D3YXO9SQMP",
+      "role": "author",
+      "content": {
+        "title": "Response to Reviewer 3Ms9 (part 2)",
+        "comment": "## Comment 3: Comparison to Modern Baselines\n\n`While CFO outperforms autoregressive models and Neural ODEs, comparisons to recent continuous dynamics modeling methods (such as CORAL, MARBLE) are limited... A broader baseline comparison would better contextualize its advantages.`\n\nWe appreciate this suggestion and clarify the relationship between CFO and these methods. CORAL[1] and MARBLE [2] are orthogonal to CFO—they focus on **spatial representations**, while CFO is a **temporal framework**.\n\n1. **Orthogonality**\n- CORAL and MARBLE:\n    - Focus: **Spatial representation** via neural fields/coordinate-based networks\n    - Temporal handling: Standard approaches like Neural ODEs or autoregressive\n    - Contribution: Handling irregular geometries, improved spatial representation\n- CFO:\n    - Focus: **Temporal learning framework** via flow matching\n    - Spatial representation: **Agnostic**—compatible with U-Net, FNO, DiT, or neural fields like CORAL, MARBLE, etc.\n    - Contribution: Continuous-time dynamics learning without solver backpropagation\n\nThese are **complementary:** One could use CORAL's spatial representation with CFO's temporal framework, or CFO with standard grid-based spatial operators.\n\n2. **Representative Baseline Comparison (Neural ODE, PDE-Refiner)**\nTherefore, to isolate the impact of our **temporal** formulation, we make comparisons against the direct continuous-time backbone (Neural ODE) on Lorenz and Burgers’ equations (low-dimensional, where latent representation is not strictly necessary).\n\n| Equation | Method      | Rel. L₂ Error | Training Time (s/batch) | \n|----------|-------------|---------------|-------------------------|\n| Lorenz   | Neural ODE  | 0.101     | 0.133              |\n|          | **CFO**     | **0.0453** | **0.00350**          |\n| Burgers  | Neural ODE  | 0.0275     | 3.38                   |\n|          | **CFO**     | **0.00589** | **0.00920**          |\n\nHere, CFO reduces error by roughly 2–5× while training 38$\\times$ to 367$\\times$ faster than the Neural ODE baseline.\n\nWe also compare against **PDE-Refiner** [3] on the 2D equations, a recent strong baseline for long-horizon rollouts:\n\n| Equation | Method       | Rel. L₂ Error | Training Time (s/batch) |\n|----------|--------------|---------------|-------------------------|\n| DR       | PDE-Refiner  | 0.125         | 1.38                   |\n|          | CFO          | **0.044**         | **0.40**        |\n| SWE      | PDE-Refiner  | 0.093         | 1.40                   |\n|          | CFO          | **0.005**         | **0.40**          |\n\nCFO achieves about 3× (DR) and 19× (SWE) lower error, while also being roughly 3–4× faster per training batch.\n\nTo ensure a fair comparison, we utilized identical backbone architectures and parameter counts under comparable experimental conditions. Training details will be provided in the appendix.\n\n\n3. **Future Integration**\nWe agree that combining CFO's temporal framework with neural field spatial representations (like CORAL and MARBLE) is a promising direction. This would pair CFO's efficient continuous-time learning and the neural fields' capabilities on handling complex geometries.\n\nWe will add this discussion to the paper and note it as valuable future work.\n\nReferences:\n\n[1] Serrano, Louis, et al. \"Operator learning with neural fields: Tackling pdes on general geometries.\". NeurIPS 2023.\n\n[2] Wang, Honghui, Shiji Song, and Gao Huang. \"GridMix: Exploring Spatial Modulation for Neural Fields in PDE Modeling.\" ICLR 2025.\n\n[3] Lippe, Phillip, et al. \"Pde-refiner: Achieving accurate long rollouts with neural pde solvers.\" Advances in Neural Information Processing Systems 36 (2023): 67398-67433."
+      },
+      "date": "2025-11-21T04:51:41.144000+00:00",
+      "modified": "2025-11-21T04:51:41.144000+00:00",
+      "url": "https://openreview.net/forum?id=IQhaeSzyup&noteId=27JF0ISenu",
+      "license": "CC BY 4.0",
+      "source_hash": "eebc8472903a245fb9ee135cd564f82db19e895b3a420268377d526b423702e4"
+    },
+    {
+      "id": "VlyGoAss5c",
+      "kind": "Official_Comment",
+      "replyto": "uLgSHXhv3v",
+      "role": "author",
+      "content": {
+        "title": "Response to Reviewer CPTa (part 3)",
+        "comment": "References:\n\n[1] Ricky T. Q. Chen, Yulia Rubanova, Jesse Bettencourt, and David Duvenaud.\n    “Neural Ordinary Differential Equations.” NeurIPS 2018.\n    \n[2] Ch. Tsitouras. “Runge–Kutta pairs of order 5(4) satisfying only the first column simplifying assumption.” \nComputers \\& Mathematics with Applications, 62(2):770–775, 2011.\n\n[3] P. Kidger. Diffrax: numerical differential equation solvers in JAX. 2021. \n    URL: https://github.com/patrick-kidger/diffrax\n\n[4] Lippe, Phillip, et al. \"Pde-refiner: Achieving accurate long rollouts with neural pde solvers.\" Advances in Neural Information Processing Systems 36 (2023): 67398-67433."
+      },
+      "date": "2025-11-21T04:22:51.641000+00:00",
+      "modified": "2025-11-21T04:22:51.641000+00:00",
+      "url": "https://openreview.net/forum?id=IQhaeSzyup&noteId=VlyGoAss5c",
+      "license": "CC BY 4.0",
+      "source_hash": "7e4fb41b186ce45015a4a81c59dc03afa96047a2885f5fa9e2b995e6fad8dffa"
+    },
+    {
+      "id": "lW8Yk52vRU",
+      "kind": "Official_Comment",
+      "replyto": "uLgSHXhv3v",
+      "role": "author",
+      "content": {
+        "title": "Response to Reviewer CPTa (part 2)",
+        "comment": "## Comment 3: Different Training Strategies (Teacher Forcing, Curriculum)\n\n`Common strategies such as teacher forcing or temporal curriculum scheduling can simplify training... these strategies can be viewed as alternative ways to achieve interpolation.`\n\nWe clarify that while these strategies simplify optimization, they do not achieve interpolation. The fundamental difference lies in the type of supervision used. We also show that these distinct supervision mechanisms lead to significantly different empirical results.\n\n1. **Difference in supervision**.\nThe key difference is the **supervision signal**:\nBoth teacher forcing and temporal curriculum are supervised only at **discrete** training time points. However, CFO is supervised at **arbitrary continuous times** via a flow matching objective. The accuracy of this continuous supervision is controlled by finite-difference order and spline degree, enabling CFO to learn dynamics more precisely even from irregular and sparse data.\nAll our baselines (Table 1 and the Neural ODE comparison in comment 1) already use **teacher forcing**, yet CFO still substantially outperforms them. CFO benefits from the continuous supervision.\n\n2. **Temporal curriculum vs. CFO.**\nWe additionally implemented  AR and neural ODE with a temporal curriculum, where the rollout horizon is gradually increased during training. This still requires simulating trajectories (multiple forward passes through time) during training and is therefore more expensive than pure one-step teacher forcing. It improves over vanilla AR and neural ODE on some equations but remains worse than CFO:\n\n*AR + Curriculum Results (Relative L₂ Error)*\n| Equation | AR + Curriculum | Quintic CFO (100%) |  Improvement |\n|----------|-----------------|--------------------|----------------------|\n| Lorenz   | 0.0709          | 0.0453             | 1.6×                 |\n| Burgers’ | 0.0137          | 0.00589            | 2.3×                 |\n| DR       | 0.3705          | 0.0437             | 8.5×                 |\n| SWE      | 0.0190          | 0.00456            | 4.2×                 |\n\n*Neural ODE + Curriculum Results (Relative L₂ Error)*\n| Equation | Neural ODE + Curriculum | Quintic CFO (100%) | Improvement | \n|----------|-----------------|--------------------|----------------------|\n| Lorenz   | 0.0801          | 0.0453             | 1.8×                 |\n| Burgers’ | 0.0174          | 0.00589            | 3.0×                 |\n\n\nThe training details are provided in the appendix of the revised manuscript.\n\n3. **Empirical Advantage**\n\nThe difference leads to measurable benefits of CFO:\n- **Higher accuracy:** CFO consistently outperforms AR (with curriculum/teacher forcing) and Neural ODE (with curriculum/teacher forcing) (Table 1 and tables above).\n- **Faster convergence:** Training curves in the revised appendix show faster convergence for CFO.\n- **Data efficiency:** CFO at 25% irregular data outperforms AR at 100% uniform data (Table 1).\n\nTeacher forcing and temporal curriculum are therefore **orthogonal** to our contribution: CFO’s continuous-time, simulation-free formulation provides a fundamentally different and empirically stronger way to train neural PDE solvers.\n\n---\n\n## Comment 4: Limited Evaluation Scope (Extrapolation)\n\n`The experiments focus solely on in-domain prediction. The authors should evaluate extrapolation beyond the training horizon (e.g., training on [0, T/2), testing on [0, T)).`\n\nExcellent suggestion. We conducted extrapolation experiments training on the **first half** of trajectories [0, T/2) and evaluating on the full horizon [0, T].\n\n*Extrapolation Results (Relative L₂ Error)*\n\n| Equation | Train [0, T] | Train [0, T/2), Test [0, T] |\n|----------|--------------|----------------------------|\n| Lorenz   | 4.53×10⁻²    | 3.67×10⁻²                 |\n| Burgers  | 5.89×10⁻³    | 7.94×10⁻³                 |\n| DR       | 4.37×10⁻²    | 4.78×10⁻²                 |\n| SWE      | 4.56×10⁻³    | 2.28×10⁻²                 |\n\nWe find that\n\n1. **Lorenz, Burgers, DR:** Errors remain nearly identical, confirming CFO learns underlying dynamics rather than memorizing trajectories\n\n2. **SWE:** Error increases to 2.28×10⁻² but remains **~4× better than AR baseline's in-domain performance** (9.04×10⁻²)\n\nThese results demonstrate CFO's ability to generalize beyond the training temporal range, learning the governing dynamics rather than overfitting to specific time horizons. We will also include the error-accumulation curves in the revised manuscript."
+      },
+      "date": "2025-11-21T04:22:11.698000+00:00",
+      "modified": "2025-11-21T04:22:11.698000+00:00",
+      "url": "https://openreview.net/forum?id=IQhaeSzyup&noteId=lW8Yk52vRU",
+      "license": "CC BY 4.0",
+      "source_hash": "a28cc0c7c60148bb1a9ab6614e34f80ce9090421f974e0a15f3005041277f1fd"
+    },
+    {
+      "id": "iVRwlkFyiC",
+      "kind": "Official_Comment",
+      "replyto": "D3YXO9SQMP",
+      "role": "author",
+      "content": {
+        "title": "Response to Reviewer 3Ms9 (part 1)",
+        "comment": "We thank the reviewer for their constructive feedback and positive assessment of our novelty and architecture agnosticism. We address all concerns below with new experiments and clarifications.\n\n---\n\n## Comment 1: Spline Order Sensitivity and Adaptive Selection\n\n`While quintic splines generally outperform linear ones, the optimal spline order may depend on the PDE complexity and data density. The paper does not provide guidelines for selecting spline orders adaptively.`\n\n\nWe appreciate this insightful observation. Building on our empirical results and theoretical considerations, we provide the following guidelines:\n\n\n1. **General recommendation:** Use **quintic splines** as the default choice. Our experiments show quintic CFO consistently outperforms linear CFO, especially for sparse and irregular data across all benchmarks. \n\n*Performance vs. Spline Order with 25% subsampling data (Table 1 from main paper)* \n\n| Dataset  | Sampling | Linear CFO              | Quintic CFO                    | Improvement |\n|----------|----------|-------------------------|--------------------------------|------------|\n| Lorenz   | 25%      | $9.39\\times 10^{-2}$    | **$6.82\\times 10^{-2}$**       | 27.4%      |\n| Burgers  | 25%      | $1.04\\times 10^{-2}$    | **$7.09\\times 10^{-3}$**       | 31.8%      |\n| DR       | 25%      | $7.25\\times 10^{-2}$    | **$5.32\\times 10^{-2}$**       | 26.6%      |\n| SWE      | 25%      | $1.69\\times 10^{-2}$    | **$1.55\\times 10^{-2}$**       | 8.3%       |\n\nQuintic provides consistent gains of 8-32%, with larger improvements on sparse/irregular data where accurate derivative estimation is critical. The cost of precomputing the spline is negligible (discussed in Comment 2), so using the more accurate quintic spline does not add noticeable cost.\n\n\n2. **When to choose linear splines:** Linear splines are adequate when (i) time sampling is very dense (100% keep rate), or (ii) the underlying physics is known to be non-smooth (e.g., shocks or discontinuities), where enforcing global $C^2$ could be undesirable. \n\n3. **Why we stop at quintic:** Quintic splines ($C^2$) capture acceleration, which is fundamental to most physical laws (Newton's 2nd law, wave equations). We did not pursue orders beyond quintic due to **diminishing returns**. In CFO, the total error comes from both the spline approximation and the neural operator. Beyond quintic, we empirically see only marginal gains in derivative accuracy, while the network error becomes dominant. \n\n4. **Adaptive spline order as future work:.** We agree that adaptive spline selection is an exciting future direction. A dynamic approach could involve learning the optimal spline parameters jointly with the operator, potentially incorporating physics-informed priors to adjust the smoothness.\n\nWe will add these guidelines to the revised manuscript.\n\n---\n\n## Comment 2: High-Dimensional Scaling\n\n`Experiments are limited to 2D spatial domains. The computational cost of spline fitting and ODE integration in higher dimensions is not discussed.`\n\nWe address computational costs for **general** PDE simulations and clarify that high-dimensional scaling is governed by spatial operator evaluation, not our temporal framework.\n\n1. **Spline Fitting Cost is negligible**\nThe finite-difference approximation and spline construction use the explicit formulas in Appendix A.1, involving only simple algebraic operations (no iterative solvers). They are computed once per trajectory as preprocessing (not per optimization step) and **reused throughout training**. The computational cost is **$O$ (#spline order $\\times$ #time segments $\\times$ #spatial grid points)** per trajectory. This cost is negligible compared to neural operator backpropagation.\n\n2. **CFO's ODE Integration vs AR's rollout**\nThe costs of ODE integration are approximately proportional to the number of function evaluations (NFE) of the backbone $\\mathcal{N} _ \\theta$. Table 2 in the manuscript shows that CFO achieves **higher accuracy with fewer NFEs** than AR and remains stable when we increase NFE to about twice that of AR. Below we report wall-clock times (response to Reviewer CE6Q, Comment 3) for CFO with 50% of AR’s NFE:\n\n| Task (#grid points) | AR Time   | CFO Time (50% NFE) | Speedup |\n|--------------------|-----------|-------------------|---------|\n| Lorenz (3)        | 0.16 ms   | 0.12 ms          | 1.33×   |\n| Burgers (100)     | 0.68 ms   | 0.31 ms          | 2.19×   |\n| DR (128×128×2)        | 117.18 ms | 49.36 ms         | 2.37×   |\n| SWE (128×128)         | 111.83 ms | 49.63 ms         | 2.25×   |\n\n3. **Scaling to 3D and higher**\nIn 3D, each evaluation of $\\mathcal{N}_\\theta$ becomes more expensive for **any** neural PDE solver. CFO does not introduce additional dimension-dependent overhead beyond this. On the contrary, because it achieves a target accuracy with fewer NFEs, the savings we observe in 2D translate directly into larger absolute time savings in 3D and higher-dimensional settings.\n---"
+      },
+      "date": "2025-11-21T04:10:18.210000+00:00",
+      "modified": "2025-11-21T04:10:18.210000+00:00",
+      "url": "https://openreview.net/forum?id=IQhaeSzyup&noteId=iVRwlkFyiC",
+      "license": "CC BY 4.0",
+      "source_hash": "ac6534ebf9901621570b00f95fb341f51d506caa8fc901ccff15824d536e6da8"
+    },
+    {
+      "id": "yzyKimQ9Tb",
+      "kind": "Official_Comment",
+      "replyto": "uLgSHXhv3v",
+      "role": "author",
+      "content": {
+        "comment": "## Comment 1: Limited Baselines\n\n`The paper only compares against a discrete-time autoregressive model... including related continuous-time baselines such as Chen et al., 2018 for ODE/PDEs; Yin et al., 2023 for PDEs would strengthen the experimental validation.`\n\n\nWe have added both **Neural ODE** [1] and **PDE-Refiner** [4] as baselines. As shown below, CFO significantly outperforms both in accuracy and training efficiency. Regarding latent-space methods (e.g., Yin et al., 2023), we note that such architectures are **orthogonal** to our contribution: they focus on **spatial** compression, whereas CFO introduces a novel **temporal** learning objective. CFO is compatible with latent representations and would likely achieve even higher efficiency when combined. Therefore, to isolate the impact of our temporal formulation, we prioritized comparisons against the direct continuous-time backbone (Neural ODE) on Lorenz and Burgers’ equations (low-dimensional, where latent representation is not strictly necessary), and the state-of-the-art spatiotemporal solver (PDE-Refiner) on high-dimensional 2D tasks.\n\nTo ensure a fair comparison, we utilized identical backbone architectures and parameter counts under comparable experimental conditions. Training details will be provided in the appendix.\n\n1. **Neural ODE Baseline**\nWe implemented a Neural ODE baseline trained with:\n- Tsit5 [2] adaptive Runge-Kutta solver\n- `Diffrax`'s `RecursiveCheckpointAdjoint` [3] for memory-efficient backpropagation\n- Teacher forcing: one-step-ahead supervision minimizing $\\|Solver(f_\\theta,t_i,t_{i+1},u(t_i)) - u(t_{i+1})\\|^2$, where $\n\\mathrm{Solver}\\bigl(f_\\theta, t_i, t_{i+1}, u(t_i)\\bigr)\n\\approx\nu(t_i) + \\int_{t_i}^{t_{i+1}} f_\\theta\\bigl(\\tau, u(\\tau)\\bigr)\\, d\\tau\n$ denotes a numerical ODE solver applied to the neural vector field $f_\\theta$ with the supervised initial condition $u(t_i)$.\n\n\n*Relative $L_2$ Error and Training Time per Batch:*\n\n\n\n| Equation | Method      | Rel. L₂ Error | Training Time (s/batch) | \n|----------|-------------|---------------|-------------------------|\n| Lorenz   | Neural ODE  | 0.101     | 0.133              |\n|          | **CFO**     | **0.0453** | **0.00350**          |\n| Burgers  | Neural ODE  | 0.0275     | 3.38                   |\n|          | **CFO**     | **0.00589** | **0.00920**          |\n\nCFO reduces relative error by 2.2 $\\times$ on Lorenz and 4.7 $\\times$ on Burgers' equation. Because CFO’s flow-matching objective avoids backpropagation through the ODE solver, it trains 38 $\\times$ to 367 $\\times$ faster per batch than the Neural ODE baseline.\n\n2. **PDE-Refiner Baseline**\nTrained under the same settings and using the same backbone architecture with a matched parameter count, for 2D PDEs, we compare against **PDE-Refiner** [4], a state-of-the-art long-rollout PDE solver that incorporates diffusion-based denoising steps in the training and inference.\n\n*Relative $L_2$ Error and Training Time per Batch:*\n\n| Equation | Method       | Rel. L₂ Error | Training Time (s/batch) |\n|----------|--------------|---------------|-------------------------|\n| DR       | PDE-Refiner  | 0.125         | 1.38                   |\n|          | CFO          | **0.044**         | **0.40**        |\n| SWE      | PDE-Refiner  | 0.093         | 1.40                   |\n|          | CFO          | **0.005**         | **0.40**          |\n\nCFO reduces error by 2.8× on diffusion–reaction and 18.6× on shallow-water equations compared to PDE-Refiner. CFO is also 3–4× faster than PDE-Refiner because its denoising step (noise + step conditioning) makes each forward–backward pass more expensive than in our baseline.\n\n\n---\n\n## Comment 2: Unclear Training Details for Autoregressive Models\n\n`The paper does not specify how the autoregressive baselines are trained.`\n\nAll autoregressive (AR) baselines use **teacher forcing**, the standard approach in time-dependent PDE literature.\n\n1. **Training:** On discrete time grid $t_k = k\\Delta t$, AR learns next-step map $u(t_{k+1}) \\approx f_\\theta(u(t_k))$ via one-step supervision:\n\n$$\n\\mathcal{L} _ {\\text{AR}}(\\theta) = \\frac{1}{N} \\sum_{k=0}^{N-1} \\|f_\\theta(u(t_k)) - u(t_{k+1})\\|^2_2\n$$\n\n2. **Inference:** AR rollout from ground-truth initial condition $\\hat{u}(t_0) = u_0$:\n\n$$\n\\hat{u}(t_{k+1}) = f_\\theta(\\hat{u}(t_k)), \\quad k = 0, \\ldots, K-1\n$$\n\nThis produces the entire trajectory $\\{\\hat{u}_1, \\ldots, \\hat{u}_N\\}$ from the initial condition alone. We will add this clarification to the manuscript.\n\n---",
+        "title": "Response to Reviewer CPTa (part 1)"
+      },
+      "date": "2025-11-21T02:32:54.864000+00:00",
+      "modified": "2025-11-21T08:10:01.261000+00:00",
+      "url": "https://openreview.net/forum?id=IQhaeSzyup&noteId=yzyKimQ9Tb",
+      "license": "CC BY 4.0",
+      "source_hash": "a3e51da2816a3cc51cb13b45a93142c84fd4c8e7c95d13ce3bdd01c94e6559fa"
+    },
+    {
+      "id": "uLgSHXhv3v",
+      "kind": "Official_Review",
+      "replyto": "IQhaeSzyup",
+      "role": "reviewer",
+      "content": {
+        "summary": "The paper proposes a method to train spatial neural PDE models without relying on explicit integration-based optimization, as is common in neural ODE frameworks. Instead, temporal derivatives are supervised through stochastically interpolated trajectories derived from discrete training snapshots. The study further evaluates the method’s in-domain predictive performance within the same temporal horizon, under varying temporal sampling densities.",
+        "soundness": 2,
+        "presentation": 3,
+        "contribution": 2,
+        "strengths": "The main strengths of the paper are as follows:\n- It proposes an approach that significantly reduces the computational and memory costs associated with applying directly neural ODE frameworks to PDE prediction tasks.\n- It bridges flow learning and stochastic modeling by introducing a strategy to estimate temporal derivatives at unobserved time points through stochastic interpolation of training snapshots.",
+        "weaknesses": "- Limited baselines: The paper only compares against a discrete-time autoregressive model. While neural ODE-based approaches can indeed be computationally demanding, this alone is not a sufficient reason to omit them from quantitative comparison. Including related continuous-time baselines such as the mentioned continuous-time methods (e.g., Chen et al., 2018 for ODE/PDEs; Yin et al., 2023 for PDEs) or other comparable approaches would strengthen the experimental validation.  \n- Unclear training details for autoregressive models: The paper does not specify how the autoregressive baselines are trained. Please provide more details about their training procedures (e.g., whether the model is rolled out for several time steps and supervised over the full trajectory).  \n- Different training strategies in practice similar to the proposed method: Common strategies such as teacher forcing (supervising one-step-ahead predictions) or temporal curriculum scheduling (progressively extending prediction horizons) can simplify training for both autoregressive and neural ODE models while reducing computational cost. These strategies can be viewed as alternative ways to achieve interpolation. A discussion or comparison of how these techniques relate to the proposed approach would provide valuable insight.  \n- Limited evaluation scope: The experiments focus solely on in-domain prediction. To better assess the model’s ability to learn underlying dynamics, the authors should evaluate extrapolation beyond the training horizon (e.g., training on data within [0, T/2) and testing on both [0, T/2) and [T/2, T)).  \n\nReferences  \n- Chen et al., 2018. Neural Ordinary Differential Equations. *NeurIPS 2018.*  \n- Yin et al., 2023. Continuous PDE Dynamics Forecasting with Implicit Neural Representations. *ICLR 2023.*",
+        "questions": "See weakness.",
+        "flag_for_ethics_review": [
+          "No ethics review needed."
+        ],
+        "rating": 2,
+        "confidence": 4,
+        "code_of_conduct": "Yes"
+      },
+      "date": "2025-10-28T20:13:40.943000+00:00",
+      "modified": "2025-11-12T10:00:57.260000+00:00",
+      "url": "https://openreview.net/forum?id=IQhaeSzyup&noteId=uLgSHXhv3v",
+      "license": "CC BY 4.0",
+      "source_hash": "6f9f9e018416998e2d17e81aa45f2c52a309d54f198d25436a33dfd427b92863",
+      "public_alias": "reviewer_1"
+    },
+    {
+      "id": "TcvqL9UIxL",
+      "kind": "Official_Review",
+      "replyto": "IQhaeSzyup",
+      "role": "reviewer",
+      "content": {
+        "summary": "The paper introduces the Continuous Flow Operator (CFO), a framework that learns continuous-time PDE dynamics by flow-matching the analytic time-derivative of a spline interpolant fitted to each training trajectory. Concretely, the authors estimate temporal derivatives on possibly irregular grids, build a piecewise quintic Hermite spline $s(t; u)$ that matches values and derivatives at knots, and then train a neural operator $N_\\theta(t, u)$ to regress $\\partial_t s(t)$ without back propagating through any ODE solver during training. At inference, the learned vector field $du/dt=N_\\theta(t, u)$ is integrated forward or backward for arbitrary time resolutions. This yields time-resolution invariance in training and querying, competitive accuracy-efficiency trade-offs via solver/NFE sweeps, and notable data efficiency: training with only 25 % irregular time points still beats strong autoregressive baselines trained at full resolution across Lorenz, 1D Burgers, 2D diffusion-reaction, and 2D shallow water.",
+        "soundness": 3,
+        "presentation": 3,
+        "contribution": 3,
+        "strengths": "From an originality perspective, the idea of repurposing flow matching, which is originally developed for CNFs/diffusion, to directly learn RHS dynamics is elegant and avoids the heavy simulation-through-solvers that slows Neural ODE/SDE training. The positioning is credible relative to Flow Matching in generative modeling and stochastic interpolants, as CFO leverages fixed probability paths defined by the spline while keeping the operator-learning focus. I appreciate that the authors discuss flow matching lineage and deliver a practical instance specialized to temporal PDEs.\n\nThe time-resolution invariance protocol with per-trajectory random time grids is convincing, and the table shows that quintic-CFO trained on 25% of points outperforms AR trained on 100%, with large relative error reductions. The Lorenz downsampling study that compares linear vs. quintic spline velocities and observes first- vs. second-order endpoint behavior is technically sound and matches finite-difference theory. The NFE sweeps across Euler/Heun provide a clear view of accuracy vs. compute. \n\nCFO serves as a bridge between discrete AR operators and fully continuous Neural ODE training. It inherits irregular-time training, continuous-time querying, and even reverse-time rollouts without the pain of adjoint backprop; in my opinion this is a practical step forward for scientific ML systems that see irregular telemetry or experiment logs. The method also appears architecture-agnostic (FNO / DiT backbones), which increases adoptability in operator-learning pipelines.",
+        "weaknesses": "The reverse-time inference claim is attractive, but dissipative PDEs often make backward integration ill-posed. I would prefer a short quantitative check showing how error grows with backward horizon and perturbation size to avoid over-selling.\n\nBaseline coverage against continuous-time sequence models could be expanded. Since CFO’s training avoids solver backprop similarly to newer flow-matching approaches for time series, a comparison to Trajectory Flow Matching (TFM) would situate the contribution more precisely; likewise Latent Neural CDEs are classic irregular-time references. \n\nFinally, efficiency comparisons mix fixed-step AR with variable NFE CFO. The NFE sweeps are good, but I suggest harmonizing by wall-clock on the same hardware and showing error vs. seconds to eliminate any suspicion of budget mismatch.",
+        "questions": "1. How far does reverse-time hold before numerical blow-up on dissipative systems like Burgers/SWE, and what step control or regularization is needed in practice? A short curve of backward-horizon vs. $L^2$ error would be enough.\n\n2. For fairness, would the authors include an AR baseline with the same spatial backbone and time embedding that CFO uses, trained on the full grid, plus Latent ODE and Neural CDE implementations adapted to the PDE setting (or at least reported on Lorenz)? This would help isolate the gain due to the training objective rather than the architecture.\n\n3. It would be very valuable to add one harder PDE. Two natural choices are 2D Navier–Stokes (Kolmogorov flow) and Kuramoto–Sivashinsky, both available in community suites such as PDEBench. A single appendix experiment on either would strengthen generality.",
+        "flag_for_ethics_review": [
+          "No ethics review needed."
+        ],
+        "rating": 6,
+        "confidence": 4,
+        "code_of_conduct": "Yes"
+      },
+      "date": "2025-10-28T16:23:21.579000+00:00",
+      "modified": "2025-11-12T10:00:57.678000+00:00",
+      "url": "https://openreview.net/forum?id=IQhaeSzyup&noteId=TcvqL9UIxL",
+      "license": "CC BY 4.0",
+      "source_hash": "574639b07c157ea8aa32bc425a381f97e890c9477bb3333fd41dfbf2b5ede4b7",
+      "public_alias": "reviewer_2"
+    },
+    {
+      "id": "P4qDoLFT9V",
+      "kind": "Official_Review",
+      "replyto": "IQhaeSzyup",
+      "role": "reviewer",
+      "content": {
+        "summary": "This paper proposes the Continuous Flow Operator (CFO), a method that learns continuous-time PDE dynamics from data. Its key innovation is using flow matching and spline interpolation to directly learn the underlying dynamics, avoiding the computational cost of methods like Neural ODEs. CFO is uniquely time-resolution invariant, meaning it can be trained on data with irregular, non-uniform time steps and make predictions at any time resolution.",
+        "soundness": 2,
+        "presentation": 2,
+        "contribution": 1,
+        "strengths": "1. This paper is well-organized and highly readable.\n\n2. The adoption of the flow matching concept can significantly reduce the training complexity of neural networks, and may even enhance the learning accuracy in certain scenarios.\n\n3. The author has conducted experimental analyses across multiple datasets.",
+        "weaknesses": "1. The work lacks originality, as the idea of applying flow matching to train Neural ODEs has been previously explored in several earlier studies.\n\n2. The experimental section lacks validation on real-world datasets, which significantly limits the persuasiveness of the claims.\n\n3. It lacks comparison with existing SOTA baseline methods.",
+        "questions": "1. When using finite difference approximations for gradients, estimation errors are present. Particularly in cases involving non-uniform time steps and large time intervals, direct flow matching may suffer from insufficient accuracy.\n\n2. During inference, the authors employed the RK4 method, whose computational efficiency remains relatively low.\n\n3. It should be noted that the neural operators referenced by the CFO are distinct from established architectures such as DeepONet or FNO, which may cause potential misunderstandings.\n\n4. See weaknesses.",
+        "flag_for_ethics_review": [
+          "No ethics review needed."
+        ],
+        "rating": 2,
+        "confidence": 4,
+        "code_of_conduct": "Yes"
+      },
+      "date": "2025-10-28T05:26:52.986000+00:00",
+      "modified": "2025-11-12T10:00:57.952000+00:00",
+      "url": "https://openreview.net/forum?id=IQhaeSzyup&noteId=P4qDoLFT9V",
+      "license": "CC BY 4.0",
+      "source_hash": "ffabcf9a8c462e38e928e61cbb6673e69009f3f425717eb3c965a5594feb3da9",
+      "public_alias": "reviewer_3"
+    },
+    {
+      "id": "D3YXO9SQMP",
+      "kind": "Official_Review",
+      "replyto": "IQhaeSzyup",
+      "role": "reviewer",
+      "content": {
+        "summary": "This paper introduces the ​​Continuous Flow Operator (CFO)​​, a novel framework for learning continuous-time PDE dynamics by repurposing flow matching to directly approximate the right-hand side of PDEs. This approach avoids the computational burden of backpropagating through ODE solvers (as in Neural ODEs) while enabling training on irregular time grids and inference at arbitrary temporal resolutions. Evaluated on four benchmarks (Lorenz, 1D Burgers, 2D diffusion-reaction, 2D shallow water), CFO demonstrates exceptional data efficiency and long-horizon stability.",
+        "soundness": 2,
+        "presentation": 3,
+        "contribution": 2,
+        "strengths": "- Novel Continuous-Time Framework​​: CFO bridges flow matching (typically used for generative modeling) with PDE dynamics learning.\n\n- Architecture Agnosticism​​: CFO is compatible with various neural operators (e.g., U-Net, FNO, DiT). Experiments show consistent performance across backbones, allowing users to choose architectures based on spatial inductive biases or hardware constraints.",
+        "weaknesses": "- Spline Order Sensitivity​​: While quintic splines generally outperform linear ones, the optimal spline order may depend on the PDE complexity and data density. The paper does not provide guidelines for selecting spline orders adaptively.\n- High-Dimensional Scaling​​: Experiments are limited to 2D spatial domains. The computational cost of spline fitting and ODE integration in higher dimensions is not discussed.\n- Comparison to Modern Baselines​​: While CFO outperforms autoregressive models and Neural ODEs, comparisons to recent continuous dynamics modeling methods (such as CORAL[1], MARBLE[2]) are limited. These methods integrate Neural ODEs and neural fields, achieves better long-horizon prediction performance.  A broader baseline comparison would better contextualize its advantages.\n\nReference\n\n[1] Serrano, Louis, et al. \"Operator learning with neural fields: Tackling pdes on general geometries.\". NeurIPS 2023. \n\n[2] Wang, Honghui, Shiji Song, and Gao Huang. \"GridMix: Exploring Spatial Modulation for Neural Fields in PDE Modeling.\" ICLR 2025.",
+        "questions": "See weaknesses.",
+        "flag_for_ethics_review": [
+          "No ethics review needed."
+        ],
+        "rating": 4,
+        "confidence": 2,
+        "code_of_conduct": "Yes"
+      },
+      "date": "2025-10-27T14:55:05.180000+00:00",
+      "modified": "2025-11-28T19:56:48.299000+00:00",
+      "url": "https://openreview.net/forum?id=IQhaeSzyup&noteId=D3YXO9SQMP",
+      "license": "CC BY 4.0",
+      "source_hash": "3ef2af03b15b8c537d73d17d6b476b28b64f6d64c310b9b3b157c768d1b5db67",
+      "public_alias": "reviewer_4"
+    }
+  ],
+  "provenance": {
+    "archive_sha256": "350071daf25ebf1aef854ee1d5dc3a81834e1c468917c82a4f78af5548de34fc",
+    "source_capture_time": null,
+    "source_snapshot_date_author_reported": "2026-05-08",
+    "score_stage": "current_archive_snapshot_unknown_review_stage",
+    "pdf_version_role": "unknown",
+    "scope": "Archive source records only; editorial reading scope is disclosed in the corresponding article."
+  }
+}

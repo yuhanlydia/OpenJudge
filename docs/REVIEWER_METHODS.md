@@ -1,6 +1,6 @@
 # Reviewer-method audit, 2026-09-28
 
-The owner requested use of reviewer skills, reviewed a three-case pilot, and then explicitly requested updating the live website. This revision applies a focused review-of-review workflow to all ten public articles. It is an AI-assisted editorial reassessment of public sources, not independent human technical certification.
+The owner requested use of reviewer skills, reviewed a three-case pilot, and then explicitly requested updating the live website. This revision applies a focused review-of-review workflow to the public articles in the release manifest. It is an AI-assisted editorial reassessment of public sources, not independent human technical certification.
 
 ## Method sources
 
@@ -13,7 +13,7 @@ The relevant Markdown instructions, examples and prompt source were read and ada
 
 Every public article has an `audit` object containing `reviewed_at`, `claim`, `evidence`, `alternative`, `verdict`, `impact`, `scope`, and `source_ids`. The five analytical fields render directly in a reader-facing panel; scope identifies actual source access. Referenced IDs must exist in the article source list. Public builds reject missing scope, an empty counter-explanation, or untraceable sources.
 
-Original article title, anonymous note provenance, score arithmetic, archive date, all seven analysis sections, human-review status and immutable evidence digests are retained. Public evidence remains the 2026-05-08 snapshot; newly accessed public manuscript versions are cited separately and never silently substituted for the original submission.
+Original article title, anonymous note provenance, score arithmetic, archive date, the three-part summary and individual claim checks, human-review status and immutable evidence digests are retained. Public evidence remains the 2026-05-08 snapshot; newly accessed public manuscript versions are cited separately and never silently substituted for the original submission.
 
 ## Editorial checks
 
@@ -23,7 +23,7 @@ Each article's current finding must agree with its audit panel, headline and lim
 
 ## Verification
 
-Run the existing frontend tests and type check, `node scripts/build-newsroom.mjs`, and public-edition browser tests with `NEWSROOM_PUBLIC=1` and `TEST_DIST=../../dist`. Source validation binds the article digest, ten-case inventory, raw ratings, decisions, cited note identities and 176-note evidence archive. CI now explicitly validates and browser-tests the public edition in addition to the original project checks.
+Run the existing frontend tests and type check, `node scripts/build-newsroom.mjs`, and public-edition browser tests with `NEWSROOM_PUBLIC=1` and `TEST_DIST=../../dist`. Source validation binds the article digest, release case inventory, raw ratings, decisions, cited note identities and complete per-case evidence archives. CI now explicitly validates and browser-tests the public edition in addition to the original project checks.
 
 ## Reader-first revision (2026-09-28, v3)
 
@@ -32,3 +32,7 @@ The owner requested a fixed reading sequence: individual scores and outcome, exa
 Each public record now supplies `brief`, `checks`, `desk`, and `desk_reason`. `brief` separates reported comparative results from the selected contribution and its attribution limits. `checks.reviewers` preserves all 41 official review notes in source order; 40 scores count toward averages and the documented GPTQ placeholder does not. Each reviewer check links its own note and the corresponding reply evidence. Claims are evaluated individually, not used as characterizations of people. Mathematical errors, conflicting numbers, overclaims, and unverified experiments are explicitly distinguished from fabricated data.
 
 The three-paragraph introduction and separate reviewer/AC/author sections are the default reading path. The previous seven-section analysis and five-step audit remain available in a native HTML disclosure. No runtime model or JavaScript is needed. The original evidence files and score records are unchanged. Updated manuscript access is listed per paper in `release.json` and the public sources page; later versions are not treated as material available to original reviewers.
+
+## Strict full-corpus revision (v4)
+
+The older v3 counts above describe that release only. Current counts are generated from `release.json`. New selection requires at least three valid reviews and means ≤4 for accepts or ≥7 for rejects. A serious case must explain a consequence for a core empirical/theoretical claim or the factual premise used to evaluate it. Five cases failing the new selection policy are retained as historical records; a percentage typo and an unproven implementation consequence were demoted. Automated corpus screening, selected forum reading and partial manuscript verification are separately disclosed. A target of100 is neither a quota nor a cap.

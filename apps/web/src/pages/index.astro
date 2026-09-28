@@ -4,22 +4,25 @@ import NewsCard from '../components/NewsCard.astro';
 import {loadNewsroom,deskLabels} from '../lib/newsroom';
 import {sitePath} from '../lib/basepath';
 const articles=loadNewsroom();
+const current=articles.filter(a=>a.selection_status!=='historical');
+const historical=articles.filter(a=>a.selection_status==='historical');
 const publicEdition=process.env.NEWSROOM_PUBLIC==='1';
 const preview=process.env.NEWSROOM_PREVIEW==='1';
 const p=(url:string)=>sitePath(url,import.meta.env.BASE_URL);
 const desks=[
- {id:'serious-errors' as const,number:'01',caption:'数字、公式或记录存在可定位的冲突。逐项说明谁错在哪里，以及错误能影响什么。'},
- {id:'low-accepted' as const,number:'02',caption:'本期录取案例的归档均分为 2.50–4.67。看 AC 为什么仍然认可贡献，哪些低分意见有依据。'},
- {id:'high-rejected' as const,number:'03',caption:'本板块案例的归档均分为 6.50–6.80。看高分是否回应了关键缺陷，AC 的拒稿理由能否成立。'},
+ {id:'serious-errors' as const,number:'01',caption:'错误必须影响核心实验比较、理论结论或评审事实依据。明确指出错误、修正与实际后果。'},
+ {id:'low-accepted' as const,number:'02',caption:'归档均分 ≤4，至少三份有效评审。逐篇追问：低分质疑是否成立，AC 为什么仍然录用？'},
+ {id:'high-rejected' as const,number:'03',caption:'归档均分 ≥7，至少三份有效评审。全量初筛仅一篇达到门槛，不降低标准凑数。'},
 ];
 ---
 <Base active="overview">
  <section class="edition-intro" id="cases"><span class="small-caps">ICLR 2026 / 公开评审观察</span><h1>先看分数和结果，再判断谁说得对。</h1><p>每篇先讲清论文的 gap、方法与效果，再逐位核查 reviewer、AC 和作者回复。</p>{preview&&<span class="preview-label">编辑预览 · AI 分析待复核</span>}</section>
  {articles.length>0?<>
- <nav class="desk-navigation" aria-label="三个案例板块">{desks.map(d=><a href={`#${d.id}`}><span>{d.number}</span><strong>{deskLabels[d.id]}</strong><b>{articles.filter(a=>(a.desk||a.category)===d.id).length} 篇</b></a>)}</nav>
- <p class="edition-scope">本期 {articles.length} 篇选题，每篇只归入一个板块。有明确矛盾的案例优先放入第一个板块；其余按评分与结果分类。低分、高分是本期选题范围，非全会议排名。</p>
- {desks.map(d=><section class="news-collection desk-collection" id={d.id} aria-labelledby={`title-${d.id}`} data-desk={d.id}><div class="desk-heading"><span>{d.number}</span><div><h2 id={`title-${d.id}`}>{deskLabels[d.id]}</h2><p>{d.caption}</p></div></div><div class="news-card-grid">{articles.filter(a=>(a.desk||a.category)===d.id).map(article=><NewsCard article={article} index={articles.indexOf(article)+1}/>)}</div></section>)}
- {publicEdition&&<p class="revision-note"><strong>2026.09.28 阅读结构更新</strong> · 十篇新增论文三段式、核心贡献和逐位评审核查。<a href={p('/contribute/#updates')}>查看修订记录 →</a></p>}
+ <nav class="desk-navigation" aria-label="三个案例板块">{desks.map(d=><a href={`#${d.id}`}><span>{d.number}</span><strong>{deskLabels[d.id]}</strong><b>{current.filter(a=>(a.desk||a.category)===d.id).length} 篇</b></a>)}</nav>
+ <p class="edition-scope">本期 {current.length} 篇，每篇只归入一个板块。全量初筛覆盖 19,814 篇论文的公开记录；初筛数量、逐篇分析和原稿读取范围分开披露。<a href={p('/data-status/')}>查看覆盖与来源 →</a></p>
+ {desks.map(d=>{const rows=current.filter(a=>(a.desk||a.category)===d.id);return <section class="news-collection desk-collection" id={d.id} aria-labelledby={`title-${d.id}`} data-desk={d.id}><div class="desk-heading"><span>{d.number}</span><div><h2 id={`title-${d.id}`}>{deskLabels[d.id]}</h2><p>{d.caption}</p></div></div><div class="news-card-grid">{rows.slice(0,6).map(article=><NewsCard article={article} index={current.indexOf(article)+1}/>)}</div>{rows.length>6&&<details class="desk-more"><summary>展开其余 {rows.length-6} 篇 · {deskLabels[d.id]}</summary><ol>{rows.slice(6).map(a=><li><span>均分 {a.mean.toFixed(2)} · {a.decision==='Reject'?'拒绝':'录取'}</span><a href={p(`/news/${a.slug}/`)} data-news-link>{a.headline}</a></li>)}</ol></details>}</section>;})}
+ {historical.length>0&&<details class="historical-cases"><summary>旧版文章 · {historical.length} 篇未纳入本期严格选题</summary><p>保留原文与修订说明；不计入上方三个板块。</p><ul>{historical.map(a=><li><a href={p(`/news/${a.slug}/`)} data-historical-link>{a.headline}</a><span> · 均分 {a.mean.toFixed(2)}</span></li>)}</ul></details>}
+ {publicEdition&&<p class="revision-note"><strong>2026.09.28 严格筛选版</strong> · 每篇展示论文三段式、核心贡献和逐位评审核查。<a href={p('/contribute/#updates')}>查看修订记录 →</a></p>}
  <div class="news-archive-note"><span>分数口径</span><p>使用 2026-05-08 公开存档。ICLR 2026 曾将分数恢复至 rebuttal 前，不能把图示分数当作最终共识。<a href="https://blog.iclr.cc/2026/03/31/a-retrospective-on-the-iclr-2026-review-process/" target="_blank" rel="noopener noreferrer">会议官方回顾 ↗</a></p></div>
  </>:<section class="news-preparing"><h2>本期案例正在整理</h2><p>当前尚无可公开的案例分析。</p></section>}
  <div class="news-reading-note"><span>判断依据</span><p>分数反差不自动构成错评，数据矛盾也不自动证明编造。每一项判断都列出证据和范围；本站为 AI 辅助分析，未完成独立实验复现。</p></div>

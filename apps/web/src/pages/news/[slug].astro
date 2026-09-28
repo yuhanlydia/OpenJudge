@@ -12,7 +12,7 @@ interface Props {article:NewsArticle}
 const {article}=Astro.props;
 const p=(url:string)=>sitePath(url,import.meta.env.BASE_URL);
 const sourceMap=new Map(article.sources.map(source=>[source.id,source]));
-const articles=loadNewsroom();
+const articles=loadNewsroom().filter(a=>a.selection_status!=='historical');
 const next=articles[(articles.findIndex(item=>item.slug===article.slug)+1)%articles.length];
 const archiveDate=article.archive_date.replace(/-/g,'.');
 const publicCommentary=article.review_state==='commentary_public';
@@ -22,7 +22,8 @@ const publicCommentary=article.review_state==='commentary_public';
   <article class="news-article">
     <header class="article-header">
       <div class="article-labels"><span class:list={['news-category',{'is-rejected':article.category==='high-rejected'}]}>{article.desk?deskLabels[article.desk]:categoryLabels[article.category]}</span><span>{article.topic}</span><span class="preview-label">{publicCommentary?'公开评论 · AI 辅助分析':'编辑预览 · AI 分析待复核'}</span></div>
-      <div class="article-result" id="scores"><div><span>评审评分</span><strong>{article.ratings.join(' / ')}</strong></div><div><span>均分 / 10</span><strong>{article.mean.toFixed(2)}</strong></div><div class="result-decision"><span>最终结果</span><strong>{article.decision==='Reject'?'拒绝':'录取 · Poster'}</strong></div></div>
+      {article.selection_status==='historical'&&<p class="historical-notice">历史文章 · 不符合本期严格选题门槛，不计入首页案例数。保留原始评分、结论与修订记录。</p>}
+      <div class="article-result" id="scores"><div><span>评审评分</span><strong>{article.ratings.join(' / ')}</strong></div><div><span>均分 / 10</span><strong>{article.mean.toFixed(2)}</strong></div><div class="result-decision"><span>最终结果</span><strong>{article.decision==='Reject'?'拒绝':article.decision.replace('Accept','录取')}</strong></div></div>
       <h1>{article.headline}</h1>
       <p class="article-paper-title" lang="en">{article.title}</p>
       <p class="article-deck">{article.deck}</p>
@@ -36,6 +37,7 @@ const publicCommentary=article.review_state==='commentary_public';
       </aside>
       <div class="article-body">
         <PaperStory article={article}/>
+        {article.serious_basis&&<section class="serious-basis"><h2>为什么列入严重错误？</h2><p>{article.serious_basis.core_claim}</p><p><strong>实际影响：</strong>{article.serious_basis.consequence}</p><div class="section-sources">{article.serious_basis.source_ids.map(id=>{const s=sourceMap.get(id)!;return <a href={s.url} target="_blank" rel="noopener noreferrer">{s.label} ↗</a>;})}</div></section>}
         <ReviewChecks article={article}/>
         <FindingBox article={article}/>
         <details class="full-analysis" id="full-analysis" open={!article.checks}><summary>展开完整讨论、五步核查与分析边界</summary>

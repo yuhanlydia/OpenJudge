@@ -1,0 +1,520 @@
+{
+  "paper": {
+    "id": "IbcdVwzLrp",
+    "title": "ProtoTS: Learning Hierarchical Prototypes for Explainable Time Series Forecasting",
+    "abstract": "While deep learning has achieved impressive performance in time series forecasting, it becomes increasingly crucial to understand its decision-making process for building trust in high-stakes scenarios. Existing interpretable models often provide only local and partial explanations, lacking the capability to reveal how heterogeneous and interacting input variables jointly shape the overall temporal patterns in the forecast curve. We propose ProtoTS, a novel interpretable forecasting framework that achieves both high accuracy and transparent decision-making through modeling prototypical temporal patterns. ProtoTS computes instance-prototype similarity based on a denoised representation that preserves abundant heterogeneous information. The prototypes are organized hierarchically to capture global temporal patterns with coarse prototypes while capturing finer-grained local variations with detailed prototypes, enabling expert steering and multi-level interpretability. Experiments on multiple realistic benchmarks, including a newly released LOF dataset, show that ProtoTS not only exceeds existing methods in forecast accuracy but also delivers expert-steerable interpretations for better model understanding and decision support. The source code is available at https://github.com/SKURA502/ProtoTS.",
+    "venue": "ICLR 2026 Poster",
+    "venueid": "ICLR.cc/2026/Conference",
+    "pdf": "/pdf/466df8b649b1ecc04ebbd60c3fb16cf1f7df90ba.pdf",
+    "keywords": [
+      "Time series forecasting; Interpretability"
+    ],
+    "primary_area": "learning on time series and dynamical systems",
+    "number": null,
+    "license": "CC BY 4.0",
+    "source_hash": "62857a49d3dd54c482edbff19f91cd774e335bde692cfe7be52df30065228db2",
+    "scores": [
+      4,
+      4,
+      4,
+      4
+    ],
+    "invalid_scores": [],
+    "decisions": [
+      {
+        "id": "poh8yXESAc",
+        "decision": "Accept (Poster)"
+      }
+    ],
+    "meta_ids": [
+      "hhBo8iytN5"
+    ],
+    "reviews": [
+      "7qXJL2qNC6",
+      "ifoZrdjoiK",
+      "HK7htNylWP",
+      "HpuFZ1VPLR"
+    ],
+    "comments": 22
+  },
+  "notes": [
+    {
+      "id": "poh8yXESAc",
+      "kind": "Decision",
+      "replyto": "IbcdVwzLrp",
+      "role": "program_chair",
+      "content": {
+        "title": "Paper Decision",
+        "decision": "Accept (Poster)",
+        "comment": ""
+      },
+      "date": "2026-01-26T08:34:57.858000+00:00",
+      "modified": "2026-02-06T05:53:10.436000+00:00",
+      "url": "https://openreview.net/forum?id=IbcdVwzLrp&noteId=poh8yXESAc",
+      "license": "CC BY 4.0",
+      "source_hash": "42fee33387fb5ba96c7f18bc77169df5d7eb9560802222f0c0e4f3cb099d1f7a"
+    },
+    {
+      "id": "hhBo8iytN5",
+      "kind": "Meta_Review",
+      "replyto": "IbcdVwzLrp",
+      "role": "area_chair",
+      "content": {
+        "summary": "This paper presents an interpretable forecasting framework that models prototypical temporal patterns. The weights of these prototypes are determined by measuring the similarity between different prototypes. Extensive and comprehensive experimental results demonstrate the effectiveness of the proposed framework. \n\nThe reviewers generally acknowledge the approach as interesting and supported by solid experiments and case studies. The initial reviews raised concerns regarding novelty, dataset scope, and the scale of the user study.  Most of these concerns were addressed in the rebuttal. Specifically, the authors clarified the methodological distinction from previous prototype-based time-series methods, demonstrated broader experimental coverage across multiple domains beyond energy (such as meteorology and finance), and additionally updated experiments with different lookback-window settings, and strengthened the user study with additional participants and analysis. Several misunderstandings related to interpretability and experimental results were also effectively resolved.\n\nReviewers acknowledged the advantages of this paper. Therefore, I lean towards acceptance.",
+        "reviewer_concerns": "Addressed concerns:\n\n+ Novelty and distinction from prior prototype-based methods: clarified methodological differences and hierarchical advantages.\n\n+ Model clarity: detailed explanation of prototype computation, assignment, and time-domain interpretability.\n\n+ Hierarchical design and splitting rules: formal splitting criterion with added pseudocode.\n\n+ Loss formulation and entropy regularization: corrected definition, added tuning parameter, and clarified effects.\n\n+ Dataset scope and evaluation metrics: broader domains, inclusion/clarification of MSE, robustness tests, and significance analysis.\n\n+ User study and interpretability validation: expanded discussion and additional evidence.\n\n+ Computational cost and reproducibility: added complexity analysis and improved the repository.",
+        "reviewer_scores": "Reviewer cW3t (Score: 4) would like to keep his/her score. \n\nReviewer Tt99 (Score: 4) would like to increase his/her score. \n\nReviewer Ju6i (Score: 4) would like to increase his/her score. \n\nReviewer cW3t (Score: 4) would like to keep his/her score."
+      },
+      "date": "2026-01-07T08:07:29.173000+00:00",
+      "modified": "2026-02-09T06:34:19.061000+00:00",
+      "url": "https://openreview.net/forum?id=IbcdVwzLrp&noteId=hhBo8iytN5",
+      "license": "CC BY 4.0",
+      "source_hash": "63ca962e3b0381b2c928350816836c40edcf6afe46130c9b4a6f6c93454e7c58"
+    },
+    {
+      "id": "765tOaEwZP",
+      "kind": "Official_Comment",
+      "replyto": "axkVsK7jLU",
+      "role": "reviewer",
+      "content": {
+        "comment": "Thanks for your effort and clarification. After reading the response, I feel my concerns have been addressed. However, the system doesn’t allow score updates right now, I will raise my score once it becomes possible."
+      },
+      "date": "2025-11-28T00:37:02.353000+00:00",
+      "modified": "2025-11-28T00:37:02.353000+00:00",
+      "url": "https://openreview.net/forum?id=IbcdVwzLrp&noteId=765tOaEwZP",
+      "license": "CC BY 4.0",
+      "source_hash": "4b4fe9f587a684609c793b691264d7b851c10442096ebcf58939498699862f7e",
+      "public_alias": "reviewer_4"
+    },
+    {
+      "id": "axkVsK7jLU",
+      "kind": "Official_Comment",
+      "replyto": "HpuFZ1VPLR",
+      "role": "author",
+      "content": {
+        "title": "Official comments by Author",
+        "comment": "Dear Reviewer Ju6i,\n\nI hope this message finds you well. As the discussion period is approaching its end with only a few days remaining, we would like to thank you again for your valuable comments and suggestions. We hope the above clarifications and the additional experiments in the rebuttal have adequately addressed your concerns. If you are satisfied, we would greatly appreciate it if you could consider updating the score to reflect the newly added results and discussion. We remain committed to addressing any remaining points you may have during the discussion phase.\n\nBest regards,\n\nAuthor"
+      },
+      "date": "2025-11-28T00:19:18.171000+00:00",
+      "modified": "2025-11-28T00:19:18.171000+00:00",
+      "url": "https://openreview.net/forum?id=IbcdVwzLrp&noteId=axkVsK7jLU",
+      "license": "CC BY 4.0",
+      "source_hash": "75bc608588f62cb2e837b437e6d07ecec3a30db28c1a5eafcaf91b2d70bd80b0"
+    },
+    {
+      "id": "Ms26g1JwGS",
+      "kind": "Official_Comment",
+      "replyto": "ifoZrdjoiK",
+      "role": "author",
+      "content": {
+        "title": "Official Comments by Authors",
+        "comment": "Dear Reviewer AWPh,\n\nI hope this message finds you well. As the discussion period is approaching its end with only a few days remaining, we would like to thank you again for your valuable comments and suggestions. We hope the above clarifications and the additional experiments in the rebuttal have adequately addressed your concerns. If you are satisfied, we would greatly appreciate it if you could consider updating the score to reflect the newly added results and discussion. We remain committed to addressing any remaining points you may have during the discussion phase.\n\nBest regards,\n\nAuthor"
+      },
+      "date": "2025-11-28T00:16:13.140000+00:00",
+      "modified": "2025-11-28T00:18:05.207000+00:00",
+      "url": "https://openreview.net/forum?id=IbcdVwzLrp&noteId=Ms26g1JwGS",
+      "license": "CC BY 4.0",
+      "source_hash": "5a02c189d5ee592b354cb98e7b036a99250222e71cf76b3d69fc83520ad495ed"
+    },
+    {
+      "id": "gRDLZ18x4a",
+      "kind": "Official_Comment",
+      "replyto": "7qXJL2qNC6",
+      "role": "author",
+      "content": {
+        "title": "Official Comments by Authors",
+        "comment": "Dear Reviewer cW3t,\n\nI hope this message finds you well. As the discussion period is approaching its end with only a few days remaining, we would like to thank you again for your valuable comments and suggestions. We hope the above clarifications and the additional experiments in the rebuttal have adequately addressed your concerns. If you are satisfied, we would greatly appreciate it if you could consider updating the score to reflect the newly added results and discussion. We remain committed to addressing any remaining points you may have during the discussion phase.\n\nBest regards,\n\nAuthor"
+      },
+      "date": "2025-11-28T00:13:51.671000+00:00",
+      "modified": "2025-11-28T00:18:35.058000+00:00",
+      "url": "https://openreview.net/forum?id=IbcdVwzLrp&noteId=gRDLZ18x4a",
+      "license": "CC BY 4.0",
+      "source_hash": "d0ad42bfdf58e940649bdbe08e2841d61f3464504a50b5bf8d62f7dbc599a790"
+    },
+    {
+      "id": "hOAGCpiLhj",
+      "kind": "Official_Comment",
+      "replyto": "3eHLbUFWti",
+      "role": "reviewer",
+      "content": {
+        "comment": "Thank you for the efforts in the rebuttal. Since the response addressed my concerns, I have raised my score."
+      },
+      "date": "2025-11-27T05:14:27.346000+00:00",
+      "modified": "2025-11-27T05:14:27.346000+00:00",
+      "url": "https://openreview.net/forum?id=IbcdVwzLrp&noteId=hOAGCpiLhj",
+      "license": "CC BY 4.0",
+      "source_hash": "8711d0b435878293bb4caaf872781fc831380b70e01114915f5906b045b32d2a",
+      "public_alias": "reviewer_3"
+    },
+    {
+      "id": "chTNcaqzCc",
+      "kind": "Official_Comment",
+      "replyto": "HpuFZ1VPLR",
+      "role": "author",
+      "content": {
+        "title": "Official comments by Author",
+        "comment": "We thank the reviewer for the constructive feedback.\n\n> The introduction claims that ProtoTS is the first to model prototypical temporal patterns. However, Sec 2 already cites some prototype-based time-series models . It would be clearer if the authors could clarify more explicitly what innovation distinguishes ProtoTS from these prior works.\n\nThe concern regarding the difference from prior prototype-based time-series methods has been discussed in detail in our *General Response* part 1/3. Briefly, prior prototype-based time-series works either (1) learn prototypes as hidden representations detached from the prediction or (2) decode prototypes into only *single* outputs. In contrast, ProtoTS is — to the best of our knowledge — the first framework that decodes each prototype into a *multi-step temporal pattern*, enabling sequence-level interpretability and hierarchical refinement.\n\n> The paper does not clearly explain how the learned prototypes remain semantically meaningful throughout training. The optimization objective lacks explicit constraints ensuring diversity or interpretive consistency among prototypes, which may lead to redundant prototypes.\n\nProtoTS maintains semantically meaningful and non-redundant prototypes through the entropy regularization applied to prototype weights. Minimizing Shannon entropy encourages the model to place most mass on only a few highly relevant prototypes (e.g., $H(0.9,0.1)=0.33 < H(0.5,0.5)=0.69$). As a result, only prototypes with strong similarity receive significant gradients, which naturally prevents redundant prototypes and promotes diversity: each prototype gradually specializes on a distinct subset of instances and encourages each prototype to focus on **a distinct and useful temporal pattern**.\n\nTo further validate interpretive consistency, we conduct a perturbation-stability experiment by injecting Gaussian noise $N(0,\\text{std})$into endogenous inputs and measuring the change in prototype-activation distributions using KL divergence.\n\n| std      | 0.0001   | 0.01   |\n| -------- | -------- | ------ |\n| noise KL | 5.89E-06 | 0.0006 |\n\nHere, under perturbation \"std = 0.01\", the KL divergence remains only 0.0006. According to the Pinsker's inequality:\n$\\delta(P_{\\rm original},P_{\\rm perturbed}) \\le \\sqrt{\\tfrac12\\,D_{KL}(P_{\\rm original}\\parallel P_{\\rm perturbed})} \\approx \\sqrt{\\tfrac{0.0006}{2}}\\approx 0.0173$\n\nthe total‐variation distance between the two distributions is bounded by ~1.7%. Thus, the prototype activation distribution is **nearly unchanged**, which supports that the prototype matching process is robust to this level of noise.\n\n>In experiment, adding the discussion of computational cost and complexity analysis would make the performance more convincing\n\nIn the revised version, we have added a table on computational cost in the Appendix F and included a small comparison of training time per iter across methods. Under the same hardware setup and training configuration (same optimizer, learning rate, sequence length, and implementation framework), we measured the average time (in ms) per training iter with batch_size = 32. \n\n|         | ProtoTS | TimeXer | iTrans | TiDE |\n| ------- | ------- | ------- | ------ | ---- |\n| ms/iter | 40.8    | 19.5    | 12.5   | 11.1 |\n\nProtoTS introduces additional computation compared to purely transformer-based or MLP-based baselines (e.g., iTrans and TiDE), mainly because of:\n\n- The multi-channel embedding,\n- The hierarchical structure.\n\nDespite the additional computation, ProtoTS remains efficient in practice (40.8 ms/iter on a single V100 GPU), and the overhead is modest compared with the gain in interpretability and forecasting accuracy.\n\nWe truly appreciate the effort required to review many papers under tight deadlines, and we are grateful for the attention you have devoted to our manuscript. We hope that our responses and additional experiments adequately address your concerns. We sincerely appreciate your thoughtful evaluation, and, if our revisions have helped to resolve your concerns, we would be grateful if you might consider updating your assessment. If not, we warmly welcome any further feedback and will gladly continue to improve the work.\n\nThank you again for your valuable time and insightful comments.\n\nBest regards,\n\nAuthors"
+      },
+      "date": "2025-11-19T13:05:05.259000+00:00",
+      "modified": "2025-11-28T00:19:30.465000+00:00",
+      "url": "https://openreview.net/forum?id=IbcdVwzLrp&noteId=chTNcaqzCc",
+      "license": "CC BY 4.0",
+      "source_hash": "6090f6074e388c5dc9f82e85826e2b5b048fdedf1d3fc22a111eaaf1f9337009"
+    },
+    {
+      "id": "3eHLbUFWti",
+      "kind": "Official_Comment",
+      "replyto": "HK7htNylWP",
+      "role": "author",
+      "content": {
+        "title": "Official comments by Author",
+        "comment": "We sincerely thank the reviewer for the time and care you devoted to evaluating our submission. We are especially grateful for the positive assessment you provided. Your recognition that the hierarchical prototype formulation is *novel and empirically verified*, that the model design are *clearly justified*, and that the case study is *intuitive and effective*, is greatly appreciated.\n\nAt the same time, we noticed that several concerns raised in the review were based on factual misunderstandings of the paper. We understand that some misunderstandings may occur given the large volume of submissions and tight reviewing schedules. To assist with your evaluation, we have provided detailed clarifications in our point-by-point response, and we summarize the key resolved items below:\n\n- Comparison with **ProseNet** (see *General Response* part 1/3)\n- Clarification of **dataset scope** (see *General Response* part 2/3)\n- Clarification of **number and background ** of participants (see *General Response* part 3/3)\n- **Robustness of prototype assignments under noise**, with new experiments (see part 1/3)\n- Additional **case study** domains (see part 1/3)\n- **Reproducibility**, including expanded anonymous repository with full environment setup and scripts (see part 1/3)\n- **Faithfulness metrics** (see part 2/3)\n- Some **factual misunderstanding** (see part 3/3)\n\nWe hope that these clarifications address all remaining concerns. If any part of our explanation is still unclear, we would be more than happy to provide further details.  Finally, we truly appreciate your constructive review and the positive feedback you provided. If our responses have satisfactorily resolved the concerns raised, we would be deeply grateful if you might consider revisiting your evaluation. If not, we warmly welcome additional feedback and will gladly continue improving the work.\n\nBest regards,\n\nAuthors"
+      },
+      "date": "2025-11-19T13:04:29.144000+00:00",
+      "modified": "2025-11-28T00:19:50.863000+00:00",
+      "url": "https://openreview.net/forum?id=IbcdVwzLrp&noteId=3eHLbUFWti",
+      "license": "CC BY 4.0",
+      "source_hash": "76284b42e27207d84ccb45fb53a040a2ee8d96177b876cc6adff4fa79c78c885"
+    },
+    {
+      "id": "pP4huMFtJu",
+      "kind": "Official_Comment",
+      "replyto": "HK7htNylWP",
+      "role": "author",
+      "content": {
+        "title": "Response to reviewer Tt99 (part 3/3)",
+        "comment": "Lastly, we have to say that several of the weaknesses the reviewer raised have already presented in our Main text. Here we would like to specifically clarify several factual misunderstandings in the review.\n\n>Forecasting accuracy is reported only with MAE. Reporting MSE would provide a more comprehensive assessment.\n\nIn the **Introduction (LINE 101)** we explicitly state that *“ProtoTS reduces MSE by 48.3%.”* Both **Table 1** and **Table 2** clearly indicate in their captions (LINE 364, 380) that \"Full MSE results can be found in Appendix C.1.\". Moreover, our ablation study in **Table 3** also reports both MSE and MAE.\n\n>Baselines include mainly traditional statistical or early deep models (ARIMA, XGBoost). I suggest comparing with more recent models such as PatchTST and TimesNet, and FEDformer.\n\nWe do not use ARIMA at all (LINE 347). Additionally, the suggested models PatchTST, TimesNet, and FEDformer do **not support exogenous variables** as input. Nevertheless, we do compare with PatchTST and TimesNet in Mutivariate scenarios. (Table 10)\n\n>Reported accuracy gains are not validated by statistical significance tests\n\nIn LINE 377: \"We further conduct a sensitivity analysis under 5 random seeds, see Appendix C.3.\""
+      },
+      "date": "2025-11-19T13:04:08.232000+00:00",
+      "modified": "2025-11-19T13:04:08.232000+00:00",
+      "url": "https://openreview.net/forum?id=IbcdVwzLrp&noteId=pP4huMFtJu",
+      "license": "CC BY 4.0",
+      "source_hash": "eea3cbe1bea7f519719f00e80a12708c6d81bf188cfbfc49db52cc172b36906e"
+    },
+    {
+      "id": "RY7sg6YGsz",
+      "kind": "Official_Comment",
+      "replyto": "HK7htNylWP",
+      "role": "author",
+      "content": {
+        "title": "Response to reviewer Tt99 (part 2/3)",
+        "comment": ">For quantiative interpretability test, only User Precision and System Usability Score are reported. I suggest considering additional metrics such as fidelity, faithfulness, which do not rely on human judgment.\n\nFidelity and faithfulness is typicallly required only for **post-hoc explanations**, which interpret a black-box model *after* the model is trained (usually introduces approximations). However, for **self-explaining models** or **built-in interpretability** methods (our case), which develop models that inherently have explainable components, do not require evaluating fidelity [4,5,6], because they are **inherently faithful** [1-3]. **For example, if predictions are given by a decision tree (built-in explainability), we will not question whether the decision tree is a faithful explanation for the predictions, because we know that the prediction processes follow exactly the tree structure (i.e., 100% faithful).** Similarly, in ProtoTS, the prototypes are hard-wired into the model architecture, and we ensure that the prediction process strictly follows the prototype selection and matching procedure, making our model 100% faithful as well. \n\n- \"When it comes to gauging the performance of self-explainable models, (recommendation) accuracy might not reach optimal levels and should be evaluated first, whereas, in post-hoc approaches, the fidelity of explanations should take priority. \" [1]\n- \"Self‑explanatory models, which do not rely on any post‑hoc explanation methods, often claim to be 'faithful by construction'.\" [2]\n- \"If we instead use models that are inherently interpretable, they provide their own explanations, which are faithful to what the model actually computes.\" [3]\n\nMoreover, **many prior self-explanatory models do not explicitly evaluate faithfulness** [4-6]:\n\n- [4] (in your reference) evaluates interpretability via human studies.\n- [5] (in your reference) evaluates concept interpretability via user studies and introduces prototype-specific metrics like Concept Representability.\n- [6] (in your reference) uses case studies and AOPC for evaluation.\n\n[1] Piscopo, Alessandro, et al. \"Report on the 1st Workshop on Measuring the Quality of Explanations in Recommender Systems (QUARE 2022) at SIGIR 2022.\" SIGIR Forum, 2023.\n\n[2] Lyu, Qing, et al. \"Towards faithful model explanation in nlp: A survey.\" Computational Linguistics 2024.\n\n[3] Rudin, Cynthia. \"Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead.\" Nature machine intelligence 2019.\n\n[4] Ming, Yao, et al. \"Interpretable and steerable sequence learning via prototypes.\" SIGKDD, 2019.\n\n[5] Obermair, et al. \"Example or prototype? learning concept-based explanations in time-series.\" ACML, 2023.\n\n[6] Zhang, Yifei, et al. \"Learning to select prototypical parts for interpretable sequential data modeling.\" AAAI 2023."
+      },
+      "date": "2025-11-19T13:03:48.001000+00:00",
+      "modified": "2025-11-19T13:03:48.001000+00:00",
+      "url": "https://openreview.net/forum?id=IbcdVwzLrp&noteId=RY7sg6YGsz",
+      "license": "CC BY 4.0",
+      "source_hash": "018a02a100ffa8825d9f32bd580c7107eac6ba9eb1c350b158b079ca81442f32"
+    },
+    {
+      "id": "pZZHu05Wu6",
+      "kind": "Official_Comment",
+      "replyto": "HK7htNylWP",
+      "role": "author",
+      "content": {
+        "title": "Response to reviewer Tt99 (part 1/3)",
+        "comment": "We thank the reviewer for the comments, as well as the positive evaluation of our paper’s novelty, clarity, and real-world applicability. Several of the weakness reviewer Tt99 raised—such as **the relationship with ProseNet**, **the need to discuss broader dataset domains**, and **the clarification of user study participants**—have already been replied in our *general response*.\n\n>The robustness of learned prototypes could be evaluated by introducing noise or perturbations in the input time series to test whether prototype assignments remain stable.\n\nWe thank the reviewer for this insightful suggestion regarding robustness. Following your idea, we conducted an additional experiment by injecting Gaussian noise $N(0, \\text{std})$ into the endogenous input variables and measuring the stability of prototype assignments using KL divergence between the original and perturbed prototype activation distributions. The results are shown in the table below:\n\n| std      | 0.0001   | 0.01   |\n| -------- | -------- | ------ |\n| noise KL | 5.89E-06 | 0.0006 |\n\nHere, under perturbation \"std = 0.01\", the KL divergence remains only 0.0006. According to the Pinsker's inequality:\n\n$\\delta(P_{\\rm original},P_{\\rm perturbed}) \\le \\sqrt{\\tfrac12\\,D_{KL}(P_{\\rm original}\\parallel P_{\\rm perturbed})} \\approx \\sqrt{\\tfrac{0.0006}{2}} \\approx 0.0173$\n\nthe total‐variation distance between the two distributions is bounded by ~1.7%. Thus, the prototype activation distribution is **nearly unchanged**, which supports that the prototype matching process is robust to this level of noise.\n\n\n>The case study focuses solely on load forecasting. I suggest adding more case studies on the other dataset as well. I belive this case study is the core result of the paper’s interpretability claim and thus presenting additional case studies (e.g., price forecasting, weather, or traffic datasets) would substantially strengthen the paper.\n\nWe thank the reviewer for the insightful suggestion. We agree that presenting additional case studies on other domains would further strengthen the interpretability claims. We will add additional qualitative examples on the EPF dataset (and other domains where appropriate) in the camera-ready version, should the paper be accepted.\n\n>The anonymous GitHub repository provides only minimal instructions. Please add detailed environment setup instructions, data-preprocessing scripts, configuration files, and run commands so that results can be reproduced reliably.\n\nWe thank the reviewer for pointing out the issue with the anonymous GitHub repository. We have now substantially expanded the repository with detailed environment setup instructions, configuration files, and runnable commands to ensure fully reproducible results."
+      },
+      "date": "2025-11-19T13:02:04.230000+00:00",
+      "modified": "2025-11-19T13:03:28.841000+00:00",
+      "url": "https://openreview.net/forum?id=IbcdVwzLrp&noteId=pZZHu05Wu6",
+      "license": "CC BY 4.0",
+      "source_hash": "82c46b4469040c175b2e9c7ed8147c0e2521743a83c3b22921a97541346155e7"
+    },
+    {
+      "id": "kYCJxyATPG",
+      "kind": "Official_Comment",
+      "replyto": "ifoZrdjoiK",
+      "role": "author",
+      "content": {
+        "title": "Official Comments by Authors",
+        "comment": "We would like to express our sincere gratitude for the exceptional depth and care reflected in your review. Your comments were not only technically insightful but also remarkably aligned with our own internal discussions, and they have substantially improved the clarity and presentation of the paper. We truly appreciate the time and expertise you devoted to assessing our work, especially given the high reviewing load and limited deadlines of the ICLR process.\n\n- Clarification of **Validation of Interpretability** (see *general response* part 3/3)\n- Clarification of the **splitting rule** (see part 1/4).\n- Intuition behind the **entropy regularization**, correction of its sign, and inclusion of the **tuning parameter λ** (see part 2/4).\n- Discussion of the **scope of regularization**, including its effect across hierarchy levels (see part 2/4).\n- Justification for choosing the **L1/L2 forecasting loss** (see part 2/4).\n- Clarification on how multi-channel embedding and bottleneck fusion capture **interactions among input variables** before prototype matching (see part 3/4).\n- Discussion of **simulation-based interpretability study** (see part 3/4).\n- Resolution of all **minor concerns** (see part 4/4).\n\nWe hope that our detailed responses and revisions have adequately resolved your concerns. If our clarifications and improvements satisfactorily address the issues you raised, we would be grateful if you might consider updating your evaluation. If any remaining questions or uncertainties persist, we would be more than happy to provide further clarification.\n\nThank you again for your valuable time and constructive review.\n\nBest regards,\n\nAuthors"
+      },
+      "date": "2025-11-19T13:00:53.976000+00:00",
+      "modified": "2025-11-28T00:15:30.968000+00:00",
+      "url": "https://openreview.net/forum?id=IbcdVwzLrp&noteId=kYCJxyATPG",
+      "license": "CC BY 4.0",
+      "source_hash": "87814d88765930020eef772b94a175dd1bebc39b77d25bf858cea35ef9115fd6"
+    },
+    {
+      "id": "4P8zL6EHyf",
+      "kind": "Official_Comment",
+      "replyto": "ifoZrdjoiK",
+      "role": "author",
+      "content": {
+        "title": "Response to reviewer AWPh (part 4/4)",
+        "comment": ">Minor concerns\n>\n>1. Line 29: The phrase \"their overall interpretability and their potential\" could be revised for clarity, as the second \"their\" is redundant.\n>2. Line 76: \"input covariates\" is repetitive. Using either \"inputs\" or \"covariates\" would be more concise.\n>3. Line 84: Similarly, \"interactions of covariate combinations\" could be shortened to \"interactions of covariates.\"\n>4. Figure 2 (Similarity Computing): The percentages shown (0.35, 0.65, 0.1) sum to 1.1. Please verify these values.\n>5. Line 208: \"is holiday\" should be corrected to \"holiday.\"\n>6. Line 234: The text states the process is \"along the temporal dimension and then along the feature dimension,\" while Equation (3) suggests the fusion occurs along the feature dimension first. Please clarify this sequence.\n>7. Line 236: The meaning of T in Equation (3) is unclear. Please provide a definition.\n>8. Line 249: For consistency, \\mu should be rendered in boldface.\n>9. Line 303: To be precise, the L1-norm should be denoted with a subscript, for instance, .\n\nWe appreciate the reviewer’s careful attention to detail. All minor concerns have been addressed in the revised manuscript.  We have streamlined the wording in Minor Concerns 1, 2, and 3 for clarity. The reviewer seems to be referring to Line 39 for Minor Concern 1, and we have corrected the redundancy accordingly. We also thank the reviewer for pointing out several detailed issues in Minor Concerns 4, 6, 7, 8, and 9. Regarding the phrase “is holiday,” we would like to clarify that this naming follows the exact feature name used in our dataset."
+      },
+      "date": "2025-11-19T12:59:23.368000+00:00",
+      "modified": "2025-11-19T12:59:23.368000+00:00",
+      "url": "https://openreview.net/forum?id=IbcdVwzLrp&noteId=4P8zL6EHyf",
+      "license": "CC BY 4.0",
+      "source_hash": "deabb9292f527ae1d35efecdb9f23b74634bcfd5fca6f6de01cf0b437b669f35"
+    },
+    {
+      "id": "5bzexZAZ2Y",
+      "kind": "Official_Comment",
+      "replyto": "ifoZrdjoiK",
+      "role": "author",
+      "content": {
+        "title": "Response to reviewer AWPh (part 3/4)",
+        "comment": ">**Variable Interactions**: The paper states that the prototype-instance similarity is computed by \"incorporating a multi-channel embedding and bottleneck fusion mechanism\" to model interactions between input variables. However, the embedding described in Equation (2) appears to be a summation of individual variable embeddings prior to the bottleneck layer. Could the authors elaborate on how this specific architecture facilitates the modeling of interactions between variables?\n\nEq. 2 aggregates heterogeneous variable embeddings at each time step through summation, which itself does not explicitly model interactions. The interactions between input variables are in fact captured in the subsequent **bottleneck fusion** (Eq.3).  Importantly, the **prototype–instance similarity** is computed after bottleneck fusion, ensuring that it is based on representations that already incorporate interactions.\n\n> **Simulation for Interpretability**: To further strengthen the claims regarding interpretability, have the authors considered conducting a simulation study? A simulation with a known ground truth for the underlying prototypes and hierarchical structure could provide a more objective evaluation of the model's ability to recover these causal relationships.\n\nWe thank the reviewer for this valuable suggestion. A controlled simulation study is indeed useful in settings where the ground-truth prototypical patterns or hierarchical structure are known a priori. However, in our problem setting, the temporal patterns are *entirely learned* by the model, and there is no established or externally provided ground-truth prototype structure to simulate. Real-world time-series datasets likewise do not include true temporal patterns. \n\nOur objective is therefore not to recover predefined patterns, but to ensure that the learned prototypes align faithfully with exogenous variables and domain knowledge, as shown in case study Fig.4."
+      },
+      "date": "2025-11-19T12:58:56.240000+00:00",
+      "modified": "2025-11-19T12:58:56.240000+00:00",
+      "url": "https://openreview.net/forum?id=IbcdVwzLrp&noteId=5bzexZAZ2Y",
+      "license": "CC BY 4.0",
+      "source_hash": "7127bc390f0182621652ba404c9903022be2b1d1806c9c029c9a6d6290757bc8"
+    },
+    {
+      "id": "v4xuNO6PCl",
+      "kind": "Official_Comment",
+      "replyto": "ifoZrdjoiK",
+      "role": "author",
+      "content": {
+        "title": "Response to reviewer AWPh (part 2/4)",
+        "comment": ">**Entropy Regularization**: In line 300, the stated goal of the entropy term in the loss function is to \"encourage a few main prototypes to cover most predictions.\" Given that negative Shannon entropy is minimized by a discrete uniform distribution, could the authors provide further intuition on how this term achieves the stated objective of encouraging a sparse set of dominant prototypes? Additionally, the inclusion of a tuning parameter (e.g., $\\lambda$) to balance the L1-norm and the regularization term seems warranted and would be a valuable addition.\n\nShannon entropy measures the uncertainty (or spread) of a probability distribution: it is **high** when the similarity weights across prototypes are uniform and **low** when a few prototypes dominate. For example,\n\n- $\\text{entropy}(0.5,0.5)=0.69$\n- $\\text{entropy}(0.9,0.1)=0.33$\n\nSince our goal is to **encourage each instance to rely on only a small number of prototypes**, minimizing entropy directly achieves this behavior. We apologize for the confusion: the regularization term should indeed be **negative entropy**, and we have corrected this in the revised manuscript. We also note that our implementation **already includes a tuning parameter $\\lambda$** to balance the forecasting loss and the entropy term. We apologize for the oversight in the previous version. We have now added it and clarified its role in the revised manuscript.\n\n>**Scope of Regularization**: The current regularization term appears to only consider the first level of the hierarchical structure. Have the authors considered extending this to other levels of the hierarchy, and what might be the potential impact of such a change?\n\nAlthough the regularization is applied at the root level, its effect propagates to all deeper levels through the hierarchical weighting in Eq. (8): the effective contribution of a child prototype $(i,j)$ is given by the product $f(Z\\mid \\mu_i)f(Z\\mid \\mu_{i,j})$. Enforcing sparsity on the root weights $f(Z\\mid \\mu_i)$ therefore already restricts the set of *entire subtrees* that can meaningfully participate in a prediction. \n\nThat said, the entropy regularization **can in principle be applied at other levels** as well. Doing so would encourage each active subtree to rely on only a few of its children, thereby promoting even finer-grained sparsity. and reducing the risk of redundant child prototypes within a branch. We thank the reviewer for this insightful suggestion, and we will explore incorporating entropy regularization at other levels in future extensions of the model.\n\n>**Choice of L1-Norm**: Could the authors provide the rationale for selecting the L1-norm for the loss function over other metrics such as the L2-norm or domain-specific measures like Dynamic Time Warping?\n\nBoth MAE $l_1$ and MSE $l_2$ losses are common in time-series forecasting. As discussed in prior work [1]: \"the MSE have been popular,...., they are more sensitive to outliers than MAE.\" MSE emphasizes large errors and performs better when extreme values or outliers are important, while MAE treats each time step equally and provides a more balanced penalty across the horizon. We note that our framework could also work with MSE, and we include clarification in the revision.\n\n[1] Another look at measures of forecast accuracy. International journal of forecasting."
+      },
+      "date": "2025-11-19T12:58:34.768000+00:00",
+      "modified": "2025-11-19T12:58:34.768000+00:00",
+      "url": "https://openreview.net/forum?id=IbcdVwzLrp&noteId=v4xuNO6PCl",
+      "license": "CC BY 4.0",
+      "source_hash": "8ac0552a2ea11ab6bb5acedad94c072f14a7326471221bee419f5b90e8ff219c"
+    },
+    {
+      "id": "sLgUzbLBbT",
+      "kind": "Official_Comment",
+      "replyto": "ifoZrdjoiK",
+      "role": "author",
+      "content": {
+        "title": "Response to reviewer AWPh (part 1/4)",
+        "comment": "We sincerely thank the reviewer for the careful reading of our manuscripts and the constructive comments. Reviewer AWPh's detailed suggestions have been extremely helpful for improving the overall presentation of the paper. One of the weakness (**Validation of Interpretability**) are further discussed in our *General Response* (part 1/3)。\n\n>**Guidance on Hierarchical Structure**: While the hierarchical prototype structure is a key contribution, the paper lacks a formal or suggested methodology for determining the optimal number of leaf-prototypes. Providing a general splitting rule would enhance the practical applicability of the framework.\n>\n>**Prototype Splitting Criteria**: The experiments include a sensitivity analysis on the number of prototypes. However, a more detailed discussion on the rules for splitting prototypes would be beneficial. Have the authors considered implementing a formal rule, such as a threshold-based criterion (e.g., or a metric like the Gini index, to guide the splitting process and maintain a robust balance between predictive accuracy and interpretability?\n\nWe thank the reviewer for raising this important point in both *Weakness 1* (“Guidance on Hierarchical Structure”) and *Main Concern 1* (“Prototype Splitting Criteria”). In fact, our current implementation already follows a concrete splitting rule during training; however, because this procedure was relatively engineering-oriented, we did not present it as a core component in the previous version of the manuscript. The rule operationalizes the intuition that if a prototype incurs large errors when activated, its temporal pattern is insufficiently representative of its underlying cluster and should be decomposed into more fine-grained patterns.\n\nConcretely, when the training has converged, we traverse the entire training dataset and, for each input instance, identify the top-k most similar leaf prototypes. The prediction MAE Loss associated with these instances is accumulated onto the corresponding prototypes. After processing the full training set, each prototype’s accumulated loss is normalized by its activation count. We then select the top $\\alpha \\%$ prototypes with the highest loss as candidates for splitting.\n\nWe have added Pseudocode for this splitting rule in *Algorithm 1*(LINE 299) of the revised version."
+      },
+      "date": "2025-11-19T12:58:20.441000+00:00",
+      "modified": "2025-11-19T12:58:20.441000+00:00",
+      "url": "https://openreview.net/forum?id=IbcdVwzLrp&noteId=sLgUzbLBbT",
+      "license": "CC BY 4.0",
+      "source_hash": "78395c51f33034c502fac74010de9dd62d805512f676ca73f49b01b02830bc67"
+    },
+    {
+      "id": "I7OEmuqUiS",
+      "kind": "Official_Comment",
+      "replyto": "7qXJL2qNC6",
+      "role": "author",
+      "content": {
+        "title": "Official Comments by Authors",
+        "comment": "We sincerely thank you for the time and care you invested in reviewing our submission. Your thoughtful comments and constructive questions have been extremely valuable in helping us improve the clarity and quality of our work. We truly appreciate the effort required to review many papers under tight deadlines, and we are grateful for the attention you have devoted to our manuscript.\n\n- Clarification of the **novelty and distinctions** from prior prototype-based forecasting methods (see *General Response*, part 1/3).\n- Discussion of **dataset scope and Lookback window** (see *General Response*, part 2/3).\n- Clarification of how **hierarchical** prototypes enhance interpretability relative to **flat** approaches (see part 1/3).\n- Explanation of how **expert steering is implemented** and why it remains **scalable** in practice (see part 1/3).\n- A clearer description of the prototype **computation process** and **sample-to-prototype assignment** (see part 2/3).\n- Clarification that prototypes are a **shared global set**, and how their **temporal meaning** is directly learned in the original time domain (see part 2/3).\n- Discussion on **post-hoc and ante-hoc** interpretable models (see part 3/3).\n- Explanation on **interpretability–performance trade-offs** (see part 3/3).\n- Justification for focusing qualitative comparisons **Table 4** on ante-hoc interpretable baselines (see part 3/3).\n\nWe hope that our responses adequately address your concerns. Should any questions remain, we would be more than happy to provide additional clarification. We sincerely appreciate your thoughtful evaluation, and if our revisions have resolved your concerns, we would be grateful if you might consider updating your assessment. If not, we welcome further feedback and will gladly continue to improve the work.\n\nThank you again for your valuable time and insightful comments.\n\nBest regards,\n\nAuthors"
+      },
+      "date": "2025-11-19T12:57:53.472000+00:00",
+      "modified": "2025-11-28T00:15:10.991000+00:00",
+      "url": "https://openreview.net/forum?id=IbcdVwzLrp&noteId=I7OEmuqUiS",
+      "license": "CC BY 4.0",
+      "source_hash": "82a547b92788b5bcfaa1cb1233a1fab0a5924ec0a880976104e3c3da230aee01"
+    },
+    {
+      "id": "9XGLZo3nvH",
+      "kind": "Official_Comment",
+      "replyto": "7qXJL2qNC6",
+      "role": "author",
+      "content": {
+        "title": "Response to reviewer cW3t (part 3/3)",
+        "comment": ">There is almost no comparison with other ante-hoc or post-hoc XAI models. The paper mainly compares against interpretable models, but not against modern post-hoc explanation techniques that could provide competitive interpretability, while also achieving superior performance.\n\nWhen we refer to **ante-hoc explanation**, we mean that are **interpretable models**. In our experiments we compare to two such interpretable models (in the user-study) —  TFT and N‑BEATSx. By contrast, **post-hoc explanation** methods aim to provide explanations for pre-trained black-box models. In our Related Work, we have covered representative post-hoc methods (e.g., DynaMask, Timex). These methods have known limitations: for example, [3] show that post-hoc methods often fail the faithfulness criterion (i.e., they do not reliably reflect the true reasoning of the model). Building on this concern, [4] further argues that relying on explanations of black-box models in high-stakes scenarios is fundamentally problematic, and that inherently interpretable (ante-hoc) models should be preferred instead. Most importantly, post-hoc and ante-hoc explanations belong to fundamentally different paradigms. Ante-hoc models explain *their own* prediction mechanism, whereas post-hoc methods explain *another* model. As a result, existing work evaluates ante-hoc methods only against other ante-hoc models, and post-hoc methods are likewise compared only within the post-hoc family.\n\n>The paper should explicitly discuss the trade-off between interpretability and performance, perhaps through a 2D evaluation showing both forecast error and explanation quality.\n\nThe interpretability of a machine learning model is a subjective concept, which is often regarded as difficult to evaluate computationally [5, 6]. In our setting, the number of root prototypes mainly influence interpretability because they tend to learn broadly similar temporal patterns, and we use a hierarchical structure to address this. The case study already demonstrates the role of the hierarchy in improving interpretability, showing that it helps capture both coarse- and fine-grained temporal patterns. A 2D trade-off plot (forecast error vs. explanation quality) is not directly applicable here, because explanation quality lacks a quantitative metric in prototype-based models. Instead, our case study already demonstrates how the hierarchy improves interpretability in practice, showing that it captures both high-level global patterns and more specialized local variations in a way that remains easy for experts to understand.\n\n>It is unclear why models like TimeXer and ITrans are excluded from qualitative comparisons in Table 4. These baselines could offer meaningful insights into representational interpretability.\n\nTable 4 focuses on inherently interpretable forecasting models (TFT, N-BEATSx). Black-box models such as TimeXer and ITrans do not expose explicit interpretable components, making qualitative comparison infeasible.\n\n[3] The Dangers of Post-hoc Interpretability: Unjustified Counterfactual Explanations. IJCAI 2019.\n\n[4] Stop Explaining Black Box Machine Learning Models for High Stakes Decisions and Use Interpretable Models Instead. Nature 2019.\n\n[5] Towards a Rigorous Science of Interpretable Machine Learning. \n\n[6] The Mythos of Model Interpretability. machine learning."
+      },
+      "date": "2025-11-19T12:57:36.889000+00:00",
+      "modified": "2025-11-19T12:57:36.889000+00:00",
+      "url": "https://openreview.net/forum?id=IbcdVwzLrp&noteId=9XGLZo3nvH",
+      "license": "CC BY 4.0",
+      "source_hash": "f2a7417757b88c56301c7d917bda5897a0c5b2e9dcc8b044f7d1f3233bbb318a"
+    },
+    {
+      "id": "qMnOgpXEk6",
+      "kind": "Official_Comment",
+      "replyto": "7qXJL2qNC6",
+      "role": "author",
+      "content": {
+        "title": "Response to reviewer cW3t (part 2/3)",
+        "comment": ">It is not clearly explained how prototypes and the model output are computed, given an input . The mechanism by which a new time series sample is assigned to or reconstructed from prototypes is ambiguous.\n\nWe are glad to clarify the prototype computation process. Given an input sequence, the model first obtains a denoised embedding $\\hat Z$ (Sec. 3.2), and then computes its **similarity to every prototype embedding** $\\mu_i$ via a softmax over Euclidean distances. These similarity scores serve as the prototype weights. The final forecast is produced as a **weighted combination of the corresponding prototype temporal patterns** $p_i$ (Eq. 6–8). Thus, each new sample is softly assigned to prototypes through this similarity-based weighting, and its output is reconstructed entirely from these shared prototype patterns. The same mechanism applies at the child-prototype level in the hierarchical structure.\n\n>The description also leaves uncertainty about whether there is a prototype per sample or whether prototypes are shared across samples in a latent cluster space.\n\nWe clarify that in ProtoTS, **prototypes form a small global set that is shared across all samples**. Each input series computes its similarity to this shared prototype set, and predictions are formed by weighting these shared temporal patterns.  This design follows standard prototype-based learning —e.g., a recent survey [2] notes that “prototype-based neural networks … aim to learn **representative global examples** from data”.\n\n>Since the interactions occur in the latent space, it is unclear how one can meaningfully interpret what each prototype represents in the original time domain. A mapping or visualization process should be clarified.\n\nYou raise an important question regarding how each prototype is interpreted in the original time domain. In ProtoTS, **each prototype directly contains a learnable temporal pattern $p_i$** in the original time domain. This pattern is not inferred from the latent embedding; instead, it is **optimized end-to-end through backpropagation**, because the final forecast is computed as a weighted combination of these prototype patterns. Thus, what a prototype “represents” in the time domain is precisely its learned pattern $p_i$, which is fully observable and directly interpretable. In the case study (Fig. 4), we visualize these learned patterns and their associated activation conditions to show how prototypes correspond to meaningful temporal behaviors (e.g., holidays, seasonal trends).\n\n[2] A Comprehensive Survey on Self-Interpretable Neural Networks."
+      },
+      "date": "2025-11-19T12:57:16.948000+00:00",
+      "modified": "2025-11-19T12:57:16.948000+00:00",
+      "url": "https://openreview.net/forum?id=IbcdVwzLrp&noteId=qMnOgpXEk6",
+      "license": "CC BY 4.0",
+      "source_hash": "212cbf7a6b61b9810d0dbe8fd03241a307961ed34e3e6a72152fe128e4f0b8e8"
+    },
+    {
+      "id": "GQpuvsZQtI",
+      "kind": "Official_Comment",
+      "replyto": "7qXJL2qNC6",
+      "role": "author",
+      "content": {
+        "title": "Response to reviewer cW3t (part 1/3)",
+        "comment": "We sincerely thank the reviewer for the thoughtful assessment and for highlighting several strengths of our work, including the strong motivation, the clarity of presentation, and the insightful experimental analyses. Several of the reviewer’s broader concerns—**the difference from previous prototype-based methods, dataset scope**—have already been discussed in detail in our *General Response (part (1,2)/3)*.\n\n>The paper could better articulate how hierarchical prototypes specifically enhance interpretability compared to flat prototypes or segment-level reasoning.\n\nThank you for raising the distinction with flat-prototype approaches. In flat prototype models, broadly similar temporal patterns might collapse into several prototypes, making it difficult for analysts to distinguish subtle but meaningful variants.  By contrast, our hierarchical structure groups similar patterns under a common parent prototype and then refines them into children—so a coarse parent (holiday-related patterns) can branch into children like (differentiating between long holidays like \"spring festival\" and short holidays). Prior work [1] has similarly noted that *“hierarchical clusterings are more descriptive than a flat clustering,”*. \n\n>The expert-steering feature is intriguing, but its implementation and scalability remain vague.\n\nWe thank the reviewer for highlighting the expert-steering. The *implementation* of steering is simple: an expert can choose a prototype through expert knowledge, and we apply a **split operation** as described in our hierarchical prototype learning. The split creates child prototypes by copying the parent prototype, and these children are then trained only inside this local group. This keeps the steering process clear and easy to apply.\n\nFor *scalability*, the hierarchy already learns most typical temporal patterns automatically. Experts only need to adjust **a few prototypes** that correspond to special cases (e.g., major holidays). Therefore, the amount of steering needed in practice is small, and the procedure remains scalable for real applications.\n\n[1] Adaptive Hierarchical Clustering Using Ordinal Queries. SIAM 2018."
+      },
+      "date": "2025-11-19T12:56:58.775000+00:00",
+      "modified": "2025-11-19T12:56:58.775000+00:00",
+      "url": "https://openreview.net/forum?id=IbcdVwzLrp&noteId=GQpuvsZQtI",
+      "license": "CC BY 4.0",
+      "source_hash": "fb7eb225ac941a71681d2a102423be3907dcdef83233d24c93aa590855e49787"
+    },
+    {
+      "id": "8jm3lvGerP",
+      "kind": "Official_Comment",
+      "replyto": "IbcdVwzLrp",
+      "role": "author",
+      "content": {
+        "title": "General Response (part 1/3): the difference from previous prototype-based methods",
+        "comment": "> - reviewer cW3t: However, it remains unclear how this approach differs fundamentally from previous prototype-based or dictionary-learning forecasting methods that already encode recurring temporal patterns.\n> - reviewer Tt99: The relationship with ProseNet (Interpretable and Steerable Sequence Learning via Prototypes, KDD 2019) should be discussed more thoroughly, as both share conceptual similarities in prototype-based interpretability and steering.\n> - reviewer Ju6i: The introduction claims that ProtoTS is the first to model prototypical temporal patterns. However, Sec 2 already cites some prototype-based time-series models . It would be clearer if the authors could clarify more explicitly what innovation distinguishes ProtoTS from these prior works.\n\nWe thank reviewers **cW3t, Tt99, and Ju6i** for the insightful comments.\n\nTo clarify the conceptual distinction between **ProtoTS** and prior prototype-based time-series models, we provide a **unified mathematical view** showing that *all* prototype-based time series methods—whether for anomaly detection, classification, or forecasting—can be written in an attention-style **Q–K–V structure**:\n$$\n\\text{Query  Q}=f(x),\\text{Keys K} = \\text{prototype embedding},\\text{Values V} = \\text{prototype value}.\n$$\nA sample is encoded into a **query** $Q$, which retrieves a set of **prototype embeddings** (keys) $K$, whose associated **values** $V$ determine how prototypes contribute to prediction. Under this unified Q–K–V view, prior works differ *primarily* in how the value $V$ is defined:\n\n**“Prototype-as-hidden-state” methods (e.g., hybrid anomaly detection [1, 2], Time-LLM [3]): **These methods use $V \\in R^{d_\\text{latent}}$, $V$ represent a latent hidden state passed into a downstream black-box decoder. Therefore, the prototypes **do not map directly** to the forecasting targets. \n\n**\"Prototype-as-parameters\" method (e.g. channel clustering [4]): ** These methods use $V = g(x)$, $V$ represent a forecasting model. The prototypes do not correspond to any fixed temporal pattern in output space.\n\n**“Prototype-as-output-logit” methods (e.g., ProseNet [5, 6], TIMEX [7, 8]):** These methods decode a prototype into a single output variable $V \\in \\mathbb{R}$ or at most a very low-dimensional vector. This structure suits **classification**, where each prototype corresponds to a logit, but fundamentally cannot support multi-step forecasting. Thus they lack the ability to help users quickly interpret the reasons behind the overall trend in the forecast curve.\n\nIn contrast, ProtoTS is, to our knowledge, the first framework that decodes each prototype into an entire multi-step forecasting curve $V \\in R^{T}$, $T$ represents a cycle length (e.g. 96 time steps). This enables temporal-pattern interpretability, which prior prototype-based time-series models fundamentally cannot provide.\n\n[1]Learn hybrid prototypes for multivariate time series anomaly detection.  ICLR 2025.\n\n[2]Prototype-oriented unsupervised anomaly detection for multivariate time series.  ICML 2023.\n\n[3]Time-llm: Time series forecasting by reprogramming large language models. ICLR 2024.\n\n[4]From similarity to superiority: Channel clustering for time series forecasting. NIPS 2024.\n\n[5]Encoding time-series explanations through self-supervised model behavior consistency. NIPS 2023.\n\n[6]Timex++: Learning time-series explanations with information bottleneck. ICML 2024.\n\n[7]Interpretable and steerable sequence learning via prototypes. KDD 2019.\n\n[8]Example or prototype? learning concept-based explanations in time-series. ACML 2022."
+      },
+      "date": "2025-11-19T12:54:10.582000+00:00",
+      "modified": "2025-11-19T12:54:10.582000+00:00",
+      "url": "https://openreview.net/forum?id=IbcdVwzLrp&noteId=8jm3lvGerP",
+      "license": "CC BY 4.0",
+      "source_hash": "bcfe6ebe8724cb609946d12ce6bd0ad50281947ec25907236b32d8f713543bf4"
+    },
+    {
+      "id": "bomIul3Zh4",
+      "kind": "Official_Comment",
+      "replyto": "IbcdVwzLrp",
+      "role": "author",
+      "content": {
+        "title": "General Response (part 2/3): dataset scope and different lookback window",
+        "comment": ">- reviewer cW3t: The experimental scope is narrow. All evaluations are performed on a limited set of datasets; broader diversity in data domains (e.g., finance, energy, healthcare) and different lookback windows would make the results more generalizable.\n>\n>- reviewer Tt99: Experiments are limited to two datasets within the energy domain. Broader validation on additional domains (e.g., weather, traffic, retail, healthcare) would better demonstrate the generality and adaptability of ProtoTS.\n\nWe thank both reviewers for raising the concern regarding the experimental scope. We would like to clarify that the main paper includes two energy datasets due to space limitations, but our full experimental evaluation spans other domains (energy, meteorology, finance), as shown in Appendix G (table 10). ProtoTS is additionally evaluated on:\n\n- **Etth** dataset (energy domain),\n\n- **Weather** dataset (meteorology domain),\n\n- **Exchange** dataset (finance domain).\n\nThis evaluation follows the same dataset scope as prior work TimeXer[1], ensuring fair comparison. Moreover, beyond these public datasets, we also contribute a new **LOF dataset with 22 heterogeneous exogenous variables**, offering richer covariates than existing benchmarks.\n\nTo further validate generality under different lookback window, we additionally test ProtoTS and three best preformed baseline (TimeXer , iTransformer, TiDE) under a **different lookback window setting** (lookback = 288, forecast = 96) on the LOF dataset. ProtoTS continues to outperform strong baselines:\n\n| MSE  | TimeXer | iTrans | TiDE   | ProtoTS    | MAE  | TimeXer | iTrans | TiDE   | ProtoTS    |\n| ---- | ------- | ------ | ------ | ---------- | ---- | ------- | ------ | ------ | ---------- |\n| RE   | 0.1638  | 0.1650 | 0.1574 | **0.0980** | RE   | 0.2777  | 0.2651 | 0.2525 | **0.2099** |\n| PC   | 0.0649  | 0.0459 | 0.0666 | **0.0268** | PC   | 0.1726  | 0.1410 | 0.1646 | **0.1158** |\n| YC   | 0.0129  | 0.0082 | 0.0070 | **0.0064** | YC   | 0.0859  | 0.0646 | 0.0578 | **0.0569** |\n| EA   | 0.0171  | 0.0111 | 0.0082 | **0.0067** | EA   | 0.0867  | 0.0765 | 0.0622 | **0.0587** |\n\n[1] TimeXer: Empowering Transformers for Time Series Forecasting with Exogenous Variables. NIPS 2024."
+      },
+      "date": "2025-11-19T12:53:22.540000+00:00",
+      "modified": "2025-11-19T12:54:41.105000+00:00",
+      "url": "https://openreview.net/forum?id=IbcdVwzLrp&noteId=bomIul3Zh4",
+      "license": "CC BY 4.0",
+      "source_hash": "fca001250f9719782474f58cdc09049ff0208077f81105e088cfbb39b7d3dbfe"
+    },
+    {
+      "id": "bz6mMC09me",
+      "kind": "Official_Comment",
+      "replyto": "IbcdVwzLrp",
+      "role": "author",
+      "content": {
+        "title": "General Response (part 3/3): user study",
+        "comment": ">- reviewer AWPh: **Validation of Interpretability**: The assessment of interpretability relies on a questionnaire administered to 12 users. While this provides initial evidence, the small sample size and the potential for subjective responses may limit the generalizability of these findings.\n>\n>- reviewer Tt99: Please clarify whether the 12 participants in the user study were domain experts (e.g., energy analysts) or general users. Also, please justify or discuss whether a sample size of 12 provides sufficient statistical reliability.\n\nWe thank reviewers **AWPh** and **Tt99** for their thoughtful comments regarding the design and reliability of the user study. We clarify that the study participants were **research practitioners with prior familiarity with deep learning methods**. Before the study, all participants received a **brief tutorial** covering essential background on electricity load forecasting and its domain-specific covariates, ensuring they meaningfully evaluate the explanations.\n\nFollowing the reviewers’ suggestions, we have **expanded the user study from 12 to 24 participants**, and we now additionally report the **variance (standard deviation) of user precision**. The low variance indicates that participants’ responses were highly consistent, suggesting that the statistical conclusions are stable. This strengthens the reliability of our interpretability evaluation. Prior usability work [1] also demonstrated that \"sample sizes of at least 12-14 participants are needed to get reasonably reliable results.\", indicating that our updated study with 24 participants provides adequate statistical reliability.\n\nThe updated results are shown below. We have updated the table to the latest revision.\n\n| Model   | UPrec (mean) ↑ | UPrec (std) | SUS Score ↑ |\n| ------- | -------------- | ----------- | ----------- |\n| ProtoTS | **79%**        | 3.6%        | **73.36**   |\n| TFT     | 64%            | 3.4%        | 29.74       |\n| NBEATSx | 62%            | 2.8%        | 38.66       |\n\n[1] A Comparison of Questionnaires for Assessing Website Usability"
+      },
+      "date": "2025-11-19T12:52:41.221000+00:00",
+      "modified": "2025-11-19T12:55:00.834000+00:00",
+      "url": "https://openreview.net/forum?id=IbcdVwzLrp&noteId=bz6mMC09me",
+      "license": "CC BY 4.0",
+      "source_hash": "0929ada2f89c860544a9460b4d70bebb95c8cde4905e76523011d01b00bd55e0"
+    },
+    {
+      "id": "7qXJL2qNC6",
+      "kind": "Official_Review",
+      "replyto": "IbcdVwzLrp",
+      "role": "reviewer",
+      "content": {
+        "summary": "This paper proposes ProtoTS, an interpretable forecasting framework that models hierarchical prototypes to achieve both high accuracy and explainability in time series forecasting. The method builds a hierarchy of prototypes representing multi-scale temporal patterns and incorporates a multi-channel similarity mechanism for heterogeneous inputs. The approach is ambitious and technically solid, aiming to connect interpretable representation learning with practical forecasting performance.",
+        "soundness": 2,
+        "presentation": 4,
+        "contribution": 3,
+        "strengths": "- The paper presents an original attempt to unify interpretability and accuracy through hierarchical prototype learning.\n- It offers a systematic framework combining multi-level structure, prototype reasoning, and human-editable interpretability.\n- The experiments and visual analyses are thorough and insightful.",
+        "weaknesses": "### **Problem & Motivation**\n\n- The motivation to move beyond local or post-hoc explanations toward global interpretable forecasting is strong and well justified.\n\n- However, it remains unclear how this approach differs fundamentally from previous prototype-based or dictionary-learning forecasting methods that already encode recurring temporal patterns.\n\n- The paper could better articulate how hierarchical prototypes specifically enhance interpretability compared to flat prototypes or segment-level reasoning.\n\n- The expert-steering feature is intriguing, but its implementation and scalability remain vague.\n\n---\n\n### **Method**\n\n- It is not clearly explained how prototypes and the model output are computed, given an input $x$. The mechanism by which a new time series sample is assigned to or reconstructed from prototypes is ambiguous.\n\n- The description also leaves uncertainty about whether there is a prototype per sample or whether prototypes are shared across samples in a latent cluster space.\n\n- Since the interactions occur in the latent space, it is unclear how one can meaningfully interpret what each prototype represents in the original time domain. A mapping or visualization process should be clarified.\n\n---\n\n### **Experiments**\n\n- The experimental scope is narrow. All evaluations are performed on a limited set of datasets; broader diversity in data domains (e.g., finance, energy, healthcare) and different lookback windows would make the results more generalizable.\n\n- There is almost no comparison with other ante-hoc or post-hoc XAI models. The paper mainly compares against interpretable models, but not against modern post-hoc explanation techniques that could provide competitive interpretability, while also achieving superior performance.\n\n- The paper should explicitly discuss the trade-off between interpretability and performance, perhaps through a 2D evaluation showing both forecast error and explanation quality.\n\n- It is unclear why models like TimeXer and ITrans are excluded from qualitative comparisons in Table 4. These baselines could offer meaningful insights into representational interpretability.",
+        "questions": "Please refer to the weaknesses above.",
+        "flag_for_ethics_review": [
+          "No ethics review needed."
+        ],
+        "rating": 4,
+        "confidence": 3,
+        "code_of_conduct": "Yes"
+      },
+      "date": "2025-10-30T03:50:28.098000+00:00",
+      "modified": "2025-11-28T19:56:41.184000+00:00",
+      "url": "https://openreview.net/forum?id=IbcdVwzLrp&noteId=7qXJL2qNC6",
+      "license": "CC BY 4.0",
+      "source_hash": "44c4ca7d224a205dbdaed5136b4aada40523ead48996ba8fa406baa59cd578dc",
+      "public_alias": "reviewer_1"
+    },
+    {
+      "id": "ifoZrdjoiK",
+      "kind": "Official_Review",
+      "replyto": "IbcdVwzLrp",
+      "role": "reviewer",
+      "content": {
+        "summary": "The paper proposes ProtoTS, an interpretable forecasting framework that models prototypical temporal patterns. The weights of these prototypes are determined by measuring the similarity between different prototypes. To balance predictability and interpretability, the authors introduce a hierarchical structure, allowing a root prototype to be split into more detailed child prototypes. The experimental results indicate that ProtoTS achieves strong forecast accuracy while also providing interpretations that can be guided by expert knowledge.",
+        "soundness": 2,
+        "presentation": 3,
+        "contribution": 2,
+        "strengths": "1. The proposed hierarchical structure, where prototypes are progressively refined into lower levels, offers a compelling approach to managing the trade-off between forecasting accuracy and interpretability.\n\n2. The experiments demonstrate that ProtoTS delivers strong performance on time series forecasting tasks that include exogenous variables.",
+        "weaknesses": "1.\t**Guidance on Hierarchical Structure**: While the hierarchical prototype structure is a key contribution, the paper lacks a formal or suggested methodology for determining the optimal number of leaf-prototypes. Providing a general splitting rule would enhance the practical applicability of the framework.\n2.\t**Clarity of the Loss Function**: The formulation of the loss function, which combines an L1-norm with an entropy regularization term, could be further clarified. Specifically, the intended effect of the entropy regularization on promoting a few dominant prototypes is not immediately apparent.\n3.\t**Validation of Interpretability**: The assessment of interpretability relies on a questionnaire administered to 12 users. While this provides initial evidence, the small sample size and the potential for subjective responses may limit the generalizability of these findings.",
+        "questions": "**Main concern:** \n\n1. **Variable Interactions**: The paper states that the prototype-instance similarity is computed by \"incorporating a multi-channel embedding and bottleneck fusion mechanism\" to model interactions between input variables. However, the embedding described in Equation (2) appears to be a summation of individual variable embeddings prior to the bottleneck layer. Could the authors elaborate on how this specific architecture facilitates the modeling of interactions between variables?\n\n2. **Entropy Regularization**: In line 300, the stated goal of the entropy term in the loss function is to \"encourage a few main prototypes to cover most predictions.\" Given that negative Shannon entropy is minimized by a discrete uniform distribution, could the authors provide further intuition on how this term achieves the stated objective of encouraging a sparse set of dominant prototypes? Additionally, the inclusion of a tuning parameter (e.g., $\\lambda$) to balance the L1-norm and the regularization term seems warranted and would be a valuable addition.\n\n3. **Scope of Regularization**: The current regularization term appears to only consider the first level of the hierarchical structure. Have the authors considered extending this to other levels of the hierarchy, and what might be the potential impact of such a change?\n\n4. **Choice of L1-Norm**: Could the authors provide the rationale for selecting the L1-norm for the loss function over other metrics such as the L2-norm or domain-specific measures like Dynamic Time Warping?\n\n5. **Prototype Splitting Criteria**: The experiments include a sensitivity analysis on the number of prototypes. However, a more detailed discussion on the rules for splitting prototypes would be beneficial. Have the authors considered implementing a formal rule, such as a threshold-based criterion (e.g., $ f(Z|\\mu)>\\alpha $  or a metric like the Gini index, to guide the splitting process and maintain a robust balance between predictive accuracy and interpretability?\n6. **Simulation for Interpretability**: To further strengthen the claims regarding interpretability, have the authors considered conducting a simulation study? A simulation with a known ground truth for the underlying prototypes and hierarchical structure could provide a more objective evaluation of the model's ability to recover these causal relationships.\n\n**Minor concerns:** \n\n1.\tLine 29: The phrase \"their overall interpretability and their potential\" could be revised for clarity, as the second \"their\" is redundant.\n\n2.\tLine 76: \"input covariates\" is repetitive. Using either \"inputs\" or \"covariates\" would be more concise.\n\n3.\tLine 84: Similarly, \"interactions of covariate combinations\" could be shortened to \"interactions of covariates.\"\n\n4.\tFigure 2 (Similarity Computing): The percentages shown (0.35, 0.65, 0.1) sum to 1.1. Please verify these values.\n\n5.\tLine 208: \"is holiday\" should be corrected to \"holiday.\"\n\n6.\tLine 234: The text states the process is \"along the temporal dimension and then along the feature dimension,\" while Equation (3) suggests the fusion occurs along the feature dimension first. Please clarify this sequence.\n\n7.\tLine 236: The meaning of T in Equation (3) is unclear. Please provide a definition.\n\n8.\tLine 249: For consistency, \\mu should be rendered in boldface.\n\n9.\tLine 303: To be precise, the L1-norm should be denoted with a subscript, for instance, $|| \\cdot ||_1$.",
+        "flag_for_ethics_review": [
+          "No ethics review needed."
+        ],
+        "rating": 4,
+        "confidence": 3,
+        "code_of_conduct": "Yes"
+      },
+      "date": "2025-10-29T09:39:11.988000+00:00",
+      "modified": "2025-11-12T02:56:38.163000+00:00",
+      "url": "https://openreview.net/forum?id=IbcdVwzLrp&noteId=ifoZrdjoiK",
+      "license": "CC BY 4.0",
+      "source_hash": "9bbc4eb4b8a273e168a043ef1985eadd88279d51867f54b50ebf306135456ba3",
+      "public_alias": "reviewer_2"
+    },
+    {
+      "id": "HK7htNylWP",
+      "kind": "Official_Review",
+      "replyto": "IbcdVwzLrp",
+      "role": "reviewer",
+      "content": {
+        "summary": "This paper introduces ProtoTS, an interpretable time series forecaasting framework that learns hierarchical prototypes. The model combines a multi-channel bottleneck encoder for heterogeneous variables with a hierachical prototype tree for coarse-to-fine interpretability. Experiments on load-forecasting and electricity price datasets show accuracy gains and improved interpretability.",
+        "soundness": 3,
+        "presentation": 3,
+        "contribution": 3,
+        "strengths": "- The framework is conceptually novel. The proposed hierarchical prototypes for interpretable time series forecasting is novel and empircally verified. \n- The model design, including multi-channel embedding, bottleneck fusion, is clearly justified and contributes to performance. \n- The case study is intuitive and interesting. It well-demonstrates real-world applicability. \n- The paper is generally well written, equations align with intuition, and the proposed architecture is easy to follow.",
+        "weaknesses": "- Experiments are limited to two datasets within the energy domain. Broader validation on additional domains (e.g., weather, traffic, retail, healthcare) would better demonstrate the generality and adaptability of ProtoTS.\n- Forecasting accuracy is reported only with MAE. Reporting MSE would provide a more comprehensive assessment.\n- Baselines include mainly traditional statistical or early deep models (ARIMA, XGBoost). I suggest comparing with more recent models such as PatchTST and TimesNet, and FEDformer.\n- Reported accuracy gains are not validated by statistical significance tests \n- The relationship with ProseNet (Interpretable and Steerable Sequence Learning via Prototypes, KDD 2019) should be discussed more thoroughly, as both share conceptual similarities in prototype-based interpretability and steering. \n- For quantiative interpretability test, only User Precision and System Usability Score are reported. I suggest considering additional metrics such as fidelity, faithfulness, which do not rely on human judgment.\n- The robustness of learned prototypes could be evaluated by introducing noise or perturbations in the input time series to test whether prototype assignments remain stable.\n- Please clarify whether the 12 participants in the user study were domain experts (e.g., energy analysts) or general users. \n- Also, please justify or discuss whether a sample size of 12 provides sufficient statistical reliability.\n- The case study focuses solely on load forecasting. I suggest adding more case studies on the other dataset as well. I belive this case study is the core result of the paper’s interpretability claim and thus presenting additional case studies (e.g., price forecasting, weather, or traffic datasets) would substantially strengthen the paper.\n- The anonymous GitHub repository provides only minimal instructions. Please add detailed environment setup instructions, data-preprocessing scripts, configuration files, and run commands so that results can be reproduced reliably.",
+        "questions": "Please refer to weaknesses above.",
+        "flag_for_ethics_review": [
+          "No ethics review needed."
+        ],
+        "rating": 4,
+        "confidence": 4,
+        "code_of_conduct": "Yes"
+      },
+      "date": "2025-10-25T05:09:16.620000+00:00",
+      "modified": "2025-11-28T19:56:41.284000+00:00",
+      "url": "https://openreview.net/forum?id=IbcdVwzLrp&noteId=HK7htNylWP",
+      "license": "CC BY 4.0",
+      "source_hash": "1525f106cdcb8c72b86f6a4de200b6ae8d6a00feab39962a4640b6654590e9b7",
+      "public_alias": "reviewer_3"
+    },
+    {
+      "id": "HpuFZ1VPLR",
+      "kind": "Official_Review",
+      "replyto": "IbcdVwzLrp",
+      "role": "reviewer",
+      "content": {
+        "summary": "This paper introduces a hierarchical prototype framework for explainable time series forecasting, combining prototype similarity with multi-channel embeddings to improve forecasting accuracy.",
+        "soundness": 2,
+        "presentation": 3,
+        "contribution": 2,
+        "strengths": "1. The paper proposes a clear framework that connects prototype with time series forecasting.\n\n2. Experimental results show competitive accuracy and provide case studies that make it easy to understand.",
+        "weaknesses": "1. The introduction claims that ProtoTS is the first to model prototypical temporal patterns. However, Sec 2 already cites some prototype-based time-series models . It would be clearer if the authors could clarify more explicitly what innovation distinguishes ProtoTS from these prior works.\n\n2. The paper does not clearly explain how the learned prototypes remain semantically meaningful throughout training. The optimization objective lacks explicit constraints ensuring diversity or interpretive consistency among prototypes, which may lead to redundant prototypes.\n\n3. In experiment, adding the discussion of computational cost and complexity analysis would make the performance more convincing.",
+        "questions": "The authors could refer to Weakness",
+        "flag_for_ethics_review": [
+          "No ethics review needed."
+        ],
+        "rating": 4,
+        "confidence": 3,
+        "code_of_conduct": "Yes"
+      },
+      "date": "2025-10-22T23:52:04.874000+00:00",
+      "modified": "2025-11-12T02:56:38.671000+00:00",
+      "url": "https://openreview.net/forum?id=IbcdVwzLrp&noteId=HpuFZ1VPLR",
+      "license": "CC BY 4.0",
+      "source_hash": "5afb1f97344b0d8582e5a4f74c4fcb7f2e9aacbf46d028393f750f81772769e1",
+      "public_alias": "reviewer_4"
+    }
+  ],
+  "provenance": {
+    "archive_sha256": "350071daf25ebf1aef854ee1d5dc3a81834e1c468917c82a4f78af5548de34fc",
+    "source_capture_time": null,
+    "source_snapshot_date_author_reported": "2026-05-08",
+    "score_stage": "current_archive_snapshot_unknown_review_stage",
+    "pdf_version_role": "unknown",
+    "scope": "Archive source records only; editorial reading scope is disclosed in the corresponding article."
+  }
+}

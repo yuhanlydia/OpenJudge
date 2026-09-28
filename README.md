@@ -1,40 +1,22 @@
-# OpenJudge / ReviewCase · ICLR 2026
+# OpenJudge · ICLR 2026 公开评审观察
 
-## 公开新闻版
+网站：[openjudge.longyunbo218.chatgpt.site](https://openjudge.longyunbo218.chatgpt.site)
 
-网站： https://openjudge.longyunbo218.chatgpt.site
+公开新闻版按三个严格板块组织：严重矛盾和错误、均分≤4的低分录取、均分≥7的高分拒稿。每篇先列评分与结果，再给论文三段式、一个主要贡献、逐位评审、AC及作者回复核查。当前篇数和来源摘要以 `data/newsroom/release.json` 为准，五篇旧版文章单列历史区。
 
-10 篇 ICLR 2026 评审案例已改为证据分级的批判性评论。每篇提供具体争议、原始来源、反证和判断边界；不冒充人工技术鉴定。公开版构建：`node scripts/build-newsroom.mjs`。发布范围和材料口径见 [PUBLIC_NEWSROOM.md](docs/PUBLIC_NEWSROOM.md)。
+已对2026-05-08公开存档中的19,814篇论文、284,355条记录完成机械扫描。初筛产生329个低分录取候选和1个高分拒稿候选；候选数不等于严重错误数，也不表示通读全部论文。每篇分析披露实际阅读范围、版本与未验证事项。方法见 [PUBLIC_NEWSROOM.md](docs/PUBLIC_NEWSROOM.md)、[REVIEWER_METHODS.md](docs/REVIEWER_METHODS.md)。
 
+站点是 Astro + TypeScript 纯静态页面，以 Sites 公开托管，无付费模型API、数据库或定时抓取。原API全会议榜单管线保留在仓库中，但未完成生产验收，不包含在新闻版部署产物里。早期 `IMPLEMENTATION_STATUS`、`API_DISCOVERY`、`DATA_AUDIT` 记录的是那条管线的历史状态，不代表新闻版没有真实案例或尚未上线。
 
-纯静态的公开评审资料浏览网站：低分录取、高分拒稿、论文详情、证据分析、版本记录和纠错说明。Astro + TypeScript 前端，Python 匿名只读数据管线，GitHub Pages 部署配置。按三个日历月手动更新；没有定时抓取、数据库、账号、MCP 或付费模型调用。
-
-## 当前交付状态
-
-这是可运行、可测试的工程第一版，**还不是已验收的真实论文榜单**。
-
-- 2026-09-27 实测：OpenReview 会议 group 接口 HTTP 200；投稿 / 评审 notes 接口 HTTP 403 `ChallengeRequiredError`。
-- 当前实际论文 **0**，实际评审 **0**，真实样本审计 **0/30**，已批准分析报告 **0**。
-- 正式发布日期、会议总数和历史评分阶段均未推测填入。网站显示明确空状态。
-- 目标仓库：[yuhanlydia/OpenJudge](https://github.com/yuhanlydia/OpenJudge)。尚未部署网站，也未创建定时抓取任务。发布门禁会阻止当前数据部署为正式榜单。
-
-查看 `docs/IMPLEMENTATION_STATUS.md`、`docs/API_DISCOVERY.md` 与 `docs/DATA_AUDIT.md`。测试夹具仅用于工程验证，不是 ICLR 论文；它们不会进入交付的静态榜单。
-
-## 新闻专题预览（2026-09-27）
-
-网站新增新闻首页和逐篇深读页面：本期选取 10 个 ICLR 2026 案例，分别呈现研究内容、评审分歧、作者回应、公开决定、AI 分析、写作建议与限制。公开材料来自 2026-05-08 的第三方 OpenReview 公开存档，并非实时抓取或全会议排名。
-
-10 篇完整分析目前在站长持有的私有预览文件中，尚未获得人工编辑批准，因此不进入公共仓库、默认构建或现有发布工作流。页面模板已可用，原有全会议数据门禁保持不变。预览与来源核验说明见 [NEWSROOM_PREVIEW.md](docs/NEWSROOM_PREVIEW.md)。
-
-## 先看页面
-
-从本仓库获取源码后，先执行下方的安装与 `pnpm --dir apps/web build`。先前交付的 ZIP 已包含 `apps/web/dist/`，可以直接预览：
+## 本地预览公开版
 
 ```bash
-python -m http.server 8000 --directory apps/web/dist
+pnpm install --frozen-lockfile
+node scripts/build-newsroom.mjs
+python -m http.server 8000 --directory dist
 ```
 
-浏览器打开 `http://localhost:8000/`。电脑只在本地预览时需要运行该命令；正式托管后访客不依赖你的电脑。
+访问 `http://localhost:8000/`。发布验证记录见 [VERIFICATION.md](docs/VERIFICATION.md)。
 
 ## 开发与验证
 
@@ -92,4 +74,4 @@ PYTHONPATH=pipeline python -m reviewcase validate-public --path .cache/candidate
 
 评分反差不是错评证明。ICLR 2026 的评分回滚背景在页面固定提示。原稿不可得时不能用后续版本指控早期评审事实错误；没有论文全文及图表核验时不得宣称完成专业审稿。
 
-代码与数据许可分别处理；本次仅链接 OpenReview 和 ICLR 的官方来源，不打包论文 PDF、身份字段或泄露记录。
+代码与数据许可分别处理；论文材料链接保留所读取的公开版本，不打包论文 PDF、身份字段或泄露记录。
